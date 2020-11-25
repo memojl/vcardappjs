@@ -112,8 +112,7 @@ function inicio(){
     console.log('Corriendo funcion inicio');
     getQueryVariable();
     menu();
-    //if(mod!='Home' && mod!='registro'){modulos();}
-    modulos();
+    if(mod!='registro'){modulos();}
     //form_tema();
 }
 
