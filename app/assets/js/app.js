@@ -48,10 +48,32 @@ logout.addEventListener("click", (e) => {
   e.preventDefault();
   auth.signOut().then(() => {
     console.log("signup out");
-  });
+  });  
+  if(mod!='Home'){location.href=page_url;}
 });
 
-// SingIn
+// SignUp (Registarse con correo)
+const signUpForm = document.querySelector("#registro-form");
+signUpForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const usuario = signUpForm["register-username"].value;
+  const email = signUpForm["register-email"].value;
+  const password = signUpForm["register-password"].value;
+  const user1 = '{"uid": "", "displayName": '+usuario+', "email": email, "photoURL": ""}';
+  var user = JSON.parse(user1);
+  //var user = JSON.stringify(user1);
+  // Authenticate the User
+  auth
+    .createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      console.log('Datos user: '+user.displayName);
+      // clear the form
+      signUpForm.reset();
+      // close the modal//$("#signupModal").modal("hide");
+    });
+});
+
+// SingIn (Login)
 const signInForm = document.querySelector("#login-form");
 signInForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -62,8 +84,7 @@ signInForm.addEventListener("submit", (e) => {
   auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
     // clear the form
     signInForm.reset();
-    // close the modal
-    //$("#signinModal").modal("hide");
+    // close the modal//$("#signinModal").modal("hide");
   });
 });
 
@@ -76,6 +97,7 @@ auth.onAuthStateChanged((user) => {
     leerDatos(user.email);
     tarjetas(user.uid);
     loginCheck(user);
+    guardarDatos(user);
     /*fs.collection("posts").get().then((snapshot) => {
       loginCheck(user);
       setupPosts(snapshot.docs);
@@ -93,6 +115,18 @@ googleButton.addEventListener("click", (e) => {
   e.preventDefault();
   signInForm.reset();
   //$("#signinModal").modal("hide");
+  autorizar();
+});
+
+const googleButton2 = document.querySelector("#googleRegister");
+googleButton2.addEventListener("click", (e) => {
+  e.preventDefault();
+  signInForm.reset();
+  //$("#signinModal").modal("hide");
+  autorizar();
+});
+
+function autorizar(){
   const provider = new firebase.auth.GoogleAuthProvider();
   auth.signInWithPopup(provider).then((result) => {
       console.log(result);
@@ -101,7 +135,7 @@ googleButton.addEventListener("click", (e) => {
     .catch(err => {
       console.log(err);
     })
-});
+}
 
 //FUNCIONES
 
