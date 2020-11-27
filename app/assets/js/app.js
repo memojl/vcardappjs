@@ -158,7 +158,7 @@ function leerDatos(userlogin) {
   db.ref("vcard_signup").on("child_added", function (s) {
     var user = s.val();
     var f = (user.foto == null)?'assets/img/photos/sinfoto.png':user.foto;
-    var u = (user.usuario == null)?'<a href="#">Sin Nombre</a>':user.usuario;
+    var u = (user.usuario == null)?user.email:user.usuario;
     if (user.email == userlogin) {
       const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
       const nombre = '<h1 class="h5">' + u + '</h1>';

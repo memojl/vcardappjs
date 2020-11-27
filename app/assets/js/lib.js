@@ -113,7 +113,6 @@ function inicio(){
     getQueryVariable();
     menu();
     if(mod!='registro'){modulos();}
-    tarjetas
     //form_tema();
 }
 
