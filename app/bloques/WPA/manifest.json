@@ -1,9 +1,9 @@
 {
-	"name": "APLICATION-APP",
-	"short_name": "APLICATION-APP",
-	"description": "APLICATION - Tarjetas de Contacto Digital",
+	"name": "VCARD-APP",
+	"short_name": "VCARD-APP",
+	"description": "VCARD - Tarjetas de Contacto Digital",
 	"scope": ".",
-	"start_url": "http://localhost/MisSitios/orangejs/app/",
+	"start_url": "http://localhost/MisSitios/vcardappjs/app/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",

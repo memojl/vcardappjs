@@ -59,14 +59,13 @@ signUpForm.addEventListener("submit", (e) => {
   const usuario = signUpForm["register-username"].value;
   const email = signUpForm["register-email"].value;
   const password = signUpForm["register-password"].value;
-  const user1 = '{"uid": "", "displayName": '+usuario+', "email": email, "photoURL": ""}';
-  var user = JSON.parse(user1);
-  //var user = JSON.stringify(user1);
+  var user = {/*uid: "",*/ displayName: usuario, email: email, photoURL: null}
   // Authenticate the User
   auth
     .createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      console.log('Datos user: '+user.displayName);
+      console.log('Datos user: '+user);
+      //guardarDatos(user);
       // clear the form
       signUpForm.reset();
       // close the modal//$("#signupModal").modal("hide");
