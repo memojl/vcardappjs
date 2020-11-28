@@ -19,6 +19,12 @@ const fs = firebase.firestore();
 
 console.log('Modulo=>' + mod);
 
+//Tablas-Documentos
+var refConfig = db.ref().child('vcard_config');
+var refU = db.ref().child('vcard_signup');
+var refVcard = db.ref().child('vcard_vcard');
+var refEmpresas = db.ref().child('vcard_vcard_empresas');
+
 //APP
 const dashboard = document.querySelectorAll(".dashboard");
 //const contentLinks = document.querySelectorAll(".content-page");
@@ -173,6 +179,47 @@ function leerDatos(userlogin) {
   });
 }
 
+function tarjetas(userid){//var reg = {};    
+  refVcard.on('value',function(datos){
+      const content = document.querySelector("#vcontent");
+      var template = '';
+      var reg=datos.val();
+      // Recorremos los productos y los mostramos
+      $.each(reg, function(indice,valor){//console.log(indice);
+        var ID = (valor.ID == null)?'':valor.ID;
+        var uid = (valor.uid == null)?'':valor.uid;
+        var profile = (valor.profile == null)?'':valor.profile;
+        var cover = (valor.cover == null)?'sinfoto.png':valor.cover;
+        var nombre = (valor.nombre == null)?'':valor.nombre;
+        var puesto = (valor.puesto == null)?'':valor.puesto;
+        var email = (valor.email == null)?'':valor.email;
+        var cell = (valor.cell == null)?'':valor.cell;
+        var web = (valor.web == null)?'':valor.web;
+        var visible = (valor.visible == null)?'':valor.visible;
+        if(uid==userid){
+          template += `
+          <div vcardId="${indice}" class="col-lg-4">
+          <div class="user-block block text-center">
+            <div class="avatar"><img src="./assets/img/photos/${cover}" alt="..." class="img-fluid">
+              <div class="order dashbg-2">1st</div>
+            </div><a href="#" class="user-title">
+              <h3 class="h5">${nombre}</h3><span>${puesto}</span></a>
+            <div class="contributions">${profile}</div>
+            <div class="details d-flex">
+              <div class="item"><a href="`+page_url+`../profile/${profile}"><i class="fa fa-vcard"></i><strong>Ver</strong></a></div>
+              <div class="item btn-edit" data-toggle="modal" data-target="#addVcard" title="Editar" style="cursor:pointer;"><i class="fa fa-edit"></i><strong>Editar</strong></div>
+              <div class="item btn-delete" title="Borrar" style="cursor:pointer;"><i class="fa fa-trash"></i><strong>Borrar</strong></div>
+            </div>
+          </div>
+        </div>`
+        }        
+        if(mod=='tarjetas'){
+          content.innerHTML = '<div class="container-fluid"><div class="row">' + template + '</div></div>';
+        }
+      });
+  });
+}
+/*
 function tarjetas(userid){
   const vcards = document.querySelector("#vcontent");
   var html='';
@@ -212,7 +259,7 @@ function tarjetas(userid){
     }    
   });
 }
-
+*/
 $('#app-modulo').on('click', '.btn-delete', function(){
   Swal.fire({
     title: '¿Está seguro de eliminar el producto?',
@@ -226,7 +273,7 @@ $('#app-modulo').on('click', '.btn-delete', function(){
     if (result.value) {
         let productoId = $(this).closest('div').attr('vcardId');
         //let id = $(this).closest('tr').attr('id'); //capturamos el atributo ID de la fila  
-        refTable1.child(productoId).remove(); //eliminamos el producto de firebase      
+        refVcard.child(productoId).remove(); //eliminamos el producto de firebase      
         Swal.fire('¡Eliminado!', 'El producto ha sido eliminado.','success')
     }
   })        
