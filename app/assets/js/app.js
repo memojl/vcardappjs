@@ -176,8 +176,8 @@ function leerDatos(userlogin) {
 function tarjetas(userid){
   const vcards = document.querySelector("#vcontent");
   var html='';
-  db.ref("vcard_vcard").on("child_added", function (v) {
-    var vcard = v.val();
+  db.ref("vcard_vcard").on("child_added", function(datos) {
+    var vcard = datos.val();
     var ID = (vcard.ID == null)?'':vcard.ID;
     var uid = (vcard.uid == null)?'':vcard.uid;
     var profile = (vcard.profile == null)?'':vcard.profile;
@@ -190,7 +190,7 @@ function tarjetas(userid){
     var visible = (vcard.visible == null)?'':vcard.visible;
     if(uid==userid){
       var card = `    
-      <div class="col-lg-4">
+      <div vcardId="" class="col-lg-4">
         <div class="user-block block text-center">
           <div class="avatar"><img src="./assets/img/photos/${cover}" alt="..." class="img-fluid">
             <div class="order dashbg-2">1st</div>
@@ -211,4 +211,31 @@ function tarjetas(userid){
       }            
     }    
   });
+}
+
+$('#app-modulo').on('click', '.btn-delete', function(){
+  Swal.fire({
+    title: '¿Está seguro de eliminar el producto?',
+    text: "¡Está operación no se puede revertir!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Borrar'
+  }).then((result) => {
+    if (result.value) {
+        let productoId = $(this).closest('div').attr('vcardId');
+        //let id = $(this).closest('tr').attr('id'); //capturamos el atributo ID de la fila  
+        refTable1.child(productoId).remove(); //eliminamos el producto de firebase      
+        Swal.fire('¡Eliminado!', 'El producto ha sido eliminado.','success')
+    }
+  })        
+});
+
+function alError(error){
+  if (error){
+    alert('Ha habido problemas al realizar la operación: '+error.code);
+  }else{
+    alert('Operación realizada con éxito !');
+  }
 }
