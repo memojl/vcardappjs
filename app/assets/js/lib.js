@@ -68,21 +68,21 @@ if (bootstrap != "") {
 console.log('/*Funciones*/');
 /*FUNCIONES*/
 //Configuracion de la funcion: [hora.js].
-function fecha_hora_update() {
+function fecha_hora_update(seg) {
   const fecha1 = fecha();
-  setTimeout(fecha_hora_update, 1000);
+  setTimeout(fecha_hora_update, seg);
   if (mod == 'tarjetas') {
     const inputUpdate = document.querySelector("#f_update");
     inputUpdate.value = fecha1;
   }
 }
 
-function fecha_hora_create() {
-  const fecha1 = fecha();
-  setTimeout(fecha_hora_create, 1000);
+function fecha_hora_create(seg) {
+  const fecha2 = fecha();
+  setTimeout(fecha_hora_create, seg);
   if (mod == 'tarjetas') {
     const inputUpdate = document.querySelector("#f_create");
-    inputUpdate.value = fecha1;
+    inputUpdate.value = fecha2;
   }
 }
 

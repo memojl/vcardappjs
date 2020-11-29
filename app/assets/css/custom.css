@@ -13,6 +13,14 @@
   width: 100% !important;
   text-align: right !important;
 }
+.btn-default{
+  background: #444;
+  color: #aaa;
+}
+.btn-default:hover{
+  background: #aaa;
+  color: #444;
+}
 .btn-add{
   position: fixed;
   z-index: 1000;

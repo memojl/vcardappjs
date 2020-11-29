@@ -43,9 +43,9 @@
                         <label for="descripcion">Descripci&oacute;n</label>
                         <input type="text" class="form-control" id="descripcion" name="descripcion" value="" placeholder="Descripcion">
                      </div>
-                     <div class="form-group">
+                     <!--div class="form-group">
                         <input type="text" class="form-control" id="mod1" name="mod1" value="usuarios" placeholder="mod">
-                     </div>
+                     </div-->
                      <div class="form-group">
                         <input type="text" class="form-control" id="ID" name="ID" value="" placeholder="ID">
                      </div>
@@ -156,8 +156,8 @@
                         <div class="input-group">
                            <!--span class="input-group-addon"><i class="fa fa-eye-slash"></i></span-->
                            <select class="form-control" id="visible" name="visible">
-                              <option value="0">No</option>
                               <option value="1">Si</option>
+                              <option value="0">No</option>                              
                            </select>
                            <div>
                            </div>
@@ -171,7 +171,7 @@
                </div>
             </div>
             <div class="modal-footer">
-               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+               <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                <button type="submit" class="btn btn-primary guardar" id="Aceptar1">Guardar</button>
             </div>
          </div>
@@ -182,6 +182,6 @@
 </div>
 <!-- /Modal -->
 <!--div class="btn-mas"-->
-<a href="#" class="btn-add">Agregar</a>
+<a href="#" class="btn-add" data-toggle="modal" data-target="#addVcard" title="Agregar">Agregar</a>
 <!--/div-->
 <script></script>

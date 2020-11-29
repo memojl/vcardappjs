@@ -223,12 +223,19 @@ function tarjetas(userid){//var reg = {};
 }
 
 //BTN-AGREGAR
-$('.btn-add').click(function(){
-  $("#form1").trigger('reset');    
+$('#app-modulo').on('click','.btn-add',function(){
+  $("#form1").trigger('reset');
+  fecha_hora_create(1000);
+  //fecha_hora_update(0);
+  console.log('Boton Agregar activado');    
 });
 
 //BTN-EDITAR [Form_Editar]
-$('#app-modulo').on('click','.btnEditar',function(){
+$('#app-modulo').on('click','.btn-edit',function(){
+  fecha_hora_update(1000);
+  //fecha_hora_create(0);
+  console.log('Boton Editar activado');
+  /*
   const element = $(this)[0].parentElement.parentElement.parentElement;
   let Id = $(element).attr('vcardId');    
   console.log(Id);
@@ -244,6 +251,7 @@ $('#app-modulo').on('click','.btnEditar',function(){
       $('#cantidad').val(cantidad);
   });
   edit = true;
+  */
 });
 
 //BORRAR
