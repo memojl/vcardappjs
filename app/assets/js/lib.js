@@ -45,15 +45,9 @@ var vars = getQueryVariable();
 console.log(vars);
 for (var i = 0; i < vars.length; i++) {
   var GET = vars[i].split("=");
-  if (GET[0] == 'mod') {
-    mod = GET[1];
-  }
-  if (GET[0] == 'ext') {
-    ext = GET[1];
-  }
-  if (GET[0] == 'id') {
-    id = GET[1];
-  }
+  if (GET[0] == 'mod') {mod = GET[1];}
+  if (GET[0] == 'ext') {ext = GET[1];}
+  if (GET[0] == 'id') {id = GET[1];}
 }
 mod = (mod == '') ? 'Home' : mod;
 console.log('mod=' + mod);
