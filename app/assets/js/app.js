@@ -25,6 +25,7 @@ var refU = db.ref().child('vcard_signup');
 var refVcard = db.ref().child('vcard_vcard');
 var refEmpresas = db.ref().child('vcard_vcard_empresas');
 
+
 //APP
 const dashboard = document.querySelectorAll(".dashboard");
 //const contentLinks = document.querySelectorAll(".content-page");
@@ -179,6 +180,7 @@ function leerDatos(userlogin) {
   });
 }
 
+//Mostrar(Listar)
 function tarjetas(userid){//var reg = {};    
   refVcard.on('value',function(datos){
       const content = document.querySelector("#vcontent");
@@ -198,7 +200,7 @@ function tarjetas(userid){//var reg = {};
         var visible = (valor.visible == null)?'':valor.visible;
         if(uid==userid){
           template += `
-          <div vcardId="${indice}" class="col-lg-4">
+        <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
             <div class="avatar"><img src="./assets/img/photos/${cover}" alt="..." class="img-fluid">
               <div class="order dashbg-2">1st</div>
@@ -219,50 +221,37 @@ function tarjetas(userid){//var reg = {};
       });
   });
 }
-/*
-function tarjetas(userid){
-  const vcards = document.querySelector("#vcontent");
-  var html='';
-  db.ref("vcard_vcard").on("child_added", function(datos) {
-    var vcard = datos.val();
-    var ID = (vcard.ID == null)?'':vcard.ID;
-    var uid = (vcard.uid == null)?'':vcard.uid;
-    var profile = (vcard.profile == null)?'':vcard.profile;
-    var cover = (vcard.cover == null)?'sinfoto.png':vcard.cover;
-    var nombre = (vcard.nombre == null)?'':vcard.nombre;
-    var puesto = (vcard.puesto == null)?'':vcard.puesto;
-    var email = (vcard.email == null)?'':vcard.email;
-    var cell = (vcard.cell == null)?'':vcard.cell;
-    var web = (vcard.web == null)?'':vcard.web;
-    var visible = (vcard.visible == null)?'':vcard.visible;
-    if(uid==userid){
-      var card = `    
-      <div vcardId="" class="col-lg-4">
-        <div class="user-block block text-center">
-          <div class="avatar"><img src="./assets/img/photos/${cover}" alt="..." class="img-fluid">
-            <div class="order dashbg-2">1st</div>
-          </div><a href="#" class="user-title">
-            <h3 class="h5">${nombre}</h3><span>${puesto}</span></a>
-          <div class="contributions">${profile}</div>
-          <div class="details d-flex">
-            <div class="item"><a href="`+page_url+`../profile/${profile}"><i class="fa fa-vcard"></i><strong>Ver</strong></a></div>
-            <div class="item btn-edit" data-toggle="modal" data-target="#addVcard" title="Editar" style="cursor:pointer;"><i class="fa fa-edit"></i><strong>Editar</strong></div>
-            <div class="item btn-delete" title="Borrar" style="cursor:pointer;"><i class="fa fa-trash"></i><strong>Borrar</strong></div>
-          </div>
-        </div>
-      </div>
-      `;
-      html += card;
-      if(mod=='tarjetas'){
-        vcards.innerHTML = '<div class="container-fluid"><div class="row">' + html + '</div></div>';
-      }            
-    }    
+
+//BTN-AGREGAR
+$('.btn-add').click(function(){
+  $("#form1").trigger('reset');    
+});
+
+//BTN-EDITAR [Form_Editar]
+$('#app-modulo').on('click','.btnEditar',function(){
+  const element = $(this)[0].parentElement.parentElement.parentElement;
+  let Id = $(element).attr('vcardId');    
+  console.log(Id);
+  refVcard.child(Id).once('value',function(datos){
+      valor=datos.val();
+      codigo = valor.codigo;
+      descripcion = valor.descripcion;
+      cantidad = valor.cantidad;
+
+      $('#Id').val(productoId);
+      $('#codigo').val(codigo);
+      $('#descripcion').val(descripcion);
+      $('#cantidad').val(cantidad);
   });
-}
-*/
+  edit = true;
+});
+
+//BORRAR
 $('#app-modulo').on('click', '.btn-delete', function(){
+  const element = $(this)[0].parentElement.parentElement.parentElement;
+  let Id = $(element).attr('vcardId');
   Swal.fire({
-    title: '¿Está seguro de eliminar el producto?',
+    title: "Esta seguro de eliminar esta Tarjeta ("+Id+")?",
     text: "¡Está operación no se puede revertir!",
     icon: 'warning',
     showCancelButton: true,
@@ -271,10 +260,9 @@ $('#app-modulo').on('click', '.btn-delete', function(){
     confirmButtonText: 'Borrar'
   }).then((result) => {
     if (result.value) {
-        let productoId = $(this).closest('div').attr('vcardId');
         //let id = $(this).closest('tr').attr('id'); //capturamos el atributo ID de la fila  
-        refVcard.child(productoId).remove(); //eliminamos el producto de firebase      
-        Swal.fire('¡Eliminado!', 'El producto ha sido eliminado.','success')
+        refVcard.child(Id).remove(); //eliminamos el producto de firebase      
+        Swal.fire('¡Eliminado!', 'La Tarjeta ha sido eliminada.','success')
     }
   })        
 });
