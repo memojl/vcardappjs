@@ -31,10 +31,15 @@
             <div class="box-body">
                <div class="row">
                   <div class="col-lg-4 col-md-4 col-xs-4">
-                     <div class="form-group">
-                        <label for="cover">Imagen</label>
-                        <div id="imagen"></div>
-                     </div>
+                     <div class="form-group">   
+							   <label for="cover">Imagen</label>
+							   <div id="imagen">
+                           <input type="hidden" class="form-control" id="cover" name="cover" value="nodisponible.jpg">
+                           <img id="ima" src="http://localhost/MisSitios/vcardsapp/modulos/vcard/files/fotos/nodisponible.jpg" style="width:150px;" title="nodisponible.jpg">
+                           <a href="javascript:up(1);">Cambiar Foto</a><div id="upload"></div>
+                        </div>
+							</div>
+                     
                      <!--div class="form-group">
                         <label for="des">Descripci&oacute;n</label>
                         <textarea class="form-control" id="des" name="des"></textarea>

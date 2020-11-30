@@ -107,7 +107,14 @@ auth.onAuthStateChanged((user) => {
     /*fs.collection("posts").get().then((snapshot) => {
       loginCheck(user);
       setupPosts(snapshot.docs);
-    });*/
+    });*/    
+    function user_login(u){
+      if(mod=='tarjetas'){
+        console.log(u.uid);
+        $('#uid').val(u.uid);
+      }
+    }
+    setTimeout(user_login(user),5000);
   } else {
     console.log("signout");
     //setupPosts([]);
@@ -227,7 +234,14 @@ $('#app-modulo').on('click','.btn-add',function(){
   $("#form1").trigger('reset');
   fecha_hora_create(1);
   //fecha_hora_update(0);
-  console.log('Boton Agregar activado');    
+  console.log('Boton Agregar activado');
+  //console.log(''+user);
+  //var val=Object.values(user);
+  //console.log(val);
+  //$('#uid').val(user.uid);
+  $("#ima").attr('src', './assets/img/photos/sinfoto.png');
+
+  //edit = false;
 });
 
 //BTN-EDITAR [Form_Editar]
@@ -249,6 +263,7 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#f_create').val(valor.f_create);
       $('#user').val(valor.user);
       //Campos de Edicion
+      $('#cover').val(valor.cover);
       $('#descripcion').val(valor.descripcion);
       $('#profile').val(valor.profile);
       $('#nombre').val(valor.nombre);
@@ -265,9 +280,11 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#ins').val(valor.ins);
       $('#visible').val(valor.visible);
 
-  });
-  edit = true;
+      $("#ima").attr('src', './assets/img/photos/' + valor.cover);
 
+  });
+
+  edit = true;
 });
 
 //BORRAR

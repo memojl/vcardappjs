@@ -36,3 +36,10 @@
    padding: 8px 24px;
    text-decoration: none;
 }
+
+#imagen #ima{
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border: 0px solid #000000;
+}
