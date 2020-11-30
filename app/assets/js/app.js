@@ -107,14 +107,7 @@ auth.onAuthStateChanged((user) => {
     /*fs.collection("posts").get().then((snapshot) => {
       loginCheck(user);
       setupPosts(snapshot.docs);
-    });*/    
-    function user_login(u){
-      if(mod=='tarjetas'){
-        console.log(u.uid);
-        $('#uid').val(u.uid);
-      }
-    }
-    setTimeout(user_login(user),5000);
+    });*/
   } else {
     console.log("signout");
     //setupPosts([]);
@@ -187,6 +180,29 @@ function leerDatos(userlogin) {
   });
 }
 
+function add_empresa(val){
+  if(val==1){
+    document.getElementById('sel_empresa').innerHTML='<input type="text" class="form-control" id="empresa" name="empresa" value=""><div><a href="javascript:add_empresa(0);">Cancelar</a></div>';
+  }else{
+    document.getElementById('sel_empresa').innerHTML='<div class="input-group"><!--span class="input-group-addon"><i class="fa fa-industry"></i></span--><select class="form-control" id="empresa" name="empresa" style="float:left;"><option>Seleccione Empresa</option><option value="Multiportal">Multiportal</option><option value="Billnex">Billnex</option><option value="Capital">Capital</option></select></div>';
+  }
+}
+
+function up(val){
+	switch (val){
+	case 1:
+		document.getElementById('upload').innerHTML = '<span style="float:right;"><a href="javascript:up(0);"><i class="fa fa-close" title="Cerrar"></i></a></span><br><input type="file" name="userfile" class="required" size="40" style="font-size: 0.9em;"><br><input type="submit" id="Aceptar" name="Aceptar" value="Aceptar">';
+	break; 
+	case 2:
+		document.getElementById('upload').innerHTML = '<div style="text-align:right;"><a href="javascript:up(0);"><i class="fa fa-close" title="Cerrar"></i></a></div><div id="box-load2"><input type="file" id="userfile" name="userfile"></div><input type="submit" id="Aceptar" name="Aceptar" value="Aceptar">';
+	break; 
+	default: 
+		document.getElementById('upload').innerHTML = '';
+	break;
+	}
+}
+
+
 //Mostrar(Listar)
 function tarjetas(userid){//var reg = {};    
   refVcard.on('value',function(datos){
@@ -235,12 +251,13 @@ $('#app-modulo').on('click','.btn-add',function(){
   fecha_hora_create(1);
   //fecha_hora_update(0);
   console.log('Boton Agregar activado');
-  //console.log(''+user);
-  //var val=Object.values(user);
-  //console.log(val);
-  //$('#uid').val(user.uid);
-  $("#ima").attr('src', './assets/img/photos/sinfoto.png');
 
+  let IDu=document.querySelector('#id_code_google');
+  $('#uid').val(IDu.textContent);
+  let name=document.querySelector('#email_session');
+  
+  $('#user').val(name.textContent);
+  $("#ima").attr('src', './assets/img/photos/sinfoto.png');
   //edit = false;
 });
 
