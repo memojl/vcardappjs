@@ -159,8 +159,8 @@ function guardarDatos(user) {
 //Leer los datos
 function leerDatos(userlogin) {
   const foto = document.querySelector("#photo");
-  const nom = document.querySelector("#nombre");
-  const mail = document.querySelector("#email");
+  const nom = document.querySelector("#nombre_session");
+  const mail = document.querySelector("#email_session");
   const uid = document.querySelector("#id_code_google");
   db.ref("vcard_signup").on("child_added", function (s) {
     var user = s.val();
@@ -225,33 +225,49 @@ function tarjetas(userid){//var reg = {};
 //BTN-AGREGAR
 $('#app-modulo').on('click','.btn-add',function(){
   $("#form1").trigger('reset');
-  fecha_hora_create(1000);
+  fecha_hora_create(1);
   //fecha_hora_update(0);
   console.log('Boton Agregar activado');    
 });
 
 //BTN-EDITAR [Form_Editar]
 $('#app-modulo').on('click','.btn-edit',function(){
-  fecha_hora_update(1000);
+  $("#form1").trigger('reset');
+  fecha_hora_update(1);
   //fecha_hora_create(0);
   console.log('Boton Editar activado');
-  /*
+  
   const element = $(this)[0].parentElement.parentElement.parentElement;
   let Id = $(element).attr('vcardId');    
   console.log(Id);
   refVcard.child(Id).once('value',function(datos){
       valor=datos.val();
-      codigo = valor.codigo;
-      descripcion = valor.descripcion;
-      cantidad = valor.cantidad;
+      console.log(valor);
+      //Campos Ocultos
+      $('#ID').val(Id);
+      $('#uid').val(valor.uid);//#uid
+      $('#f_create').val(valor.f_create);
+      $('#user').val(valor.user);
+      //Campos de Edicion
+      $('#descripcion').val(valor.descripcion);
+      $('#profile').val(valor.profile);
+      $('#nombre').val(valor.nombre);
+      $('#puesto').val(valor.puesto);
+      $('#email').val(valor.email);
+      $('#cell').val(valor.cell);
+      $('#tel_ofi').val(valor.tel_ofi);
+      //$('#idemp').val(valor.idemp);
+      //$('#empresa').val(valor.empresa);
+      $('#web').val(valor.web);
+      $('#fb').val(valor.fb);
+      //$('#tw').val(valor.tw);
+      $('#lk').val(valor.lk);
+      $('#ins').val(valor.ins);
+      $('#visible').val(valor.visible);
 
-      $('#Id').val(productoId);
-      $('#codigo').val(codigo);
-      $('#descripcion').val(descripcion);
-      $('#cantidad').val(cantidad);
   });
   edit = true;
-  */
+
 });
 
 //BORRAR
