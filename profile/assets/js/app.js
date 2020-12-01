@@ -62,6 +62,56 @@ const obtenerVcard = async () => {
     document.getElementById('share-email').href='mailto:?body='+URL;
     document.getElementById('shortUrl').value=URL;
 
+    if(fb!=''){
+      var fb1=`
+      <a href="`+fb+`" target="_blank" class="channel-container ng-scope" id="channel-item-Facebook" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
+        <div class="table-cell-middle pl-55 pos-relative">
+          <div class="channel-bgd-facebook">
+            <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-facebook"></i><!-- end ngIf: channel.name != 'Snapchat' -->
+            <!-- ngIf: channel.name == 'Snapchat' -->
+          </div>
+        </div>
+      </a>
+      <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
+    }else{var fb1='';}
+    if(tw!=''){
+      var tw1=`
+      <a href="`+tw+`" target="_blank" class="channel-container ng-scope" id="channel-item-Twitter" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
+        <div class="table-cell-middle pl-55 pos-relative">
+          <div class="channel-bgd-twitter">
+            <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-twitter"></i><!-- end ngIf: channel.name != 'Snapchat' -->
+            <!-- ngIf: channel.name == 'Snapchat' -->
+          </div>
+        </div>
+      </a>
+      <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
+    }else{var tw1='';}
+    if(ins!=''){
+      var ins1=`
+      <a href="`+ins+`" target="_blank" class="channel-container ng-scope" id="channel-item-Instagram" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
+        <div class="table-cell-middle pl-55 pos-relative">
+          <div class="channel-bgd-instagram">
+            <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-instagram"></i><!-- end ngIf: channel.name != 'Snapchat' -->
+            <!-- ngIf: channel.name == 'Snapchat' -->
+          </div>
+         </div>
+      </a>
+      <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
+    }else{var ins1='';}
+    if(lk!=''){
+      var lk1=`
+      <a href="`+lk+`" target="_blank" class="channel-container ng-scope" id="channel-item-LinkedIn" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
+        <div class="table-cell-middle pl-55 pos-relative">
+          <div class="channel-bgd-linkedin">
+            <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-linkedin"></i><!-- end ngIf: channel.name != 'Snapchat' -->
+            <!-- ngIf: channel.name == 'Snapchat' -->
+          </div>
+        </div>
+      </a>
+      <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
+    }else{var lk1='';}
+    document.getElementById('social-media').innerHTML=fb1+tw1+ins1+lk1;
+
     empresa(idemp);
   } catch (error) {
     console.log(error);
