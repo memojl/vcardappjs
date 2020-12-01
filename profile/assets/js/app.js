@@ -30,6 +30,65 @@ var url_json_vcard = 'https://vcardapp-js.firebaseio.com/vcard_vcard.json';
 console.log(url_json_vcard);
 //const shareLink = document.querySelectorAll("#shareLink");
 
+const obtenerVcard = async () => {
+  try {
+    const res = await fetch(url_json_vcard);
+    const data = await res.json();
+    let val = Object.values(data); //console.log(val)
+    const pro = val.filter((per) => per.profile === perfil);//console.log(pro)
+    const { ID,cover,profile,nombre,cell,email,descripcion,puesto,web,idemp,fb,tw,lk,ins,visible } = pro[0];
+    document.getElementById('idp').innerHTML='<!-- '+ID+' -->';
+    document.getElementById('cov').innerHTML='<div class="img" ng-style="{&#39;background&#39;:view.avatar?&#39;url(&#39;+view.avatar+&#39;)&#39;:&#39;none&#39;}" style="background: url(../app/files/images/photos/'+cover+');"></div>';
+    document.getElementById('prof').innerHTML='<!-- '+profile+' -->';
+    document.getElementById('nom').innerHTML=nombre;
+    document.getElementById('btn-cell').innerHTML='<a href="tel:'+cell+'"><i class="icon-phone dynamicTextColor"></i><small class="dynamicTextColor">Llamar</small></a>';
+    document.getElementById('btn-email').innerHTML='<a href="mailto:'+email+'?subject=Desde%20Mi%20Tarjeta&body=" target="_newEmail""><i class="icon-send dynamicTextColor"></i><small class="dynamicTextColor">Email</small></a>';
+
+    document.getElementById('bio').innerHTML=descripcion;
+    document.getElementById('pue').innerHTML=puesto;
+    document.getElementById('cell').innerHTML=cell;
+    document.getElementById('cell').href='tel:'+cell;
+    //document.getElementById('tel').innerHTML=reg.tel;
+    document.getElementById('mailto').innerHTML=email;
+    document.getElementById('mailto').href='mailto:'+email;
+    //document.getElementById('empresa').innerHTML=empresa;
+    document.getElementById('web').innerHTML=web;
+    document.getElementById('web').href=web;
+
+    document.getElementById('send-email').href=URL;
+    document.getElementById('share-facebook').href=URL;
+    //document.getElementById('share-twitter').href=URL;
+    document.getElementById('share-whatsapp').href='whatsapp://send?text='+URL;
+    document.getElementById('share-email').href='mailto:?body='+URL;
+    document.getElementById('shortUrl').value=URL;
+
+    empresa(idemp);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+obtenerVcard();
+
+const empresa = async (idemp) => {
+//function empresa(idemp){
+  var url_json_empresa = 'https://vcardapp-js.firebaseio.com/vcard_vcard_empresas.json';
+  try {
+    const res = await fetch(url_json_empresa);
+    const data = await res.json();
+    let val = Object.values(data); //console.log(val)
+    const emp = val.filter((em) => em.ID == idemp); //console.log(emp)
+    const {ID,cover,empresa,bg_color} = emp[0];
+      bgcolor=(bg_color!=null)?bg_color:'#000000';
+      document.getElementById('bg-fondo').style.backgroundColor=bgcolor;
+      //document.getElementById('prime').style.backgroundColor=bg_color;
+      document.getElementById('empresa').innerHTML=empresa;
+      //document.getElementById('logo').innerHTML=cover;
+  } catch (error) {
+    console.log(error);
+  }
+}
+/*
 fetch(url_json_vcard).then(response => response.json()).then(data => {
   //data.results.foreach(element => {console.log(element)});
   var val=Object.values(data);//console.log(val)
@@ -112,7 +171,7 @@ fetch(url_json_vcard).then(response => response.json()).then(data => {
 
       empresa(reg.idemp);
     }
-  }
+  }*/
   /*
   function parentId(ID) {
     return function(item) {
@@ -121,8 +180,8 @@ fetch(url_json_vcard).then(response => response.json()).then(data => {
   }
   var regis=val.filter(parentId(perfil));
   console.log(regis[0]);*/
-});
-
+//});
+/*
 function empresa(idemp){
   var url_json_empresa = 'https://vcardapp-js.firebaseio.com/vcard_vcard_empresas.json';
   console.log(url_json_empresa);
@@ -141,7 +200,7 @@ function empresa(idemp){
     }
   });
 }
-
+*/
 function filename(){
   var rutaAbsoluta = self.location.href;
   var posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
