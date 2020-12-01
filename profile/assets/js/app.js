@@ -37,6 +37,12 @@ function filename(){
   return rutaRelativa;
 }
 
+//if(perfil==='' || perfil==null){
+  document.getElementById('nom').style.fontSize="30px";
+  document.getElementById('nom').style.color="#000000";
+  document.getElementById('bg-fondo').style.backgroundColor='#000000';
+//}
+
 const obtenerVcard = async () => {
   try {
     const res = await fetch(url_json_vcard);
