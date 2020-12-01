@@ -147,7 +147,7 @@
                      <div class="vcard-separator" ng-show="view.bio"></div>
                      <div class="vcard-row" ng-show="view.numbers_mobile">
                         <i class="icon icon-phone"></i>
-                        <h4><a id="cell" href="tel:4426002842" class="ng-binding">4426002842</a></h4>
+                        <h4><a id="cell" href="tel:4426002842" class="ng-binding"></a></h4>
                         <small>Movil</small>
                      </div>
                      <div class="vcard-row pt0 ng-hide" ng-show="view.numbers_phone">
@@ -163,7 +163,7 @@
                      <div class="vcard-row" ng-show="view.email">
                         <i class="icon icon-mail"></i>
                         <h4>
-                            <a id="mailto" href="mailto:multiportal@outlook.com" target="_newLink" class="ng-binding">multiportal@outlook.com</a>
+                            <a id="mailto" href="mailto:multiportal@outlook.com" target="_newLink" class="ng-binding"></a>
                             <!--a href="mailto:multiportal@outlook.com" target="_newLink" class="ng-binding">multiportal@outlook.com</a-->
                         </h4>
                         <small>Email</small>
@@ -178,11 +178,13 @@
                      <div class="vcard-row" ng-show="view.venue || view.city || view.state || view.zip || view.street || view.country">
                         <label></label>
                         <i class="icon icon-event-location"></i>
+                        <!--
                         <h4 class="ng-binding"></h4>
                         <h4 class="ng-binding">Cuarzo 200</h4>
                         <h4 class="ng-binding">Queretaro<span ng-show="view.state || view.zip" class="ng-binding"><span ng-show="view.city">,</span> Qro. 76148</span>
                         </h4>
                         <h4 class="ng-binding">Mexico</h4>
+                        -->
                         <!-- ngIf: view.show_directions -->
                         <div class="floated-container ng-scope" ng-if="view.show_directions" ng-show="(view.street &amp;&amp; view.city) || (view.city &amp;&amp; view.country) || view.city || view.country">
                            <a class="event-slim-button ripplelink left_15 mt-10" ng-style="{&#39;color&#39;: isColorLight(view.color2) ? &#39;black&#39; : view.color2}" ng-click="callAction($event, &#39;mapAction&#39;)" style="color: rgb(0, 255, 0);"><span class="ink animate" style="height: 0px; width: 0px; top: 722px; left: 566px;"></span>
@@ -810,7 +812,7 @@
                  $scope.loadDemo = parent && typeof parent.ImHere === "function";
          
                  //Get the json data form the file
-                 //json_data = {"show_directions":true,"form":[{"section_design":{"fold":false}},{"section_information":{"fold":false}},{"section_social":{"fold":false}},{"section_welcome_screen":[]},{"section_advance_options":{"fold":false}}],"color1":"#000000","color2":"#00ff00","avatar_extra":{"zoom":100,"background":"#ffffff"},"showAutocomplete":true,"address":[],"code":{"channels":[{"input_prefix_label":"URL","link":"www.facebook.com\/multiportal","label":"","name":"Facebook"}],"welcome_extra":{"zoom":50,"background":"#ffffff"}},"welcome_screen":"\/\/qrcgcustomers.s3-eu-west-1.amazonaws.com\/account5493273\/3556708_1.png?0.39897709494591793","firstname":"perfil","lastname":"Jim\u00e9nez L\u00f3pez","numbers_mobile":"4426002842","email":"multiportal@outlook.com","company":"Multiportal","job":"Desarrollador Web","website":"www.multiportal.com.mx","showPreview":1,"avatar":"\/\/qrcgcustomers.s3-eu-west-1.amazonaws.com\/account5493273\/3556709_1.png?0.0635479782185353","sharing":true,"bio":"Desarrollo de Paginas Web y Marketing Digital"};
+                 json_data = {"show_directions":true,"form":[{"section_design":{"fold":false}},{"section_information":{"fold":false}},{"section_social":{"fold":false}},{"section_welcome_screen":[]},{"section_advance_options":{"fold":false}}],"color1":"#000000","color2":"#00ff00","avatar_extra":{"zoom":100,"background":"#ffffff"},"showAutocomplete":true,"address":[],"code":{"channels":[{"input_prefix_label":"URL","link":"www.facebook.com\/multiportal","label":"","name":"Facebook"}],"welcome_extra":{"zoom":50,"background":"#ffffff"}},"welcome_screen":"\/\/qrcgcustomers.s3-eu-west-1.amazonaws.com\/account5493273\/3556708_1.png?0.39897709494591793","firstname":"perfil","lastname":"Jim\u00e9nez L\u00f3pez","numbers_mobile":"4426002842","email":"multiportal@outlook.com","company":"Multiportal","job":"Desarrollador Web","website":"www.multiportal.com.mx","showPreview":1,"avatar":"\/\/qrcgcustomers.s3-eu-west-1.amazonaws.com\/account5493273\/3556709_1.png?0.0635479782185353","sharing":true,"bio":"Desarrollo de Paginas Web y Marketing Digital"};
 
                //json_data = {"show_directions":true,"form":[{"section_design":{"fold":false}},{"section_information":{"fold":false}},{"section_social":{"fold":false}},{"section_welcome_screen":[]},{"section_advance_options":{"fold":false}}],"color1":"#000000","color2":"#00ff00","avatar":"\/\/qrcgcustomers.s3-eu-west-1.amazonaws.com\/account11056955\/10848504_1.png?0.6198895260504853","avatar_extra":{"zoom":100,"background":"#ffffff"},"address":{"autocomplete":"Cuarzo 200-1"},"code":{"channels":[{"input_prefix_label":"URL","link":"facebook.com\/multiportal","label":"","name":"Facebook"},{"input_prefix_label":"@","link":"multiportalm","label":"","name":"Twitter"},{"input_prefix_label":"@","link":"multiportal.com_mx","label":"","name":"Instagram"},{"input_prefix_label":"URL","link":"linkedin.com\/company\/multiportal\/","label":"","name":"LinkedIn"}],"welcome_extra":{"zoom":50,"background":"#ffffff"}},"welcome_screen":"\/\/qrcgcustomers.s3-eu-west-1.amazonaws.com\/account11056955\/10849018_1.png?0.3673685868747689","firstname":"Multiportal","lastname":"Jimenez","numbers_mobile":"4426002842","email":"multiportal@outlook.com","showPreview":1,"sharing":true,"company":"Multiportal","job":"Ing de Software","street_number":"200","street":"Cuarzo","state":"Qro.","country":"Mexico","city":"Queretaro","zip":"76148","website":"multiportal.com.mx","bio":"Desarrollo Web y Marketing Digital"};
          
