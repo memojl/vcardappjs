@@ -28,7 +28,14 @@ var perfil = filename();
 console.log(perfil);
 var url_json_vcard = 'https://vcardapp-js.firebaseio.com/vcard_vcard.json';
 console.log(url_json_vcard);
-//const shareLink = document.querySelectorAll("#shareLink");
+
+/*FUNCIONES */
+function filename(){
+  var rutaAbsoluta = self.location.href;
+  var posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
+  var rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
+  return rutaRelativa;
+}
 
 const obtenerVcard = async () => {
   try {
@@ -116,12 +123,9 @@ const obtenerVcard = async () => {
   } catch (error) {
     console.log(error);
   }
-};
-
-obtenerVcard();
+}
 
 const empresa = async (idemp) => {
-//function empresa(idemp){
   var url_json_empresa = 'https://vcardapp-js.firebaseio.com/vcard_vcard_empresas.json';
   try {
     const res = await fetch(url_json_empresa);
@@ -138,6 +142,12 @@ const empresa = async (idemp) => {
     console.log(error);
   }
 }
+
+function load(){
+  obtenerVcard();
+}
+
+onload = load();
 /*
 fetch(url_json_vcard).then(response => response.json()).then(data => {
   //data.results.foreach(element => {console.log(element)});
@@ -251,14 +261,4 @@ function empresa(idemp){
   });
 }
 */
-function filename(){
-  var rutaAbsoluta = self.location.href;
-  var posicionUltimaBarra = rutaAbsoluta.lastIndexOf("/");
-  var rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
-  return rutaRelativa;
-}
-/*
-var url_json = 'https://vcardapp-js.firebaseio.com/vcard_vcard/-MLBBSCOdiImZ-yxdJmx.json';
-console.log(url_json);
-fetch(url_json).then(response => response.json()).then(data => {console.log(data.cell);});
-*/
+
