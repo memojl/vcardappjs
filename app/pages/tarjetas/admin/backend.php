@@ -1,22 +1,14 @@
 <?php
-$mod='tarjetas';
-
-function file_ima($cover){
-global $page_url,$mod;
-	$file='<input type="hidden" class="form-control" id="cover" name="cover" value="'.$cover.'">
-	<img id="ima" src="'.$page_url.'modulos/'.$mod.'/files/fotos/'.$cover.'" style="width:150px;" title="'.$cover.'">
-	<a href="javascript:up(1);">Cambiar Foto</a><div id="upload"></div>';
-	return $file;
-}
+include 'functions.php';
 
 switch(true){
   case($action=='subir_cover'):
 
-	if($cover==''){$cover='nodisponible.jpg';}
+	$cover = 'sinfoto.png';
 	$file=file_ima($cover);
 
 	//datos del arhivo 
-	$repositor='../files/fotos';
+	$repositor='../../../files/images/photos/';
 	$nombre_archivo = $_FILES['userfile']['name']; 
 	$tipo_archivo = $_FILES['userfile']['type']; 
 	$tamano_archivo = $_FILES['userfile']['size']; 

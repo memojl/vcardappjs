@@ -312,7 +312,8 @@ $(document).on('click', '#Aceptar', function (e) {
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);
   //console.log('Se cargo Imagen');		
   $.ajax({
-    url: page_url+'app/pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
+    url: page_url+'pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
+    //url: 'http://localhost/MisSitios/vcardsapp/modulos/vcard/admin/backend.php?mod=vcard&action=subir_cover',
     type: 'POST',
     data: frmData,
     processData: false,
