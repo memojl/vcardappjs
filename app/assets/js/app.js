@@ -313,7 +313,6 @@ $(document).on('click', '#Aceptar', function (e) {
   //console.log('Se cargo Imagen');		
   $.ajax({
     url: page_url+'pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
-    //url: 'http://localhost/MisSitios/vcardsapp/modulos/vcard/admin/backend.php?mod=vcard&action=subir_cover',
     type: 'POST',
     data: frmData,
     processData: false,
