@@ -29,6 +29,8 @@ console.log(perfil);
 var url_json_vcard = 'https://vcardapp-js.firebaseio.com/vcard_vcard.json';
 console.log(url_json_vcard);
 
+document.getElementById('nom').style.fontSize="30px";
+document.getElementById('bg-fondo').style.backgroundColor='#000000';
 /*FUNCIONES */
 function filename(){
   var rutaAbsoluta = self.location.href;
@@ -36,12 +38,6 @@ function filename(){
   var rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
   return rutaRelativa;
 }
-
-//if(perfil==='' || perfil==null){
-  document.getElementById('nom').style.fontSize="30px";
-  document.getElementById('nom').style.color="#000000";
-  document.getElementById('bg-fondo').style.backgroundColor='#000000';
-//}
 
 const obtenerVcard = async () => {
   try {
@@ -154,117 +150,4 @@ function load(){
 }
 
 onload = load();
-/*
-fetch(url_json_vcard).then(response => response.json()).then(data => {
-  //data.results.foreach(element => {console.log(element)});
-  var val=Object.values(data);//console.log(val)
-  for(i=0;i<val.length;i++){reg=val[i];
-    if(reg.profile==perfil){console.log(reg)
-      document.getElementById('idp').innerHTML='<!-- '+reg.ID+' -->';
-      document.getElementById('cov').innerHTML='<div class="img" ng-style="{&#39;background&#39;:view.avatar?&#39;url(&#39;+view.avatar+&#39;)&#39;:&#39;none&#39;}" style="background: url(../app/files/images/photos/'+reg.cover+');"></div>';
-      document.getElementById('prof').innerHTML='<!-- '+reg.profile+' -->';
-      document.getElementById('nom').innerHTML=reg.nombre;
-      document.getElementById('btn-cell').innerHTML='<a href="tel:'+reg.cell+'"><i class="icon-phone dynamicTextColor"></i><small class="dynamicTextColor">Llamar</small></a>';
-      document.getElementById('btn-email').innerHTML='<a href="mailto:'+reg.email+'?subject=Desde%20Mi%20Tarjeta&body=" target="_newEmail""><i class="icon-send dynamicTextColor"></i><small class="dynamicTextColor">Email</small></a>';
-
-      document.getElementById('bio').innerHTML=reg.descripcion;
-      document.getElementById('pue').innerHTML=reg.puesto;
-      document.getElementById('cell').innerHTML=reg.cell;
-      document.getElementById('cell').href='tel:'+reg.cell;
-      //document.getElementById('tel').innerHTML=reg.tel;
-      document.getElementById('mailto').innerHTML=reg.email;
-      document.getElementById('mailto').href='mailto:'+reg.email;
-      //document.getElementById('empresa').innerHTML=reg.empresa;
-      document.getElementById('web').innerHTML=reg.web;
-      document.getElementById('web').href=reg.web;
-
-      document.getElementById('send-email').href=URL;
-      document.getElementById('share-facebook').href=URL;
-      //document.getElementById('share-twitter').href=URL;
-      document.getElementById('share-whatsapp').href='whatsapp://send?text='+URL;
-      document.getElementById('share-email').href='mailto:?body='+URL;
-      document.getElementById('shortUrl').value=URL;
-
-      if(reg.fb!=''){
-        var fb=`
-        <a href="`+reg.fb+`" target="_blank" class="channel-container ng-scope" id="channel-item-Facebook" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
-          <div class="table-cell-middle pl-55 pos-relative">
-            <div class="channel-bgd-facebook">
-              <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-facebook"></i><!-- end ngIf: channel.name != 'Snapchat' -->
-              <!-- ngIf: channel.name == 'Snapchat' -->
-            </div>
-          </div>
-        </a>
-        <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
-      }else{var fb='';}
-      if(reg.tw!=''){
-        var tw=`
-        <a href="`+reg.tw+`" target="_blank" class="channel-container ng-scope" id="channel-item-Twitter" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
-          <div class="table-cell-middle pl-55 pos-relative">
-            <div class="channel-bgd-twitter">
-              <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-twitter"></i><!-- end ngIf: channel.name != 'Snapchat' -->
-              <!-- ngIf: channel.name == 'Snapchat' -->
-            </div>
-          </div>
-        </a>
-        <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
-      }else{var tw='';}
-      if(reg.ins!=''){
-        var ins=`
-        <a href="`+reg.ins+`" target="_blank" class="channel-container ng-scope" id="channel-item-Instagram" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
-          <div class="table-cell-middle pl-55 pos-relative">
-            <div class="channel-bgd-instagram">
-              <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-instagram"></i><!-- end ngIf: channel.name != 'Snapchat' -->
-              <!-- ngIf: channel.name == 'Snapchat' -->
-            </div>
-           </div>
-        </a>
-        <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
-      }else{var ins='';}
-      if(reg.lk!=''){
-        var lk=`
-        <a href="`+reg.lk+`" target="_blank" class="channel-container ng-scope" id="channel-item-LinkedIn" ng-click="loadDemo ? callAction($event,&#39;channelAction&#39;) : &#39;&#39;" ng-repeat="channel in view.code.channels track by $index">
-          <div class="table-cell-middle pl-55 pos-relative">
-            <div class="channel-bgd-linkedin">
-              <!-- ngIf: channel.name != 'Snapchat' --><i ng-if="channel.name != &#39;Snapchat&#39;" class="icon-social-linkedin"></i><!-- end ngIf: channel.name != 'Snapchat' -->
-              <!-- ngIf: channel.name == 'Snapchat' -->
-            </div>
-          </div>
-        </a>
-        <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
-      }else{var lk='';}
-      document.getElementById('social-media').innerHTML=fb+tw+ins+lk;
-
-      empresa(reg.idemp);
-    }
-  }*/
-  /*
-  function parentId(ID) {
-    return function(item) {
-      return item.profile === ID
-    }
-  }
-  var regis=val.filter(parentId(perfil));
-  console.log(regis[0]);*/
-//});
-/*
-function empresa(idemp){
-  var url_json_empresa = 'https://vcardapp-js.firebaseio.com/vcard_vcard_empresas.json';
-  console.log(url_json_empresa);
-  fetch(url_json_empresa).then(response => response.json()).then(data => {
-    var val=Object.values(data);
-    for(i=0;i<val.length;i++){reg=val[i];
-      //if(reg.uid==userId){console.log(reg)
-        if(reg.ID==idemp){console.log(reg)
-          bgcolor=(reg.bg_color!=null)?reg.bg_color:'#000000';
-          document.getElementById('bg-fondo').style.backgroundColor=bgcolor;
-          //document.getElementById('prime').style.backgroundColor=reg.bg_color;
-          document.getElementById('empresa').innerHTML=reg.empresa;
-          //document.getElementById('logo').innerHTML=reg.cover;
-        }
-      //}
-    }
-  });
-}
-*/
 

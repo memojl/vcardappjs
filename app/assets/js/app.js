@@ -304,6 +304,32 @@ $('#app-modulo').on('click','.btn-edit',function(){
   edit = true;
 });
 
+
+//SUBIR COVER
+$(document).on('click', '#Aceptar', function (e) {
+  e.preventDefault();
+  var frmData = new FormData;
+  frmData.append("userfile", $("input[name=userfile]")[0].files[0]);
+  //console.log('Se cargo Imagen');		
+  $.ajax({
+    url: page_url+'app/pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
+    type: 'POST',
+    data: frmData,
+    processData: false,
+    contentType: false,
+    cache: false,
+    beforeSend: function (data) {
+    $("#imagen").html("Subiendo Imagen");
+    },
+    success: function (data) {
+      $("#imagen").html(data);
+      $(".alert-dismissible").delay(1000).fadeOut("slow");
+      console.log("Subido Correctamente");
+    }
+  });
+  //return false;
+});
+
 //BORRAR
 $('#app-modulo').on('click', '.btn-delete', function(){
   const element = $(this)[0].parentElement.parentElement.parentElement;
