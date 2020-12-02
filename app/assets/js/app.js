@@ -203,6 +203,8 @@ function up(val){
 }
 
 
+let edit = true;
+
 //Mostrar(Listar)
 function tarjetas(userid){//var reg = {};    
   refVcard.on('value',function(datos){
@@ -225,7 +227,7 @@ function tarjetas(userid){//var reg = {};
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
-            <div class="avatar"><img src="./assets/img/photos/${cover}" alt="..." class="img-fluid">
+            <div class="avatar"><img src="`+page_url+`files/images/photos/${cover}" alt="..." class="img-fluid">
               <div class="order dashbg-2">1st</div>
             </div><a href="#" class="user-title">
               <h3 class="h5">${nombre}</h3><span>${puesto}</span></a>
@@ -248,32 +250,26 @@ function tarjetas(userid){//var reg = {};
 //BTN-AGREGAR
 $('#app-modulo').on('click','.btn-add',function(){
   $("#form1").trigger('reset');
-  fecha_hora_create(1);
-  //fecha_hora_update(0);
+  fecha_hora_create(1);//fecha_hora_update(0);
   console.log('Boton Agregar activado');
-
   let IDu=document.querySelector('#id_code_google');
   $('#uid').val(IDu.textContent);
-  let name=document.querySelector('#email_session');
-  
+  let name=document.querySelector('#email_session');  
   $('#user').val(name.textContent);
   $("#ima").attr('src', './assets/img/photos/sinfoto.png');
-  //edit = false;
+  
+  edit = false;
 });
 
 //BTN-EDITAR [Form_Editar]
 $('#app-modulo').on('click','.btn-edit',function(){
   $("#form1").trigger('reset');
-  fecha_hora_update(1);
-  //fecha_hora_create(0);
-  console.log('Boton Editar activado');
-  
+  fecha_hora_update(1);//fecha_hora_create(0);
+  console.log('Boton Editar activado');  
   const element = $(this)[0].parentElement.parentElement.parentElement;
-  let Id = $(element).attr('vcardId');    
-  console.log(Id);
+  let Id = $(element).attr('vcardId'); //console.log(Id);
   refVcard.child(Id).once('value',function(datos){
-      valor=datos.val();
-      console.log(valor);
+      valor=datos.val(); //console.log(valor);
       //Campos Ocultos
       $('#ID').val(Id);
       $('#uid').val(valor.uid);//#uid
@@ -297,37 +293,44 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#ins').val(valor.ins);
       $('#visible').val(valor.visible);
 
-      $("#ima").attr('src', './assets/img/photos/' + valor.cover);
+      $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
 
   });
 
   edit = true;
 });
 
-
-//SUBIR COVER
-$(document).on('click', '#Aceptar', function (e) {
+//Guardar(Enviar)/Editar
+$('#app-modulo').on('#form1').submit(function(e){
   e.preventDefault();
-  var frmData = new FormData;
-  frmData.append("userfile", $("input[name=userfile]")[0].files[0]);
-  //console.log('Se cargo Imagen');		
-  $.ajax({
-    url: page_url+'pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
-    type: 'POST',
-    data: frmData,
-    processData: false,
-    contentType: false,
-    cache: false,
-    beforeSend: function (data) {
-    $("#imagen").html("Subiendo Imagen");
-    },
-    success: function (data) {
-      $("#imagen").html(data);
-      $(".alert-dismissible").delay(1000).fadeOut("slow");
-      console.log("Subido Correctamente");
-    }
-  });
-  //return false;
+  var Id=$('#ID').val();
+  console.log(Id);
+  var action='';
+
+  const postData = {
+    uid: $('#uid').val(),
+    f_create: $('#f_create').val(),
+    f_update: $('#f_update').val(),
+    cover: $('#cover').val(),
+    profile: $('#profile').val(),
+    nombre: $('#nombre').val(),
+    puesto: $('#puesto').val(),
+    email: $('#email').val(),
+    descripcion: $('#descripcion').val(), 
+    web: $('#web').val(),
+    cell: $('#cell').val(),
+    visible: $('#visible').val()    
+  };
+  console.log(postData);
+  if(edit==false){action='Guardado';
+    refVcard.push(postData); // Guardamos los datos en referencia
+  }else{action='Actualizado';
+    refVcard.child(Id).update(postData); // Actualizamos los datos en referencia
+  }
+  console.log('Se ha '+action+' el registro');
+  $("#form1").trigger('reset');
+  $('#addVcard').modal('hide');
+  edit = false;
 });
 
 //BORRAR
@@ -358,3 +361,28 @@ function alError(error){
     alert('Operación realizada con éxito !');
   }
 }
+
+//SUBIR COVER
+$(document).on('click', '#Aceptar', function (e) {
+  e.preventDefault();
+  var frmData = new FormData;
+  frmData.append("userfile", $("input[name=userfile]")[0].files[0]);
+  //console.log('Se cargo Imagen');		
+  $.ajax({
+    url: page_url+'pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
+    type: 'POST',
+    data: frmData,
+    processData: false,
+    contentType: false,
+    cache: false,
+    beforeSend: function (data) {
+    $("#imagen").html("Subiendo Imagen");
+    },
+    success: function (data) {
+      $("#imagen").html(data);
+      $(".alert-dismissible").delay(1000).fadeOut("slow");
+      console.log("Subido Correctamente");
+    }
+  });
+  //return false;
+});
