@@ -202,6 +202,20 @@ function up(val){
 	}
 }
 
+function obtenerEmpresa(){
+  var uid='';
+  var sel_emp='';
+  refEmpresas.on('child_added',function(datos){
+    var reg=datos.val();
+    console.log(reg);
+    let opc=`
+    <option value='${reg.uid}'>${reg.empresa}</option>
+    `;
+    sel_emp+=opc;
+    console.log(sel_emp)
+  });
+}
+obtenerEmpresa();
 /**CRUD VCARD*/
 let edit = true;
 
