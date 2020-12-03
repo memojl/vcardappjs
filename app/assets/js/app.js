@@ -252,7 +252,6 @@ $('#app-modulo').on('click','.btn-add',function(){
   $("#form1").trigger('reset');
   fecha_hora_create(1);//fecha_hora_update(0);
   console.log('Boton Agregar activado');
-  var i=0;
   let idVcard=refVcard.orderByChild('ID');
   idVcard.on('value',function(datos){
     var reg=datos.val();
@@ -285,8 +284,9 @@ $('#app-modulo').on('click','.btn-edit',function(){
   refVcard.child(Id).once('value',function(datos){
       valor=datos.val(); //console.log(valor);
       //Campos Ocultos
-      $('#ID').val(Id);
-      $('#uid').val(valor.uid);//#uid
+      $('cardId').val(Id),
+      $('#ID').val(valor.ID);
+      $('#uid').val(valor.uid); //uid del usuario     
       $('#f_create').val(valor.f_create);
       $('#user').val(valor.user);
       //Campos de Edicion
@@ -317,12 +317,13 @@ $('#app-modulo').on('click','.btn-edit',function(){
 //Guardar(Enviar)/Editar
 $('#app-modulo').on('#form1').submit(function(e){
   e.preventDefault();
-  var Id=$('#ID').val();
+  var Id=$('#cardId').val();
   console.log(Id);
   var action='';
 
   const postData = {
-    uid: $('#uid').val(),
+    ID: $('#ID').val(),
+    uid: $('#uid').val(), //uid del usuario
     f_create: $('#f_create').val(),
     f_update: $('#f_update').val(),
     user: $('#user').val(),
