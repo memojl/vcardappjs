@@ -252,6 +252,20 @@ $('#app-modulo').on('click','.btn-add',function(){
   $("#form1").trigger('reset');
   fecha_hora_create(1);//fecha_hora_update(0);
   console.log('Boton Agregar activado');
+  var i=0;
+  let idVcard=refVcard.orderByChild('ID');
+  idVcard.on('value',function(datos){
+    var reg=datos.val();
+    let val = Object.values(reg);
+    //console.log(val);
+    /*
+    $.each(reg, function(indice,valor){i++;
+      var ultimoID=valor.ID;
+      console.log(ultimoID);
+      //$('#ID').val(ultimoID);
+    });
+    */
+  });
   let IDu=document.querySelector('#id_code_google');
   $('#uid').val(IDu.textContent);
   let name=document.querySelector('#email_session');  
