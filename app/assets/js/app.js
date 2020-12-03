@@ -256,7 +256,13 @@ $('#app-modulo').on('click','.btn-add',function(){
   idVcard.on('value',function(datos){
     var reg=datos.val();
     let val = Object.values(reg);
-    //console.log(val);
+    let num=val.length;
+    console.log(num);
+    const dat = val.filter((row) => row.ID == num);
+    console.log(dat);
+    var n=parseInt(dat.ID);
+    var nId=n+1;
+    $('#ID').val(nId);
     /*
     $.each(reg, function(indice,valor){i++;
       var ultimoID=valor.ID;
@@ -284,7 +290,7 @@ $('#app-modulo').on('click','.btn-edit',function(){
   refVcard.child(Id).once('value',function(datos){
       valor=datos.val(); //console.log(valor);
       //Campos Ocultos
-      $('cardId').val(Id),
+      $('#cardId').val(Id),
       $('#ID').val(valor.ID);
       $('#uid').val(valor.uid); //uid del usuario     
       $('#f_create').val(valor.f_create);
