@@ -203,19 +203,18 @@ function up(val){
 }
 
 function obtenerEmpresa(){
-  var uid='';
-  var sel_emp='';
+  var sel_emp='<option>Seleccione Empresa</option>'  
   refEmpresas.on('child_added',function(datos){
-    var reg=datos.val();
-    console.log(reg);
-    let opc=`
-    <option value='${reg.uid}'>${reg.empresa}</option>
-    `;
-    sel_emp+=opc;
-    console.log(sel_emp)
+    var reg=datos.val(); //console.log(reg);
+    let opc=`<option value='${reg.ID}'>${reg.empresa}</option>`;
+    sel_emp+=opc; console.log(sel_emp)
+    let sel = document.querySelector('#idemp');
+    sel.innerHTML=sel_emp;
   });
 }
-obtenerEmpresa();
+
+if(mod=='tarjetas'){obtenerEmpresa();}
+
 /**CRUD VCARD*/
 let edit = true;
 
@@ -329,6 +328,7 @@ $('#app-modulo').on('#form1').submit(function(e){
   e.preventDefault();
   var Id=$('#cardId').val();
   console.log(Id);
+
   var action='';
 
   const postData = {
