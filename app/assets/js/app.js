@@ -202,7 +202,7 @@ function up(val){
 	}
 }
 
-
+/**CRUD VCARD*/
 let edit = true;
 
 //Mostrar(Listar)
@@ -255,21 +255,11 @@ $('#app-modulo').on('click','.btn-add',function(){
   let idVcard=refVcard.orderByChild('ID');
   idVcard.on('value',function(datos){
     var reg=datos.val();
-    let val = Object.values(reg);
-    let num=val.length;
-    console.log(num);
-    const dat = val.filter((row) => row.ID == num);
-    console.log(dat);
-    var n=parseInt(dat.ID);
-    var nId=n+1;
-    $('#ID').val(nId);
-    /*
-    $.each(reg, function(indice,valor){i++;
-      var ultimoID=valor.ID;
-      console.log(ultimoID);
-      //$('#ID').val(ultimoID);
-    });
-    */
+    let val = Object.values(reg); //console.log(val);
+    let n=val.length-1; //console.log('n: '+n);
+    let ureg=val[n]; //console.log(ureg);
+    let ID=parseInt(ureg.ID)+1; //console.log(ID);
+    $('#ID').val(ID);
   });
   let IDu=document.querySelector('#id_code_google');
   $('#uid').val(IDu.textContent);
@@ -365,9 +355,9 @@ $('#app-modulo').on('#form1').submit(function(e){
 //BORRAR
 $('#app-modulo').on('click', '.btn-delete', function(){
   const element = $(this)[0].parentElement.parentElement.parentElement;
-  let Id = $(element).attr('vcardId');
+  let Id = $(element).attr('vcardId'); console.log(Id);
   Swal.fire({
-    title: "Esta seguro de eliminar esta Tarjeta ("+Id+")?",
+    title: "Esta seguro de eliminar esta Tarjeta?",
     text: "¡Está operación no se puede revertir!",
     icon: 'warning',
     showCancelButton: true,
