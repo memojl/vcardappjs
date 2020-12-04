@@ -1,12 +1,12 @@
 <div class="page-header">
    <div class="container-fluid">
-      <h2 class="h5 no-margin-bottom">Tarjetas</h2>
+      <h2 class="h5 no-margin-bottom">Mis Tarjetas</h2>
    </div>
 </div>
 <div class="container-fluid">
    <ul class="breadcrumb">
       <li class="breadcrumb-item"><a href="./">Home</a></li>
-      <li class="breadcrumb-item active"><b>Tarjeta de Perfil</b></li>
+      <li class="breadcrumb-item active"><b>Mis Tarjetas</b></li>
    </ul>
 </div>
 <section class="">
@@ -71,55 +71,83 @@
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-4">
                      <div class="form-group">
-                        <label for="profile"><i class="fa fa-credit-card"></i> Profile</label>
+                        <label for="profile">Profile</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-credit-card"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-credit-card"></i>
+                              </span>
+                           </div>
                            <input type="text" class="form-control" id="profile" name="profile" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="nombre"><i class="fa fa-user"></i> Nombre</label>
+                        <label for="nombre">Nombre</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-user"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-user"></i>
+                              </span>
+                           </div>
                            <input type="text" class="form-control" id="nombre" name="nombre" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="puesto"><i class="fa fa-user-secret"></i> Puesto</label>
+                        <label for="puesto">Puesto</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-user-secret"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-user-secret"></i>
+                              </span>
+                           </div>
                            <input type="text" class="form-control" id="puesto" name="puesto" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="email"><i class="fa fa-envelope"></i> Email</label>
+                        <label for="email">Email</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-envelope"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-envelope"></i>
+                              </span>
+                           </div>
                            <input type="email" class="form-control" id="email" name="email" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="cell"><i class="fa fa-mobile-phone"></i> Movil</label>
+                        <label for="cell">Movil</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-mobile-phone"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-mobile-phone"></i>
+                              </span>
+                           </div>
                            <input type="tel" class="form-control" id="cell" name="cell" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="tel_ofi"><i class="fa fa-phone"></i> Tel-Oficina</label>
+                        <label for="tel_ofi">Tel-Oficina</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-phone"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-phone"></i>
+                              </span>
+                           </div>
                            <input type="tel" class="form-control" id="tel_ofi" name="tel_ofi" value="">
                         </div>
                      </div>
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-4">
                      <div class="form-group">
-                        <label for="empresa"><i class="fa fa-industry"></i> Empresa</label>
+                        <label for="empresa">Empresa</label>
                         <a href="javascript:add_empresa(1);" title="Agregar Empresa"><i class="fa fa-plus"></i></a>
                         <div id="sel_empresa">
                            <div class="input-group">
-                              <!--span class="input-group-addon"><i class="fa fa-industry"></i></span-->
+                              <div class="input-group-prepend">
+                                 <span class="input-group-text">
+                                    <i class="fa fa-industry"></i>
+                                 </span>
+                              </div>
                               <select class="form-control" id="idemp" name="idemp">
                                  <option>Empresa</option>
                               </select>
@@ -128,37 +156,57 @@
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="web"><i class="fa fa-globe"></i> Web</label>
+                        <label for="web">Web</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-globe"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-globe"></i>
+                              </span>
+                           </div>
                            <input type="text" class="form-control" id="web" name="web" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="fb"><i class="fa fa-facebook"></i> Facebook</label>
+                        <label for="fb">Facebook</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-facebook"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-facebook"></i>
+                              </span>
+                           </div>
                            <input type="text" class="form-control" id="fb" name="fb" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="lk"><i class="fa fa-linkedin"></i> LinkedIn</label>
+                        <label for="lk">LinkedIn</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-linkedin"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-linkedin"></i>
+                              </span>
+                           </div>
                            <input type="text" class="form-control" id="lk" name="lk" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label for="ins"><i class="fa fa-instagram"></i> Instagram</label>
+                        <label for="ins">Instagram</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-instagram"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-instagram"></i>
+                              </span>
+                           </div>
                            <input type="text" class="form-control" id="ins" name="ins" value="">
                         </div>
                      </div>
                      <div class="form-group">
-                        <label><i class="fa fa-eye-slash"></i> Visible</label>
+                        <label>Visible</label>
                         <div class="input-group">
-                           <!--span class="input-group-addon"><i class="fa fa-eye-slash"></i></span-->
+                           <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                 <i class="fa fa-eye-slash"></i>
+                              </span>
+                           </div>
                            <select class="form-control" id="visible" name="visible">
                               <option value="1">Si</option>
                               <option value="0">No</option>                              
