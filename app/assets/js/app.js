@@ -98,8 +98,7 @@ signInForm.addEventListener("submit", (e) => {
 // list for auth state changes
 auth.onAuthStateChanged((user) => {
   if (user) {
-    console.log("signin:" + user.email);
-    console.log(user);
+    console.log("signin:" + user.email);//console.log(user);
     leerDatos(user.email);
     tarjetas(user.uid);
     loginCheck(user);
@@ -207,7 +206,7 @@ function obtenerEmpresa(){
   refEmpresas.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);
     let opc=`<option value='${reg.ID}'>${reg.empresa}</option>`;
-    sel_emp+=opc; console.log(sel_emp)
+    sel_emp+=opc; //console.log(sel_emp)
     let sel = document.querySelector('#idemp');
     sel.innerHTML=sel_emp;
   });
@@ -307,7 +306,7 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#email').val(valor.email);
       $('#cell').val(valor.cell);
       $('#tel_ofi').val(valor.tel_ofi);
-      //$('#idemp').val(valor.idemp);
+      $('#idemp').val(valor.idemp);
       //$('#empresa').val(valor.empresa);
       $('#web').val(valor.web);
       $('#fb').val(valor.fb);
@@ -346,7 +345,7 @@ $('#app-modulo').on('#form1').submit(function(e){
     web: $('#web').val(),
     cell: $('#cell').val(),
     tel_ofi: $('#tel_ofi').val(),
-    //idemp: $('#idemp').val(),
+    idemp: $('#idemp').val(),
     //empresa: $('#empresa').val(),
     fb: $('#fb').val(),
     //tw: $('#tw').val(),
