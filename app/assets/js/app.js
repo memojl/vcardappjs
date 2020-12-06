@@ -235,12 +235,14 @@ function tarjetas(userid){//var reg = {};
         var cell = (valor.cell == null)?'':valor.cell;
         var web = (valor.web == null)?'':valor.web;
         var visible = (valor.visible == null)?'':valor.visible;
+
+        var estado = (visible === '1')?'activo':'no-activo';
         if(uid==userid){
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
             <div class="avatar"><img src="`+page_url+`files/images/photos/${cover}" alt="..." class="img-fluid">
-              <div class="order dashbg-2">1st</div>
+              <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
               <h3 class="h5">${nombre}</h3><span>${puesto}</span></a>
             <div class="contributions">${profile}</div>

@@ -36,10 +36,15 @@
    padding: 8px 12px;
    text-decoration: none;
 }
-
 #imagen #ima{
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border: 0px solid #000000;
+}
+.activo{
+  background: #00cc00;
+}
+.no-activo{
+  background: #990000;
 }
