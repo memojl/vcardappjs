@@ -277,8 +277,9 @@ $('#app-modulo').on('click','.btn-add',function(){
   $('#uid').val(IDu.textContent);
   let name=document.querySelector('#email_session');  
   $('#user').val(name.textContent);
-  $("#ima").attr('src', './assets/img/photos/sinfoto.png');
-  
+  //Imagen Cover
+  $('#cover').val('sinfoto.png');
+  $("#ima").attr('src', page_url+'files/images/photos/sinfoto.png');
   edit = false;
 });
 
@@ -298,7 +299,6 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#f_create').val(valor.f_create);
       $('#user').val(valor.user);
       //Campos de Edicion
-      $('#cover').val(valor.cover);
       $('#descripcion').val(valor.descripcion);
       $('#profile').val(valor.profile);
       $('#nombre').val(valor.nombre);
@@ -314,11 +314,10 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#lk').val(valor.lk);
       $('#ins').val(valor.ins);
       $('#visible').val(valor.visible);
-
+      //Imagen Cover
+      $('#cover').val(valor.cover);
       $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
-
   });
-
   edit = true;
 });
 
