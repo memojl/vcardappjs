@@ -47,7 +47,7 @@ const loginCheck = (user) => {
       loginLinks.forEach((link) => (link.style.display = "block"));
     }
   }
-};
+}
 
 // Logout
 const logout = document.querySelector("#logout");
@@ -101,6 +101,7 @@ auth.onAuthStateChanged((user) => {
     console.log("signin:" + user.email);//console.log(user);
     leerDatos(user.email);
     tarjetas(user.uid);
+    empresas(user.uid);
     loginCheck(user);
     guardarDatos(user);
     /*fs.collection("posts").get().then((snapshot) => {
@@ -418,4 +419,60 @@ $(document).on('click', '#Aceptar', function (e) {
     }
   });
   //return false;
+});
+
+/**CRUD EMPRESA */
+//Mostrar(Listar)
+function empresas(userid){
+  refEmpresas.on('value',function(datos){
+      const content = document.querySelector("#vcontent");
+      var template = '';
+      var reg = datos.val();
+      // Recorremos los productos y los mostramos
+      $.each(reg, function(indice,valor){//console.log(indice);
+        var visible = (valor.visible == null)?'':valor.visible;
+        var estado = (visible === '1')?'activo':'no-activo';
+        //console.log('valor.uid:'+valor.uid);
+        if(valor.uid==userid){
+          template += `
+        <tr id="${indice}">
+          <th scope="row">${valor.ID}</th>
+          <td>${valor.cover}</td>
+          <td>${valor.empresa}</td>
+          <td>${valor.bg_color}</td>
+          <td>
+            <button class="btnEditar btn btn-secondary" data-toggle="modal" data-target="#exampleModal" title="Editar">
+              <i class="fa fa-edit"></i>
+            </button>
+            <button class="btnBorrar btn btn-danger" data-toggle="tooltip" title="Borrar">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>`
+        }        
+        if(mod=='empresas'){
+          content.innerHTML = '' + template + '';
+        }
+      });
+  });
+}
+
+//BORRAR
+$('#app-modulo').on('click', '.btnBorrar', function(){
+  const element = $(this)[0].parentElement.parentElement;
+  let Id = $(element).attr('id'); console.log(Id);
+  Swal.fire({
+    title: "Esta seguro de eliminar esta Empresa?",
+    text: "¡Está operación no se puede revertir!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Borrar'
+  }).then((result) => {
+    if (result.value) {
+        refEmpresas.child(Id).remove(); //eliminamos el producto de firebase      
+        Swal.fire('¡Eliminado!', 'La Empresa ha sido eliminada.','success')
+    }
+  })        
 });
