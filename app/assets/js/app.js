@@ -324,12 +324,11 @@ $('#app-modulo').on('click','.btn-edit',function(){
   edit = true;
 });
 
+if(mod=='tarjetas'){
 //Guardar(Enviar)/Editar
 $('#app-modulo').on('#form1').submit(function(e){
-  e.preventDefault();
-  var Id=$('#cardId').val();
-  console.log(Id);
-
+  e.preventDefault(); console.log('Form1');
+  var Id=$('#cardId').val(); console.log(Id);
   var action='';
 
   const postData = {
@@ -366,6 +365,7 @@ $('#app-modulo').on('#form1').submit(function(e){
   $('#addVcard').modal('hide');
   edit = false;
 });
+}
 
 //BORRAR
 $('#app-modulo').on('click', '.btn-delete', function(){
@@ -508,11 +508,11 @@ $('#app-modulo').on('click','.btnEditar',function(){
   edit = true;
 });
 
+if(mod=='empresas'){
 //Guardar(Enviar)/Editar
 $('#app-modulo').on('#form2').submit(function(e){
-  e.preventDefault();
-  var Id=$('#cardId').val();
-  console.log(Id);
+  e.preventDefault(); console.log('Form2');
+  var Id=$('#cardId').val(); console.log(Id);
   var action='';
 
   const postData = {
@@ -521,6 +521,7 @@ $('#app-modulo').on('#form2').submit(function(e){
     f_create: $('#f_create').val(),
     f_update: $('#f_update').val(),
     //user: $('#user').val(),
+    cover: $('#cover').val(),
     empresa: $('#empresa').val(),
     bg_color: $('#bg_color').val(),
     visible: $('#visible').val()    
@@ -536,6 +537,7 @@ $('#app-modulo').on('#form2').submit(function(e){
   $('#empresaModal').modal('hide');
   edit = false;
 });
+}
 
 /*
 //BORRAR
