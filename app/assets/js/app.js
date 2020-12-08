@@ -104,6 +104,7 @@ auth.onAuthStateChanged((user) => {
     empresas(user.uid);
     loginCheck(user);
     guardarDatos(user);
+    if(mod=='tarjetas'){selectEmpresa(user.uid);}
     /*fs.collection("posts").get().then((snapshot) => {
       loginCheck(user);
       setupPosts(snapshot.docs);
@@ -202,18 +203,18 @@ function up(val){
 	}
 }
 
-function obtenerEmpresa(){
+function selectEmpresa(userid){
   var sel_emp='<option>Seleccione Empresa</option>'  
   refEmpresas.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);
-    let opc=`<option value='${reg.ID}'>${reg.empresa}</option>`;
-    sel_emp+=opc; //console.log(sel_emp)
+    if(reg.uid==userid){
+      let opc=`<option value='${reg.ID}'>${reg.empresa}</option>`;
+      sel_emp+=opc; //console.log(sel_emp)  
+    }
     let sel = document.querySelector('#idemp');
     sel.innerHTML=sel_emp;
   });
 }
-
-if(mod=='tarjetas'){obtenerEmpresa();}
 
 /**CRUD VCARD*/
 let edit = true;
