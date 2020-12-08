@@ -369,10 +369,11 @@ $('#app-modulo').on('#form1').submit(function(e){
 
 //BORRAR
 $('#app-modulo').on('click', '.btn-delete', function(){
+  var tag = (mod=='tarjetas')?'Tarjeta':'Empresa';
   const element = $(this)[0].parentElement.parentElement.parentElement;
   let Id = $(element).attr('vcardId'); console.log(Id);
   Swal.fire({
-    title: "Esta seguro de eliminar esta Tarjeta?",
+    title: "Esta seguro de eliminar esta "+tag+"?",
     text: "¡Está operación no se puede revertir!",
     icon: 'warning',
     showCancelButton: true,
@@ -383,7 +384,7 @@ $('#app-modulo').on('click', '.btn-delete', function(){
     if (result.value) {
         //let id = $(this).closest('tr').attr('id'); //capturamos el atributo ID de la fila  
         refVcard.child(Id).remove(); //eliminamos el producto de firebase      
-        Swal.fire('¡Eliminado!', 'La Tarjeta ha sido eliminada.','success')
+        Swal.fire('¡Eliminado!', 'La '+tag+' ha sido eliminada.','success')
     }
   })        
 });
@@ -403,7 +404,8 @@ $(document).on('click', '#Aceptar', function (e) {
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);
   //console.log('Se cargo Imagen');		
   $.ajax({
-    url: page_url+'pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
+    //url: page_url+'pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
+    url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
     type: 'POST',
     data: frmData,
     processData: false,
@@ -414,7 +416,7 @@ $(document).on('click', '#Aceptar', function (e) {
     },
     success: function (data) {
       $("#imagen").html(data);
-      $(".alert-dismissible").delay(1000).fadeOut("slow");
+      $(".alert-dismissible").delay(2000).fadeOut("slow");
       console.log("Subido Correctamente");
     }
   });
@@ -435,31 +437,110 @@ function empresas(userid){
         //console.log('valor.uid:'+valor.uid);
         if(valor.uid==userid){
           template += `
-        <tr id="${indice}">
-          <th scope="row">${valor.ID}</th>
-          <td>${valor.cover}</td>
-          <td>${valor.empresa}</td>
-          <td>${valor.bg_color}</td>
-          <td>
-            <button class="btnEditar btn btn-secondary" data-toggle="modal" data-target="#exampleModal" title="Editar">
-              <i class="fa fa-edit"></i>
-            </button>
-            <button class="btnBorrar btn btn-danger" data-toggle="tooltip" title="Borrar">
-              <i class="fa fa-trash"></i>
-            </button>
-          </td>
-        </tr>`
+        <div vcardId="${indice}" class="col-lg-4">
+          <div class="user-block block text-center">
+            <div class="avatar"><img src="`+page_url+`files/images/photos/${valor.cover}" alt="logo-${valor.empresa}" class="img-fluid">
+              <div class="order ${estado}" title="${estado}">1st</div>
+            </div><a href="#" class="user-title">
+              <h3 class="h5">${valor.empresa}</h3><span>${valor.bg_color}</span></a>
+            <div class="contributions">${valor.bg_color}</div>
+            <div class="details d-flex">
+              <div class="item btnEditar" data-toggle="modal" data-target="#empresaModal" title="Editar" style="cursor:pointer;"><i class="fa fa-edit"></i><strong>Editar</strong></div>
+              <div class="item btn-delete" title="Borrar" style="cursor:pointer;"><i class="fa fa-trash"></i><strong>Borrar</strong></div>
+            </div>
+          </div>
+        </div>`
         }        
         if(mod=='empresas'){
-          content.innerHTML = '' + template + '';
+          content.innerHTML = '<div class="container-fluid"><div class="row">' + template + '</div></div>';
         }
       });
   });
 }
 
+//BTN-AGREGAR
+$('#app-modulo').on('click','.btnAdd',function(){
+  $("#form2").trigger('reset');
+  fecha_hora_create(1);//fecha_hora_update(0);
+  console.log('Boton Agregar activado');
+  let idVcard=refEmpresas.orderByChild('ID');
+  idVcard.on('value',function(datos){
+    var reg=datos.val();
+    let val = Object.values(reg); //console.log(val);
+    let n=val.length-1; //console.log('n: '+n);
+    let ureg=val[n]; //console.log(ureg);
+    let ID=parseInt(ureg.ID)+1; //console.log(ID);
+    $('#ID').val(ID);
+  });
+  let IDu=document.querySelector('#id_code_google');
+  $('#uid').val(IDu.textContent);
+  //let name=document.querySelector('#email_session');  
+  //$('#user').val(name.textContent);
+  //Imagen Cover
+  $('#cover').val('sinfoto.png');
+  $("#ima").attr('src', page_url+'files/images/photos/sinfoto.png');
+  edit = false;
+});
+
+//BTN-EDITAR [Form_Editar]
+$('#app-modulo').on('click','.btnEditar',function(){
+  $("#form2").trigger('reset');
+  fecha_hora_update(1);//fecha_hora_create(0);
+  console.log('Boton Editar activado');  
+  const element = $(this)[0].parentElement.parentElement.parentElement;
+  let Id = $(element).attr('vcardId'); //console.log(Id);
+  refEmpresas.child(Id).once('value',function(datos){
+      valor=datos.val(); console.log(valor);
+      //Campos Ocultos
+      $('#cardId').val(Id),
+      $('#ID').val(valor.ID);
+      $('#uid').val(valor.uid); //uid del usuario     
+      $('#f_create').val(valor.f_create);
+      //$('#user').val(valor.user);
+      //Campos de Edicion
+      $('#empresa').val(valor.empresa);
+      $('#bg_color').val(valor.bg_color);
+      $('#visible').val(valor.visible);
+      //Imagen Cover
+      $('#cover').val(valor.cover);
+      $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
+  });
+  edit = true;
+});
+
+//Guardar(Enviar)/Editar
+$('#app-modulo').on('#form2').submit(function(e){
+  e.preventDefault();
+  var Id=$('#cardId').val();
+  console.log(Id);
+  var action='';
+
+  const postData = {
+    ID: $('#ID').val(),
+    uid: $('#uid').val(), //uid del usuario
+    f_create: $('#f_create').val(),
+    f_update: $('#f_update').val(),
+    //user: $('#user').val(),
+    empresa: $('#empresa').val(),
+    bg_color: $('#bg_color').val(),
+    visible: $('#visible').val()    
+  };
+  console.log(postData);
+  if(edit==false){action='Guardado';
+    refEmpresas.push(postData); // Guardamos los datos en referencia
+  }else{action='Actualizado';
+    refEmpresas.child(Id).update(postData); // Actualizamos los datos en referencia
+  }
+  console.log('Se ha '+action+' el registro');
+  $("#form2").trigger('reset');
+  $('#empresaModal').modal('hide');
+  edit = false;
+});
+
+/*
 //BORRAR
 $('#app-modulo').on('click', '.btnBorrar', function(){
-  const element = $(this)[0].parentElement.parentElement;
+  const element = $(this)[0].parentElement.parentElement.parentElement;
   let Id = $(element).attr('id'); console.log(Id);
   Swal.fire({
     title: "Esta seguro de eliminar esta Empresa?",
@@ -476,3 +557,4 @@ $('#app-modulo').on('click', '.btnBorrar', function(){
     }
   })        
 });
+*/

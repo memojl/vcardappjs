@@ -21,7 +21,7 @@
   background: #aaa;
   color: #444;
 }
-.btn-add{
+.btn-add, .btnAdd{
   position: fixed;
   z-index: 1000;
   right: 20px;
