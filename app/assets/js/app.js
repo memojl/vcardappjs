@@ -541,24 +541,3 @@ $('#app-modulo').on('#form2').submit(function(e){
 });
 }
 
-/*
-//BORRAR
-$('#app-modulo').on('click', '.btnBorrar', function(){
-  const element = $(this)[0].parentElement.parentElement.parentElement;
-  let Id = $(element).attr('id'); console.log(Id);
-  Swal.fire({
-    title: "Esta seguro de eliminar esta Empresa?",
-    text: "¡Está operación no se puede revertir!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#d33',
-    cancelButtonColor: '#3085d6',
-    confirmButtonText: 'Borrar'
-  }).then((result) => {
-    if (result.value) {
-        refEmpresas.child(Id).remove(); //eliminamos el producto de firebase      
-        Swal.fire('¡Eliminado!', 'La Empresa ha sido eliminada.','success')
-    }
-  })        
-});
-*/

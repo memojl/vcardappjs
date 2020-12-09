@@ -4,6 +4,8 @@ var loc = window.location;
 console.log(loc);
 var fec = new Date();
 console.log(fec);
+var year = fec.getFullYear();
+console.log(year);
 const protocol = window.location.protocol;
 console.log('protocol=' + protocol);
 const host = window.location.host;
@@ -117,6 +119,12 @@ function menu() {
     <li${m3}><a href="${page_url}tarjetas"> <i class="fa fa-vcard"></i>Mis Tarjetas </a></li>
     <li${m4}><a href="${page_url}empresas"> <i class="fa fa-industry"></i>Empresas </a></li>`;
   $('.list-unstyled').html(menu);
+  footer();
+}
+
+function footer(){
+  const f = document.querySelector("#footer_page");
+  f.innerHTML = year + ' &copy; VcardAppJS. Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.';
 }
 
 function modulos() {
