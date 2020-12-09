@@ -383,8 +383,9 @@ $('#app-modulo').on('click', '.btn-delete', function(){
     confirmButtonText: 'Borrar'
   }).then((result) => {
     if (result.value) {
-        //let id = $(this).closest('tr').attr('id'); //capturamos el atributo ID de la fila  
-        refVcard.child(Id).remove(); //eliminamos el producto de firebase      
+        //let id = $(this).closest('tr').attr('id'); //capturamos el atributo ID de la fila 
+        refTable = (mod=='tarjetas')?refVcard:refEmpresas;
+        refTable.child(Id).remove(); //eliminamos el producto de firebase      
         Swal.fire('¡Eliminado!', 'La '+tag+' ha sido eliminada.','success')
     }
   })        
