@@ -49,6 +49,8 @@
   background: #990000;
 }
 
+#id_code_google{visibility: hidden;}
+
 @media only screen and (min-width: 950px){
   .public-user-block .item{
     width: 99%;
