@@ -218,9 +218,8 @@ function selectEmpresa(userid){
 
 function listar_vcard(){
   var template='';
-  let idVcard=refVcard.orderByChild("orden").limitToLast(5);
+  let idVcard=refVcard.orderByChild("orden").limitToFirst(5);//limitToLast(5);
   idVcard.on('child_added',function(datos){
-  //refVcard.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);
     template+=`
   <div class="public-user-block block">
@@ -245,8 +244,7 @@ function listar_vcard(){
         </div>
       </div>
     </div>
-  </div>`
-  
+  </div>`  
   const lista = document.querySelector('#lista');
   lista.innerHTML=template;
   });
@@ -314,6 +312,8 @@ $('#app-modulo').on('click','.btn-add',function(){
     let ureg=val[n]; //console.log(ureg);
     let ID=parseInt(ureg.ID)+1; //console.log(ID);
     $('#ID').val(ID);
+    let orden=parseInt(ureg.orden)-1; console.log(orden);
+    $('#orden').val(orden);
   });
   let IDu=document.querySelector('#id_code_google');
   $('#uid').val(IDu.textContent);
@@ -337,6 +337,7 @@ $('#app-modulo').on('click','.btn-edit',function(){
       //Campos Ocultos
       $('#cardId').val(Id),
       $('#ID').val(valor.ID);
+      $('#orden').val(valor.orden);
       $('#uid').val(valor.uid); //uid del usuario     
       $('#f_create').val(valor.f_create);
       $('#user').val(valor.user);
@@ -372,6 +373,7 @@ $('#app-modulo').on('#form1').submit(function(e){
 
   const postData = {
     ID: $('#ID').val(),
+    orden: $('#orden').val(),
     uid: $('#uid').val(), //uid del usuario
     f_create: $('#f_create').val(),
     f_update: $('#f_update').val(),

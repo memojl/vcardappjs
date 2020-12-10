@@ -134,7 +134,7 @@ const empresa = async (idemp) => {
     let val = Object.values(data); //console.log(val)
     const emp = val.filter((em) => em.ID == idemp); //console.log(emp)
     const {ID,cover,empresa,bg_color} = emp[0];
-      bgcolor=(bg_color!=null)?bg_color:'#000000';
+      bgcolor=(bg_color!=null)?bg_color:'#ffffff';
       document.getElementById('bg-fondo').style.backgroundColor=bgcolor;
       //document.getElementById('prime').style.backgroundColor=bg_color;
       document.getElementById('empresa').innerHTML=empresa;
