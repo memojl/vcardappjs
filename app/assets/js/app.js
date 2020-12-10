@@ -484,7 +484,7 @@ function empresas(userid){
             <div class="avatar"><img src="`+page_url+`files/images/photos/${valor.cover}" alt="logo-${valor.empresa}" class="img-fluid">
               <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
-              <h3 class="h5">${valor.empresa}</h3><span>${valor.bg_color}</span></a>
+              <h3 class="h5">${valor.empresa}</h3><span></span></a>
             <div class="contributions">${valor.bg_color}</div>
             <div class="details d-flex">
               <div class="item btnEditar" data-toggle="modal" data-target="#empresaModal" title="Editar" style="cursor:pointer;"><i class="fa fa-edit"></i><strong>Editar</strong></div>
