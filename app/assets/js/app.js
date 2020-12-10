@@ -216,6 +216,44 @@ function selectEmpresa(userid){
   });
 }
 
+function listar_vcard(){
+  var template='';
+  let idVcard=refVcard.orderByChild("orden").limitToLast(5);
+  idVcard.on('child_added',function(datos){
+  //refVcard.on('child_added',function(datos){
+    var reg=datos.val(); //console.log(reg);
+    template+=`
+  <div class="public-user-block block">
+    <div class="row d-flex align-items-center">                   
+      <div class="col-lg-4 d-flex align-items-center">
+        <div class="order">${reg.ID}</div>
+        <div class="avatar"> <img src="./files/images/photos/${reg.cover}" class="img-fluid"></div>
+        <a href="${page_url}../profile/${reg.profile}" class="name">
+          <strong class="d-block">${reg.nombre}</strong>
+          <span class="d-block">${reg.profile}</span>
+        </a>
+      </div>
+      <div class="col-lg-4 text-center">
+        <div class="contributions">${reg.puesto}</div>
+      </div>
+      <div class="col-lg-4">
+        <div class="details d-flex">
+          <div class="item"><i class="fa fa-calendar"></i><strong>${reg.f_create}</strong></div>
+          <!--div class="item"><i class="icon-info"></i><strong>${reg.puesto}</strong></div-->
+          <!--div class="item"><i class="fa fa-gg"></i><strong>200</strong></div-->
+          <!--div class="item"><i class="icon-flow-branch"></i><strong></strong></div-->
+        </div>
+      </div>
+    </div>
+  </div>`
+  
+  const lista = document.querySelector('#lista');
+  lista.innerHTML=template;
+  });
+}
+if(mod=='Home'){listar_vcard();}
+
+
 /**CRUD VCARD*/
 let edit = true;
 
