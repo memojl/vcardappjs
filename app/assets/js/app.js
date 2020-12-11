@@ -21,8 +21,9 @@ console.log('Modulo=>' + mod);
 
 //Tablas-Documentos
 var refConfig = db.ref().child('vcard_config');
-var refU = db.ref().child('vcard_signup');
+var refSignup = db.ref().child('vcard_signup');
 var refVcard = db.ref().child('vcard_vcard');
+var refUser = db.ref().child('vcard_user');
 var refEmpresas = db.ref().child('vcard_vcard_empresas');
 
 
@@ -221,24 +222,25 @@ function listar_vcard(){
   let idVcard=refVcard.orderByChild("orden").limitToFirst(5);//limitToLast(5);
   idVcard.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);
+    const {ID,cover,profile,nombre,puesto,f_create} = reg;
     template+=`
   <div class="public-user-block block">
     <div class="row d-flex align-items-center">                   
       <div class="col-lg-4 d-flex align-items-center">
-        <div class="order">${reg.ID}</div>
-        <div class="avatar"> <img src="./files/images/photos/${reg.cover}" class="img-fluid"></div>
-        <a href="${page_url}../profile/${reg.profile}" class="name">
-          <strong class="d-block">${reg.nombre}</strong>
-          <span class="d-block">${reg.profile}</span>
+        <div class="order">${ID}</div>
+        <div class="avatar"> <img src="./files/images/photos/${cover}" class="img-fluid"></div>
+        <a href="${page_url}../profile/${profile}" class="name">
+          <strong class="d-block">${nombre}</strong>
+          <span class="d-block">${profile}</span>
         </a>
       </div>
       <div class="col-lg-4 text-center">
-        <div class="contributions">${reg.puesto}</div>
+        <div class="contributions">${puesto}</div>
       </div>
       <div class="col-lg-4">
         <div class="details d-flex">
-          <div class="item"><i class="fa fa-calendar"></i><strong>${reg.f_create}</strong></div>
-          <!--div class="item"><i class="icon-info"></i><strong>${reg.puesto}</strong></div-->
+          <div class="item"><i class="fa fa-calendar"></i><strong>${f_create}</strong></div>
+          <!--div class="item"><i class="icon-info"></i><strong></strong></div-->
           <!--div class="item"><i class="fa fa-gg"></i><strong>200</strong></div-->
           <!--div class="item"><i class="icon-flow-branch"></i><strong></strong></div-->
         </div>
@@ -553,7 +555,7 @@ $('#app-modulo').on('click','.btnEditar',function(){
 if(mod=='empresas'){
 //Guardar(Enviar)/Editar
 $('#app-modulo').on('#form2').submit(function(e){
-  e.preventDefault(); console.log('Form2');
+  e.preventDefault(); //console.log('Form2');
   var Id=$('#cardId').val(); console.log(Id);
   var action='';
 
@@ -581,3 +583,26 @@ $('#app-modulo').on('#form2').submit(function(e){
 });
 }
 
+//CRUD USER
+function vuser(){
+  refUser.on('child_added',function(datos){
+    var reg=datos.val(); //console.log(reg);
+    const {nombre} = reg;
+    var template = `<div class="user-block block text-center">
+      <div class="avatar"><img src="./files/images/photos/avatar-1.jpg" alt="..." class="img-fluid">
+        <div class="order dashbg-2">1st</div>
+      </div><a href="#" class="user-title">
+        <h3 class="h5">${nombre}</h3><span>@richardnevo</span></a>
+      <div class="contributions">950 Contributions</div>
+      <div class="details d-flex">
+        <div class="item"><i class="icon-info"></i><strong>150</strong></div>
+        <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
+        <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
+      </div>
+    </div>`
+    const content = document.querySelector("#myProfile");
+    content.innerHTML=template;
+  });
+}
+
+if(mod=='perfil'){vuser();}
