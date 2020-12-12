@@ -106,6 +106,7 @@ auth.onAuthStateChanged((user) => {
     loginCheck(user);
     guardarDatos(user);
     if(mod=='tarjetas'){selectEmpresa(user.uid);}
+    vuser(user.uid);
     /*fs.collection("posts").get().then((snapshot) => {
       loginCheck(user);
       setupPosts(snapshot.docs);
@@ -584,25 +585,65 @@ $('#app-modulo').on('#form2').submit(function(e){
 }
 
 //CRUD USER
-function vuser(){
+function vuser(uidUser){
   refUser.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);
-    const {nombre} = reg;
-    var template = `<div class="user-block block text-center">
-      <div class="avatar"><img src="./files/images/photos/avatar-1.jpg" alt="..." class="img-fluid">
-        <div class="order dashbg-2">1st</div>
-      </div><a href="#" class="user-title">
-        <h3 class="h5">${nombre}</h3><span>@richardnevo</span></a>
-      <div class="contributions">950 Contributions</div>
-      <div class="details d-flex">
-        <div class="item"><i class="icon-info"></i><strong>150</strong></div>
-        <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
-        <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
-      </div>
-    </div>`
-    const content = document.querySelector("#myProfile");
-    content.innerHTML=template;
+    const {ID,foto,usuario,email,uid} = reg;
+    if(uidUser==uid){
+      var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+      var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
+      var template = `<div class="user-block block text-center">
+        <div class="avatar"><img src="${photo}" class="img-fluid">
+          <div class="order activo"></div>
+        </div><a href="#" class="user-title">
+          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
+        <div class="contributions">${uid}</div>
+        <div class="details d-flex">
+          <div class="item"><i class="icon-info"></i><strong>150</strong></div>
+          <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
+          <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
+        </div>
+      </div>`
+      if(mod=='perfil'){
+        const content = document.querySelector("#myProfile");
+        content.innerHTML=template;
+      }
+    console.log('vuser(Activo)');
+    }else{vsignup(uidUser);console.log('vsignup(Activo)');}
   });
 }
 
-if(mod=='perfil'){vuser();}
+
+function vsignup(uidUser){
+  refSignup.on('child_added',function(datos){
+    var reg=datos.val(); //console.log(reg);
+    const {ID,foto,usuario,email,uid} = reg;
+    if(uidUser==uid){
+      var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+      var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
+      var template = `<div class="user-block block text-center">
+        <div class="avatar"><img src="${photo}" class="img-fluid">
+          <div class="order activo"></div>
+        </div><a href="#" class="user-title">
+          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
+        <div class="contributions">${uid}</div>
+        <div class="details d-flex">
+          <div class="item"><i class="icon-info"></i><strong>150</strong></div>
+          <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
+          <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
+        </div>
+      </div>`
+      if(mod=='perfil'){
+        const content = document.querySelector("#myProfile");
+      content.innerHTML=template;
+      }
+    }
+  });
+}
+
+function datos_user(reg){
+  const {ID,cover,usuario,email,uid} = reg;
+
+}
+
+//FIN DEL SCRIPT
