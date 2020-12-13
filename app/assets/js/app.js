@@ -592,7 +592,10 @@ function vuser(uidUser){
     if(uidUser==uid){datos_user(reg); //console.log('vuser');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center">
+      var template = `<div class="user-block block text-center" vcardId="${uid}">
+        <div>
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
+        </div>
         <div class="avatar"><img src="${photo}" class="img-fluid">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
@@ -620,7 +623,10 @@ function vsignup(uidUser){
     if(uidUser==uid){datos_user(reg); //console.log('vsignup');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center">
+      var template = `<div class="user-block block text-center" vcardId="${uid}">
+        <div>
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
+        </div>
         <div class="avatar"><img src="${photo}" class="img-fluid">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
@@ -639,32 +645,35 @@ function vsignup(uidUser){
     }
   });
 }
-/*
+
 //BTN-EDITAR [Form_Editar]
-$('#app-modulo').on('click','.btnEditar',function(){
+$('#app-modulo').on('click','.btnEditar3',function(){
   $("#form3").trigger('reset');
   fecha_hora_update(1);//fecha_hora_create(0);
   console.log('Boton Editar activado');  
-  const element = $(this)[0].parentElement.parentElement.parentElement;
-  let Id = $(element).attr('vcardId'); //console.log(Id);
+  const element = $(this)[0].parentElement.parentElement;
+  let Id = $(element).attr('vcardId'); console.log(Id);
+
+  
   refUser.child(Id).once('value',function(datos){
       valor=datos.val(); console.log(valor);
+      /*
       //Campos Ocultos
       $('#cardId').val(Id),
       //$('#ID').val(valor.ID);
       $('#uid').val(valor.uid); //uid del usuario     
       $('#f_create').val(valor.f_create);
       //Campos de Edicion
-      $('#nombre').val(valor.empresa);
-      $('#email').val(valor.bg_color);
+      $('#nombre').val(valor.usuario);
+      $('#email').val(valor.email);
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
       $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
+      */
   });
   edit = true;
 });
-*/
 
 function datos_user(regis){
   const fot = document.querySelector("#photo");
