@@ -587,9 +587,9 @@ $('#app-modulo').on('#form2').submit(function(e){
 //CRUD USER
 function vuser(uidUser){
   refUser.on('child_added',function(datos){
-    var reg=datos.val(); //console.log(reg);
+    var reg=datos.val(); //console.log(reg);    
     const {ID,foto,usuario,email,uid} = reg;
-    if(uidUser==uid){
+    if(uidUser==uid){datos_user(reg); //console.log('vuser');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
       var template = `<div class="user-block block text-center">
@@ -613,12 +613,11 @@ function vuser(uidUser){
   });
 }
 
-
 function vsignup(uidUser){
   refSignup.on('child_added',function(datos){
-    var reg=datos.val(); //console.log(reg);
+    var reg=datos.val(); //console.log(reg);    
     const {ID,foto,usuario,email,uid} = reg;
-    if(uidUser==uid){
+    if(uidUser==uid){datos_user(reg); //console.log('vsignup');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
       var template = `<div class="user-block block text-center">
@@ -640,10 +639,47 @@ function vsignup(uidUser){
     }
   });
 }
+/*
+//BTN-EDITAR [Form_Editar]
+$('#app-modulo').on('click','.btnEditar',function(){
+  $("#form3").trigger('reset');
+  fecha_hora_update(1);//fecha_hora_create(0);
+  console.log('Boton Editar activado');  
+  const element = $(this)[0].parentElement.parentElement.parentElement;
+  let Id = $(element).attr('vcardId'); //console.log(Id);
+  refUser.child(Id).once('value',function(datos){
+      valor=datos.val(); console.log(valor);
+      //Campos Ocultos
+      $('#cardId').val(Id),
+      //$('#ID').val(valor.ID);
+      $('#uid').val(valor.uid); //uid del usuario     
+      $('#f_create').val(valor.f_create);
+      //Campos de Edicion
+      $('#nombre').val(valor.empresa);
+      $('#email').val(valor.bg_color);
+      $('#visible').val(valor.visible);
+      //Imagen Cover
+      $('#cover').val(valor.cover);
+      $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
+  });
+  edit = true;
+});
+*/
 
-function datos_user(reg){
-  const {ID,cover,usuario,email,uid} = reg;
+function datos_user(regis){
+  const fot = document.querySelector("#photo");
+  const nom = document.querySelector("#nombre_session");
+  const mail = document.querySelector("#email_session");
+  const uidg = document.querySelector("#id_code_google");
+  const {ID,foto,usuario,email,uid} = regis;
 
+  var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+  var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
+
+  fot.innerHTML = '<img src="' + photo + '" class="img-fluid rounded-circle">';
+  nom.innerHTML = '<h1 class="h5">' + nombre + '</h1>';
+  mail.innerHTML = email;
+  uidg.innerHTML = uid;
 }
 
 //FIN DEL SCRIPT
