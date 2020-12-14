@@ -654,15 +654,25 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   const element = $(this)[0].parentElement.parentElement;
   let Id = $(element).attr('vcardId'); console.log(Id);
 
-  
-  refUser.child(Id).once('value',function(datos){
-      valor=datos.val(); console.log(valor);
+  const uid_tag=document.querySelector('.contributions').textContent;
+  console.log(uid_tag);
+  const nom_tag=document.querySelector('.h5').textContent;
+  console.log(nom_tag);
+  const email_tag=document.querySelector('#email_session').textContent;
+  console.log(email_tag);
+
+  //Campos Ocultos
+  $('#uid').val(uid_tag); //uid del usuario
+  //$('#f_create').val('f_update');
+  //Campos de Edicion
+  $('#nombre').val(nom_tag);
+  $('#email').val(email_tag);
       /*
       //Campos Ocultos
       $('#cardId').val(Id),
       //$('#ID').val(valor.ID);
-      $('#uid').val(valor.uid); //uid del usuario     
-      $('#f_create').val(valor.f_create);
+           
+      
       //Campos de Edicion
       $('#nombre').val(valor.usuario);
       $('#email').val(valor.email);
@@ -671,8 +681,7 @@ $('#app-modulo').on('click','.btnEditar3',function(){
       $('#cover').val(valor.cover);
       $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
       */
-  });
-  edit = true;
+  //edit = true;
 });
 
 function datos_user(regis){
