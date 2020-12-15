@@ -76,7 +76,7 @@ function fecha_hora_update(val) {
   if(val==1){
   setTimeout(fecha_hora_update, 1000);
   }
-  if (mod=='tarjetas' || mod=='empresas') {
+  if (mod=='tarjetas' || mod=='empresas' || mod=='perfil') {
     inputUpdate.value = fecha1;
   }
 }
@@ -87,7 +87,7 @@ function fecha_hora_create(val) {
   if(val==1){
   setTimeout(fecha_hora_create, 1000);
   }
-  if (mod=='tarjetas' || mod=='empresas') {    
+  if (mod=='tarjetas' || mod=='empresas' || mod=='perfil') {    
     inputCreate.value = fecha2;
   }
 }

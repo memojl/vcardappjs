@@ -257,6 +257,7 @@ if(mod=='Home'){listar_vcard();}
 
 /**CRUD VCARD*/
 let edit = true;
+let bol = 1;
 
 //Mostrar(Listar)
 function tarjetas(userid){//var reg = {};    
@@ -529,6 +530,7 @@ $('#app-modulo').on('click','.btnAdd',function(){
 
 //BTN-EDITAR [Form_Editar]
 $('#app-modulo').on('click','.btnEditar',function(){
+  console.log('bol='+bol);
   $("#form2").trigger('reset');
   fecha_hora_update(1);//fecha_hora_create(0);
   console.log('Boton Editar activado');  
@@ -586,6 +588,7 @@ $('#app-modulo').on('#form2').submit(function(e){
 
 //CRUD USER
 function vuser(uidUser){
+  bol=1;
   refUser.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);    
     const {ID,foto,usuario,email,uid} = reg;
@@ -617,7 +620,8 @@ function vuser(uidUser){
 }
 
 function vsignup(uidUser){
-  refSignup.on('child_added',function(datos){
+  bol=0;
+  refSignup.on('child_added',function(datos){    
     var reg=datos.val(); //console.log(reg);    
     const {ID,foto,usuario,email,uid} = reg;
     if(uidUser==uid){datos_user(reg); //console.log('vsignup');console.log(reg);
@@ -640,7 +644,7 @@ function vsignup(uidUser){
       </div>`
       if(mod=='perfil'){
         const content = document.querySelector("#myProfile");
-      content.innerHTML=template;
+        content.innerHTML=template;
       }
     }
   });
@@ -648,8 +652,10 @@ function vsignup(uidUser){
 
 //BTN-EDITAR [Form_Editar]
 $('#app-modulo').on('click','.btnEditar3',function(){
+  console.log('Bol='+bol);
   $("#form3").trigger('reset');
-  fecha_hora_update(1);//fecha_hora_create(0);
+  fecha_hora_update(1);//{fecha_hora_create(0);
+  if(bol==0){fecha_hora_create(1);}  
   console.log('Boton Editar activado');  
   const element = $(this)[0].parentElement.parentElement;
   let Id = $(element).attr('vcardId'); console.log(Id);
@@ -663,19 +669,20 @@ $('#app-modulo').on('click','.btnEditar3',function(){
 
   //Campos Ocultos
   $('#uid').val(uid_tag); //uid del usuario
-  //$('#f_create').val('f_update');
+
   //Campos de Edicion
   $('#nombre').val(nom_tag);
   $('#email').val(email_tag);
-      /*
+
+
+  /*
       //Campos Ocultos
       $('#cardId').val(Id),
       //$('#ID').val(valor.ID);
            
       
       //Campos de Edicion
-      $('#nombre').val(valor.usuario);
-      $('#email').val(valor.email);
+
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
@@ -699,5 +706,6 @@ function datos_user(regis){
   mail.innerHTML = email;
   uidg.innerHTML = uid;
 }
+
 
 //FIN DEL SCRIPT
