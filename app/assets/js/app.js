@@ -691,6 +691,37 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   //edit = true;
 });
 
+if(mod=='perfil'){
+  //Guardar(Enviar)/Editar
+  $('#app-modulo').on('#form3').submit(function(e){
+    e.preventDefault(); //console.log('Form2');
+    var Id=$('#cardId').val(); console.log(Id);
+    var action='';
+  
+    const postData = {
+      ID: $('#ID').val(),
+      uid: $('#uid').val(), //uid del usuario
+      f_create: $('#f_create').val(),
+      f_update: $('#f_update').val(),
+      //user: $('#user').val(),
+      cover: $('#cover').val(),
+      empresa: $('#empresa').val(),
+      bg_color: $('#bg_color').val(),
+      visible: $('#visible').val()    
+    };
+    console.log(postData);
+    if(edit==false){action='Guardado';
+      refEmpresas.push(postData); // Guardamos los datos en referencia
+    }else{action='Actualizado';
+      refEmpresas.child(Id).update(postData); // Actualizamos los datos en referencia
+    }
+    console.log('Se ha '+action+' el registro');
+    $("#form2").trigger('reset');
+    $('#empresaModal').modal('hide');
+    edit = false;
+  });
+  }
+
 function datos_user(regis){
   const fot = document.querySelector("#photo");
   const nom = document.querySelector("#nombre_session");
