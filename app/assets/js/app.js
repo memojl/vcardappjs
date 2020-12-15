@@ -589,13 +589,16 @@ $('#app-modulo').on('#form2').submit(function(e){
 //CRUD USER
 function vuser(uidUser){
   bol=1;
-  refUser.on('child_added',function(datos){
-    var reg=datos.val(); //console.log(reg);    
-    const {ID,foto,usuario,email,uid} = reg;
-    if(uidUser==uid){datos_user(reg); //console.log('vuser');console.log(reg);
+
+  refUser.on('value',function(datos){
+    var reg=datos.val(); //console.log(reg);        
+    // Recorremos los productos y los mostramos
+    $.each(reg, function(indice,valor){console.log(indice);
+      const {ID,foto,usuario,email,uid} = valor;
+      if(uidUser==uid){datos_user(valor); //console.log('vuser');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center" vcardId="${uid}">
+      var template = `<div class="user-block block text-center" vcardId="${indice}">
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
@@ -616,6 +619,8 @@ function vuser(uidUser){
       }
     console.log('vuser(Activo)');
     }else{vsignup(uidUser);console.log('vsignup(Activo)');}
+
+    })
   });
 }
 
@@ -627,7 +632,7 @@ function vsignup(uidUser){
     if(uidUser==uid){datos_user(reg); //console.log('vsignup');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center" vcardId="${uid}">
+      var template = `<div class="user-block block text-center" vcardId="">
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
@@ -668,26 +673,25 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   console.log(email_tag);
 
   //Campos Ocultos
+  $('#cardId').val(Id);
   $('#uid').val(uid_tag); //uid del usuario
 
   //Campos de Edicion
   $('#nombre').val(nom_tag);
   $('#email').val(email_tag);
 
-
   /*
       //Campos Ocultos
       $('#cardId').val(Id),
-      //$('#ID').val(valor.ID);
-           
+      //$('#ID').val(valor.ID);      
       
       //Campos de Edicion
-
       $('#visible').val(valor.visible);
+      
       //Imagen Cover
       $('#cover').val(valor.cover);
       $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
-      */
+  */
   //edit = true;
 });
 
@@ -697,27 +701,30 @@ if(mod=='perfil'){
     e.preventDefault(); //console.log('Form2');
     var Id=$('#cardId').val(); console.log(Id);
     var action='';
+    //var ima=(bol==0)?$('#cover').val():$('#cover').val();
   
     const postData = {
-      ID: $('#ID').val(),
+      foto: $('#cover').val(),
       uid: $('#uid').val(), //uid del usuario
+      email: $('#email').val(),
       f_create: $('#f_create').val(),
       f_update: $('#f_update').val(),
-      //user: $('#user').val(),
-      cover: $('#cover').val(),
-      empresa: $('#empresa').val(),
-      bg_color: $('#bg_color').val(),
-      visible: $('#visible').val()    
+      usuario: $('#nombre').val(),
+      direccion: $('#direc').val(),
+      tel: $('#tel').val(),
+      level: $('#level').val(),
+      tipoc: $('#tipoc').val(),
+      codi: $('#codi').val()
     };
     console.log(postData);
-    if(edit==false){action='Guardado';
-      refEmpresas.push(postData); // Guardamos los datos en referencia
+    if(bol==0){action='Guardado';
+      refUser.push(postData); // Guardamos los datos en referencia
     }else{action='Actualizado';
-      refEmpresas.child(Id).update(postData); // Actualizamos los datos en referencia
+      refUser.child(Id).update(postData); // Actualizamos los datos en referencia
     }
     console.log('Se ha '+action+' el registro');
     $("#form2").trigger('reset');
-    $('#empresaModal').modal('hide');
+    $('#myModal').modal('hide');
     edit = false;
   });
   }
