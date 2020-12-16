@@ -588,17 +588,17 @@ $('#app-modulo').on('#form2').submit(function(e){
 
 //CRUD USER
 function vuser(uidUser){
+  var n = 0;
   bol=1;
-
-  refUser.on('value',function(datos){
-    var reg=datos.val(); //console.log(reg);        
-    // Recorremos los productos y los mostramos
-    $.each(reg, function(indice,valor){console.log(indice);
-      const {ID,foto,usuario,email,uid} = valor;
-      if(uidUser==uid){datos_user(valor); //console.log('vuser');console.log(reg);
+/*  
+  refUser.on('child_added',function(datos){
+    var reg=datos.val(); //console.log(reg);    
+    const {ID,foto,usuario,email,uid} = reg;
+    if(uidUser==uid){datos_user(reg); //console.log('vuser');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center" vcardId="${indice}">
+      var template = `<div class="user-block block text-center" vcardId="">
+        <div id="key"></div>
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
@@ -617,11 +617,51 @@ function vuser(uidUser){
         const content = document.querySelector("#myProfile");
         content.innerHTML=template;
       }
-    console.log('vuser(Activo)');
-    }else{vsignup(uidUser);console.log('vsignup(Activo)');}
+      console.log('vuser(Activo)');
+      n = 1;
+    }//else{vsignup(uidUser);console.log('vsignup(Activo)');}
 
+    if(n==0){vsignup(uidUser);console.log('vsignup(Activo)');}
+  });
+*/
+
+  refUser.on('value',function(datos){
+    const card=document.querySelector('#key');
+    var reg=datos.val(); //console.log(reg);        
+    // Recorremos los productos y los mostramos
+    $.each(reg, function(indice,valor){//console.log(indice);
+      const {ID,foto,usuario,email,uid,f_create} = valor;
+      if(uidUser==uid){datos_user(valor); //console.log('vuser');console.log(reg);
+      var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+      var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
+      var template = `<div class="user-block block text-center" vcardId="${indice}">
+        <div>
+          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
+        </div>
+        <div class="avatar"><img src="${photo}" class="img-fluid">
+          <div class="order activo"></div>
+        </div><a href="#" class="user-title">
+          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
+        <div class="contributions">${uid}</div>
+        <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c">${f_create}</span></div>
+        <div class="details d-flex">
+          <div class="item"><i class="icon-info"></i><strong>150</strong></div>
+          <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
+          <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
+        </div>
+      </div>`
+      if(mod=='perfil'){
+        const content = document.querySelector("#myProfile");
+        content.innerHTML=template;
+      }
+      console.log('vuser(Activo)');
+      n = 1;
+    }//else{vsignup(uidUser);console.log('vsignup(Activo)');}
+
+    if(n==0){vsignup(uidUser);console.log('vsignup(Activo)');}
     })
   });
+
 }
 
 function vsignup(uidUser){
@@ -659,11 +699,11 @@ function vsignup(uidUser){
 $('#app-modulo').on('click','.btnEditar3',function(){
   console.log('Bol='+bol);
   $("#form3").trigger('reset');
-  fecha_hora_update(1);//{fecha_hora_create(0);
-  if(bol==0){fecha_hora_create(1);}  
+  fecha_hora_update(1);//{fecha_hora_create(0);  
   console.log('Boton Editar activado');  
   const element = $(this)[0].parentElement.parentElement;
   let Id = $(element).attr('vcardId'); console.log(Id);
+  if(Id==''){fecha_hora_create(1);}
 
   const uid_tag=document.querySelector('.contributions').textContent;
   console.log(uid_tag);
@@ -671,6 +711,12 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   console.log(nom_tag);
   const email_tag=document.querySelector('#email_session').textContent;
   console.log(email_tag);
+
+  if(Id!=''){
+  const fc=document.querySelector('#f_c').textContent;
+  console.log(fc);
+  $('#f_create').val(fc);
+  }
 
   //Campos Ocultos
   $('#cardId').val(Id);
@@ -717,7 +763,7 @@ if(mod=='perfil'){
       codi: $('#codi').val()
     };
     console.log(postData);
-    if(bol==0){action='Guardado';
+    if(Id==''){action='Guardado';
       refUser.push(postData); // Guardamos los datos en referencia
     }else{action='Actualizado';
       refUser.child(Id).update(postData); // Actualizamos los datos en referencia
