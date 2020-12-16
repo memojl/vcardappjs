@@ -447,10 +447,9 @@ function alError(error){
 $(document).on('click', '#Aceptar', function (e) {
   e.preventDefault();
   var frmData = new FormData;
-  frmData.append("userfile", $("input[name=userfile]")[0].files[0]);
-  //console.log('Se cargo Imagen');		
+  //var imaData = $("input[name=userfile]")[0].files[0].name;
+  frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
-    //url: page_url+'pages/'+mod+'/admin/backend.php?mod='+mod+'&action=subir_cover',
     url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
     type: 'POST',
     data: frmData,
@@ -638,7 +637,7 @@ function vuser(uidUser){
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
-        <div class="avatar"><img src="${photo}" class="img-fluid">
+        <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
           <h3 class="h5">${nombre}</h3><span>${email}</span></a>
@@ -676,7 +675,7 @@ function vsignup(uidUser){
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
-        <div class="avatar"><img src="${photo}" class="img-fluid">
+        <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
           <h3 class="h5">${nombre}</h3><span>${email}</span></a>
@@ -712,11 +711,17 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   const email_tag=document.querySelector('#email_session').textContent;
   console.log(email_tag);
 
+  //var div1 = document.getElementById("div1");
+  // var align = div1.getAttribute("align");
+  const avatar=document.querySelector('#ava').getAttribute("src");
+  console.log(avatar);
+
   if(Id!=''){
   const fc=document.querySelector('#f_c').textContent;
   console.log(fc);
   $('#f_create').val(fc);
   }
+
 
   //Campos Ocultos
   $('#cardId').val(Id);
@@ -726,18 +731,18 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   $('#nombre').val(nom_tag);
   $('#email').val(email_tag);
 
-  /*
+/*
       //Campos Ocultos
       $('#cardId').val(Id),
       //$('#ID').val(valor.ID);      
       
       //Campos de Edicion
       $('#visible').val(valor.visible);
-      
+*/      
       //Imagen Cover
-      $('#cover').val(valor.cover);
-      $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
-  */
+      $('#cover').val(avatar);
+      $("#ima").attr('src', avatar);
+
   //edit = true;
 });
 

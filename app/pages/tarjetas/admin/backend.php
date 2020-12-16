@@ -3,7 +3,7 @@ include 'functions.php';
 
 switch(true){
   case($action=='subir_cover'):
-
+	$mod=$_GET['mod'];
 	$cover = 'sinfoto.png';
 	$file=file_ima($cover);
 

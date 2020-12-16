@@ -10,11 +10,12 @@ if($host=='localhost'){
 }
 $page_url = $dominio.$path_root;
 $action = (isset($_GET['action']))?$_GET['action']:'';
-$mod = 'tarjetas';
+//$mod = 'tarjetas';
 
 function file_ima($cover){
 global $page_url,$mod;
-   $file='<input type="hidden" class="form-control" id="cover" name="cover" value="'.$cover.'">
+   $url_ima=($mod=='perfil')?$page_url.'files/images/photos/':'';
+   $file='<input type="hidden" class="form-control" id="cover" name="cover" value="'.$url_ima.$cover.'">
    <img id="ima" src="'.$page_url.'files/images/photos/'.$cover.'" style="width:150px;" title="'.$cover.'">
    <a href="javascript:up(1);">Cambiar Foto</a><div id="upload"></div>';
    return $file;
