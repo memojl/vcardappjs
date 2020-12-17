@@ -606,7 +606,7 @@ function vuser(uidUser){
         </div><a href="#" class="user-title">
          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
         <div class="contributions">${uid}</div>
-        <div><i class="fa fa-point"></i> Dirección: <span id="direc1">${direccion}</span></div>
+        <div><i class="fa fa-map-marker"></i> Dirección: <span id="direc1">${direccion}</span></div>
         <div><i class="fa fa-phone"></i> Tel: <span id="tel1">${tel}</span></div>
         <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c">${f_create}</span></div>
         <div><i class="fa fa-calendar"></i> Fecha de Actualización: <span>${f_update}</span></div>
@@ -639,7 +639,7 @@ function vsignup(uidUser){
     if(uidUser==uid){datos_user(reg); //console.log('vsignup');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center" vcardId="${indice}">
+      var template = `<div class="user-block block text-center" vcardId="">
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
@@ -648,16 +648,16 @@ function vsignup(uidUser){
         </div><a href="#" class="user-title">
          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
         <div class="contributions">${uid}</div>
-        <div><i class="fa fa-point"></i> Dirección: <span id="direc1">${direccion}</span></div>
-        <div><i class="fa fa-phone"></i> Tel: <span id="tel1">${tel}</span></div>
-        <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c">${f_create}</span></div>
-        <div><i class="fa fa-calendar"></i> Fecha de Actualización: <span>${f_update}</span></div>
+        <div><i class="fa fa-map-marker"></i> Dirección: <span id="direc1"></span></div>
+        <div><i class="fa fa-phone"></i> Tel: <span id="tel1"></span></div>
+        <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c"></span></div>
+        <div><i class="fa fa-calendar"></i> Fecha de Actualización: <span></span></div>
         <div class="details d-flex">
-          <div class="item"><i class="icon-info"></i><strong id="tipoc1">${tipoc}</strong></div>
-          <div class="item"><i class="fa fa-gg"></i><strong id="level1">${level}</strong></div>
+          <div class="item"><i class="icon-info"></i><strong id="tipoc1">0</strong></div>
+          <div class="item"><i class="fa fa-gg"></i><strong id="level1">0</strong></div>
           <div class="item"><i class="icon-flow-branch"></i><strong>0</strong></div>
         </div>
-        <div id="codi1">${codi}</div>
+        <div id="codi1"></div>
       </div>`
       if(mod=='perfil'){
         const content = document.querySelector("#myProfile");
