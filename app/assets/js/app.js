@@ -171,7 +171,7 @@ function leerDatos(userlogin) {
     var u = (user.usuario == null)?user.email:user.usuario;
     if (user.email == userlogin) {
       const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
-      const nombre = '<h1 class="h5">' + u + '</h1>';
+      const nombre = u;
       const correo = userlogin;
       const ID_user = user.uid;
 
