@@ -309,6 +309,7 @@ $('#app-modulo').on('click','.btn-add',function(){
   fecha_hora_create(1);//fecha_hora_update(0);
   console.log('Boton Agregar activado');
   let idVcard=refVcard.orderByChild('ID');
+  console.log(idVcard);
   idVcard.on('value',function(datos){
     var reg=datos.val();
     let val = Object.values(reg); //console.log(val);
@@ -507,6 +508,7 @@ $('#app-modulo').on('click','.btnAdd',function(){
   fecha_hora_create(1);//fecha_hora_update(0);
   console.log('Boton Agregar activado');
   let idVcard=refEmpresas.orderByChild('ID');
+
   idVcard.on('value',function(datos){
     var reg=datos.val();
     let val = Object.values(reg); //console.log(val);
