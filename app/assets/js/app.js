@@ -589,46 +589,46 @@ function vuser(uidUser){
   bol=1;
 
   refUser.on('value',function(datos){
-    const card=document.querySelector('#key');
-    var reg=datos.val(); //console.log(reg);        
+    //const card=document.querySelector('#key');
+    var reg=datos.val(); //console.log(reg);
+    if(reg==null){vsignup(uidUser);console.log('vsignup(Activo)+null');}        
     // Recorremos los productos y los mostramos
     $.each(reg, function(indice,valor){//console.log(indice);
       const {ID,foto,usuario,email,uid,f_create,f_update,direccion,tel,level,tipoc,codi} = valor;
       if(uidUser==uid){datos_user(valor); //console.log('vuser');console.log(reg);
-      var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
-      var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center" vcardId="${indice}">
-        <div>
-          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
-        </div>
-        <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
-          <div class="order activo"></div>
-        </div><a href="#" class="user-title">
-         <h3 class="h5">${nombre}</h3><span>${email}</span></a>
-        <div class="contributions">${uid}</div>
-        <div><i class="fa fa-map-marker"></i> Dirección: <span id="direc1">${direccion}</span></div>
-        <div><i class="fa fa-phone"></i> Tel: <span id="tel1">${tel}</span></div>
-        <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c">${f_create}</span></div>
-        <div><i class="fa fa-calendar"></i> Fecha de Actualización: <span>${f_update}</span></div>
-        <div class="details d-flex">
-          <div class="item"><i class="icon-info"></i><strong id="tipoc1">${tipoc}</strong></div>
-          <div class="item"><i class="fa fa-gg"></i><strong id="level1">${level}</strong></div>
-          <div class="item"><i class="icon-flow-branch"></i><strong>0</strong></div>
-        </div>
-        <div id="codi1">${codi}</div>
-      </div>`
-      if(mod=='perfil'){
-        const content = document.querySelector("#myProfile");
-        content.innerHTML=template;
-      }
-      console.log('vuser(Activo)');
-      n = 1;
-    }//else{vsignup(uidUser);console.log('vsignup(Activo)');}
+        var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+        var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
+        var template = `<div class="user-block block text-center" vcardId="${indice}">
+          <div>
+            <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
+          </div>
+          <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
+            <div class="order activo"></div>
+          </div><a href="#" class="user-title">
+            <h3 class="h5">${nombre}</h3><span>${email}</span></a>
+          <div class="contributions">${uid}</div>
+          <div><i class="fa fa-map-marker"></i> Dirección: <span id="direc1">${direccion}</span></div>
+          <div><i class="fa fa-phone"></i> Tel: <span id="tel1">${tel}</span></div>
+          <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c">${f_create}</span></div>
+          <div><i class="fa fa-calendar"></i> Fecha de Actualización: <span>${f_update}</span></div>
+          <div class="details d-flex">
+            <div class="item"><i class="icon-info"></i><strong id="tipoc1">${tipoc}</strong></div>
+            <div class="item"><i class="fa fa-gg"></i><strong id="level1">${level}</strong></div>
+            <div class="item"><i class="icon-flow-branch"></i><strong>0</strong></div>
+          </div>
+          <div id="codi1">${codi}</div>
+          </div>`
+        if(mod=='perfil'){
+          const content = document.querySelector("#myProfile");
+          content.innerHTML=template;
+        }
+        console.log('vuser(Activo)');
+        n = 1;
+      }//else{vsignup(uidUser);console.log('vsignup(Activo)');}
 
-    if(n==0){vsignup(uidUser);console.log('vsignup(Activo)');}
+      if(n==0){vsignup(uidUser);console.log('vsignup(Activo)');}
     })
   });
-
 }
 
 function vsignup(uidUser){
