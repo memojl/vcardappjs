@@ -3,7 +3,7 @@
 	"short_name": "VCARD-APP",
 	"description": "VCARD - Tarjetas de Contacto Digital",
 	"scope": ".",
-	"start_url": "http://localhost/MisSitios/vcardappjs/app/",
+	"start_url": "https://vcardappjs.herokuapp.com/app/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
