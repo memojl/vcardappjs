@@ -1,4 +1,7 @@
 //Service Worker sw.js / index.php
+console.log('sw-host: '+host);
+console.log('sw-path_root: '+path_root);
+
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Instalando Service Worker (sw.js)...', event);
   event.waitUntil(
