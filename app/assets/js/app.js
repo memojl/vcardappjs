@@ -64,7 +64,7 @@ logout.addEventListener("click", (e) => {
 const signUpForm = document.querySelector("#registro-form");
 signUpForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const usuario = signUpForm["register-username"].value;
+  const usuario = 'Sin Nombre';//const usuario = signUpForm["register-username"].value;
   const email = signUpForm["register-email"].value;
   const password = signUpForm["register-password"].value;
   var user = {/*uid: "",*/ displayName: usuario, email: email, photoURL: null}
