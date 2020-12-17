@@ -223,7 +223,8 @@ function listar_vcard(){
   let idVcard=refVcard.orderByChild("orden").limitToFirst(5);//limitToLast(5);
   idVcard.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);
-    const {ID,cover,profile,nombre,puesto,f_create} = reg;
+    const {ID,cover,profile,nombre,puesto,f_create,visible} = reg;
+    if(visible==1){
     template+=`
   <div class="public-user-block block">
     <div class="row d-flex align-items-center">                   
@@ -250,6 +251,7 @@ function listar_vcard(){
   </div>`  
   const lista = document.querySelector('#lista');
   lista.innerHTML=template;
+    }
   });
 }
 if(mod=='Home'){listar_vcard();}
