@@ -447,7 +447,6 @@ function alError(error){
 $(document).on('click', '#Aceptar', function (e) {
   e.preventDefault();
   var frmData = new FormData;
-  //var imaData = $("input[name=userfile]")[0].files[0].name;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
     url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
@@ -461,11 +460,10 @@ $(document).on('click', '#Aceptar', function (e) {
     },
     success: function (data) {
       $("#imagen").html(data);
-      $(".alert-dismissible").delay(2000).fadeOut("slow");
+      $(".alert-dismissible").delay(3000).fadeOut("slow");
       console.log("Subido Correctamente");
     }
   });
-  //return false;
 });
 
 /**CRUD EMPRESA */
@@ -589,47 +587,13 @@ $('#app-modulo').on('#form2').submit(function(e){
 function vuser(uidUser){
   var n = 0;
   bol=1;
-/*  
-  refUser.on('child_added',function(datos){
-    var reg=datos.val(); //console.log(reg);    
-    const {ID,foto,usuario,email,uid} = reg;
-    if(uidUser==uid){datos_user(reg); //console.log('vuser');console.log(reg);
-      var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
-      var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center" vcardId="">
-        <div id="key"></div>
-        <div>
-          <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
-        </div>
-        <div class="avatar"><img src="${photo}" class="img-fluid">
-          <div class="order activo"></div>
-        </div><a href="#" class="user-title">
-          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
-        <div class="contributions">${uid}</div>
-        <div class="details d-flex">
-          <div class="item"><i class="icon-info"></i><strong>150</strong></div>
-          <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
-          <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
-        </div>
-      </div>`
-      if(mod=='perfil'){
-        const content = document.querySelector("#myProfile");
-        content.innerHTML=template;
-      }
-      console.log('vuser(Activo)');
-      n = 1;
-    }//else{vsignup(uidUser);console.log('vsignup(Activo)');}
-
-    if(n==0){vsignup(uidUser);console.log('vsignup(Activo)');}
-  });
-*/
 
   refUser.on('value',function(datos){
     const card=document.querySelector('#key');
     var reg=datos.val(); //console.log(reg);        
     // Recorremos los productos y los mostramos
     $.each(reg, function(indice,valor){//console.log(indice);
-      const {ID,foto,usuario,email,uid,f_create} = valor;
+      const {ID,foto,usuario,email,uid,f_create,f_update,direccion,tel,level,tipoc,codi} = valor;
       if(uidUser==uid){datos_user(valor); //console.log('vuser');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
@@ -640,14 +604,18 @@ function vuser(uidUser){
         <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
-          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
+         <h3 class="h5">${nombre}</h3><span>${email}</span></a>
         <div class="contributions">${uid}</div>
+        <div><i class="fa fa-point"></i> Dirección: <span id="direc1">${direccion}</span></div>
+        <div><i class="fa fa-phone"></i> Tel: <span id="tel1">${tel}</span></div>
         <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c">${f_create}</span></div>
+        <div><i class="fa fa-calendar"></i> Fecha de Actualización: <span>${f_update}</span></div>
         <div class="details d-flex">
-          <div class="item"><i class="icon-info"></i><strong>150</strong></div>
-          <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
-          <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
+          <div class="item"><i class="icon-info"></i><strong id="tipoc1">${tipoc}</strong></div>
+          <div class="item"><i class="fa fa-gg"></i><strong id="level1">${level}</strong></div>
+          <div class="item"><i class="icon-flow-branch"></i><strong>0</strong></div>
         </div>
+        <div id="codi1">${codi}</div>
       </div>`
       if(mod=='perfil'){
         const content = document.querySelector("#myProfile");
@@ -671,20 +639,25 @@ function vsignup(uidUser){
     if(uidUser==uid){datos_user(reg); //console.log('vsignup');console.log(reg);
       var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
-      var template = `<div class="user-block block text-center" vcardId="">
+      var template = `<div class="user-block block text-center" vcardId="${indice}">
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
         <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
-          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
+         <h3 class="h5">${nombre}</h3><span>${email}</span></a>
         <div class="contributions">${uid}</div>
+        <div><i class="fa fa-point"></i> Dirección: <span id="direc1">${direccion}</span></div>
+        <div><i class="fa fa-phone"></i> Tel: <span id="tel1">${tel}</span></div>
+        <div><i class="fa fa-calendar"></i> Fecha de creación: <span id="f_c">${f_create}</span></div>
+        <div><i class="fa fa-calendar"></i> Fecha de Actualización: <span>${f_update}</span></div>
         <div class="details d-flex">
-          <div class="item"><i class="icon-info"></i><strong>150</strong></div>
-          <div class="item"><i class="fa fa-gg"></i><strong>340</strong></div>
-          <div class="item"><i class="icon-flow-branch"></i><strong>460</strong></div>
+          <div class="item"><i class="icon-info"></i><strong id="tipoc1">${tipoc}</strong></div>
+          <div class="item"><i class="fa fa-gg"></i><strong id="level1">${level}</strong></div>
+          <div class="item"><i class="icon-flow-branch"></i><strong>0</strong></div>
         </div>
+        <div id="codi1">${codi}</div>
       </div>`
       if(mod=='perfil'){
         const content = document.querySelector("#myProfile");
@@ -704,24 +677,25 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   let Id = $(element).attr('vcardId'); console.log(Id);
   if(Id==''){fecha_hora_create(1);}
 
-  const uid_tag=document.querySelector('.contributions').textContent;
-  console.log(uid_tag);
-  const nom_tag=document.querySelector('.h5').textContent;
-  console.log(nom_tag);
-  const email_tag=document.querySelector('#email_session').textContent;
-  console.log(email_tag);
-
-  //var div1 = document.getElementById("div1");
-  // var align = div1.getAttribute("align");
-  const avatar=document.querySelector('#ava').getAttribute("src");
-  console.log(avatar);
+  const uid_tag=document.querySelector('.contributions').textContent;console.log(uid_tag);
+  const nom_tag=document.querySelector('.h5').textContent;console.log(nom_tag);
+  const email_tag=document.querySelector('#email_session').textContent;console.log(email_tag);
+  const avatar=document.querySelector('#ava').getAttribute("src");console.log(avatar);
 
   if(Id!=''){
-  const fc=document.querySelector('#f_c').textContent;
-  console.log(fc);
+  const fc=document.querySelector('#f_c').textContent;console.log(fc);
   $('#f_create').val(fc);
+  const direc=document.querySelector('#direc1').textContent;console.log(direc);
+  $('#direc').val(direc);
+  const tel=document.querySelector('#tel1').textContent;console.log(tel);
+  $('#tel').val(tel);
+  const level=document.querySelector('#level1').textContent;console.log(level);
+  $('#level').val(level);
+  const tipoc=document.querySelector('#tipoc1').textContent;console.log(tipoc);
+  $('#tipoc').val(tipoc);
+  const codi=document.querySelector('#codi1').textContent;console.log(codi);
+  $('#codi').val(codi);
   }
-
 
   //Campos Ocultos
   $('#cardId').val(Id);
@@ -731,17 +705,9 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   $('#nombre').val(nom_tag);
   $('#email').val(email_tag);
 
-/*
-      //Campos Ocultos
-      $('#cardId').val(Id),
-      //$('#ID').val(valor.ID);      
-      
-      //Campos de Edicion
-      $('#visible').val(valor.visible);
-*/      
-      //Imagen Cover
-      $('#cover').val(avatar);
-      $("#ima").attr('src', avatar);
+  //Imagen Cover
+  $('#cover').val(avatar);
+  $("#ima").attr('src', avatar);
 
   //edit = true;
 });
