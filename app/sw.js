@@ -1,6 +1,8 @@
 //Service Worker sw.js / index.php
-
-var path_root = 'app/';
+var host1 = location.host;
+var proyecto = 'vcardappjs'; //PROYECTO
+var sub_path = 'app/'; //SUB_PATH
+var path_root = (host1 == 'localhost') ? 'MisSitios/' + proyecto + '/' + sub_path : sub_path;
 
 self.addEventListener('install', function(event) {
   console.log('[Service Worker] Instalando Service Worker (sw.js)...', event);
