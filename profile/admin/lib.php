@@ -12,7 +12,7 @@ $time		= date('Gis');
 $fecha		= date('Y-m-d');
 $date		= date("Y-m-d H:i:s");
 $serv_proto = (isset($_SERVER['SERVER_PROTOCOL']))?$_SERVER['SERVER_PROTOCOL']:''; //Protocolo de Internet
-$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://'; //Protocolo de Internet
+//$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://'; //Protocolo de Internet
 //$protocol   = (isset($_SERVER['HTTPS']))?'https://':'http://';  //Protocolo de Internet
 $host		= $_SERVER['HTTP_HOST'];			//Nombre del dominio (dominio.com).
 $ip_address = $_SERVER['REMOTE_ADDR'];			//Se obtiene la direccion ip del visitante de la pagina web.
@@ -23,7 +23,7 @@ $pag_url 	= $_SERVER['REQUEST_URI'];		    //Se obtiene la url de la pagina inclu
 $pag_name 	= basename($_SERVER['PHP_SELF']);   //Nombre de la pagina.
 $refer 		= (isset($_SERVER['HTTP_REFERER']))?$_SERVER['HTTP_REFERER']:'';
 
-//$protocol   = ($host=='localhost')?'http://':'https://';
+$protocol   = ($host=='localhost')?'http://':'https://';
 $dominio    = $protocol.$host.'/';          //Dominio Estructurado
 $dominio1   = $protocol.$host;              //Dominio Simple
 $url        = $dominio1.$pag_self;			//Se obtiene la url de la pagina.
