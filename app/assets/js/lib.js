@@ -114,8 +114,8 @@ function menu() {
   var m2 = (mod == 'perfil') ? ' class="active"' : '';
   var m3 = (mod == 'tarjetas') ? ' class="active"' : '';
   var m4 = (mod == 'empresas') ? ' class="active"' : '';
-  var menu = `<li${m1}><a href="${page_url}"> <i class="icon-dashboard"></i>Dashboard </a></li>
-    <li${m2}><a href="${page_url}perfil"> <i class="fa fa-user"></i>Perfil </a></li>
+  var menu = `<li${m1}><a href="${page_url}"> <i class="fa fa-home"></i>Home </a></li>
+    <!--li${m2}><a href="${page_url}perfil"> <i class="fa fa-user"></i>Perfil </a></li-->
     <li${m3}><a href="${page_url}tarjetas"> <i class="fa fa-vcard"></i>Mis Tarjetas </a></li>
     <li${m4}><a href="${page_url}empresas"> <i class="fa fa-industry"></i>Empresas </a></li>`;
   $('.list-unstyled').html(menu);

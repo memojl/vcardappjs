@@ -2,26 +2,34 @@
 include 'admin/lib.php';
 
 if($perfil!='' && $perfil!=NULL){
-    /*
-    $row=query_row($tabla='vcard',$campo='profile',$idp);
+    $row=query_row($tabla,'https://vcardapp-js.firebaseio.com/vcard_vcard.json',$campo='profile',$perfil);
     $ID=$row['ID'];
-    $cover=$row['cover'];
     $profile=$row['profile'];
     $nombre=$row['nombre'];
+    $cover=$row['cover'];
     $des=$row['descripcion'];
-    $puesto=$row['puesto'];
-    $empresa=$row['empresa'];
-    $tel=$row['tel'];
-    $tel_ofi=$row['tel_ofi'];
-    $cell=$row['cell'];
     $email=$row['email'];
+    $cell=$row['cell'];
+    $tel_ofi=$row['tel_ofi'];
+    $puesto=$row['puesto'];
+    $idemp=$row['idemp'];    
     $web=$row['web'];
     $fb=$row['fb'];
     $tw=$row['tw'];
     $lk=$row['lk'];
     $ins=$row['ins'];
+    $orden=$row['orden'];
+    //$uid=$row['uid'];
+    //$user=$row['user'];
+    $f_create=$row['f_create'];
+    $f_update=$row['f_update'];
     $visible=$row['visible'];
-    */
+
+    $reg=query_row($tabla,'https://vcardapp-js.firebaseio.com/vcard_vcard_empresas.json',$campo='ID',$idemp);
+    $empresa=$reg['empresa'];
+    $logo=$reg['cover'];
+    $bg_color=$reg['bg_color'];
+
     include $tema_ver.'/index.html';
 }else{
     echo $bootstrap;

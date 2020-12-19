@@ -29,8 +29,8 @@ console.log(perfil);
 var url_json_vcard = 'https://vcardapp-js.firebaseio.com/vcard_vcard.json';
 console.log(url_json_vcard);
 
-//document.getElementById('nom').style.fontSize="30px";
-//document.getElementById('bg-fondo').style.backgroundColor='#000000';
+document.getElementById('nom').style.fontSize="30px";
+document.getElementById('bg-fondo').style.backgroundColor='#000000';
 /*FUNCIONES */
 function filename(){
   var rutaAbsoluta = self.location.href;
@@ -46,30 +46,30 @@ const obtenerVcard = async () => {
     let val = Object.values(data); //console.log(val)
     const pro = val.filter((per) => per.profile === perfil);//console.log(pro)
     const { ID,cover,profile,nombre,cell,email,descripcion,puesto,web,idemp,fb,tw,lk,ins,visible } = pro[0];
-    //document.getElementById('idp').innerHTML='<!-- '+ID+' -->';
-    //document.getElementById('cov').innerHTML='<div class="img" ng-style="{&#39;background&#39;:view.avatar?&#39;url(&#39;+view.avatar+&#39;)&#39;:&#39;none&#39;}" style="background: url(../app/files/images/photos/'+cover+');"></div>';
-    //document.getElementById('prof').innerHTML='<!-- '+profile+' -->';
-    //document.getElementById('nom').innerHTML=nombre;
-    //document.getElementById('btn-cell').innerHTML='<a href="tel:'+cell+'"><i class="icon-phone dynamicTextColor"></i><small class="dynamicTextColor">Llamar</small></a>';
-    //document.getElementById('btn-email').innerHTML='<a href="mailto:'+email+'?subject=Desde%20Mi%20Tarjeta&body=" target="_newEmail""><i class="icon-send dynamicTextColor"></i><small class="dynamicTextColor">Email</small></a>';
+    document.getElementById('idp').innerHTML='<!-- '+ID+' -->';
+    document.getElementById('cov').innerHTML='<div class="img" ng-style="{&#39;background&#39;:view.avatar?&#39;url(&#39;+view.avatar+&#39;)&#39;:&#39;none&#39;}" style="background: url(../app/files/images/photos/'+cover+');"></div>';
+    document.getElementById('prof').innerHTML='<!-- '+profile+' -->';
+    document.getElementById('nom').innerHTML=nombre;
+    document.getElementById('btn-cell').innerHTML='<a href="tel:'+cell+'"><i class="icon-phone dynamicTextColor"></i><small class="dynamicTextColor">Llamar</small></a>';
+    document.getElementById('btn-email').innerHTML='<a href="mailto:'+email+'?subject=Desde%20Mi%20Tarjeta&body=" target="_newEmail""><i class="icon-send dynamicTextColor"></i><small class="dynamicTextColor">Email</small></a>';
 
-    //document.getElementById('bio').innerHTML=descripcion;
-    //document.getElementById('pue').innerHTML=puesto;
-    //document.getElementById('cell').innerHTML=cell;
-    //document.getElementById('cell').href='tel:'+cell;
-    ////document.getElementById('tel').innerHTML=reg.tel;
-    //document.getElementById('mailto').innerHTML=email;
-    //document.getElementById('mailto').href='mailto:'+email;
-    ////document.getElementById('empresa').innerHTML=empresa;
-    //document.getElementById('web').innerHTML=web;
-    //document.getElementById('web').href=web;
+    document.getElementById('bio').innerHTML=descripcion;
+    document.getElementById('pue').innerHTML=puesto;
+    document.getElementById('cell').innerHTML=cell;
+    document.getElementById('cell').href='tel:'+cell;
+    //document.getElementById('tel').innerHTML=reg.tel;
+    document.getElementById('mailto').innerHTML=email;
+    document.getElementById('mailto').href='mailto:'+email;
+    //document.getElementById('empresa').innerHTML=empresa;
+    document.getElementById('web').innerHTML=web;
+    document.getElementById('web').href=web;
 
-    //document.getElementById('send-email').href=URL;
-    //document.getElementById('share-facebook').href=URL;
-    ////document.getElementById('share-twitter').href=URL;
-    //document.getElementById('share-whatsapp').href='whatsapp://send?text='+URL;
-    //document.getElementById('share-email').href='mailto:?body='+URL;
-    //document.getElementById('shortUrl').value=URL;
+    document.getElementById('send-email').href=URL;
+    document.getElementById('share-facebook').href=URL;
+    //document.getElementById('share-twitter').href=URL;
+    document.getElementById('share-whatsapp').href='whatsapp://send?text='+URL;
+    document.getElementById('share-email').href='mailto:?body='+URL;
+    document.getElementById('shortUrl').value=URL;
 
     if(fb!='' && fb!=null && fb!='undefined'){
       var fb1=`
@@ -120,7 +120,7 @@ const obtenerVcard = async () => {
       <!-- end ngRepeat: channel in view.code.channels track by $index -->`;
     }else{var lk1='';}
     document.getElementById('social-media').innerHTML=fb1+tw1+ins1+lk1;
-    //empresa(idemp);
+    empresa(idemp);
   } catch (error) {
     console.log(error);
   }
@@ -135,10 +135,10 @@ const empresa = async (idemp) => {
     const emp = val.filter((em) => em.ID == idemp); //console.log(emp)
     const {ID,cover,empresa,bg_color} = emp[0];
       bgcolor=(bg_color!=null)?bg_color:'#ffffff';
-      //document.getElementById('bg-fondo').style.backgroundColor=bgcolor;
-      ////document.getElementById('prime').style.backgroundColor=bg_color;
-      //document.getElementById('empresa').innerHTML=empresa;
-      ////document.getElementById('logo').innerHTML=cover;
+      document.getElementById('bg-fondo').style.backgroundColor=bgcolor;
+      //document.getElementById('prime').style.backgroundColor=bg_color;
+      document.getElementById('empresa').innerHTML=empresa;
+      //document.getElementById('logo').innerHTML=cover;
   } catch (error) {
     console.log(error);
   }

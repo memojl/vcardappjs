@@ -28,11 +28,40 @@ $dominio1   = $protocol.$host;              //Dominio Simple
 $url        = $dominio1.$pag_self;			//Se obtiene la url de la pagina.
 $URL        = $dominio1.$pag_url;			//Se obtiene la url completa, incluyendo variables.
 
-$path_root  = ($host=='localhost')?'MisSitios/vcardappjs/profile/':'profile/';
+$path_root  = ($host=='localhost')?'MisSitios/vcardappjs/':'';
 $page_url   = $dominio.$path_root;
 /*VARIABLES GET*/
 $perfil     = (isset($_GET['pro']))?$_GET['pro']:'';
 /**TEMA */
 $tema_ver = 'v1';
 /*---VARIABLES DE PAGINA---*/
-$bootstrap='<link href="'.$page_url.'../app/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">'."\r\n";
+$bootstrap='<link href="'.$page_url.'app/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">'."\r\n";
+
+
+/*---------------------------------------------------------------------------------------------------------------------*/
+//--FUNCIONES DE CONSULTAS BASICAS--//////////////////////////////////////////////////////////////////////////////
+/*---------------------------------------------------------------------------------------------------------------------*/
+//FUNCION DATA 
+function query_data($tabla,$url_api){
+global $page_url,$path_jsonDB,$path_jsonWS;
+    $path_JSON=$path_jsonDB.$tabla.'.json';
+    if(!file_exists($path_JSON)){$path_JSON=$page_url.$path_jsonWS.$tabla;}
+    $path_JSON=($url_api)?$url_api:$path_JSON;//echo $path_JSON;
+    $objData=file_get_contents($path_JSON);//*Tarda consulta
+    $Data=json_decode($objData,true);//usort($Data, function($a, $b){return strnatcmp($a['ord'], $b['ord']);});//Orden del menu
+    return $Data;
+}
+
+//--FUNCIONES CRUD JSON--//////////////////////////////////////////////////////////////////////////////
+//[GET-SHOW][ID] Buscar ID/CAMPO y Mostrar un registro  
+function query_row($tabla,$url_api,$campo,$id){
+    $data=query_data($tabla,$url_api);
+    //DATOS
+    foreach($data as $key => $value){
+        $b_id=$data[$key][$campo];
+        if($b_id==$id){//$index=$key;
+            $row=$data[$key];
+        }
+    }
+    return $row;
+}
