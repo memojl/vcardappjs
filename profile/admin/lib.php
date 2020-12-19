@@ -65,3 +65,39 @@ function query_row($tabla,$url_api,$campo,$id){
     }
     return $row;
 }
+
+function crear_vcard($path_f,$nombre_archivo,$contenido,&$path_file){
+$path_file=$path_f.$nombre_archivo;
+$archivo=fopen($path_file, "w+");
+fwrite($archivo, $contenido);
+fclose($archivo);
+}
+
+function profile_vcard(){
+global $page_url,$mod;
+global $profile,$nombre,$empresa,$puesto,$email,$cell,$tel_ofi,$web;
+        
+$path_f='../app/files/vcf/';
+$nombre_archivo=$profile.'.vcf';
+$contenido='BEGIN:VCARD
+VERSION:3.0
+N: ;'.$nombre.';;;
+FN:'.$nombre.'
+ORG:'.$empresa.';
+TITLE:'.$puesto.'
+EMAIL;TYPE=PREF,INTERNET:'.$email.'
+TEL;TYPE=CELL,voice:'.$cell.'
+TEL;TYPE=WORK,voice:'.$tel_ofi.'
+TEL;TYPE=WORK,fax:
+URL:'.$web.'
+    
+NOTE:Tarjeta creada desde VcardApp
+    
+REV:2008-04-24T19:52:43Z
+END:VCARD
+';
+crear_vcard($path_f,$nombre_archivo,$contenido,$path_file);
+}
+
+
+

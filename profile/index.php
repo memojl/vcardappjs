@@ -30,10 +30,10 @@ if($perfil!='' && $perfil!=NULL){
     $logo=$reg['cover'];
     $bg_color=$reg['bg_color'];
 
+    profile_vcard();
     include $tema_ver.'/index.html';
 }else{
-    echo $bootstrap;
-    
+    echo $bootstrap;    
     echo '<div class="alert alert-danger"><b>Error 404:</b> Perfil No encontrado</div>';
 }
 ?>
