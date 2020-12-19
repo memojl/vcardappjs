@@ -12,8 +12,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 </IfModule>
 
 
-#<FilesMatch "\.(ttf|otf|eot|woff|woff2)$">
-#  <IfModule mod_headers.c>
-#    Header set Access-Control-Allow-Origin "*"
-#  </IfModule>
-#</FilesMatch>
+<FilesMatch "\.(css|ttf|otf|eot|woff|woff2)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
