@@ -452,8 +452,8 @@ $(document).on('click', '#Aceptar', function (e) {
   var frmData = new FormData;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
-    //url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
-    url: 'https://cloudphp.webcindario.com/bloques/files/admin/backend.php',
+    url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
+    //url: 'https://cloudphp.webcindario.com/bloques/files/admin/backend.php?mod='+mod+'&action=subir_cover',
     crossDomain: true,
     type: 'POST',
     data: frmData,
