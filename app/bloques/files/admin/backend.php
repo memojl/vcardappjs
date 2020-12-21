@@ -3,7 +3,7 @@ include 'functions.php';
 
 switch(true){
   case($action=='subir_cover'):
-	$cover = 'sinfoto.png';
+	$cover = 'bloques/files/images/photos/sinfoto.png';
 	$file=file_ima($cover);
 
 	//datos del arhivo 

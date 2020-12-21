@@ -6,7 +6,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 $proyecto='vcardappjs/app/';
 $host = $_SERVER['HTTP_HOST']; //Nombre del dominio (dominio.com).
 $dominio = ($host=='localhost')?'http://'.$host.'/':'https://'.$host.'/';
-$path_root = ($host=='localhost')?'MisSitios/'.$proyecto:'';
+$path_root = ($host=='localhost')?'MisSitios/'.$proyecto:'app/';
 $page_url = $dominio.$path_root;
 $mod = (isset($_GET['mod']))?$_GET['mod']:'';
 $action = (isset($_GET['action']))?$_GET['action']:'';
