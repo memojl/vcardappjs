@@ -449,8 +449,7 @@ function alError(error){
 //SUBIR COVER
 $(document).on('click', '#Aceptar', function (e) {
   e.preventDefault();
-  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudphp.webcindario.com/';
-  const CLOUD_URL = page_url;
+  const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
   var frmData = new FormData;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
