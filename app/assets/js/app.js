@@ -230,7 +230,7 @@ function listar_vcard(){
     <div class="row d-flex align-items-center">                   
       <div class="col-lg-4 d-flex align-items-center">
         <div class="order">${ID}</div>
-        <div class="avatar"> <img src="./files/images/photos/${cover}" class="img-fluid"></div>
+        <div class="avatar"> <img src="bloques/files/images/photos/${cover}" class="img-fluid"></div>
         <a href="${page_url}../profile/${profile}" class="name">
           <strong class="d-block">${nombre}</strong>
           <span class="d-block">${profile}</span>
@@ -285,7 +285,7 @@ function tarjetas(userid){//var reg = {};
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
-            <div class="avatar"><img src="`+page_url+`files/images/photos/${cover}" alt="..." class="img-fluid">
+            <div class="avatar"><img src="`+page_url+`bloques/files/images/photos/${cover}" alt="..." class="img-fluid">
               <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
               <h3 class="h5">${nombre}</h3><span>${puesto}</span></a>
@@ -328,7 +328,7 @@ $('#app-modulo').on('click','.btn-add',function(){
   $('#user').val(name.textContent);
   //Imagen Cover
   $('#cover').val('sinfoto.png');
-  $("#ima").attr('src', page_url+'files/images/photos/sinfoto.png');
+  $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
   edit = false;
 });
 
@@ -366,7 +366,7 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
-      $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
+      $("#ima").attr('src', page_url+'bloques/files/images/photos/' + valor.cover);
   });
   edit = true;
 });
@@ -449,11 +449,12 @@ function alError(error){
 //SUBIR COVER
 $(document).on('click', '#Aceptar', function (e) {
   e.preventDefault();
+  const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudphp.webcindario.com/';
   var frmData = new FormData;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
-    url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
-    //url: 'https://cloudphp.webcindario.com/bloques/files/admin/backend.php?mod='+mod+'&action=subir_cover',
+    //url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
+    url: CLOUD_URL+'bloques/files/admin/backend.php?mod='+mod+'&action=subir_cover',
     crossDomain: true,
     type: 'POST',
     data: frmData,
@@ -487,7 +488,7 @@ function empresas(userid){
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
-            <div class="avatar"><img src="`+page_url+`files/images/photos/${valor.cover}" alt="logo-${valor.empresa}" class="img-fluid">
+            <div class="avatar"><img src="`+page_url+`bloques/files/images/photos/${valor.cover}" alt="logo-${valor.empresa}" class="img-fluid">
               <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
               <h3 class="h5">${valor.empresa}</h3><span></span></a>
@@ -527,7 +528,7 @@ $('#app-modulo').on('click','.btnAdd',function(){
   //$('#user').val(name.textContent);
   //Imagen Cover
   $('#cover').val('sinfoto.png');
-  $("#ima").attr('src', page_url+'files/images/photos/sinfoto.png');
+  $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
   edit = false;
 });
 
@@ -553,7 +554,7 @@ $('#app-modulo').on('click','.btnEditar',function(){
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
-      $("#ima").attr('src', page_url+'files/images/photos/' + valor.cover);
+      $("#ima").attr('src', page_url+'bloques/files/images/photos/' + valor.cover);
   });
   edit = true;
 });
@@ -602,7 +603,7 @@ function vuser(uidUser){
     $.each(reg, function(indice,valor){//console.log(indice);
       const {ID,foto,usuario,email,uid,f_create,f_update,direccion,tel,level,tipoc,codi} = valor;
       if(uidUser==uid){datos_user(valor); //console.log('vuser');console.log(reg);
-        var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+        var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'bloques/files/images/photos/sinfoto.png';
         var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
         var template = `<div class="user-block block text-center" vcardId="${indice}">
           <div>
@@ -643,7 +644,7 @@ function vsignup(uidUser){
     var reg=datos.val(); //console.log(reg);    
     const {ID,foto,usuario,email,uid} = reg;
     if(uidUser==uid){datos_user(reg); //console.log('vsignup');console.log(reg);
-      var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+      var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'bloques/files/images/photos/sinfoto.png';
       var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
       var template = `<div class="user-block block text-center" vcardId="">
         <div>
@@ -759,7 +760,7 @@ function datos_user(regis){
   const uidg = document.querySelector("#id_code_google");
   const {ID,foto,usuario,email,uid} = regis;
 
-  var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'files/images/photos/sinfoto.png';
+  var photo = (foto!='' && foto!=null && foto!='undefined')?foto:page_url+'bloques/files/images/photos/sinfoto.png';
   var nombre = (usuario!='' && usuario!=null && usuario!='undefined')?usuario:'Sin Nombre';
 
   fot.innerHTML = '<img src="' + photo + '" class="img-fluid rounded-circle">';

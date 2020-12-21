@@ -3,12 +3,11 @@ include 'functions.php';
 
 switch(true){
   case($action=='subir_cover'):
-	$mod=$_GET['mod'];
 	$cover = 'sinfoto.png';
 	$file=file_ima($cover);
 
 	//datos del arhivo 
-	$repositor='../../../files/images/photos/';
+	$repositor='../images/photos/';
 	$nombre_archivo = $_FILES['userfile']['name']; 
 	$tipo_archivo = $_FILES['userfile']['type']; 
 	$tamano_archivo = $_FILES['userfile']['size']; 
