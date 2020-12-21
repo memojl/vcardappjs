@@ -78,7 +78,7 @@ function profile_vcard(){
 global $page_url,$mod;
 global $profile,$nombre,$empresa,$puesto,$email,$cell,$tel_ofi,$web;
         
-$path_f='../app/files/vcf/';
+$path_f='../app/bloques/files/vcf/';
 $nombre_archivo=$profile.'.vcf';
 $contenido='BEGIN:VCARD
 VERSION:3.0

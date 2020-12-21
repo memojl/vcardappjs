@@ -167,7 +167,7 @@ function leerDatos(userlogin) {
   const uid = document.querySelector("#id_code_google");
   db.ref("vcard_signup").on("child_added", function (s) {
     var user = s.val();
-    var f = (user.foto == null)?'assets/img/photos/sinfoto.png':user.foto;
+    var f = (user.foto == null)?'bloques/files/images/photos/sinfoto.png':user.foto;
     var u = (user.usuario == null)?user.email:user.usuario;
     if (user.email == userlogin) {
       const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
@@ -230,7 +230,7 @@ function listar_vcard(){
     <div class="row d-flex align-items-center">                   
       <div class="col-lg-4 d-flex align-items-center">
         <div class="order">${ID}</div>
-        <div class="avatar"> <img src="bloques/files/images/photos/${cover}" class="img-fluid"></div>
+        <div class="avatar"> <img src="${cover}" class="img-fluid"></div>
         <a href="${page_url}../profile/${profile}" class="name">
           <strong class="d-block">${nombre}</strong>
           <span class="d-block">${profile}</span>
@@ -272,7 +272,7 @@ function tarjetas(userid){//var reg = {};
         var ID = (valor.ID == null)?'':valor.ID;
         var uid = (valor.uid == null)?'':valor.uid;
         var profile = (valor.profile == null)?'':valor.profile;
-        var cover = (valor.cover == null)?'sinfoto.png':valor.cover;
+        var cover = (valor.cover == null)?'bloques/files/images/photos/sinfoto.png':valor.cover;
         var nombre = (valor.nombre == null)?'':valor.nombre;
         var puesto = (valor.puesto == null)?'':valor.puesto;
         var email = (valor.email == null)?'':valor.email;
@@ -285,7 +285,7 @@ function tarjetas(userid){//var reg = {};
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
-            <div class="avatar"><img src="`+page_url+`bloques/files/images/photos/${cover}" alt="..." class="img-fluid">
+            <div class="avatar"><img src="${cover}" alt="..." class="img-fluid">
               <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
               <h3 class="h5">${nombre}</h3><span>${puesto}</span></a>
@@ -327,7 +327,7 @@ $('#app-modulo').on('click','.btn-add',function(){
   let name=document.querySelector('#email_session');  
   $('#user').val(name.textContent);
   //Imagen Cover
-  $('#cover').val('sinfoto.png');
+  $('#cover').val('bloques/files/images/photos/sinfoto.png');
   $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
   edit = false;
 });
@@ -366,7 +366,7 @@ $('#app-modulo').on('click','.btn-edit',function(){
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
-      $("#ima").attr('src', page_url+'bloques/files/images/photos/' + valor.cover);
+      $("#ima").attr('src', valor.cover);
   });
   edit = true;
 });
@@ -488,7 +488,7 @@ function empresas(userid){
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
-            <div class="avatar"><img src="`+page_url+`bloques/files/images/photos/${valor.cover}" alt="logo-${valor.empresa}" class="img-fluid">
+            <div class="avatar"><img src="${valor.cover}" alt="logo-${valor.empresa}" class="img-fluid">
               <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
               <h3 class="h5">${valor.empresa}</h3><span></span></a>
@@ -527,7 +527,7 @@ $('#app-modulo').on('click','.btnAdd',function(){
   //let name=document.querySelector('#email_session');  
   //$('#user').val(name.textContent);
   //Imagen Cover
-  $('#cover').val('sinfoto.png');
+  $('#cover').val('bloques/files/images/photos/sinfoto.png');
   $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
   edit = false;
 });
@@ -554,7 +554,7 @@ $('#app-modulo').on('click','.btnEditar',function(){
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
-      $("#ima").attr('src', page_url+'bloques/files/images/photos/' + valor.cover);
+      $("#ima").attr('src', valor.cover);
   });
   edit = true;
 });
