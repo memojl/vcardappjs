@@ -3,10 +3,12 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 //FUNCIONES ESPECIALES MOD: VCARD
 
-$proyecto='vcardappjs/app/';
+
+$proyecto='vcardappjs';
 $host = $_SERVER['HTTP_HOST']; //Nombre del dominio (dominio.com).
 $dominio = ($host=='localhost')?'http://'.$host.'/':'https://'.$host.'/';
-$path_root = ($host=='localhost')?'MisSitios/'.$proyecto:'app/';
+$path_app($proyecto=='vcardappjs'|| $host=='vcardappjs.herokuapp.com')?'app/':'';
+$path_root = ($host=='localhost')?'MisSitios/'.$proyecto.'/'.$path_app:$path_app;
 $page_url = $dominio.$path_root;
 $mod = (isset($_GET['mod']))?$_GET['mod']:'';
 $action = (isset($_GET['action']))?$_GET['action']:'';
