@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+N: ;Guillermo Jimenez Lopez;;;
+FN:Guillermo Jimenez Lopez
+ORG:Multiportal;
+TITLE:Desarrollador Web
+EMAIL;TYPE=PREF,INTERNET:multiportal@outlook.com
+TEL;TYPE=CELL,voice:4426002842
+TEL;TYPE=WORK,voice:
+TEL;TYPE=WORK,fax:
+URL:http://www.multiportal.com.mx
+    
+NOTE:Tarjeta creada desde VcardApp
+    
+REV:2008-04-24T19:52:43Z
+END:VCARD

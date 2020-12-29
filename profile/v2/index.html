@@ -3,10 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" itemscope="" class="ng-scope" lang="es-MX">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
-      <link rel="stylesheet" type="text/css" href="assets/css/template_normal.min.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-      <link rel="stylesheet" type="text/css" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
 
       <title>Tarjeta de Contacto Digital</title>
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -62,9 +58,25 @@
       <!-- Schema.org markup for Google+ -->
       <meta itemprop="name" content="<?php echo $nombre;?>">
       <meta itemprop="description" content="<?php echo $puesto;?>">
-      <meta itemprop="image" content="<?php echo $cover;?>">
+	  <meta itemprop="image" content="<?php echo $cover;?>">
+	  
+	  <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es" rel="stylesheet" type="text/css" />
+	  <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
    </head>
    <body>
-
+		<div id="container">
+			<div id="head"></div>
+			<div id="portada"></div>
+			<div id="base">
+				<div id="td1">
+					<div id="contenedorfoto">
+						<div id="fotoperfil" style="background:url(<?php echo $cover;?>);background-repeat: no-repeat; background-size:cover; background-position: center;"></div>				
+					</div>
+				</div>
+				<div id="td2"></div>
+			</div>
+			<div id="footerbar"></div>
+		</div>
    </body>
 </html>
