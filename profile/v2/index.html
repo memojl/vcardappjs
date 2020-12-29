@@ -66,12 +66,22 @@
    </head>
    <body>
 		<div id="container">
-			<div id="head"></div>
+			<div id="head">
+				<img id="logo" src="<?php echo $logo;?>">
+			</div>
 			<div id="portada"></div>
 			<div id="base">
 				<div id="td1">
 					<div id="contenedorfoto">
 						<div id="fotoperfil" style="background:url('<?php echo $cover;?>');background-repeat: no-repeat; background-size:cover; background-position: center;"></div>				
+					</div>
+					<h1 id="tit"><?php echo $nombre;?></h1>
+					<div class="row-div"><?php echo $puesto;?></div>
+					<div class="row-div"><?php echo $des;?></div>
+					<div id="medios">
+						<a href="tel:<?php echo $cell;?>"><i class="fa fa-phone"></i><span>Llamar</span></a>
+						<a href="https://wa.me/<?php echo $cell;?>"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>
+						<a href="mailto:<?php echo $email;?>"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>
 					</div>
 				</div>
 				<div id="td2"></div>

@@ -220,7 +220,7 @@ function selectEmpresa(userid){
 
 function listar_vcard(){
   var template='';
-  let idVcard=refVcard.orderByChild("orden").limitToFirst(5);//limitToLast(5);
+  let idVcard=refVcard.orderByChild("orden").limitToFirst(10);//limitToLast(5);
   idVcard.on('child_added',function(datos){
     var reg=datos.val(); //console.log(reg);
     const {ID,cover,profile,nombre,puesto,f_create,visible} = reg;
