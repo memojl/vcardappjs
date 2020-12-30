@@ -106,6 +106,15 @@ body {
     padding-top: 4px;
     font-size: 11px;
 }
+#empresaweb{
+    padding: 18px;
+    margin: 20px 0 !important;
+    border: 2px solid #acc915;
+    font-size: 20px;
+    font-weight: bold;
+    color: #acc915 !important;
+    width: 68%;
+}
 .row-div{
     font-size: 16px;
     padding: 5px 0px;
@@ -116,4 +125,17 @@ body {
         width: 100%;
     }
 }
+
+
+#infobutton { color:#999; font-size:110%; }
+	#infobutton-content { text-align:left; font-size:11px; line-height:13px; color:#999; }
 	
+	.iconButtonPlain, .iconButtonPlain i, .iconButtonPlain span {
+	   background:transparent !important;
+	   color:#999999 !important;
+	   border:0 !important; min-width:16px !important;
+	}
+    .iconButtonPlain i { text-align:center; display:block;  padding:8px; font-size:139%; border-radius:4px 4px 0 0px; opacity:0.9; }
+	.iconButtonPlain span { display:none !important; }
+	
+	.blockicon { font-size:150%; }

@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+N: ;;;;
+FN:
+ORG:;
+TITLE:
+EMAIL;TYPE=PREF,INTERNET:
+TEL;TYPE=CELL,voice:
+TEL;TYPE=WORK,voice:
+TEL;TYPE=WORK,fax:
+URL:
+    
+NOTE:Tarjeta creada desde VcardApp
+    
+REV:2008-04-24T19:52:43Z
+END:VCARD
