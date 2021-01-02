@@ -80,20 +80,48 @@
 					<div class="row-div"><?php echo $des;?></div>
 					<div id="medios">
 						<a href="tel:<?php echo $cell;?>"><i class="fa fa-phone"></i><span>Llamar</span></a>
-						<a href="https://wa.me/<?php echo $cell;?>"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>
+						<a href="https://wa.me/+52<?php echo $cell;?>"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>
 						<a href="mailto:<?php echo $email;?>"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>
 						<a href="<?php echo $web;?>" id="empresaweb"><?php echo $empresa;?></a>
 						<div id="redes">
-							<a href="https://www.facebook.com/BHybrid/" target="_blank" aria-label="Facebook" class="iconButtonPlain">
-								<i class="fab fa-facebook-f" style="background:#3b5998;"></i>
+							<a href="<?php echo $fb;?>" target="_blank" aria-label="Facebook" class="icon-rrss">
+								<i class="fa fa-facebook"></i>
 								<span>Facebook</span>
+							</a>
+							<a href="<?php echo $tw;?>" target="_blank" aria-label="Twitter" class="icon-rrss">
+								<i class="fa fa-twitter"></i>
+								<span>Twitter</span>
+							</a>
+							<a href="<?php echo $lk;?>" target="_blank" aria-label="LinkedIn" class="icon-rrss">
+								<i class="fa fa-linkedin"></i>
+								<span>LinkedIn</span>
+							</a>
+							<a href="<?php echo $ins;?>" target="_blank" aria-label="Instagram" class="icon-rrss">
+								<i class="fa fa-instagram"></i>
+								<span>Instagram</span>
 							</a>
 						</div>
 					</div>
 				</div>
-				<div id="td2"></div>
+				<div id="td2">
+					<div id="close">Cerrar <i class="fa fa-times"></i></div>
+					<div id="contacto">
+						<h1><i class="fa fa-user"></i> Datos de contacto</h1>
+					</div>
+					<div id="ubicacion"></div>
+					<div id="compartir"></div>
+					<div id="guardar"></div>
+					<div id="acceso"></div>
+				</div>
 			</div>
-			<div id="footerbar"></div>
+			<div id="footerbar">
+				<a href="#"><i class="fa fa-user"></i></a>
+				<a href="javascript:accion('ubicacion')"><i class="fa fa-map-marker"></i></a>
+				<a href="javascript:accion('compartir')"><i class="fa fa-share-alt"></i></a>
+				<a href="javascript:accion('guardar')"><i class="fa fa-save"></i></a>
+				<a href="javascript:accion('acceso')"><i class="fa fa-lock"></i></a>
+			</div>
 		</div>
+	<script></script>
    </body>
 </html>

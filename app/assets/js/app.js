@@ -167,7 +167,7 @@ function leerDatos(userlogin) {
   const uid = document.querySelector("#id_code_google");
   db.ref("vcard_signup").on("child_added", function (s) {
     var user = s.val();
-    var f = (user.foto == null)?'bloques/files/images/photos/sinfoto.png':user.foto;
+    var f = (user.foto == null)?page_url+'bloques/files/images/photos/sinfoto.png':user.foto;
     var u = (user.usuario == null)?user.email:user.usuario;
     if (user.email == userlogin) {
       const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
@@ -230,7 +230,7 @@ function listar_vcard(){
     <div class="row d-flex align-items-center">                   
       <div class="col-lg-4 d-flex align-items-center">
         <div class="order">${ID}</div>
-        <div class="avatar"> <img src="${cover}" class="img-fluid"></div>
+        <div class="avatar" style="background:url(${cover});background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
         <a href="${page_url}../profile/${profile}" class="name">
           <strong class="d-block">${nombre}</strong>
           <span class="d-block">${profile}</span>
@@ -272,7 +272,7 @@ function tarjetas(userid){//var reg = {};
         var ID = (valor.ID == null)?'':valor.ID;
         var uid = (valor.uid == null)?'':valor.uid;
         var profile = (valor.profile == null)?'':valor.profile;
-        var cover = (valor.cover == null)?'bloques/files/images/photos/sinfoto.png':valor.cover;
+        var cover = (valor.cover == null)?page_url+'bloques/files/images/photos/sinfoto.png':valor.cover;
         var nombre = (valor.nombre == null)?'':valor.nombre;
         var puesto = (valor.puesto == null)?'':valor.puesto;
         var email = (valor.email == null)?'':valor.email;
@@ -285,7 +285,7 @@ function tarjetas(userid){//var reg = {};
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
-            <div class="avatar"><img src="${cover}" alt="..." class="img-fluid">
+            <div class="avatar" style="background:url(${cover});background-repeat:no-repeat;background-size:cover;background-position:center;">
               <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
               <h3 class="h5">${nombre}</h3><span>${puesto}</span></a>
@@ -327,7 +327,7 @@ $('#app-modulo').on('click','.btn-add',function(){
   let name=document.querySelector('#email_session');  
   $('#user').val(name.textContent);
   //Imagen Cover
-  $('#cover').val('bloques/files/images/photos/sinfoto.png');
+  $('#cover').val(page_url+'bloques/files/images/photos/sinfoto.png');
   $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
   edit = false;
 });
@@ -472,6 +472,46 @@ $(document).on('click', '#Aceptar', function (e) {
   });
 });
 
+//BUSCAR
+$("#q").keyup(function (e) {
+  if ($("#q").val()) {
+   let q = $("#q").val();
+   $.ajax({
+    url: 'http://localhost/MisSitios/vcardsapp/modulos/vcard/admin/backend.php?action=buscar',
+    type: 'POST',
+    data: {q},
+    success: function (response) {
+     let tasks = JSON.parse(response);
+     console.log(response);
+     let template = '<div class="box-body">';
+     let sel = "";
+     tasks.forEach(task => {
+        visible = `${task.visible}`;
+        sel = (visible == 0) ? '<span style="color:#e00;"><i class="fa fa-close" title="Desactivado"></i></span>' : '<span style="color:#0f0;"><i class="fa fa-check" title="Activo"></i></span>';
+        template += `
+         <div class="col-md-3 col-xs-12">
+            <div class="box box-primary">
+               <div class="box-header with-border" id="${task.ID}" >
+                      <h3 class="box-title">Perfil: <b>${task.profile}</b></h3>
+                  <span class="controles">${sel}
+          <a href="http://localhost/MisSitios/vcardsapp/index.php?mod=vcard&ext=admin/index&form=1&action=edit&id=${task.ID}" title="Editar"><i class="fa fa-edit"></i></a> | <span class="btn-delete" title="Borrar" style="cursor:pointer;"><i class="fa fa-trash"></i></span>
+                  </span>
+               </div>
+               <div class="box-body">
+                  <div class="ima-size">
+                     <img src="http://localhost/MisSitios/vcardsapp/modulos/vcard/files/fotos/${task.cover}" class="ima-size img-responsive">
+                  </div>
+                  <div id="title"><strong>${task.nombre}</strong></div>	
+               </div><!-- /.box-body -->
+            </div>
+         </div>`
+     });
+     $(".outer_div").html(template + "</div>");
+    }
+   });
+  }
+});
+
 /**CRUD EMPRESA */
 //Mostrar(Listar)
 function empresas(userid){
@@ -483,16 +523,17 @@ function empresas(userid){
       $.each(reg, function(indice,valor){//console.log(indice);
         var visible = (valor.visible == null)?'':valor.visible;
         var estado = (visible === '1')?'activo':'no-activo';
+        const {cover,empresa,bg_color} = valor;
         //console.log('valor.uid:'+valor.uid);
         if(valor.uid==userid){
           template += `
         <div vcardId="${indice}" class="col-lg-4">
           <div class="user-block block text-center">
-            <div class="avatar"><img src="${valor.cover}" alt="logo-${valor.empresa}" class="img-fluid">
+            <div class="avatar" style="background:url(${cover});background-repeat:no-repeat;background-size:cover;background-position:center;">
               <div class="order ${estado}" title="${estado}">1st</div>
             </div><a href="#" class="user-title">
-              <h3 class="h5">${valor.empresa}</h3><span></span></a>
-            <div class="contributions">${valor.bg_color}</div>
+              <h3 class="h5">${empresa}</h3><span></span></a>
+            <div class="contributions">${bg_color}</div>
             <div class="details d-flex">
               <div class="item btnEditar" data-toggle="modal" data-target="#empresaModal" title="Editar" style="cursor:pointer;"><i class="fa fa-edit"></i><strong>Editar</strong></div>
               <div class="item btn-delete" title="Borrar" style="cursor:pointer;"><i class="fa fa-trash"></i><strong>Borrar</strong></div>
@@ -527,7 +568,7 @@ $('#app-modulo').on('click','.btnAdd',function(){
   //let name=document.querySelector('#email_session');  
   //$('#user').val(name.textContent);
   //Imagen Cover
-  $('#cover').val('bloques/files/images/photos/sinfoto.png');
+  $('#cover').val(page_url+'bloques/files/images/photos/sinfoto.png');
   $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
   edit = false;
 });
@@ -609,7 +650,7 @@ function vuser(uidUser){
           <div>
             <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
           </div>
-          <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
+          <div class="avatar" style="background:url(${photo});background-repeat:no-repeat;background-size:cover;background-position:center;">
             <div class="order activo"></div>
           </div><a href="#" class="user-title">
             <h3 class="h5">${nombre}</h3><span>${email}</span></a>
@@ -650,7 +691,7 @@ function vsignup(uidUser){
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
         </div>
-        <div class="avatar"><img id="ava" src="${photo}" class="img-fluid">
+        <div class="avatar" style="background:url(${photo});background-repeat:no-repeat;background-size:cover;background-position:center;">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
          <h3 class="h5">${nombre}</h3><span>${email}</span></a>
