@@ -27,9 +27,10 @@ if($perfil!='' && $perfil!=NULL){
 
     $reg=query_row($tabla,'https://vcardapp-js.firebaseio.com/vcard_vcard_empresas.json',$campo='ID',$idemp);
     $empresa=$reg['empresa'];
-    $logo=$reg['cover'];
+    $cover1=$reg['cover'];
+    $val=url_exist($cover1);
+    $logo=($val==1 && $val!='')?'<img id="logo" src="'.$cover1.'">':'';
     $bg_color=$reg['bg_color'];
-
     profile_vcard();
     include $tema_ver.'/index.html';
 }else{

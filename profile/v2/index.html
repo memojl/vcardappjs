@@ -67,7 +67,7 @@
    <body>
 		<div id="container">
 			<div id="head">
-				<img id="logo" src="<?php echo $logo;?>">
+				<?php echo $logo;?>
 			</div>
 			<div id="portada"></div>
 			<div id="base">
@@ -104,24 +104,50 @@
 					</div>
 				</div>
 				<div id="td2">
-					<div id="close">Cerrar <i class="fa fa-times"></i></div>
+					<div id="close" onclick="accion('inicio');">Cerrar <i class="fa fa-times"></i></div>
+					<div id="inicio">
+						<h1><i class="fa fa-home"></i> Inicio</h1>
+					</div>
 					<div id="contacto">
 						<h1><i class="fa fa-user"></i> Datos de contacto</h1>
 					</div>
-					<div id="ubicacion"></div>
-					<div id="compartir"></div>
-					<div id="guardar"></div>
-					<div id="acceso"></div>
+					<div id="ubicacion">
+						<h1><i class="fa fa-map-marker"></i> Ubicación</h1>
+					</div>
+					<div id="compartir">
+						<h1><i class="fa fa-share-alt"></i> Compartir</h1>
+					</div>
+					<div id="guardar">
+						<h1><i class="fa fa-save"></i> Guardar</h1>
+					</div>
+					<div id="acceso">
+						<h1><i class="fa fa-lock"></i> Acceso</h1>
+						<div>
+							<p>Accede a tu panel de adminisración de tu tarjeta VcardApp.</p>
+							<div id="accesos">
+								<a href="<?php echo $page_url;?>app/" aria-label="Panel" class="icon-access">
+									<i class="fa fa-dashboard"></i>
+									<span>Panel</span>
+								</a>
+								<a href="<?php echo $page_url;?>app/tarjetas" aria-label="MisTarjetas" class="icon-access">
+									<i class="fa fa-vcard"></i>
+									<span>Tarjetas</span>
+								</a>
+							</div>
+							<p>No tieness cuenta registrate <a href="<?php echo $page_url;?>app/registro">Aquí</a></p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="footerbar">
-				<a href="#"><i class="fa fa-user"></i></a>
+				<a href="javascript:accion('contacto')"><i class="fa fa-user"></i></a>
 				<a href="javascript:accion('ubicacion')"><i class="fa fa-map-marker"></i></a>
 				<a href="javascript:accion('compartir')"><i class="fa fa-share-alt"></i></a>
 				<a href="javascript:accion('guardar')"><i class="fa fa-save"></i></a>
 				<a href="javascript:accion('acceso')"><i class="fa fa-lock"></i></a>
 			</div>
 		</div>
-	<script></script>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo $page_url;?>profile/assets/js/app2.js"></script>
    </body>
 </html>

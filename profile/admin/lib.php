@@ -100,5 +100,14 @@ END:VCARD
 crear_vcard($path_f,$nombre_archivo,$contenido,$path_file);
 }
 
-
+function url_exist($url){
+$array = get_headers($url);
+$string = $array[0];
+    if(strpos($string,"200")){
+       return true;
+    }else{
+       return false;
+    }
+    //return $valor;
+}
 

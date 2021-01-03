@@ -69,7 +69,7 @@ body {
 #td2{
     float:left;
     width: 50%;
-    height: 600px;
+    min-height: 200px;
     background: #fff;
 }
 #footerbar{
@@ -146,14 +146,43 @@ body {
     width: 60px;
     margin-top: -30px;
     margin-right: 10px;
+    display: none; /*Accion Cerrar*/
 }
-#contacto h1{
+#td2 h1{
     font-weight: normal;
     border-bottom: 1px solid #acc915;
     width: 80%;
     margin: 30px auto;
     padding: 10px;
 }
+#td2 h1 i{
+    color: #acc915;
+}
+#accesos a{
+    background: #acc915;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    color: #fff;
+    display: inline-grid;
+    margin: 8px 5px;
+    padding: 10px 22px;
+    text-decoration: none;
+    width: 50px;
+}
+#accesos a i{
+    font-size: 28px;
+}
+#accesos a span{
+    font-size: 12px;
+}
+
+#inicio{display: inherit;}
+#contacto{display: none;}
+#ubicacion{display: none;}
+#compartir{display: none;}
+#guardar{display: none;}
+#acceso{display: none;}
 
 @media screen and (max-width: 1015px) {
     #footerbar a{

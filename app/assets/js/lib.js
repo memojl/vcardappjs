@@ -124,7 +124,7 @@ function menu() {
 
 function footer(){
   const f = document.querySelector("#footer_page");
-  f.innerHTML = year + ' &copy; VcardAppJS. Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.';
+  f.innerHTML = year + ' &copy; VcardAppJS v.1.2.14. Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.';
 }
 
 function modulos() {
