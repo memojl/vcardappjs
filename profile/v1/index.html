@@ -65,7 +65,8 @@
       <meta itemprop="image" content="<?php echo $cover;?>">
    </head>
    <body id="dvcard-body" ng-controller="ComplexController" class="whiteTheme">
-      <div id="admin-app"><a href="javascript:history.back()"><i class="fa fa-sign-in"></i></a></div>
+      <div id="admin-app"><a href="<?php echo $page_url;?>app/"><i class="fa fa-sign-in"></i></a></div>
+      <!--div id="admin-app"><a href="javascript:history.back()"><i class="fa fa-sign-in"></i></a></div-->
 
       <div class="loading-welcome active welcome-screen" ng-style="{&#39;background-color&#39;: view.code.welcome_extra.background || view.welcome_extra.background}" style="background-color: rgb(255, 255, 255); display: none;">
          <div class="progress">
