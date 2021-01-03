@@ -453,7 +453,6 @@ $(document).on('click', '#Aceptar', function (e) {
   var frmData = new FormData;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
-    //url: page_url+'pages/tarjetas/admin/backend.php?mod='+mod+'&action=subir_cover',
     url: CLOUD_URL+'bloques/files/admin/backend.php?mod='+mod+'&action=subir_cover',
     crossDomain: true,
     type: 'POST',
@@ -475,42 +474,27 @@ $(document).on('click', '#Aceptar', function (e) {
 //BUSCAR
 $("#q").keyup(function (e) {
   if ($("#q").val()) {
-   let q = $("#q").val();
-   $.ajax({
-    url: 'http://localhost/MisSitios/vcardsapp/modulos/vcard/admin/backend.php?action=buscar',
-    type: 'POST',
-    data: {q},
-    success: function (response) {
-     let tasks = JSON.parse(response);
-     console.log(response);
-     let template = '<div class="box-body">';
-     let sel = "";
-     tasks.forEach(task => {
-        visible = `${task.visible}`;
-        sel = (visible == 0) ? '<span style="color:#e00;"><i class="fa fa-close" title="Desactivado"></i></span>' : '<span style="color:#0f0;"><i class="fa fa-check" title="Activo"></i></span>';
-        template += `
-         <div class="col-md-3 col-xs-12">
-            <div class="box box-primary">
-               <div class="box-header with-border" id="${task.ID}" >
-                      <h3 class="box-title">Perfil: <b>${task.profile}</b></h3>
-                  <span class="controles">${sel}
-          <a href="http://localhost/MisSitios/vcardsapp/index.php?mod=vcard&ext=admin/index&form=1&action=edit&id=${task.ID}" title="Editar"><i class="fa fa-edit"></i></a> | <span class="btn-delete" title="Borrar" style="cursor:pointer;"><i class="fa fa-trash"></i></span>
-                  </span>
-               </div>
-               <div class="box-body">
-                  <div class="ima-size">
-                     <img src="http://localhost/MisSitios/vcardsapp/modulos/vcard/files/fotos/${task.cover}" class="ima-size img-responsive">
-                  </div>
-                  <div id="title"><strong>${task.nombre}</strong></div>	
-               </div><!-- /.box-body -->
-            </div>
-         </div>`
-     });
-     $(".outer_div").html(template + "</div>");
-    }
-   });
+    let q = $("#q").val();
+    const content = document.querySelector("#lista");
+    $.ajax({
+      url: page_url+'bloques/files/admin/backend.php?action=buscar',
+      type: 'POST',
+      data: {q},
+      success: function (response) {
+        //let valor = JSON.parse(response);
+        console.log(response);
+        //var template = response;
+        content.innerHTML = response;
+      }
+    });
   }
 });
+
+$("#searchForm").submit(function(e){
+  e.preventDefault();
+  const panel = document.querySelector(".search-panel");
+  panel.style.display = 'none';
+})
 
 /**CRUD EMPRESA */
 //Mostrar(Listar)

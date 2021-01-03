@@ -27,6 +27,40 @@ switch(true){
 	}
 	echo $file;    
   break;
+  case($action=='buscar'):
+	$q=$_POST['q'];
+	
+  	if(!empty($q)){
+		
+		query_row($tabla,$url_api,$campo,$id);
+		/* 
+		template+=`
+  <div class="public-user-block block">
+    <div class="row d-flex align-items-center">                   
+      <div class="col-lg-4 d-flex align-items-center">
+        <div class="order">${ID}</div>
+        <div class="avatar" style="background:url(${cover});background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
+        <a href="${page_url}../profile/${profile}" class="name">
+          <strong class="d-block">${nombre}</strong>
+          <span class="d-block">${profile}</span>
+        </a>
+      </div>
+      <div class="col-lg-4 text-center">
+        <div class="contributions">${puesto}</div>
+      </div>
+      <div class="col-lg-4">
+        <div class="details d-flex">
+          <div class="item"><i class="fa fa-calendar"></i><strong>${f_create}</strong></div>
+          <!--div class="item"><i class="icon-info"></i><strong></strong></div-->
+          <!--div class="item"><i class="fa fa-gg"></i><strong>200</strong></div-->
+          <!--div class="item"><i class="icon-flow-branch"></i><strong></strong></div-->
+        </div>
+      </div>
+    </div>
+  </div>`
+		*/
+	}
+  break;
   default:
 
   break;
