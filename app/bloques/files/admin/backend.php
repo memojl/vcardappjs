@@ -1,5 +1,5 @@
 <?php
-include 'lib.php';
+//include 'lib.php';
 include 'functions.php';
 
 switch(true){
@@ -31,7 +31,7 @@ switch(true){
   case($action=='buscar'):
 	  $q=$_POST['q'];	
   	if(!empty($q)){
-      query_buscar($tabla,'https://vcardapp-js.firebaseio.com/vcard_vcard.json','puesto',$q);
+      query_buscar($tabla='','https://vcardapp-js.firebaseio.com/vcard_vcard.json','puesto',$q);
     }else{
       echo '<div>No hay resultados.</div>';
     }

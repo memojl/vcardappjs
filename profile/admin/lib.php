@@ -34,7 +34,7 @@ $page_url   = $dominio.$path_root;
 /*VARIABLES GET*/
 $perfil     = (isset($_GET['pro']))?$_GET['pro']:'';
 /**TEMA */
-$tema_ver = 'v2';
+$tema_ver = 'v1';
 /*---VARIABLES DE PAGINA---*/
 $bootstrap='<link href="'.$page_url.'app/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">'."\r\n";
 
@@ -65,19 +65,6 @@ function query_row($tabla,$url_api,$campo,$id){
         }
     }
     return $row;
-}
-
-//BUSCAR CON AJAX
-function query_buscar($tabla,$url_api,$campo,$val){
-    $data=query_data($tabla,$url_api);
-    //DATOS
-    foreach($data as $key => $value){
-        $b_val=$data[$key][$campo];
-        if($b_val==$val){//$index=$key;
-            $row=$data[$key];
-            echo '<div>'.$row['puesto'].'</div>';
-        }
-    }    //return $row;
 }
 
 function crear_vcard($path_f,$nombre_archivo,$contenido,&$path_file){
@@ -121,6 +108,5 @@ $string = $array[0];
     }else{
        return false;
     }
-    //return $valor;
 }
 
