@@ -395,7 +395,7 @@ i[class*='icon-'] {
 */
 nav.navbar {
   background: #2d3035;
-  color: #8a8d93;
+  color: #fff;
   padding-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid #34373d;
@@ -466,7 +466,7 @@ nav.navbar .search-inner {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(45, 48, 53, 0.95);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 9;
 }
 
@@ -506,25 +506,25 @@ nav.navbar .search-inner input {
   font-size: 2rem;
   border: none;
   border-bottom: 1px solid #444951;
-  color: #8a8d93;
+  color: #fff;
 }
 
 nav.navbar .search-inner input::-moz-placeholder {
   font-family: "Muli", sans-serif;
   font-weight: 300 !important;
-  color: #585a5f;
+  color: #fff;
 }
 
 nav.navbar .search-inner input::-webkit-input-placeholder {
   font-family: "Muli", sans-serif;
   font-weight: 300 !important;
-  color: #585a5f;
+  color: #fff;
 }
 
 nav.navbar .search-inner input:-ms-input-placeholder {
   font-family: "Muli", sans-serif;
   font-weight: 300 !important;
-  color: #585a5f;
+  color: #fff;
 }
 
 nav.navbar .dropdown-menu {

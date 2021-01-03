@@ -73,8 +73,9 @@ function query_buscar($tabla,$url_api,$campo,$val){
     //DATOS
     foreach($data as $key => $value){
         $row=$data[$key];
-        $b_val=$data[$key][$campo];
-        $bus = strpos($b_val, $val);
+        $b_val = $data[$key][$campo];
+        $valor = ucwords($val);
+        $bus   = strpos($b_val, $valor);
         if($bus==$val){//$index=$key;           
             echo '
             <div class="public-user-block block">
