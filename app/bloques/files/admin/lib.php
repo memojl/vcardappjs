@@ -72,12 +72,34 @@ function query_buscar($tabla,$url_api,$campo,$val){
     $data=query_data($tabla,$url_api);
     //DATOS
     foreach($data as $key => $value){
+        $row=$data[$key];
         $b_val=$data[$key][$campo];
-        if($b_val==$val){//$index=$key;
-            $row=$data[$key];
-            echo '<div>'.$row['puesto'].'</div>';
+        $bus = strpos($b_val, $val);
+        if($bus==$val){//$index=$key;           
+            echo '
+            <div class="public-user-block block">
+            <div class="row d-flex align-items-center">                   
+              <div class="col-lg-4 d-flex align-items-center">
+                <div class="order">'.$row['ID'].'</div>
+                <div class="avatar" style="background:url('.$row['cover'].');background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
+                <a href="'.$page_url.'../profile/'.$row['profile'].'" class="name">
+                  <strong class="d-block">'.$row['nombre'].'</strong>
+                  <span class="d-block">'.$row['profile'].'</span>
+                </a>
+              </div>
+              <div class="col-lg-4 text-center">
+                <div class="contributions">'.$row['puesto'].'</div>
+              </div>
+              <div class="col-lg-4">
+                <div class="details d-flex">
+                  <div class="item"><i class="fa fa-calendar"></i><strong>'.$row['f_create'].'</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+            ';
         }
-    }    //return $row;
+    }
 }
 
 function crear_vcard($path_f,$nombre_archivo,$contenido,&$path_file){

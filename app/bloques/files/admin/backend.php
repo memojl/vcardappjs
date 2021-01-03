@@ -1,4 +1,5 @@
 <?php
+include 'lib.php';
 include 'functions.php';
 
 switch(true){
@@ -31,8 +32,7 @@ switch(true){
 	$q=$_POST['q'];
 	
   	if(!empty($q)){
-		
-		query_row($tabla,$url_api,$campo,$id);
+      query_buscar($tabla,'https://vcardapp-js.firebaseio.com/vcard_vcard.json','puesto',$q);
 		/* 
 		template+=`
   <div class="public-user-block block">
