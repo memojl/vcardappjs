@@ -51,5 +51,5 @@ function load(){
   accion('inicio');
 }
 
-onload = load();
+document.onload = load();
 
