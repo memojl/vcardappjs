@@ -222,9 +222,9 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
 			$(document).ready(function(){
 			  map = new GMaps({
 				el: '#map',
+				zoom: 15,
 				lat: 20.591136,
-				lng: -100.4023474,
-				zoom: 15
+				lng: -100.4023474
 			  });
 
 			  GMaps.geocode({
@@ -235,7 +235,11 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
 					  map.setCenter(latlng.lat(), latlng.lng());
 					  map.addMarker({
 						lat: latlng.lat(),
-						lng: latlng.lng()
+						lng: latlng.lng(),
+						title: '<?php echo "Dirección: ".$profile;?>',
+        				infoWindow: {
+          					content: '<b><?php echo $puesto;?></b><p><?php echo $des;?></p>'
+        				}
 					  });
 					}
 				  }

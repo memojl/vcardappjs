@@ -1,11 +1,8 @@
-body{
-  font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif;
-  margin:5px;
-}
+/*Maps*/
 #map{
   display: block;
-  width: 92% !important;
-  height: 330px !important;
+  width: 88% !important;
+  height: 320px !important;
   margin: 0 auto;
   -moz-box-shadow: 0px 5px 20px #ccc;
   -webkit-box-shadow: 0px 5px 20px #ccc;
