@@ -11,6 +11,18 @@ body {
 p{
     color:#444;
 }
+img{
+    border: 0;
+}
+.responsive{
+    width: 100%;
+}
+.img-responsive{
+    width: 88%;
+    display: block;
+    margin: auto;
+    text-align: center;
+}
 .text-left{
     text-align: left;
 }

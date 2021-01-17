@@ -118,13 +118,46 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
 					<div id="close" onclick="accion('inicio');">Cerrar <i class="fa fa-times"></i></div>
 					<div id="inicio">
 						<h1><i class="fa fa-home"></i> Inicio</h1>
+						<div>
+							<img src="<?php echo $page_url;?>assets/img/concepto1.jpg" class="img-responsive">
+							<a href="<?php echo $page_url;?>/registro">¡Registrate Ahora!</a>
+						</div>	
 					</div>
 					<div id="contacto">
 						<h1><i class="fa fa-user"></i> Datos de Contacto</h1>
-						<p>Puedes contactar directamente pulsando el icono deseado.<p>
-						<p class="text-left">MOVIL</p>
-						<p class="text-left">EMAIL</p>
-						<p class="text-left">WEB</p>
+						<div>
+							<p>Puedes contactar directamente pulsando el icono deseado.</p>
+							<p class="text-left"><b>MOVIL:</b> <?php echo $cell;?></p>
+							<div id="accesos">
+								<a href="tel:<?php echo $cell;?>" aria-label="Llamar" class="icon-access">
+									<i class="fa fa-mobile"></i>
+									<span>Llamar</span>
+								</a>
+								<a target="_blank" href="https://wa.me/+52<?php echo $cell;?>" aria-label="WhatsApp" class="icon-access">
+									<i class="fa fa-whatsapp"></i>
+									<span>WhatsApp</span>
+								</a>
+								<a href="sms:<?php echo $cell;?>" aria-label="sms" class="icon-access">
+									<i class="fa fa-commenting"></i>
+									<span>SMS</span>
+								</a>
+							</div>
+							<p class="text-left"><b>EMAIL:</b> <?php echo $email;?></p>
+							<div id="accesos">
+								<a href="mailto:<?php echo $email;?>" aria-label="Email" class="icon-access">
+									<i class="fa fa-envelope-o"></i>
+									<span>Email</span>
+								</a>
+							</div>
+							<p class="text-left"><b>WEB:</b> <?php echo $web;?></p>
+							<div id="accesos">
+								<a target="_blank" href="<?php echo $web;?>" aria-label="Web" class="icon-access">
+									<i class="fa fa-globe"></i>
+									<span>Web</span>
+								</a>
+
+							</div>
+						</div>
 					</div>
 					<div id="ubicacion">
 						<h1><i class="fa fa-map-marker"></i> Ubicación</h1>
