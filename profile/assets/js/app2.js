@@ -35,6 +35,14 @@ function filename(){
   return rutaRelativa;
 }
 
+function action(type){
+  if(type=='viewcopy'){
+    $('#inputCopiar').select();
+       var res = document.execCommand("copy");
+      if (!res) { console.log("> No copy to clipboard");}else{console.log('Texto Copiado');document.getElementById('aviso').innerHTML='<div class="alert alert-success">Texto Copiado!</div>';}
+  }
+}
+
 function accion(type){
     const closed = document.querySelector("#close");
     if(type!='inicio'){$("#close").show();}else{$("#close").hide();}

@@ -5,8 +5,14 @@ body {
    font-size:14px; 
    line-height:15px; 
    background:#fff; 
-   color:#000; 
+   color:#444; 
    -webkit-text-size-adjust:100%;
+}
+p{
+    color:#444;
+}
+.text-left{
+    text-align: left;
 }
 #head{
     width: 100%;
@@ -149,7 +155,8 @@ body {
     display: none; /*Accion Cerrar*/
 }
 #td2 h1{
-    font-weight: normal;
+    font-size: 25px;
+    font-weight: 100;
     border-bottom: 1px solid #acc915;
     width: 80%;
     margin: 30px auto;
@@ -157,6 +164,10 @@ body {
 }
 #td2 h1 i{
     color: #acc915;
+}
+#td2 p{
+    margin-left: 7%;
+    margin-right: 7%;
 }
 #accesos a{
     background: #acc915;
@@ -195,6 +206,9 @@ body {
     }
     #footerbar a{
         width: 19.6%;
+    }
+    #td2{
+        padding-bottom: 80px;
     }
 }
 @media screen and (max-width: 515px) {

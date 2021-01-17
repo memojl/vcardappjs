@@ -14,6 +14,7 @@ if($perfil!='' && $perfil!=NULL){
     $puesto=$row['puesto'];
     $idemp=$row['idemp'];    
     $web=$row['web'];
+    $direc=$row['direc'];
     $fb=$row['fb'];
     $tw=$row['tw'];
     $lk=$row['lk'];

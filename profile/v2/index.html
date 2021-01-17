@@ -62,6 +62,7 @@
 	  
 	  <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es" rel="stylesheet" type="text/css" />
 	  <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+	  <link rel="stylesheet" type="text/css" href="assets/css/examples.css" />
       <link rel="stylesheet" type="text/css" href="assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
    </head>
    <body>
@@ -80,26 +81,36 @@
 					<div class="row-div"><?php echo $des;?></div>
 					<div id="medios">
 						<a href="tel:<?php echo $cell;?>"><i class="fa fa-phone"></i><span>Llamar</span></a>
-						<a href="https://wa.me/+52<?php echo $cell;?>"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>
+						<a target="_blank" href="https://wa.me/+52<?php echo $cell;?>"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>
 						<a href="mailto:<?php echo $email;?>"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>
 						<a href="<?php echo $web;?>" id="empresaweb"><?php echo $empresa;?></a>
 						<div id="redes">
-							<a href="<?php echo $fb;?>" target="_blank" aria-label="Facebook" class="icon-rrss">
-								<i class="fa fa-facebook"></i>
-								<span>Facebook</span>
-							</a>
-							<a href="<?php echo $tw;?>" target="_blank" aria-label="Twitter" class="icon-rrss">
-								<i class="fa fa-twitter"></i>
-								<span>Twitter</span>
-							</a>
-							<a href="<?php echo $lk;?>" target="_blank" aria-label="LinkedIn" class="icon-rrss">
-								<i class="fa fa-linkedin"></i>
-								<span>LinkedIn</span>
-							</a>
-							<a href="<?php echo $ins;?>" target="_blank" aria-label="Instagram" class="icon-rrss">
-								<i class="fa fa-instagram"></i>
-								<span>Instagram</span>
-							</a>
+<?php
+if($fb!=''){
+echo '<a href="'.$fb.'" target="_blank" aria-label="Facebook" class="icon-rrss">
+		<i class="fa fa-facebook"></i>
+		<span>Facebook</span>
+	</a>';
+}
+if($tw!=''){
+echo '<a href="'.$tw.'" target="_blank" aria-label="Twitter" class="icon-rrss">
+		<i class="fa fa-twitter"></i>
+		<span>Twitter</span>
+	</a>';
+}
+if($lk!=''){
+echo '<a href="'.$lk.'" target="_blank" aria-label="LinkedIn" class="icon-rrss">
+		<i class="fa fa-linkedin"></i>
+		<span>LinkedIn</span>
+	</a>';
+}
+if($ins!=''){
+echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss">
+		<i class="fa fa-instagram"></i>
+		<span>Instagram</span>
+	</a>';
+}
+?>
 						</div>
 					</div>
 				</div>
@@ -109,16 +120,70 @@
 						<h1><i class="fa fa-home"></i> Inicio</h1>
 					</div>
 					<div id="contacto">
-						<h1><i class="fa fa-user"></i> Datos de contacto</h1>
+						<h1><i class="fa fa-user"></i> Datos de Contacto</h1>
+						<p>Puedes contactar directamente pulsando el icono deseado.<p>
+						<p class="text-left">MOVIL</p>
+						<p class="text-left">EMAIL</p>
+						<p class="text-left">WEB</p>
 					</div>
 					<div id="ubicacion">
 						<h1><i class="fa fa-map-marker"></i> Ubicación</h1>
+						<?php if($direc!=''){?>
+						<p style="font-size: 18px;"><b>Dirección:</b> <?php echo $direc;?></p>
+						<div id="map"></div>
+						<?php }else{echo '<p>No hay dirección disponible.<p>';}?>
 					</div>
 					<div id="compartir">
 						<h1><i class="fa fa-share-alt"></i> Compartir</h1>
+						<div>
+							<p>Puedes compartir esta tarjeta fácilmente en cualquiera de los sistemas informados que tengas habilitados en tu dispositivo.</p>
+							<p>COMPARTIR EN REDES SOCIALES:</p>
+							<div id="accesos">
+								<a target="_blank" href="//www.facebook.com/sharer.php?u=<?php echo $page_url.'profile/'.$profile;?>&t=Vcard+<?php echo $profile;?>" aria-label="Facebook" class="icon-access">
+									<i class="fa fa-facebook"></i>
+									<span>Facebook</span>
+								</a>
+								<a target="_blank" href="//twitter.com/share?url=<?php echo $page_url.'profile/'.$profile;?>&text=Vcard+<?php echo $profile;?>" aria-label="Twitter" class="icon-access">
+									<i class="fa fa-twitter"></i>
+									<span>Twitter</span>
+								</a>
+								<a target="_blank" href="//www.linkedin.com/shareArticle?mini=true&url=<?php echo $page_url.'profile/'.$profile;?>&title=<?php echo $profile;?>&ro=false&summary=&source=" aria-label="LinkedIn" class="icon-access">
+									<i class="fa fa-linkedin"></i>
+									<span>LinkedIn</span>
+								</a>
+								<a target="_blank" href="https://api.whatsapp.com/send?text=Accede+a+la+tarjeta+digital+desde+el+siguiente+enlace: <?php echo $page_url.'profile/'.$profile;?>" aria-label="whatsapp" class="icon-access">
+									<i class="fa fa-whatsapp"></i>
+									<span>WhatsApp</span>
+								</a>
+							</div>
+							<p>OTROS MÉTODOS PARA COMPARTIR:</p>
+							<div id="aviso"></div>
+							<div id="accesos">
+								<a href="javascript:action('viewcopy');" aria-label="Copiar" class="icon-access">
+									<i class="fa fa-copy"></i>
+									<span>Copiar enlace</span>
+								</a>
+								<a href="mailto:?body=<?php echo $page_url.'profile/'.$profile;?>" aria-label="Email" class="icon-access">
+									<i class="fa fa-envelope-o"></i>
+									<span>Enviar email</span>
+								</a>
+								<div style="position:fixed; bottom:0px">
+									<input id="inputCopiar" type="text" value="<?php echo $page_url.'profile/'.$profile;?>">
+								</div>
+							</div>
+						</div>
 					</div>
 					<div id="guardar">
 						<h1><i class="fa fa-save"></i> Guardar</h1>
+						<div>
+							<p>Elije como guardar la tarjeta de contacto.</p>
+							<div id="accesos">
+								<a href="<?php echo $page_url.'app/bloques/files/vcf/'.$profile.'.vcf';?>" aria-label="Guardar" class="icon-access">
+									<i class="fa fa-address-book-o"></i>
+									<span>Guardar Vcard</span>
+								</a>
+							</div>
+						</div>
 					</div>
 					<div id="acceso">
 						<h1><i class="fa fa-lock"></i> Acceso</h1>
@@ -134,7 +199,7 @@
 									<span>Tarjetas</span>
 								</a>
 							</div>
-							<p>No tieness cuenta registrate <a href="<?php echo $page_url;?>app/registro">Aquí</a></p>
+							<p>No tienes cuenta registrate <a href="<?php echo $page_url;?>app/registro">Aquí</a></p>
 						</div>
 					</div>
 				</div>
@@ -149,5 +214,34 @@
 		</div>
 		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
 		<script type="text/javascript" src="assets/js/app2.js"></script>
-   </body>
+<?php if($direc!='' && $direc!=NULL){?>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw"></script>
+		<script type="text/javascript" src="assets/js/gmaps.js"></script>
+		<script type="text/javascript">
+			var map;
+			$(document).ready(function(){
+			  map = new GMaps({
+				el: '#map',
+				lat: 20.591136,
+				lng: -100.4023474,
+				zoom: 15
+			  });
+
+			  GMaps.geocode({
+				  address: '<?php echo $direc;?>',//$('#address').val().trim(),
+				  callback: function(results, status){
+					if(status=='OK'){
+					  var latlng = results[0].geometry.location;
+					  map.setCenter(latlng.lat(), latlng.lng());
+					  map.addMarker({
+						lat: latlng.lat(),
+						lng: latlng.lng()
+					  });
+					}
+				  }
+			  });
+			});
+		  </script>
+<?php }?>
+	</body>
 </html>
