@@ -633,7 +633,7 @@ function vuser(uidUser){
         var template = `<div class="user-block block text-center" vcardId="${indice}">
           <div>
             <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
-          </div>
+          </div><img id="ava" src="${photo}" style="width:1px;">
           <div class="avatar" style="background:url(${photo});background-repeat:no-repeat;background-size:cover;background-position:center;">
             <div class="order activo"></div>
           </div><a href="#" class="user-title">
@@ -674,7 +674,7 @@ function vsignup(uidUser){
       var template = `<div class="user-block block text-center" vcardId="">
         <div>
           <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary btnEditar3">Modificar Perfil </button>
-        </div>
+        </div><img id="ava" src="${photo}" style="width:1px;">
         <div class="avatar" style="background:url(${photo});background-repeat:no-repeat;background-size:cover;background-position:center;">
           <div class="order activo"></div>
         </div><a href="#" class="user-title">
@@ -712,7 +712,7 @@ $('#app-modulo').on('click','.btnEditar3',function(){
   const uid_tag=document.querySelector('.contributions').textContent;console.log(uid_tag);
   const nom_tag=document.querySelector('.h5').textContent;console.log(nom_tag);
   const email_tag=document.querySelector('#email_session').textContent;console.log(email_tag);
-  const avatar=document.querySelector('#ava').getAttribute("src");console.log(avatar);
+  const avatar=document.querySelector('#ava').getAttribute("src");console.log(avatar);//
 
   if(Id!=''){
   const fc=document.querySelector('#f_c').textContent;console.log(fc);
