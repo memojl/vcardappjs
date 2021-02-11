@@ -110,3 +110,11 @@ $string = $array[0];
     }
 }
 
+function ssl(){
+global $host,$path_root;
+	echo '<script>
+	const protocol = window.location.protocol;
+	console.log("protocol=" + protocol);
+	if(protocol=="http:"){window.location="https://'.$host.'/'.$path_root.'";}
+	</script>';
+}

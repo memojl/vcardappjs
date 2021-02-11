@@ -1,3 +1,4 @@
+<?php include 'profile/admin/lib.php';?>
 <!DOCTYPE html>
 <html data-style-switcher-options="{'changeLogo': false, 'borderRadius': 0, 'colorPrimary': '#4dbb6d', 'colorSecondary': '#eef4f2', 'colorTertiary': '#e2fdea', 'colorQuaternary': '#101019'}">
   <head>
@@ -105,59 +106,8 @@
                             <a class=" active nav-link" href="./index.php">Inicio</a><!--0-->
                           </li>
                           <!-- /menu.json -->
-                          <li><a class="nav-link bg-link" href="./usuarios/registro/"><i class="fa fa-edit"></i> Registrate</a></li>
-                          <li><a class="nav-link" href="./login/"><i class="fa fa-sign-in"></i> Login</a></li>
-                          <!--
-                            <li>
-                            	<a class="nav-link active" href="./temas/vcard2/demo-business-consulting.html">
-                            		Home
-                            	</a>
-                            </li>
-                            <li>
-                            	<a class="nav-link" href="./temas/vcard2/demo-business-consulting-about-us.html">
-                            		About Us
-                            	</a>
-                            </li>
-                            <li class="dropdown dropdown-primary">
-                            
-                            	<a class="dropdown-toggle nav-link" href="./temas/vcard2/demo-business-consulting-expertise.html">
-                            	
-                            		Expertise
-                            	</a>
-                            	<ul class="dropdown-menu">
-                            		<li>
-                            			<a class="dropdown-item" href="./temas/vcard2/demo-business-consulting-expertise-detail.html">
-                            				Corporate Finance
-                            			</a>
-                            		</li>
-                            		<li>
-                            			<a class="dropdown-item" href="./temas/vcard2/demo-business-consulting-expertise-detail.html">
-                            				Corporate Restructuring
-                            			</a>
-                            		</li>
-                            		<li>
-                            			<a class="dropdown-item" href="./temas/vcard2/demo-business-consulting-expertise-detail.html">
-                            				Economic Consulting
-                            			</a>
-                            		</li>
-                            		<li>
-                            			<a class="dropdown-item" href="./temas/vcard2/demo-business-consulting-expertise-detail.html">
-                            				Litigation Consulting
-                            			</a>
-                            		</li>
-                            		<li>
-                            			<a class="dropdown-item" href="./temas/vcard2/demo-business-consulting-expertise-detail.html">
-                            				Strategic Consulting
-                            			</a>
-                            		</li>
-                            		<li>
-                            			<a class="dropdown-item" href="./temas/vcard2/demo-business-consulting-expertise-detail.html">
-                            				Tech Consulting
-                            			</a>
-                            		</li>
-                            	</ul>
-                            </li>
-                            -->
+                          <li><a class="nav-link bg-link" href="./app/registro"><i class="fa fa-edit"></i> Registrate</a></li>
+                          <li><a class="nav-link" href="./app"><i class="fa fa-sign-in"></i> Login</a></li>
                         </ul>
                       </nav>
                     </div>
@@ -181,13 +131,13 @@
                 <img src="./temas/vcard2/img/slide-1.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" class="rev-slidebg">
                 <h1 class="tp-caption custom-secondary-font font-weight-bold text-color-light" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[-80,-80,-80,-40]" data-start="800" data-transform_in="y:[-300%];opacity:0;s:500;" style="font-size: 32px;">La soluci&oacute;n</h1>
                 <div class="tp-caption custom-secondary-font font-weight-bold text-color-light" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[-42,-42,-42,2]" data-start="800" data-transform_in="y:[-300%];opacity:0;s:500;" style="font-size: 42px;">para llegar a m&aacute;s clientes</div>
-                <a href="https://vcardsapp.herokuapp.com/usuarios/registro/" class="btn btn-primary tp-caption text-uppercase text-color-light custom-border-radius" data-hash data-hash-offset="85" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[60,60,60,100]" data-start="1500" style="font-size: 12px; padding: 15px 6px;" data-transform_in="y:[-300%]; opacity:0; s:500;"><i class="fa fa-edit"></i> Registrate</a>
+                <a href="./app/registro" class="btn btn-primary tp-caption text-uppercase text-color-light custom-border-radius" data-hash data-hash-offset="85" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[60,60,60,100]" data-start="1500" style="font-size: 12px; padding: 15px 6px;" data-transform_in="y:[-300%]; opacity:0; s:500;"><i class="fa fa-edit"></i> Registrate</a>
               </li>
               <li data-transition="fade">
                 <img src="./temas/vcard2/img/slide-2.jpg" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="1" class="rev-slidebg">
                 <h1 class="tp-caption custom-secondary-font font-weight-bold text-color-light" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[-80,-80,-80,-40]" data-start="800" data-transform_in="y:[-300%];opacity:0;s:500;" style="font-size: 32px;">Mantente en</h1>
                 <div class="tp-caption custom-secondary-font font-weight-bold text-color-light" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[-42,-42,-42,2]" data-start="800" data-transform_in="y:[-300%];opacity:0;s:500;" style="font-size: 42px;">contacto con tus clientes</div>
-                <a href="https://vcardsapp.herokuapp.com/usuarios/registro/" class="btn btn-primary tp-caption text-uppercase text-color-light custom-border-radius" data-hash data-hash-offset="85" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[60,60,60,100]" data-start="1500" style="font-size: 12px; padding: 15px 6px;" data-transform_in="y:[-300%]; opacity:0; s:500;"><i class="fa fa-edit"></i> Registrate</a>
+                <a href="./app/registro" class="btn btn-primary tp-caption text-uppercase text-color-light custom-border-radius" data-hash data-hash-offset="85" data-x="['left','left','left','left']" data-hoffset="[30,30,30,30]" data-y="center" data-voffset="[60,60,60,100]" data-start="1500" style="font-size: 12px; padding: 15px 6px;" data-transform_in="y:[-300%]; opacity:0; s:500;"><i class="fa fa-edit"></i> Registrate</a>
               </li>
             </ul>
           </div>
@@ -223,117 +173,6 @@
             </div>
           </div>
         </section>
-        <!--
-          <section class="section section-text-light section-background m-0" style="background: url('./temas/vcard2/img/contact-background.jpg'); background-size: cover;">
-          	<div class="container">
-          		<div class="row justify-content-md-center">
-          			<div class="col-lg-6 mb-5 mb-lg-0">
-          				<h2 class="font-weight-bold">- Contact Us</h2>
-          				<p class="custom-opacity-font">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla volutpat ex finibus urna tincidunt, auctor ullamcorper.</p>
-          				<div class="row">
-          					<div class="col-md-6 custom-sm-margin-top">
-          						<h4 class="mb-1">Call Us</h4>
-          						<a href="tel:+1234567890" class="text-decoration-none" target="_blank" title="Call Us">
-          							<span class="custom-call-to-action-2 text-color-light text-2 custom-opacity-font">
-          								Phone
-          								<span class="info text-5">
-          									123-456-7890
-          								</span>
-          							</span>
-          						</a>
-          					</div>
-          					<div class="col-md-6 custom-sm-margin-top">
-          						<h4 class="mb-1">Our Location</h4>
-          						<p class="custom-opacity-font">Porto Business Consulting 123 Porto Blvd, Suite 100 New York, NY</p>
-          					</div>
-          				</div>
-          				<div class="row">
-          					<div class="col-md-6 custom-sm-margin-top">
-          						<h4 class="mb-1">Mail Us</h4>
-          						<a href="mail:mail@example.com" class="text-decoration-none" target="_blank" title="Mail Us">
-          							<span class="custom-call-to-action-2 text-color-light text-2 custom-opacity-font">
-          								Email
-          								<span class="info text-5">
-          									mail@example.com
-          								</span>
-          							</span>
-          						</a>
-          					</div>
-          					<div class="col-md-6 custom-sm-margin-top">
-          						<h4 class="mb-1">Social Media</h4>
-          						<ul class="social-icons social-icons-clean custom-social-icons-style-1 mt-2 custom-opacity-font">
-          							<li class="social-icons-facebook">
-          								<a href="http://www.facebook.com/" target="_blank" title="Facebook">
-          									<i class="fab fa-facebook-f"></i>
-          								</a>
-          							</li>
-          							<li class="social-icons-twitter">
-          								<a href="http://www.twitter.com/" target="_blank" title="Twitter">
-          									<i class="fab fa-twitter"></i>
-          								</a>
-          							</li>
-          							<li class="social-icons-instagram">
-          								<a href="http://www.instagram.com/" target="_blank" title="Instagram">
-          									<i class="fab fa-instagram"></i>
-          								</a>
-          							</li>
-          							<li class="social-icons-linkedin">
-          								<a href="http://www.linkedin.com/" target="_blank" title="Linkedin">
-          									<i class="fab fa-linkedin-in"></i>
-          								</a>
-          							</li>
-          						</ul>
-          					</div>
-          				</div>
-          			</div>
-          			<div class="col-lg-6 custom-sm-margin-top">
-          				<h2 class="font-weight-bold">- Write Us</h2>
-          				<form id="contactForm" class="contact-form custom-contact-form-style-1" action="php/contact-form.php" method="POST">
-          					<div class="contact-form-success alert alert-success d-none mt-4" id="contactSuccess">
-          						<strong>Success!</strong> Your message has been sent to us.
-          					</div>
-          
-          					<div class="contact-form-error alert alert-danger d-none mt-4" id="contactError">
-          						<strong>Error!</strong> There was an error sending your message.
-          						<span class="mail-error-message text-1 d-block" id="mailErrorMessage"></span>
-          					</div>
-          
-          					<input type="hidden" name="subject" value="Contact Message Received" />
-          					<div class="form-row">
-          						<div class="form-group col">
-          							<div class="custom-input-box">
-          								<i class="icon-user icons text-color-primary"></i>
-          								<input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" placeholder="Name*" required>
-          							</div>
-          						</div>
-          					</div>
-          					<div class="form-row">
-          						<div class="form-group col">
-          							<div class="custom-input-box">
-          								<i class="icon-envelope icons text-color-primary"></i>
-          								<input type="email" value="" data-msg-required="Please enter your email address." data-msg-email="Please enter a valid email address." maxlength="100" class="form-control" name="email" id="email" placeholder="Email*" required>
-          							</div>
-          						</div>
-          					</div>
-          					<div class="form-row">
-          						<div class="form-group col">
-          							<div class="custom-input-box">
-          								<i class="icon-bubble icons text-color-primary"></i>
-          								<textarea maxlength="5000" data-msg-required="Please enter your message." rows="10" class="form-control" name="message" id="message" placeholder="Message*" required></textarea>
-          							</div>
-          						</div>
-          					</div>
-          					<div class="form-row">
-          						<div class="form-group col">
-          							<input type="submit" value="Submit Now" class="btn btn-outline custom-border-width btn-primary custom-border-radius font-weight-semibold text-uppercase" data-loading-text="Loading...">
-          						</div>
-          					</div>
-          				</form>
-          			</div>
-          		</div>
-          	</div>
-          </section>
-          -->
       </div>
     </div>
     <!-- Vendor -->
@@ -368,5 +207,6 @@
     <!-- Theme Initialization Files -->
     <script src="./temas/vcard2/js/theme.init.js"></script>
     <!--a href="./temas/vcard2/index.html" class="go-to-demos"><i class="fas fa-arrow-left"></i> More Demos</a-->
+    <?php if($host!='localhost'){ssl();}?>
   </body>
 </html>
