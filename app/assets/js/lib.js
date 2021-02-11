@@ -71,7 +71,7 @@ console.log('/*Funciones*/');
 /*FUNCIONES*/
 function ssl(){
   //const protocol = window.location.protocol;console.log("protocol=" + protocol);
-  if(protocol=="http:"){window.location="https://"+host+path_root;}
+  if(protocol=="http:"){window.location="https://"+host+"/"+path_root;}
 }
 //Configuracion de la funcion: [hora.js].
 function fecha_hora_update(val) {
