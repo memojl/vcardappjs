@@ -107,7 +107,7 @@
                           </li>
                           <!-- /menu.json -->
                           <li><a class="nav-link bg-link" href="./app/registro"><i class="fa fa-edit"></i> Registrate</a></li>
-                          <li><a class="nav-link" href="./app"><i class="fa fa-sign-in"></i> Login</a></li>
+                          <li><a class="nav-link" href="./app"><i class="fa fa-sign-in"></i> App-Login</a></li>
                         </ul>
                       </nav>
                     </div>
