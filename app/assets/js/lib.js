@@ -69,6 +69,10 @@ if (bootstrap != "") {
 
 console.log('/*Funciones*/');
 /*FUNCIONES*/
+function ssl(){
+  //const protocol = window.location.protocol;console.log("protocol=" + protocol);
+  if(protocol=="http:"){window.location="https://"+host+path_root;}
+}
 //Configuracion de la funcion: [hora.js].
 function fecha_hora_update(val) {
   const inputUpdate = document.querySelector("#f_update");
@@ -168,11 +172,12 @@ function inicio() {
   console.log('Corriendo funcion inicio');
   getQueryVariable();
   menu();
-  if (mod != 'registro') {
+  if(mod!='registro') {
     modulos();
   }
   //form_tema();    
   //setTimeout(() => { fecha_hora_update();fecha_hora_create(); }, 5000);
+  if(host!='localhost'){ssl();}
 }
 
 onload = inicio();
