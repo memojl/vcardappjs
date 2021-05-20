@@ -56,6 +56,11 @@ logout.addEventListener("click", (e) => {
   e.preventDefault();
   auth.signOut().then(() => {
     console.log("signup out");
+    localStorage.clear();
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for(let registration of registrations) {
+       registration.unregister()
+    }});
   });  
   if(mod!='Home'){location.href=page_url;}
 });
