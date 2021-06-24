@@ -1,4 +1,7 @@
 /* your styles go here */
+.logo img {
+  width: 100%;
+}
 .box-body{
   width: 100%;
   padding: 0 1%;
