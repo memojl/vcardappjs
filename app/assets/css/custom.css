@@ -1,4 +1,7 @@
 /* your styles go here */
+.logo img {
+  width: 100%;
+}
 .box-body{
   width: 100%;
   padding: 0 1%;
@@ -50,6 +53,11 @@
 }
 
 #id_code_google,#codi1{visibility: hidden;}
+
+.d-flex-logo{
+  display: flex;
+  justify-content: center;
+}
 
 @media only screen and (min-width: 950px){
   #email_session{visibility: hidden;}

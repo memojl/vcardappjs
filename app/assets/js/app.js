@@ -205,7 +205,7 @@ function up(val){
 		document.getElementById('upload').innerHTML = '<div style="text-align:right;"><a href="javascript:up(0);"><i class="fa fa-close" title="Cerrar"></i></a></div><div id="box-load2"><input type="file" id="userfile" name="userfile"></div><input type="submit" id="Aceptar" name="Aceptar" value="Aceptar">';
 	break; 
 	default: 
-		document.getElementById('upload').innerHTML = '';
+		document.getElementById('upload').innerHTML = '<a href="javascript:up(1);">Cambiar Foto</a>';
 	break;
 	}
 }
