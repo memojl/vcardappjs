@@ -60,6 +60,11 @@ function ssl(){
   if(protocol=="http:"){window.location="https://"+host+"/"+path_root;}
 }
 
+function sslProfile(){
+  //const protocol = window.location.protocol;console.log("protocol=" + protocol);
+  if(protocol=="http:"){window.location=URL;}
+}
+
 function load(){
   accion('inicio');
 }
