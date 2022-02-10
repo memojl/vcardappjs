@@ -83,10 +83,10 @@
 					<div class="row-div"><?php echo $puesto;?></div>
 					<div class="row-div"><?php echo $des;?></div>
 					<div id="medios">
-						<a href="tel:<?php echo $cell;?>"><i class="fa fa-phone"></i><span>Llamar</span></a>
-						<a target="_blank" href="https://wa.me/+52<?php echo $cell;?>"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>
-						<a href="mailto:<?php echo $email;?>"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>
-						<a href="<?php echo $web;?>" id="empresaweb"><?php echo $empresa;?></a>
+						<?php echo ($cell!='')?'<a href="tel:'.$cell.'"><i class="fa fa-phone"></i><span>Llamar</span></a>':'';?>
+						<?php echo ($cell!='')?'<a target="_blank" href="https://wa.me/+52'.$cell.'"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>':'';?>
+						<?php echo ($email!='')?'<a href="mailto:'.$email.'"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>':'';?>
+						<?php echo ($web!='')?'<a href="'.$web.'" id="empresaweb">'.$empresa.'></a>':'';?>						
 						<div id="redes">
 <?php
 if($fb!=''){
