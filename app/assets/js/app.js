@@ -491,8 +491,8 @@ $(document).on('click', '#Aceptar', function (e) {
 //SUBIR BACKGROUND
 $(document).on('click', '#Aceptar2', function (e) {
   e.preventDefault();
-  const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
-  //const CLOUD_URL = 'https://cloudvcard.000webhostapp.com/';
+  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  const CLOUD_URL = 'https://cloudvcard.000webhostapp.com/';
   var frmData = new FormData;
   frmData.append("userfile2", $("input[name=userfile2]")[0].files[0]);		
   $.ajax({
@@ -596,7 +596,9 @@ $('#app-modulo').on('click','.btnAdd',function(){
   //$('#user').val(name.textContent);
   //Imagen Cover
   $('#cover').val(page_url+'bloques/files/images/photos/sinfoto.png');
+  $('#coverbg').val(page_url+'bloques/files/images/photos/sinfoto.png');
   $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
+  $("#ima2").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
   edit = false;
 });
 
@@ -622,7 +624,9 @@ $('#app-modulo').on('click','.btnEditar',function(){
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
-      $("#ima").attr('src', valor.cover);
+      $('#coverbg').val(valor.coverbg),
+      $("#ima").attr('src', valor.cover),
+      $("#ima2").attr('src', valor.coverbg);
   });
   edit = true;
 });
@@ -641,6 +645,7 @@ $('#app-modulo').on('#form2').submit(function(e){
     f_update: $('#f_update').val(),
     //user: $('#user').val(),
     cover: $('#cover').val(),
+    coverbg: $('#coverbg').val(),
     empresa: $('#empresa').val(),
     bg_color: $('#bg_color').val(),
     visible: $('#visible').val()    
