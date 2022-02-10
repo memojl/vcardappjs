@@ -1,7 +1,7 @@
 {
 	"name": "VCARDS-APP",
 	"short_name": "VCARDS-APP",
-	"description": "VcardApp -  Tarjetas de Contacto Digital",
+	"description": "VcardApp - Tarjetas de Contacto Digital",
 	"scope": ".",
 	"start_url": "http://localhost/MisSitios/vcardsapp/",
 	"display": "standalone",

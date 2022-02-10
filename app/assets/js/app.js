@@ -203,9 +203,20 @@ function up(val){
 	break; 
 	case 2:
 		document.getElementById('upload').innerHTML = '<div style="text-align:right;"><a href="javascript:up(0);"><i class="fa fa-close" title="Cerrar"></i></a></div><div id="box-load2"><input type="file" id="userfile" name="userfile"></div><input type="submit" id="Aceptar" name="Aceptar" value="Aceptar">';
-	break; 
+	break;
 	default: 
 		document.getElementById('upload').innerHTML = '<a href="javascript:up(1);">Cambiar Foto</a>';
+	break;
+	}
+}
+
+function up2(val){
+	switch (val){
+  case 1:
+		document.getElementById('upload2').innerHTML = '<span style="float:right;"><a href="javascript:up2(0);"><i class="fa fa-close" title="Cerrar"></i></a></span><br><input type="file" name="userfile2" class="required" size="40" style="font-size: 0.9em;"><br><input type="submit" id="Aceptar2" name="Aceptar2" value="Aceptar">';
+	break; 
+	default: 
+		document.getElementById('upload2').innerHTML = '<a href="javascript:up2(1);">Cambiar Fondo</a>';
 	break;
 	}
 }
@@ -454,7 +465,8 @@ function alError(error){
 //SUBIR COVER
 $(document).on('click', '#Aceptar', function (e) {
   e.preventDefault();
-  const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  const CLOUD_URL = 'https://cloudvcard.000webhostapp.com/';  
   var frmData = new FormData;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
@@ -470,6 +482,32 @@ $(document).on('click', '#Aceptar', function (e) {
     },
     success: function (data) {
       $("#imagen").html(data);
+      $(".alert-dismissible").delay(3000).fadeOut("slow");
+      console.log("Subido Correctamente");
+    }
+  });
+});
+
+//SUBIR BACKGROUND
+$(document).on('click', '#Aceptar2', function (e) {
+  e.preventDefault();
+  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  const CLOUD_URL = 'https://cloudvcard.000webhostapp.com/';
+  var frmData = new FormData;
+  frmData.append("userfile2", $("input[name=userfile2]")[0].files[0]);		
+  $.ajax({
+    url: CLOUD_URL+'bloques/files/admin/backend.php?mod='+mod+'&action=subir_coverbg',
+    crossDomain: true,
+    type: 'POST',
+    data: frmData,
+    processData: false,
+    contentType: false,
+    cache: false,
+    beforeSend: function (data) {
+    $("#imagen2").html("Subiendo Imagen");
+    },
+    success: function (data) {
+      $("#imagen2").html(data);
       $(".alert-dismissible").delay(3000).fadeOut("slow");
       console.log("Subido Correctamente");
     }
@@ -557,8 +595,10 @@ $('#app-modulo').on('click','.btnAdd',function(){
   //let name=document.querySelector('#email_session');  
   //$('#user').val(name.textContent);
   //Imagen Cover
-  $('#cover').val(page_url+'bloques/files/images/photos/sinfoto.png');
-  $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
+  $('#cover').val(page_url+'bloques/files/images/photos/sinlogo.jpg');
+  $('#coverbg').val(page_url+'bloques/files/images/photos/sinbg.jpg');
+  $("#ima").attr('src', page_url+'bloques/files/images/photos/sinlogo.jpg');
+  $("#ima2").attr('src', page_url+'bloques/files/images/photos/sinbg.jpg');
   edit = false;
 });
 
@@ -584,7 +624,9 @@ $('#app-modulo').on('click','.btnEditar',function(){
       $('#visible').val(valor.visible);
       //Imagen Cover
       $('#cover').val(valor.cover);
-      $("#ima").attr('src', valor.cover);
+      $('#coverbg').val(valor.coverbg),
+      $("#ima").attr('src', valor.cover),
+      $("#ima2").attr('src', valor.coverbg);
   });
   edit = true;
 });
@@ -603,6 +645,7 @@ $('#app-modulo').on('#form2').submit(function(e){
     f_update: $('#f_update').val(),
     //user: $('#user').val(),
     cover: $('#cover').val(),
+    coverbg: $('#coverbg').val(),
     empresa: $('#empresa').val(),
     bg_color: $('#bg_color').val(),
     visible: $('#visible').val()    

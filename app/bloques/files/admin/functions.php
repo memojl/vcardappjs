@@ -14,11 +14,21 @@ $action = (isset($_GET['action']))?$_GET['action']:'';
 //$mod = 'tarjetas';
 
 function file_ima($cover){
-global $page_url,$mod;
+global $page_url,$mod,$path_app;
    //$url_ima=($mod=='perfil')?$page_url.'bloques/files/images/photos/':'';
    $file='<input type="hidden" class="form-control" id="cover" name="cover" value="'.$page_url.$path_app.'bloques/files/images/photos/'.$cover.'">
-   <img id="ima" src="'.$page_url.$path_app.'bloques/files/images/photos/'.$cover.'" style="width:150px;" title="'.$cover.'">
-   <a href="javascript:up(1);">Cambiar Foto</a><div id="upload"></div>';
+   <img id="ima" src="'.$page_url.$path_app.'bloques/files/images/photos/'.$cover.'" style="width:150px;width:150px;border-radius:0%;-moz-border-radius:0%;-webkit-border-radius:0%;" title="'.$cover.'">
+   <div id="upload"><a href="javascript:up(1);">Cambiar Foto</a></div>';
+   return $file;
+}
+
+function file_imaBg($cover){
+global $page_url,$mod,$path_app;
+   //$url_ima=($mod=='perfil')?$page_url.'bloques/files/images/photos/':'';
+   $file='<input type="hidden" class="form-control" id="coverbg" name="coverbg" value="'.$page_url.$path_app.'bloques/files/images/photos/'.$cover.'">
+   <img id="ima2" src="'.$page_url.$path_app.'bloques/files/images/photos/'.$cover.'" style="width:150px;" title="'.$cover.'">
+   <div id="upload2"><a href="javascript:up2(1);">Cambiar Fondo</a></div>
+   ';
    return $file;
 }
 
