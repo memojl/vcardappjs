@@ -1,3 +1,3 @@
 # vcardappjs
 
-Desarrollo WPA de Tarjetas Digitales
+Desarrollo PWA de Tarjetas Digitales
