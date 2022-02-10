@@ -55,6 +55,11 @@ function accion(type){
     if(type=='acceso'){$("#acceso").fadeIn();}else{$("#acceso").hide();}
 }
 
+function ssl(){
+  //const protocol = window.location.protocol;console.log("protocol=" + protocol);
+  if(protocol=="http:"){window.location="https://"+host+"/"+path_root;}
+}
+
 function load(){
   accion('inicio');
 }

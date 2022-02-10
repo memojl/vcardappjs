@@ -111,10 +111,9 @@ $string = $array[0];
 }
 
 function ssl(){
-global $host,$path_root,$mod;
-$proto=($mod=='profile')?'':'const protocol = window.location.protocol;';
+global $host,$path_root;
 	echo '<script>
-	'.$proto.'
+	const protocol = window.location.protocol;
 	console.log("protocol=" + protocol);
 	if(protocol=="http:"){window.location="https://'.$host.'/'.$path_root.'";}
 	</script>';
