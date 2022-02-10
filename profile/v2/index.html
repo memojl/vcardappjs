@@ -147,17 +147,29 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
 							</div>
 							<p class="text-left"><b>EMAIL:</b> <?php echo $email;?></p>
 							<div id="accesos">
+								<?php
+								if($email!=''){
+								?>
 								<a href="mailto:<?php echo $email;?>" aria-label="Email" class="icon-access">
 									<i class="fa fa-envelope-o"></i>
 									<span>Email</span>
 								</a>
+								<?php
+								}
+								?>
 							</div>
 							<p class="text-left"><b>WEB:</b> <?php echo $web;?></p>
 							<div id="accesos">
+								<?php
+								if($web!=''){
+								?>
 								<a target="_blank" href="<?php echo $web;?>" aria-label="Web" class="icon-access">
 									<i class="fa fa-globe"></i>
 									<span>Web</span>
-								</a>
+								</a>	
+								<?php
+								}
+								?>
 
 							</div>
 						</div>
