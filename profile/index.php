@@ -32,6 +32,7 @@ if($perfil!='' && $perfil!=NULL){
     $val=url_exist($cover1);
     $logo=($val==1 && $val!='')?'<img id="logo" src="'.$cover1.'">':'';
     $bg_color=$reg['bg_color'];
+    $coverbg=$reg['coverbg'];
     profile_vcard();
     include $tema_ver.'/index.html';
 }else{

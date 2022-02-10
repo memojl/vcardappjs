@@ -595,10 +595,10 @@ $('#app-modulo').on('click','.btnAdd',function(){
   //let name=document.querySelector('#email_session');  
   //$('#user').val(name.textContent);
   //Imagen Cover
-  $('#cover').val(page_url+'bloques/files/images/photos/sinfoto.png');
-  $('#coverbg').val(page_url+'bloques/files/images/photos/sinfoto.png');
-  $("#ima").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
-  $("#ima2").attr('src', page_url+'bloques/files/images/photos/sinfoto.png');
+  $('#cover').val(page_url+'bloques/files/images/photos/sinlogo.png');
+  $('#coverbg').val(page_url+'bloques/files/images/photos/sinbg.png');
+  $("#ima").attr('src', page_url+'bloques/files/images/photos/sinlogo.png');
+  $("#ima2").attr('src', page_url+'bloques/files/images/photos/sinbg.png');
   edit = false;
 });
 
