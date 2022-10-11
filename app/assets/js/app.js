@@ -465,8 +465,8 @@ function alError(error){
 //SUBIR COVER
 $(document).on('click', '#Aceptar', function (e) {
   e.preventDefault();
-  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
-  const CLOUD_URL = 'https://cloudvcard.000webhostapp.com/';  
+  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcardjs.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  const CLOUD_URL = 'https://cloudvcardjs.000webhostapp.com/';  
   var frmData = new FormData;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
@@ -491,8 +491,8 @@ $(document).on('click', '#Aceptar', function (e) {
 //SUBIR BACKGROUND
 $(document).on('click', '#Aceptar2', function (e) {
   e.preventDefault();
-  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcard.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
-  const CLOUD_URL = 'https://cloudvcard.000webhostapp.com/';
+  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcardjs.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  const CLOUD_URL = 'https://cloudvcardjs.000webhostapp.com/';
   var frmData = new FormData;
   frmData.append("userfile2", $("input[name=userfile2]")[0].files[0]);		
   $.ajax({
