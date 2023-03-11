@@ -1,5 +1,5 @@
 //import {consola} from './console.js';
-import { title, proyecto, path_hash, path_src, path_page, hostDev, hostPre } from './const.env';
+import { title, path_hash, path_src, path_page, hostDev, hostPre } from './const.env';
 import { filename, getQueryVariable, urlVars, menuWeb, reload, consoleLocal } from './functions';
 import { controlRoutes, router, pages, pagesSys } from '../routes/index.routes';
 
@@ -63,7 +63,7 @@ function variables() {
     year,
     fecha,
     title,
-    proyecto,
+    //proyecto,//NOT
     path_hash,
     path_src,//NOT
     path_page,//NOT
