@@ -54,7 +54,7 @@ async function btnSidebar() {
 
   if (screenw <= 740) {
     let side = document.querySelector('.sidebar');
-    side.classList.add('close');
+    if(side){side.classList.add('close');}
   }
 
   //INFO USER /////////

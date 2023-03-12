@@ -29,16 +29,16 @@ export const pages = {
 };
 
 export const pagesSys = {
-  dashboard: sidebar+dashboard,
-  settings: sidebar+settings,
+  dashboard: dashboard,
+  settings: settings,
   forget: forget,
   login: login,
   logout: logout,
   registro: register,
   noauth: noauth,
-  links: sidebar+links,
-  linksAdd: sidebar+linksAdd,
-  linksEdit: sidebar+linksEdit,
+  links: links,
+  linksAdd: linksAdd,
+  linksEdit: linksEdit,
 };
 
 export const privatePage = [
