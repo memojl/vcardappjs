@@ -25,7 +25,7 @@ function loadStyleDashboard() {
 
 async function btnSidebar() {
   //Dashboard
-  let btnSalir = document.querySelector('.bx-log-out');
+  let btnSalir = document.querySelector('.log-out');
   if (btnSalir != null) {
     btnSalir.addEventListener('click', () => { window.location.href = '#/logout'; });
   }
