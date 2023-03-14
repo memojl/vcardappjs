@@ -25,7 +25,8 @@ function loadStyleDashboard() {
 }
 
 async function btnSidebar() {
-  app();
+  //Init dashApp
+  dashApp();
   //Dashboard
   let btnSalir = document.querySelector('.log-out');
   if (btnSalir != null) {
