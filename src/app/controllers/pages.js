@@ -29,5 +29,5 @@ export const pagesSys = {
 
 export const privatePage = [
   'dashboard',
-  'links'
+  'settings'
 ];
