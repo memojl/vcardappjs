@@ -2,4 +2,8 @@ _notes/
 _temp/
 _docs/
 _templates/
-_template/
+_template
+_docs
+node_modules
+package-lock.json
+*.bat
