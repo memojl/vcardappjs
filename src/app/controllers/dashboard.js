@@ -54,10 +54,9 @@ async function btnSidebar() {
     console.log('Bar-Load:',bar);
     //sidebarBtn.addEventListener("click", () => { sidebar.classList.toggle("close"); });
   }
-
   if (screenw <= 740) {
-    let side = document.querySelector('.sidebar');
-    if(side){side.classList.add('close');}
+    //let side = document.querySelector('.sidebar');
+    if(sidebar){side.classList.add('close');}
   }
 
   //INFO USER /////////

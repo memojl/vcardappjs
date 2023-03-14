@@ -14,6 +14,13 @@ html {
 body {
   overflow-x: hidden; }
 
+.hand{
+  cursor: pointer;
+}
+.hand:hover{
+  cursor: hand;
+}
+
 .metismenu {
   padding: 0; }
   .metismenu li {
@@ -64,9 +71,10 @@ body {
 
 .content-page {
   margin-left: 240px;
-  overflow: hidden;
+  overflow: overlay;
   padding: 0 15px 65px 15px;
-  min-height: 80vh;
+  /*min-height: 80vh;*/
+  height: 550px;
   margin-top: 70px; }
 
 .left-side-menu {
@@ -257,7 +265,10 @@ body.enlarged {
     display: block; }
   .content-page, .enlarged .content-page {
     margin-left: 0 !important;
-    padding: 0 10px; }
+    padding: 0 10px;
+    height: 590px;
+    overflow-y: overlay; 
+  }
   .pro-user-name {
     display: none; }
   .logo-box {
@@ -650,7 +661,7 @@ body.enlarged {
     .right-bar .user-box h5 {
       margin-bottom: 2px; }
       .right-bar .user-box h5 a {
-        color: #323a46; }
+        color: #ced4da;/* #323a46;*/ }
 
 .rightbar-overlay {
   background-color: rgba(255, 255, 255, 0.1);
