@@ -12,7 +12,6 @@ function controlRoutes(route,mod,ext,id){ consoleLocal('log','route='+route);
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){dashboard();}
-  if(route=='settings/index'){dashboard();}
   //if(route=='links/index'){links();}
   //if(route=='links/linksAdd'){linksAdd();}
   //if(route=='links/linksEdit'){linksEdit(id);}
