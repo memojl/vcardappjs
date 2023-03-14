@@ -69,10 +69,10 @@ const fileExist = async (mod,url)=>{
   return new_Mod;
 }
 
-export const router = (hash, mod, ext) => {
+export const router = (hash, mod, ext, title) => {
   consoleLocal('log','hash=>' + hash);
   let ext2 = (ext!='index')?' / '+capitalize(ext):'';
-  document.title = 'MandragoraJS SPA - ' + capitalize(mod) + ext2;
+  document.title = title + ' - ' + capitalize(mod) + ext2;
   getRoutesSesion(mod,privatePage);
   let page = (mod!='Home' && ext!='index')?ext:mod;// console.log(page,mod,ext);
   let content = document.getElementById('app');
