@@ -3,6 +3,7 @@ import { variables } from '../lib';
 import { functionFetch, fetchProfile } from '../services/fetch';
 import { Api } from '../const.env';
 import { consoleLocal } from '../functions';
+import app from '../../../public/assets/dashboard/xeria/assets/js/app';
 
 const v = variables();
 const { host, dominio, path_url, base_url, screenw, mod, hostDev } = v;
@@ -24,6 +25,7 @@ function loadStyleDashboard() {
 }
 
 async function btnSidebar() {
+  app();
   //Dashboard
   let btnSalir = document.querySelector('.log-out');
   if (btnSalir != null) {

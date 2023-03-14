@@ -6,7 +6,7 @@ Website: https://coderthemes.com/
 Contact: support@coderthemes.com
 File: Main Js File
 */
-
+export default function app(){
 
 ! function ($) {
     "use strict";
@@ -344,3 +344,5 @@ function ($) {
 
 // Waves Effect
 Waves.init();
+
+}
