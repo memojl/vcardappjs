@@ -17,8 +17,6 @@ import './public/assets/bootstrap-5.0.2/js/bootstrap.bundle.min.js';
 //import './public/assets/js/sweetalert2.all.min.js';
 //import './public/assets/pwa/sw.js'; //SERVICE WORKER
 import './public/assets/pwa/appCon.js';
-//import "./public/assets/dashboard/xeria/assets/js/vendor.min.js";
-//import "./public/assets/dashboard/xeria/assets/js/app.min.js";
 //Files import for App
 import { inicio, load } from './src/app/lib';
 import { consoleLocal } from './src/app/functions';
