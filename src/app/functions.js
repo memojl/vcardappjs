@@ -158,6 +158,41 @@ export function capitalize(word) {
   return word[0].toUpperCase() + word.slice(1).toLowerCase();
 }
 
+export function loadStyle(arrCss,prefix) {
+  const {host, hostDev}=variables();
+  if (arrCss.length > 0) {
+    for (let i=0; i<arrCss.length; i++) {
+      let node = document.getElementById(prefix+i);
+      if(node){
+        if (host == hostDev) {console.log('Ok: dash-'+i);}
+      }else{
+        if (host == hostDev) {console.log(arrCss[i]);}
+        //<![CDATA[
+        if (document.createStyleSheet) {
+          document.createStyleSheet(arrCss[i]);
+        } else {
+          var styles = "@import url('" + arrCss[i] + "');";
+          var newSS = document.createElement('link');
+          newSS.id = prefix+i;
+          newSS.rel = 'stylesheet';
+          newSS.href = 'data:text/css,' + escape(styles);
+          document.getElementsByTagName("head")[0].appendChild(newSS);
+        }
+        //]]>
+      }
+    }
+  }
+}
+
+export function delStyle(arrNum,prefix){
+  for(let i=0; i<arrNum; i++){
+    let nodo = document.getElementById(prefix+i);
+    if(nodo){console.log(nodo);
+      document.getElementsByTagName("head")[0].removeChild(nodo);
+    }  
+  }
+}
+
 export function fecha() {
   var dt = new Date();
   var hora = dt.getHours();

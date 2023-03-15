@@ -8,7 +8,7 @@ import dashApp from './dash-app';
 const v = variables();
 const {host, dominio, path_url, base_url, screenw, mod, hostDev} = v;
 
-function loadStyleDashboard() {
+/*function loadStyleDashboard() {
   const dashCss = [
     base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css', 
     base_url + 'assets/dashboard/xeria/assets/css/app.css'
@@ -36,7 +36,7 @@ function loadStyleDashboard() {
     }
     }
   }
-}
+}*/
 
 async function btnSidebar() {
   //Init dashApp
@@ -104,14 +104,14 @@ async function btnSidebar() {
   /////////////////////
 }
 
-function delStyleDashboard(){
+/*function delStyleDashboard(){
   for(let i=0;i<2;i++){
     let nodo = document.getElementById("dash-"+i);
     if(nodo){console.log(nodo);
       document.getElementsByTagName("head")[0].removeChild(nodo);
     }  
   }
-}
+}*/
 
 function dashboard() {
   //Retardo para activar btnLogin
@@ -119,7 +119,7 @@ function dashboard() {
     if (host == hostDev) {console.log('btnSidebar Activado');}
     btnSidebar();
   }, 500);
-  loadStyleDashboard();
+  //loadStyleDashboard();
 }
 
-export { dashboard, delStyleDashboard };
+export { dashboard };
