@@ -122,9 +122,9 @@ export function getModules(views){
   return divElement;
 }
 
-export function reload(mod){
+export function reload(mod,page_url){
   if(mod=='' || mod=='undefined'){
-    window.location.href='#/';
+    window.location.href=page_url;//'#/';
   }
 }
 

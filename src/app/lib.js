@@ -102,12 +102,12 @@ function variables() {
 /* FUNCIONES */
 function load() {
   const v = variables(); consoleLocal('log', v);
-  const { hash, mod, ext, id, route, hash2, title } = v;
+  const { hash, mod, ext, id, route, page_url, hash2, title } = v;
   router(hash, mod, ext, title);
   controlRoutes(route,mod,ext,id);
   menuWeb(hash2,mod,pages,pagesSys);
   //Redirect to #/ (Home)
-  reload(mod);
+  reload(mod,page_url);
 }
 
 function inicio() {
