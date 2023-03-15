@@ -23,6 +23,7 @@ function loadStyleDashboard() {
       } else {
         var styles = "@import url('" + dashCss[i] + "');";
         var newSS = document.createElement('link');
+        newSS.id = 'dash-' + i;
         newSS.rel = 'stylesheet';
         newSS.href = 'data:text/css,' + escape(styles);
         document.getElementsByTagName("head")[0].appendChild(newSS);
@@ -39,7 +40,15 @@ async function btnSidebar() {
   let btnSalir = document.querySelector('.log-out');
   if (btnSalir != null) {
     btnSalir.addEventListener('click', () => {
-      window.location.href = '#/logout';
+      //delStyleDashboard();
+      window.location.href = '#/logout';        
+    });
+  }
+
+  let btnSet = document.querySelector('.btn-set');
+  if (btnSet != null) {
+    btnSet.addEventListener('click', () => {
+      window.location.href = '#/dashboard/settings';        
     });
   }
 
@@ -90,13 +99,22 @@ async function btnSidebar() {
   /////////////////////
 }
 
+function delStyleDashboard(){
+  for(let i=0;i<2;i++){
+    let nodo = document.getElementById("dash-"+i);
+    if(nodo){console.log(nodo);
+      document.getElementsByTagName("head")[0].removeChild(nodo);
+    }  
+  }
+}
+
 function dashboard() {
   //Retardo para activar btnLogin
   setTimeout(function () {
     if (host == hostDev) {console.log('btnSidebar Activado');}
     btnSidebar();
   }, 500);
-  //loadStyleDashboard();
+  loadStyleDashboard();
 }
 
-export { dashboard };
+export { dashboard, delStyleDashboard };
