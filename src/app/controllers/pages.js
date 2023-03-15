@@ -6,6 +6,9 @@ import login from "../../pages/login/index.html?raw";
 import logout from "../../pages/logout/index.html?raw";
 import register from "../../pages/registro/index.html?raw";
 import noauth from "../../pages/noauth/index.html?raw";
+import cuenta from "../../pages/dashboard/cuenta.html?raw";
+import empresas from "../../pages/dashboard/empresas.html?raw";
+import tarjetas from "../../pages/dashboard/tarjetas.html?raw";
 
 /**COMPONENTS**/
 import menu from "../../components/menu.html?raw";
@@ -22,8 +25,11 @@ export const pages = {
 };
 
 export const pagesSys = {
-  dashboard: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+dashboard+'</div><!-- END wrapper -->'+sidebarR,
-  settings: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+settings+'</div><!-- END wrapper -->'+sidebarR,
+  dashboard: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+dashboard+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
+  settings: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+settings+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
+  cuenta: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+cuenta+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
+  empresas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+empresas+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
+  tarjetas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+tarjetas+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
   forget: forget,
   login: login,
   logout: logout,

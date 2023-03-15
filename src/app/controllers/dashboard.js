@@ -16,6 +16,10 @@ function loadStyleDashboard() {
 
   if (dashCss.length > 0) {
     for (let i = 0; i < dashCss.length; i++) {
+      let node = document.getElementById('dash-'+i);
+      if(node){
+        if (host == hostDev) {console.log('Ok: dash-'+i);}
+      }else{
       if (host == hostDev) {console.log(dashCss[i]);}
       //<![CDATA[
       if (document.createStyleSheet) {
@@ -29,6 +33,7 @@ function loadStyleDashboard() {
         document.getElementsByTagName("head")[0].appendChild(newSS);
       }
       //]]>
+    }
     }
   }
 }
