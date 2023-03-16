@@ -1,4 +1,4 @@
-import { consoleLocal, router } from "../app/functions";
+import { consoleLocal, router, loading } from "../app/functions";
 import { pages, pagesSys } from "../app/controllers/pages";
 import { login } from "../app/controllers/login";
 import { logout } from "../app/controllers/logout";
@@ -11,7 +11,7 @@ import { cssLoadMod } from "./css.routes";
 //Functions for Controllers JS
 function controlRoutes(route,v){ consoleLocal('log','route='+route);
   const {mod,base_url} = v;
-  if(mod){cssLoadMod(mod,base_url);}
+  if(mod){cssLoadMod(mod,base_url);  loading();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index' || (mod=='dashboard')){dashboard();}//else{delStyleDashboard();}

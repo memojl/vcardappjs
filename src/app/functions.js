@@ -236,3 +236,22 @@ export function consola(v){
   const nv = {hash,URL,pag_name,vars_Url,mod,ext,id,ext2,route,url_mod,url_m};//console.log(nv);
   return nv;
 }
+
+export function loading(){
+  let body = document.getElementsByTagName("body")[0];
+  let layer = 'layerLoading';
+  let content = `<div class="${layer}">
+    <img src="./assets/img/loader-green.gif" alt=""/>
+    <p>Cargando...</p>
+  </div>`;
+  var div = document.createElement('div');
+  div.id = 'load';
+  div.innerHTML=content;
+  body.appendChild(div);
+  setTimeout(() => {
+    let nodo = document.getElementById(div.id);
+    if(nodo){//console.log(nodo);
+      body.removeChild(nodo);
+    }
+  }, 15000);    
+}

@@ -24,9 +24,10 @@ export function cssLoadMod(mod,base_url){
         base_url + 'assets/login/css/custom.css'
      ];
  
-     if(mod=='login' || mod=='registro'){
-        loadStyle(loginCss,prefixLogin);
-     }else{
+     if(mod!='login' && mod!='registro'){
         delStyle(loginCss.length,prefixLogin);
+     }else{
+        loadStyle(loginCss,prefixLogin);
+
      }
 }
