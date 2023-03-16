@@ -1,5 +1,5 @@
 import { consoleLocal, router, controlLoading } from "../app/functions";
-import Pages from "../app/controllers/index";
+//import Pages from "../app/controllers/index";
 import { pages, pagesSys } from "../app/controllers/pages";
 import { login } from "../app/controllers/login";
 import { logout } from "../app/controllers/logout";
