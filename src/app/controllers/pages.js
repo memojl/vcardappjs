@@ -37,6 +37,11 @@ export const pagesSys = {
   noauth: noauth,
 };
 
+export const pagesAll = {
+  ...pages, 
+  ...pagesSys
+};//console.log('pagesAll:',pagesAll);
+
 export const privatePage = [
   'dashboard',
   'settings'

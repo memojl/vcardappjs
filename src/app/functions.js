@@ -1,4 +1,5 @@
 import { variables } from "./lib";
+import { pagesAll } from "../app/controllers/pages";
 import Pages from "../app/controllers/index";
 import { privatePage } from "../app/controllers/pages";
 
@@ -253,5 +254,13 @@ export function loading(){
     if(nodo){//console.log(nodo);
       body.removeChild(nodo);
     }
-  }, 15000);    
+  }, 1500);    
+}
+
+export function controlLoading(){
+  const {mod,ext} = variables();
+  let page = (mod!='Home' && ext!='index')?ext:mod;// console.log(page,mod,ext);
+  //let pag = Pages(page); console.log('PAGINA:',pag);
+  var views = pagesAll[page];
+  if(mod!='logout' && mod!='noauth' && views!=undefined){loading();}
 }
