@@ -98,17 +98,17 @@
 }).apply(this, [jQuery]);
 
 // Carousel
-(function($) {
+(function($) { console.log('-----Carrusel-----')
 
 	'use strict';
 
 	if ($.isFunction($.fn['themePluginCarousel'])) {
+		console.log('plugin-carousel');
 
 		$(function() {
 			$('[data-plugin-carousel]:not(.manual), .owl-carousel:not(.manual)').each(function() {
-				var $this = $(this),
-					opts;
-
+				var $this = $(this),opts;
+				console.log('data-plugin-carousel');
 				var pluginOptions = theme.fn.getOptions($this.data('plugin-options'));
 				if (pluginOptions)
 					opts = pluginOptions;
