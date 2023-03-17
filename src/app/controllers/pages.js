@@ -21,7 +21,7 @@ import dashFooter from "../../components/dash-footer.html?raw";
 import Home from "../../pages/Home/index.html?raw";
 
 export const pages = {
-  Home: menu+Home,
+  Home: Home,
 };
 
 export const pagesSys = {
