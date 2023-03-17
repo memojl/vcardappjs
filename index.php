@@ -155,10 +155,10 @@
                 </div>
               </div>
               <div class="col-md-3 d-flex justify-content-md-end mb-4 mb-md-0">
-                <a class="text-decoration-none" href="tel:(01)4426002842" target="_blank" title="Llamanos">
+                <a class="text-decoration-none" href="tel:(01)4424350334" target="_blank" title="Llamanos">
                 <span class="custom-call-to-action">
                 <span class="action-title text-color-primary">Llamanos</span>
-                <span class="action-info text-color-light">(01)4426002842</span>
+                <span class="action-info text-color-light">(01)4424350334</span>
                 </span>
                 </a>
               </div>
