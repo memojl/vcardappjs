@@ -40,16 +40,17 @@ function btnGuardar(e){
         //Redireccionar al Dashboard
         if(token!=null && token!='undefined'){
             location.href= dominio + path_url + '#/dashboard';
-        }else{
-            let msj = document.getElementById('msj-error');
-            msj.innerHTML = `<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>`;
-        }
+        }else{ErrorMsj(false,0);}
     })
     .catch(err=>{
-        console.log(err)
-        let msj = document.getElementById('msj-error');
-        msj.innerHTML = `<div class="alert alert-danger" role="alert">Error:Usuario o Contraseña Incorrectos</div>`;
+        ErrorMsj(err,1);
     });    
+}
+
+const ErrorMsj = (err,n)=>{
+    if(err){console.log(err);}//let errTxt = (n==1)?'<b>Error:</b>':'';
+    let msj = document.getElementById('msj-error');
+    msj.innerHTML = `<div class="alert alert-danger" role="alert">${(n==1)?'<b>Error:</b>':''} Usuario o Contraseña Incorrectos</div>`;
 }
 
 const login = () => {
