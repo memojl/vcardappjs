@@ -384,28 +384,28 @@
                             <li class="menu-title">MENU</li>\r
 \r
                             <li>\r
-                                <a href="/#/dashboard">\r
+                                <a href="./#/dashboard">\r
                                     <i class="fas fa-tachometer-alt"></i>\r
                                     <span> Dashboard </span>\r
                                 </a>\r
                             </li>\r
 \r
                             <li>\r
-                                <a href="/#/dashboard/tarjetas">\r
+                                <a href="./#/dashboard/tarjetas">\r
                                     <i class="far fa-address-card"></i>\r
                                     <span> Mis tarjetas </span>\r
                                 </a>\r
                             </li>\r
 \r
                             <li>\r
-                                <a href="/#/dashboard/empresas">\r
+                                <a href="./#/dashboard/empresas">\r
                                     <i class="fas fa-industry"></i>\r
                                     <span> Mis empresas </span>\r
                                 </a>\r
                             </li>\r
 \r
                             <li>\r
-                                <a href="/#/dashboard/cuenta">\r
+                                <a href="./#/dashboard/cuenta">\r
                                     <i class="fas fa-user"></i>\r
                                     <span> Mi cuenta </span>\r
                                 </a>\r
