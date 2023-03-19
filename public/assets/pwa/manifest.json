@@ -4,7 +4,7 @@
 	"version": "1.1.2",
 	"description": "VcardApp - Single Page Application",
 	"scope": ".",
-	"start_url": "https://memojl.github.io/vcardappjs/web/",
+	"start_url": "https://memojl.github.io/vcardappjs/web/#/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
