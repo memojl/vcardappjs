@@ -11,7 +11,7 @@ import './public/assets/dashboard/xeria/assets/css/icons.min.css';
 //import './public/assets/bootstrap-5.0.2/css/bootstrap.min.css';
 //import './public/assets/css/dashboard.css'; //** 3 WARNINGS IN WEBPACK FOR BUILD -->ADD DOM */
 //import './public/assets/font-awesome-5.14.0/css/all.min.css';
-//import './public/assets/css/style.css';
+import './public/assets/css/style.css';
 import './public/assets/css/load.css';
 //import './public/assets/main.scss';
 //[JS]
