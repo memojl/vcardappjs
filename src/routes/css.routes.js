@@ -20,9 +20,9 @@ export function cssLoadMod(mod, base_url) {
     //login
     const prefixLogin = 'login-';
     const loginCss = [
+        'https://fonts.googleapis.com/css?family=Muli:300,400,700',
         base_url + 'assets/login/vendor/bootstrap/css/bootstrap.min.css',
         base_url + 'assets/login/css/font.css',
-        base_url + 'https://fonts.googleapis.com/css?family=Muli:300,400,700',
         base_url + 'assets/login/css/style.green.css',
         base_url + 'assets/login/css/custom.css'
     ];
