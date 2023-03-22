@@ -1,8 +1,8 @@
 /* 
 CMS-Javascript (spa) 
 Autor: Guillermo Jiménez López
-Fecha de Actualización: 03.03.2023
-Versión: 1.2.2 - Vite
+Fecha de Actualización: 22.03.2023
+Versión: 1.2.5 - Vite
 */
 //[CSS]
 //import './public/assets/dashboard/xeria/assets/css/bootstrap.css';
