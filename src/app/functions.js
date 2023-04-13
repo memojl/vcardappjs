@@ -1,7 +1,8 @@
 import { variables } from "./lib";
-import { pagesAll } from "../app/controllers/pages";
+import { pagesAll, privatePage } from "../app/controllers/pages";
 import Pages from "../app/controllers/index";
-import { privatePage } from "../app/controllers/pages";
+import { versionJson } from "./services/fetch";
+import { apiVer } from "./const.env";
 
 /*FUNCIONES*/
 export function filename() {
@@ -260,7 +261,17 @@ export function loading(){
 export function controlLoading(){
   const {mod,ext} = variables();
   let page = (mod!='Home' && ext!='index')?ext:mod;// console.log(page,mod,ext);
-  //let pag = Pages(page); console.log('PAGINA:',pag);
   var views = pagesAll[page];
   if(mod!='logout' && mod!='noauth' && views!=undefined){loading();}
+}
+
+export async function compVersion(base_url){
+  const {version} = await versionJson(`${base_url}assets/pwa/manifest.json`); console.log(`Version Actual: ${version}`);//consoleLocal('log','Version1 ' + ver1);
+  const ver2 = await versionJson(apiVer); 
+  if(ver2 && ver2!=undefined){//console.log('Version2',ver2);
+    const {ultimate} = ver2.data[0]; //console.log(ultimate);
+    if(version != ultimate){
+      console.log(`Actualizar version (${version} => ${ultimate})`);
+    }
+  }else{console.warn('No se pudo llevar a cabo la comprobación de versiones');}
 }
