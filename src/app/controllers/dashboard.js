@@ -57,6 +57,14 @@ async function btnSidebar() {
     });
   }
 
+  let btnProfile = document.querySelector('.user-edit');
+  if (btnProfile != null) {
+    btnProfile.addEventListener('click', () => {
+      window.location.href = '#/dashboard/cuenta';        
+    });
+  }
+
+
   let arrow = document.querySelectorAll(".arrow");
   for (var i = 0; i < arrow.length; i++) {
     arrow[i].addEventListener("click", (e) => {
@@ -91,12 +99,14 @@ async function btnSidebar() {
   //setTimeout(async () => {    
   //if(mod === 'dashboard'){
   const u = document.querySelector('.profile_name');
+  const user = document.querySelector('.pro-user-name');
   const job = document.querySelector('.job');
   let msjProfile = (host == hostDev) ? ': DASHBOARD-GET PROFILE' : '';
   console.log('AUTORIZADO' + msjProfile);
-  if (u != null && job != null) {
+  if (u!= null && job!= null && user!= null) {
     const {email, username, nombre, foto, puesto, status} = await fetchProfile(Api, 'InfoUser');
     if (u != null) {u.innerHTML = username;}
+    if (user != null) {user.innerHTML = username + ' <i class="mdi mdi-chevron-down"></i>';}
     if (job != null) {job.innerHTML = puesto;}
   }
   //}
