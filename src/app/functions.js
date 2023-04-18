@@ -72,20 +72,31 @@ const fileExist = async (mod,url)=>{
 }
 
 export const router = (hash, mod, ext, title) => {
+  var token = localStorage.getItem("Token");
   consoleLocal('log','hash=>' + hash);
   let ext2 = (ext!='index')?' / '+capitalize(ext):'';
   document.title = title + ' - ' + capitalize(mod) + ext2;
   getRoutesSesion(mod,privatePage);
-  let page = (mod!='Home' && ext!='index')?ext:mod;// console.log(page,mod,ext);
-  let content = document.getElementById('app');
-  content.innerHTML = '';
-  if(hash){
-    return content.appendChild(Pages(page));
+  let page = (mod!='Home' && ext!='index')?ext:mod; //console.log(page,mod,ext);
+  //SEGMENTO PARA CARGAR EN DASHBOARD
+  let idApp = (mod=='dashboard' && ext!='index')?'appDash':'app'; console.log(idApp);
+  let content = document.getElementById(idApp);
+  if(content){
+    content.innerHTML = '';
+    if(hash){
+      return content.appendChild(Pages(page));
+    }
+  }else{
+    if(token!=null && token!='undefined'){
+      window.location.href='#/dashboard';
+    }else{
+      window.location.href='#/';
+    }
   }
 }
 
 const getRoutes = async (hash,url,routes_session)=>{
-  let content = document.getElementById('app-modulo'); 
+  let content = document.getElementById('app'); 
   let response = await fetch(url);
   if(!response.ok){
     console.error('Error 404(Fetch): La página No existe');
@@ -262,7 +273,7 @@ export function controlLoading(){
   const {mod,ext} = variables();
   let page = (mod!='Home' && ext!='index')?ext:mod;// console.log(page,mod,ext);
   var views = pagesAll[page];
-  if(mod!='logout' && mod!='noauth' && views!=undefined){loading();}
+  if(mod!='logout' && mod!='noauth' && ext=='index' && views!=undefined){loading();}
 }
 
 export async function compVersion(base_url){

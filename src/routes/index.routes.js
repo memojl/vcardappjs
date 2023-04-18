@@ -17,7 +17,8 @@ function controlRoutes(v){
   if(route=='Home/index'){Home();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
-  if(route=='dashboard/index' || (mod=='dashboard')){dashboard();}//else{delStyleDashboard();}
+  if(route=='dashboard/index'){dashboard();}
+  //if(route=='dashboard/index' || (mod=='dashboard')){dashboard();}//else{delStyleDashboard();}
   //if(route=='links/index'){links();}
   //if(route=='links/linksAdd'){linksAdd();}
   //if(route=='links/linksEdit'){linksEdit(id);}

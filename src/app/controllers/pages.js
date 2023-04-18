@@ -26,10 +26,14 @@ export const pages = {
 
 export const pagesSys = {
   dashboard: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+dashboard+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
-  settings: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+settings+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
-  cuenta: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+cuenta+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
-  empresas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+empresas+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
-  tarjetas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+tarjetas+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
+  //settings: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+settings+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
+  //cuenta: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+cuenta+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
+  //empresas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+empresas+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
+  //tarjetas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+tarjetas+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
+  tarjetas: tarjetas,
+  empresas: empresas,
+  cuenta: cuenta,
+  settings: settings,
   forget: forget,
   login: login,
   logout: logout,
