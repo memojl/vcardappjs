@@ -6,7 +6,7 @@ import {consoleLocal} from '../functions';
 import dashApp from './dash-app';
 
 const v = variables();
-const {host, dominio, path_url, base_url, screenw, mod, hostDev} = v;
+const {host, dominio, path_url, base_url, screenw, mod, hostDev, year} = v;
 
 /*function loadStyleDashboard() {
   const dashCss = [
@@ -64,6 +64,10 @@ async function btnSidebar() {
     });
   }
 
+  let yFooter = document.querySelector('#year');
+  if(yFooter){
+    yFooter.innerHTML = year + ' &copy; Xeria theme';
+  }
 
   let arrow = document.querySelectorAll(".arrow");
   for (var i = 0; i < arrow.length; i++) {
@@ -75,7 +79,7 @@ async function btnSidebar() {
 
   let sidebar = document.querySelector(".sidebar");
   let sidebarBtn = document.querySelector(".bx-menu"); //console.log(sidebarBtn);
-  if (sidebarBtn != null) {
+  if (sidebarBtn) {
     let bar = localStorage.getItem('bar');
     if (bar == 'true') {
       sidebar.classList.toggle("close");
@@ -105,13 +109,19 @@ async function btnSidebar() {
   console.log('AUTORIZADO' + msjProfile);
   if (u!= null && job!= null && user!= null) {
     const {email, username, nombre, foto, puesto, status} = await fetchProfile(Api, 'InfoUser');
-    if (u != null) {u.innerHTML = username;}
-    if (user != null) {user.innerHTML = username + ' <i class="mdi mdi-chevron-down"></i>';}
-    if (job != null) {job.innerHTML = puesto;}
+    if (u) {u.innerHTML = username;}
+    if (user) {user.innerHTML = username + ' <i class="mdi mdi-chevron-down"></i>';}
+    if (job) {job.innerHTML = puesto;}
   }
   //}
   //}, 1000);
   /////////////////////
+  setTimeout(() => {
+    let scrollMenu = document.querySelector('.slimscroll-menu');
+    if(scrollMenu){scrollMenu.style.height = '350px';}
+    let scrollMenu2 = document.querySelector('#slimscroll-menu');
+    if(scrollMenu2){scrollMenu2.style.height = '250px';}    
+  }, 100);
 }
 
 /*function delStyleDashboard(){
