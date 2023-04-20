@@ -179,7 +179,7 @@ export function loadStyle(arrCss,prefix) {
       if(node){
         consoleLocal('log','Ok: dash-'+i);
       }else{
-        consoleLocal('log',arrCss[i]);
+        //consoleLocal('log',arrCss[i]);
         //<![CDATA[
         if (document.createStyleSheet) {
           document.createStyleSheet(arrCss[i]);
@@ -200,7 +200,7 @@ export function loadStyle(arrCss,prefix) {
 export function delStyle(arrNum,prefix){
   for(let i=0; i<arrNum; i++){
     let nodo = document.getElementById(prefix+i);
-    if(nodo){consoleLocal('log',nodo);
+    if(nodo){//consoleLocal('log',nodo);
       document.getElementsByTagName("head")[0].removeChild(nodo);
     }  
   }
