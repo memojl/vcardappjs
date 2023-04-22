@@ -4,6 +4,7 @@ import {functionFetch, fetchProfile} from '../services/fetch';
 import {Api} from '../const.env';
 import {consoleLocal} from '../functions';
 import dashApp from './dash-app';
+import firebaseConfig from '../services/firebase';
 
 const v = variables();
 const {host, dominio, path_url, base_url, screenw, mod, hostDev, year} = v;
@@ -138,6 +139,7 @@ function dashboard() {
   setTimeout(function () {
     if (host == hostDev) {console.log('btnSidebar Activado');}
     btnSidebar();
+    firebaseConfig();
   }, 500);
   //loadStyleDashboard();
 }

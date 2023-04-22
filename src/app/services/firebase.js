@@ -1,5 +1,15 @@
-// Your web app's Firebase configuration
-var firebaseConfig = {
+import {
+  variables
+} from '../lib';
+
+export default function firebaseConfig() {
+  /* VARIABLES CONSTANTES*/
+  const {
+    mod
+  } = variables();
+
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
     apiKey: "AIzaSyDeX81H_K8AsV2KjQgEbwxte6yVdSYqFXk",
     authDomain: "vcardapp-js.firebaseapp.com",
     databaseURL: "https://vcardapp-js.firebaseio.com",
@@ -12,16 +22,81 @@ var firebaseConfig = {
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-  
+
   const db = firebase.database();
   const auth = firebase.auth();
   const fs = firebase.firestore();
-  
+
   console.log('Modulo=>' + mod);
-  
+
   //Tablas-Documentos
   var refConfig = db.ref().child('vcard_config');
   var refSignup = db.ref().child('vcard_signup');
   var refVcard = db.ref().child('vcard_vcard');
   var refUser = db.ref().child('vcard_user');
   var refEmpresas = db.ref().child('vcard_vcard_empresas');
+
+  console.log('Config =>', refConfig);
+
+  //APP
+  const dashboard = document.querySelectorAll(".dashboard");
+  //const contentLinks = document.querySelectorAll(".content-page");
+  const loginLinks = document.querySelectorAll(".login-page");
+  const registroLinks = document.querySelectorAll(".registro-page");
+
+  const loginCheck = (user) => {
+    if (user) {
+      dashboard.forEach((link) => (link.style.display = "block"));
+      loginLinks.forEach((link) => (link.style.display = "none"));
+      registroLinks.forEach((link) => (link.style.display = "none"));
+    } else {
+      dashboard.forEach((link) => (link.style.display = "none"));
+      if (mod == 'registro') {
+        registroLinks.forEach((link) => (link.style.display = "block"));
+        loginLinks.forEach((link) => (link.style.display = "none"));
+      } else {
+        registroLinks.forEach((link) => (link.style.display = "none"));
+        loginLinks.forEach((link) => (link.style.display = "block"));
+      }
+    }
+  }
+
+
+  // SingIn (Login)
+  const signInForm = document.querySelector("#form-login");
+  signInForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = signInForm["usuario"].value;
+    const password = signInForm["password"].value;
+
+    // Authenticate the User
+    auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
+      // clear the form
+      signInForm.reset();
+      // close the modal//$("#signinModal").modal("hide");
+    });
+  });
+
+  // events
+  // list for auth state changes
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log("signin:" + user.email); //console.log(user);
+      leerDatos(user.email);
+      tarjetas(user.uid);
+      empresas(user.uid);
+      loginCheck(user);
+      guardarDatos(user);
+      if (mod == 'tarjetas'){ selectEmpresa(user.uid);}
+      vuser(user.uid);
+      /*fs.collection("posts").get().then((snapshot) => {
+        loginCheck(user);
+        setupPosts(snapshot.docs);
+      });*/
+    } else {
+      console.log("signout");
+      //setupPosts([]);
+      loginCheck(user);
+    }
+  });
+}

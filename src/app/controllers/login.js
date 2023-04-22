@@ -1,8 +1,10 @@
 import {variables} from '../lib';
 import { Api } from '../const.env';
 import { consoleLocal } from '../functions';
-const v = variables();
+import firebaseConfig from '../services/firebase';
+
 /* VARIABLES CONSTANTES*/
+const v = variables();
 const { host, dominio, path_url, hostDev } = v;
 
 console.log('/* javascript login | VARIABLES CONSTANTES*/');
@@ -10,8 +12,8 @@ let api_login = Api + '/login/';
 if(host==hostDev){console.log('api_login='+api_login);}
 
 function btnLogin(){
-const formulario = document.getElementById('form-login');
-if(formulario!=null){formulario.addEventListener('submit', btnGuardar);console.log('btnLogin Activado');}
+    const formulario = document.getElementById('form-login');
+    if(formulario!=null){formulario.addEventListener('submit', btnGuardar);console.log('btnLogin Activado');}
 }
 
 function btnGuardar(e){
@@ -62,6 +64,7 @@ const login = () => {
     //Retardo para activar btnLogin
     setTimeout(function(){
         btnLogin();
+        firebaseConfig();
     },1000);
 }
 
