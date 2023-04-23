@@ -1,6 +1,8 @@
 /**PAGES SYSTEM**/
 import dashboard from "../../pages/dashboard/index.html?raw";
 import app from "../../pages/app/index.html?raw";
+import appLogin from "../../components/login.html?raw";
+import appRegistro from "../../components/registro.html?raw"
 import settings from "../../pages/dashboard/settings.html?raw";
 import forget from "../../pages/forget/index.html?raw";
 import login from "../../pages/login/index.html?raw";
@@ -26,12 +28,12 @@ export const pages = {
 };
 
 export const pagesSys = {
-  dashboard: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+dashboard+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
+  dashboard: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+dashboard+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
   //settings: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+settings+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
   //cuenta: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+cuenta+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
   //empresas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+empresas+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
   //tarjetas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+tarjetas+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
-  app: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+app+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
+  app: '<!-- Begin page --><div id="wrapper" class="dashboard" style="display: none;">'+dashMenu+sidebarL+'<div class="content-page">'+app+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR+appLogin+appRegistro,
   tarjetas: tarjetas,
   empresas: empresas,
   cuenta: cuenta,
@@ -50,7 +52,6 @@ export const pagesAll = {
 
 export const privatePage = [
   'dashboard',
-  'app',
   'tarjetas',
   'empresas',
   'cuenta',

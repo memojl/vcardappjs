@@ -78,20 +78,6 @@ export default function firebaseService() {
   });
 
 
-  // SingIn (Login)
-  const signInForm = document.querySelector("#form-login");
-  signInForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = 'multiportal@outlook.com'; //signInForm["usuario"].value;
-    const password = 'karma458x'; //signInForm["password"].value;
-
-    // Authenticate the User
-    auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
-      // clear the form
-      signInForm.reset();
-      // close the modal//$("#signinModal").modal("hide");
-    });
-  });
 
   // events
   // list for auth state changes
