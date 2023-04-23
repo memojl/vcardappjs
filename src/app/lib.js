@@ -99,6 +99,7 @@ function variables() {
     hash2,
     url_mod, //Load-NOT
     url404, //NOT
+    apiVer
   };
   return v;
 }

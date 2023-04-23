@@ -3,8 +3,6 @@ const {host} = window.location;
 export const title = 'VcardApp';
 //export const proyecto = 'vcardappjs'; //PROYECTO
 export const typeBack = 'firebase'; //firebase / api
-//export const selBack = (typeBack == 'firebase') ? 1:0; //BACKEND SELECT ()
-//export const selDash = (typeBack == 'firebase') ? 'app':'dashboard';
 export const path_hash = '#/'; //PATH HASH
 export const path_src = 'src/'; //PATH RESOURCE 
 export const path_page = path_src + 'pages/'; //PATH PAGE

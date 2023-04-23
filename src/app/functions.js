@@ -2,7 +2,9 @@ import { variables } from "./lib";
 import { pagesAll, privatePage } from "../app/controllers/pages";
 import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
-import { apiVer } from "./const.env";
+
+//VARIABLES CONSTANTES
+const {host, hostDev, apiVer} = variables();
 
 /*FUNCIONES*/
 export function filename() {
@@ -148,7 +150,6 @@ export function ssl(){
 }
 
 export function consoleLocal(type,val){
-  const {host, hostDev}=variables();
   if(host == hostDev){
     switch (type) {
       case 'log':
@@ -172,7 +173,6 @@ export function capitalize(word) {
 }
 
 export function loadStyle(arrCss,prefix) {
-  const {host, hostDev}=variables();
   if (arrCss.length > 0) {
     for (let i=0; i<arrCss.length; i++) {
       let node = document.getElementById(prefix+i);
