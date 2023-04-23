@@ -17,6 +17,7 @@ function controlRoutes(v){
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index'){dashboard();}
+  if(route=='app/index'){dashboard();}
   //if(route=='dashboard/index' || (mod=='dashboard')){dashboard();}//else{delStyleDashboard();}
   //if(route=='links/index'){links();}
   //if(route=='links/linksAdd'){linksAdd();}

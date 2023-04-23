@@ -2,7 +2,7 @@ import {
   variables
 } from '../lib';
 
-export default function firebaseConfig() {
+export default function firebaseService() {
   /* VARIABLES CONSTANTES*/
   const {
     mod
@@ -36,7 +36,7 @@ export default function firebaseConfig() {
   var refUser = db.ref().child('vcard_user');
   var refEmpresas = db.ref().child('vcard_vcard_empresas');
 
-  console.log('Config =>', refConfig);
+  //console.log('Config =>', refConfig);
 
   //APP
   const dashboard = document.querySelectorAll(".dashboard");
@@ -61,13 +61,29 @@ export default function firebaseConfig() {
     }
   }
 
+  // Logout
+  const logout = document.querySelector("#logout");
+  logout.addEventListener("click", (e) => {
+    e.preventDefault();
+    auth.signOut().then(() => {
+      console.log("signup out");
+      localStorage.clear();
+      navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        for (let registration of registrations) {
+          registration.unregister()
+        }
+      });
+    });
+    //if (mod != 'Home') {location.href = page_url;}
+  });
+
 
   // SingIn (Login)
   const signInForm = document.querySelector("#form-login");
   signInForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = signInForm["usuario"].value;
-    const password = signInForm["password"].value;
+    const email = 'multiportal@outlook.com'; //signInForm["usuario"].value;
+    const password = 'karma458x'; //signInForm["password"].value;
 
     // Authenticate the User
     auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
@@ -82,13 +98,13 @@ export default function firebaseConfig() {
   auth.onAuthStateChanged((user) => {
     if (user) {
       console.log("signin:" + user.email); //console.log(user);
-      leerDatos(user.email);
-      tarjetas(user.uid);
-      empresas(user.uid);
+      //leerDatos(user.email);
+      //tarjetas(user.uid);
+      //empresas(user.uid);
       loginCheck(user);
-      guardarDatos(user);
-      if (mod == 'tarjetas'){ selectEmpresa(user.uid);}
-      vuser(user.uid);
+      //guardarDatos(user);
+      //if (mod == 'tarjetas'){ selectEmpresa(user.uid);}
+      //vuser(user.uid);
       /*fs.collection("posts").get().then((snapshot) => {
         loginCheck(user);
         setupPosts(snapshot.docs);

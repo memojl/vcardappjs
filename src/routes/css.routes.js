@@ -4,6 +4,24 @@ import {
 } from "../app/functions";
 
 export function cssLoadMod(mod, base_url) {
+    //app
+    const prefixApp = 'dash-';
+    const cssApp = [
+        //'https://fonts.googleapis.com/css?family=Muli:300,400,700',
+        base_url + 'assets/login/vendor/bootstrap/css/bootstrap.min.css',
+        //base_url + 'assets/login/css/font.css',
+        base_url + 'assets/login/css/style.green.css',
+        base_url + 'assets/login/css/custom.css',
+        base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css',
+        base_url + 'assets/dashboard/xeria/assets/css/app.css'
+    ];
+
+    if (mod == 'app') {
+        loadStyle(cssApp, prefixApp);
+    } else {
+        delStyle(cssApp.length, prefixApp);
+    }
+
     //dashboard
     const prefixDash = 'dash-';
     const dashCss = [
@@ -33,7 +51,7 @@ export function cssLoadMod(mod, base_url) {
         loadStyle(loginCss, prefixLogin);
     }
 
-    //login
+    //home
     const prefixHome = 'home-';
     const homeCss = [
         base_url + 'assets/tema/css/demo-business-consulting.css',

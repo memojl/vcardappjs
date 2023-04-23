@@ -4,7 +4,7 @@ import {functionFetch, fetchProfile} from '../services/fetch';
 import {Api} from '../const.env';
 import {consoleLocal} from '../functions';
 import dashApp from './dash-app';
-import firebaseConfig from '../services/firebase';
+import firebaseService from '../services/firebase';
 
 const v = variables();
 const {host, dominio, path_url, base_url, screenw, mod, hostDev, year} = v;
@@ -47,7 +47,9 @@ async function btnSidebar() {
   if (btnSalir != null) {
     btnSalir.addEventListener('click', () => {
       //delStyleDashboard();
-      window.location.href = '#/logout';        
+      setTimeout(() => {
+        window.location.href = '#/logout';                
+      }, 1000);
     });
   }
 
@@ -139,7 +141,7 @@ function dashboard() {
   setTimeout(function () {
     if (host == hostDev) {console.log('btnSidebar Activado');}
     btnSidebar();
-    firebaseConfig();
+    firebaseService();
   }, 500);
   //loadStyleDashboard();
 }
