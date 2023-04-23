@@ -1,10 +1,10 @@
-//DASHBOARD.JS
+//APP.JS
 import {variables} from '../lib';
 import {functionFetch, fetchProfile} from '../services/fetch';
 import {Api} from '../const.env';
 import {consoleLocal} from '../functions';
 import dashApp from './dash-app';
-//import firebaseService from '../services/firebase';
+import firebaseService from '../services/firebase';
 
 const v = variables();
 const {host, dominio, path_url, base_url, screenw, mod, hostDev, year} = v;
@@ -136,14 +136,14 @@ async function btnSidebar() {
   }
 }*/
 
-function dashboard() {
+function dashboardApp() {
   //Retardo para activar btnLogin
   setTimeout(function () {
     if (host == hostDev) {console.log('btnSidebar Activado');}
     btnSidebar();
-    //firebaseService();
+    firebaseService();
   }, 500);
   //loadStyleDashboard();
 }
 
-export { dashboard };
+export { dashboardApp };

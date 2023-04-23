@@ -284,8 +284,8 @@ pre {
 }
 
 .dropdown-toggle::after {
-  border: none !important;
-  content: '\f107';
+  /*border: none !important;
+  content: '\f107';*/
   vertical-align: baseline;
   font-family: 'FontAwesome';
   margin-left: .25rem;

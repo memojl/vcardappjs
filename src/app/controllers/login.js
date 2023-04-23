@@ -1,7 +1,7 @@
 import {variables} from '../lib';
 import { Api } from '../const.env';
 import { consoleLocal } from '../functions';
-import firebaseService from '../services/firebase';
+//import firebaseService from '../services/firebase';
 
 /* VARIABLES CONSTANTES*/
 const v = variables();
@@ -64,7 +64,7 @@ const login = () => {
     //Retardo para activar btnLogin
     setTimeout(function(){
         btnLogin();
-        firebaseService();
+        //firebaseService();
     },1000);
 }
 
