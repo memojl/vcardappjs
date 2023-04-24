@@ -13,27 +13,17 @@ async function btnSidebar() {
   //Init dashApp
   dashApp();
   //Dashboard
-  let btnSalir = document.querySelector('.log-out');
-  if (btnSalir != null) {
-    btnSalir.addEventListener('click', () => {
-      //delStyleDashboard();
-      setTimeout(() => {
-        window.location.href = '#/logout';                
-      }, 1000);
-    });
-  }
-
   let btnSet = document.querySelector('.btn-set');
   if (btnSet != null) {
     btnSet.addEventListener('click', () => {
-      window.location.href = '#/dashboard/settings';        
+      window.location.href = '#/app/settings';        
     });
   }
 
   let btnProfile = document.querySelector('.user-edit');
   if (btnProfile != null) {
     btnProfile.addEventListener('click', () => {
-      window.location.href = '#/dashboard/cuenta';        
+      window.location.href = '#/app/cuenta';        
     });
   }
 
@@ -42,37 +32,6 @@ async function btnSidebar() {
     yFooter.innerHTML = year + ' &copy; Xeria theme';
   }
 
-  let arrow = document.querySelectorAll(".arrow");
-  for (var i = 0; i < arrow.length; i++) {
-    arrow[i].addEventListener("click", (e) => {
-      let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
-      arrowParent.classList.toggle("showMenu");
-    });
-  }
-
-  let sidebar = document.querySelector(".sidebar");
-  let sidebarBtn = document.querySelector(".bx-menu"); //console.log(sidebarBtn);
-  if (sidebarBtn) {
-    let bar = localStorage.getItem('bar');
-    if (bar == 'true') {
-      sidebar.classList.toggle("close");
-    }
-    sidebarBtn.addEventListener("click", () => {
-      let sbar = sidebar.classList.toggle("close"); //console.log(sbar);
-      localStorage.setItem("bar", sbar);
-      bar = localStorage.getItem('bar'); //console.log('Bar-Click:',bar);
-    });
-    console.log('Bar-Load:', bar);
-    //sidebarBtn.addEventListener("click", () => { sidebar.classList.toggle("close"); });
-  }
-  if (screenw <= 740) {
-    if (sidebar) {
-      side.classList.add('close');
-    }
-  }
-
-  //INFO USER /////////
-  /////////////////////
   setTimeout(() => {
     let scrollMenu = document.querySelector('.slimscroll-menu');
     if(scrollMenu){scrollMenu.style.height = '350px';}
