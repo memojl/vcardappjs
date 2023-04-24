@@ -4,7 +4,7 @@ import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
 
 //VARIABLES CONSTANTES
-const {host, hostDev, apiVer} = variables();
+const {host, hostDev, typeBack, apiVer} = variables();
 
 /*FUNCIONES*/
 export function filename() {
@@ -277,12 +277,14 @@ export function controlLoading(){
 }
 
 export async function compVersion(base_url){
-  const {version} = await versionJson(`${base_url}assets/pwa/manifest.json`); console.log(`Version Actual: ${version}`);//consoleLocal('log','Version1 ' + ver1);
-  const ver2 = await versionJson(apiVer); 
-  if(ver2 && ver2!=undefined){//console.log('Version2',ver2);
-    const {ultimate} = ver2.data[0]; //console.log(ultimate);
-    if(version != ultimate){
-      console.log(`Actualizar version (${version} => ${ultimate})`);
-    }
-  }else{console.warn('No se pudo llevar a cabo la comprobación de versiones');}
+  if(typeBack!='firebase'){
+    const {version} = await versionJson(`${base_url}assets/pwa/manifest.json`); console.log(`Version Actual: ${version}`);//consoleLocal('log','Version1 ' + ver1);
+    const ver2 = await versionJson(apiVer); 
+    if(ver2 && ver2!=undefined){//console.log('Version2',ver2);
+      const {ultimate} = ver2.data[0]; //console.log(ultimate);
+      if(version != ultimate){
+        console.log(`Actualizar version (${version} => ${ultimate})`);
+      }
+    }else{console.warn('No se pudo llevar a cabo la comprobación de versiones');}
+  }
 }
