@@ -4,7 +4,7 @@
 	"version": "1.1.2",
 	"description": "VCARD - Tarjetas de Contacto Digital",
 	"scope": ".",
-	"start_url": "https://vcardappjs.herokuapp.com/app/",
+	"start_url": "https://vcardappjs.000webhostapp.com/app/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
