@@ -20,30 +20,30 @@
     <!-- LINK-ICON -->
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
-    <link rel="manifest" href="./bloques/WPA/manifest.json">
+    <link rel="manifest" href="./assets/pwa/manifest.json">
     <meta name="VCARDS-APP" content="Add to Home">
-    <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "./bloques/WPA/icon/apple-icon-57x57.png" >
-    <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "./bloques/WPA/icon/apple-icon-60x60.png" >
-    <link  rel = "apple-touch-icon "  tamanos = " 72x72 "  href = "./bloques/WPA/icon/apple-icon-72x72.png " >
-    <link  rel = "apple-touch-icon "  tamanos = "76x76"  href = "./bloques/WPA/icon/apple-icon-76x76.png" >
-    <link  rel = "apple-touch-icon "  tamanos = " 114x114 "  href = "./bloques/WPA/icon/apple-icon-114x114.png ">
-    <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "./bloques/WPA/icon/apple-icon-120x120.png" >
-    <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "./bloques/WPA/icon/apple-icon-144x144.png" >
-    <link  rel = "apple-touch-icon "  tamanos = " 152x152 "  href = "./bloques/WPA/icon/apple-icon-152x152.png" >
-    <link  rel = "apple-touch-icon "  tamanos = "180x180"  href = "./bloques/WPA/icon/apple-icon-180x180.png" >
-    <link  rel = "icon"  type = "image/png"  tallas = "16x16"  href = "./bloques/WPA/icon/favicon-16x16.png" >
-    <link  rel = "icon"  type = "image/png"  tamanos = "32x32"  href = "./bloques/WPA/icon/favicon-32x32.png" >
-    <link  rel = "icon"  type = "image/png"  tallas = "96x96"  href = "./bloques/WPA/icon/favicon-96x96.png" >
-    <link  rel = "icon"  type = "image/png"  tamanos = "192x192"  href = "./bloques/WPA/icon/android-icon-192x192.png" >
+    <link  rel = "apple-touch-icon"  tallas = "57x57"  href = "./assets/pwa/icon/apple-icon-57x57.png" >
+    <link  rel = "apple-touch-icon"  tallas = "60x60"  href = "./assets/pwa/icon/apple-icon-60x60.png" >
+    <link  rel = "apple-touch-icon "  tamanos = " 72x72 "  href = "./assets/pwa/icon/apple-icon-72x72.png " >
+    <link  rel = "apple-touch-icon "  tamanos = "76x76"  href = "./assets/pwa/icon/apple-icon-76x76.png" >
+    <link  rel = "apple-touch-icon "  tamanos = " 114x114 "  href = "./assets/pwa/icon/apple-icon-114x114.png ">
+    <link  rel = "apple-touch-icon"  tallas = "120x120"  href = "./assets/pwa/icon/apple-icon-120x120.png" >
+    <link  rel = "apple-touch-icon"  tallas = "144x144"  href = "./assets/pwa/icon/apple-icon-144x144.png" >
+    <link  rel = "apple-touch-icon "  tamanos = " 152x152 "  href = "./assets/pwa/icon/apple-icon-152x152.png" >
+    <link  rel = "apple-touch-icon "  tamanos = "180x180"  href = "./assets/pwa/icon/apple-icon-180x180.png" >
+    <link  rel = "icon"  type = "image/png"  tallas = "16x16"  href = "./assets/pwa/icon/favicon-16x16.png" >
+    <link  rel = "icon"  type = "image/png"  tamanos = "32x32"  href = "./assets/pwa/icon/favicon-32x32.png" >
+    <link  rel = "icon"  type = "image/png"  tallas = "96x96"  href = "./assets/pwa/icon/favicon-96x96.png" >
+    <link  rel = "icon"  type = "image/png"  tamanos = "192x192"  href = "./assets/pwa/icon/android-icon-192x192.png" >
     <!-- link  rel = "manifest" href="/manifest.json" --> 
     <meta  name ="msapplication-TileColor"  content = "#ffffff" >
-    <meta  name = "msapplication-TileImage"  content = "./bloques/WPA/icon/ms-icon-144x144.png" >
+    <meta  name = "msapplication-TileImage"  content = "./assets/pwa/icon/ms-icon-144x144.png" >
     <meta  name = "theme-color"  content = "#ffffff" >
     <!-- iconos -->
-    <link rel="apple-touch-icon" href="./bloques/WPA/icon/apple-icon-180x180.png">
-    <link rel="shortcut icon" sizes="16x16" href="./bloques/WPA/icon/favicon-16x16.png">
-    <link rel="shortcut icon" sizes="196x196" href="./bloques/WPA/icon/favicon-96x96.png">
-    <link rel="apple-touch-icon-precomposed" href="./bloques/WPA/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" href="./assets/pwa/icon/apple-icon-180x180.png">
+    <link rel="shortcut icon" sizes="16x16" href="./assets/pwa/icon/favicon-16x16.png">
+    <link rel="shortcut icon" sizes="196x196" href="./assets/pwa/icon/favicon-96x96.png">
+    <link rel="apple-touch-icon-precomposed" href="./assets/pwa/icon/apple-icon-152x152.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Web Fonts  -->
@@ -107,7 +107,7 @@
                           </li>
                           <!-- /menu.json -->
                           <li><a class="nav-link bg-link" href="./app/registro"><i class="fa fa-edit"></i> Registrate</a></li>
-                          <li><a class="nav-link" href="./app"><i class="fa fa-sign-in"></i> App-Login</a></li>
+                          <li><a class="nav-link" href="./app"><i class="fa fa-sign-in"></i> App</a></li>
                         </ul>
                       </nav>
                     </div>
