@@ -334,6 +334,8 @@
                                         con Google</button>\r
                                 </div>\r
                             </form>\r
+                            <a href="#/" class="forgot-pass">Inicio</a>\r
+                            <br>\r
                             <small>&iquest;Ya tienes una cuenta? </small><a href="#/login" class="signup">Login</a>\r
                         </div>\r
                     </div>\r
