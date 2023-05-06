@@ -3,7 +3,7 @@
 	"short_name": "VCARDS-APP",
 	"description": "VcardApp - Tarjetas de Contacto Digital",
 	"scope": ".",
-	"start_url": "https://vcardappjs.000webhostapp.com",
+	"start_url": "http://localhost/MisSitios/vcardappjs/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
