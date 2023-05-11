@@ -5,7 +5,7 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 $proyecto='vcardappjs';
 $host = $_SERVER['HTTP_HOST']; //Nombre del dominio (dominio.com).
 $dominio = ($host=='localhost')?'http://'.$host.'/':'https://'.$host.'/';
-$path_app = ($proyecto=='vcardappjs'|| $host=='vcardappjs.herokuapp.com')?'app/':'';
+$path_app = ($proyecto=='vcardappjs'|| $host=='vcardappjs.000webhostapp.com')?'app/':'';
 $path_root  = ($host=='localhost')?'MisSitios/'.$proyecto.'/':'';
 //$path_root = ($host=='localhost')?'MisSitios/'.$proyecto.'/'.$path_app:$path_app;
 $page_url = $dominio.$path_root;
