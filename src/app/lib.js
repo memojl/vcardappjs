@@ -113,7 +113,7 @@ function load() {
   menuWeb(hash,mod,pages,pagesSys);
   //Redirect to #/ (Home)
   reload(mod,page_url);
-  compVersion(base_url);
+  compVersion(mod,base_url);
 }
 
 function inicio() {
