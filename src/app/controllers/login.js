@@ -4,8 +4,7 @@ import { consoleLocal } from '../functions';
 //import firebaseService from '../services/firebase';
 
 /* VARIABLES CONSTANTES*/
-const v = variables();
-const { host, dominio, path_url, hostDev } = v;
+const { host, dominio, path_url, hostDev } = variables();
 
 console.log('/* javascript login | VARIABLES CONSTANTES*/');
 let api_login = Api + '/login/';
