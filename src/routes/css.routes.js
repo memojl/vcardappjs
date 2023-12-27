@@ -7,13 +7,14 @@ export function cssLoadMod(mod, base_url) {
     //app ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     const prefixApp = 'app-';
     const cssApp = [
+        base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css',
+        base_url + 'assets/dashboard/xeria/assets/css/app.css',
         'https://fonts.googleapis.com/css?family=Muli:300,400,700',
         base_url + 'assets/login/vendor/bootstrap/css/bootstrap.min.css',
         base_url + 'assets/login/css/font.css',
         base_url + 'assets/login/css/style.green.css',
         base_url + 'assets/login/css/custom.css',
-        base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css',
-        base_url + 'assets/dashboard/xeria/assets/css/app.css'
+        
     ];
     if (mod == 'app') {
         loadStyle(cssApp, prefixApp);
