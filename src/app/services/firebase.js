@@ -98,7 +98,7 @@ export default function firebaseService() {
   });
 
   // SingIn (Login)
-  const signInForm = document.querySelector("#login-form");
+  const signInForm = document.querySelector("#form-login");
   signInForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const email = signInForm["login-email"].value;
