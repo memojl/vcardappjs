@@ -3,8 +3,8 @@ import { pages, pagesSys } from "../app/controllers/pages";
 import { login } from "../app/controllers/login";
 import { logout } from "../app/controllers/logout";
 import { dashboard } from "../app/controllers/dashboard";
-import { dashboardApp } from "../app/controllers/app";
 import { cssLoadMod } from "./css.routes";
+import { dashboardApp } from "../app/controllers/app";
 import Home from "../app/controllers/home";
 
 
@@ -17,10 +17,6 @@ function controlRoutes(v){
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index'){dashboard();}
   if(route=='app/index'){dashboardApp();}
-  //if(route=='dashboard/index' || (mod=='dashboard')){dashboard();}//else{delStyleDashboard();}
-  //if(route=='links/index'){links();}
-  //if(route=='links/linksAdd'){linksAdd();}
-  //if(route=='links/linksEdit'){linksEdit(id);}
 }
 
 export { controlRoutes,router,pages,pagesSys };
