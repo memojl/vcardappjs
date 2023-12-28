@@ -199,16 +199,17 @@ export default function firebaseService() {
     const foto = document.querySelector("#foto");
     const foto1 = document.querySelector("#foto1");
     const nom = document.querySelector(".profile_name");
-    //const mail = document.querySelector("#email_session");
+    const mail = document.querySelector(".pro-user-name");
     //const uid = document.querySelector("#id_code_google");
     db.ref("vcard_signup").on("child_added", function (s) {
       var user = s.val(); //console.log('User Firebase:',user);
       var f = (user.foto == null) ? './assets/img/sinfoto.png' : user.foto;
       var u = (user.usuario == null) ? user.email : user.usuario;
-      if (user.email == userlogin) {
+      if (user.email == userlogin) {console.log('User Firebase:',user);
         foto.setAttribute("src", f);
         foto1.setAttribute("src", f);
         nom.innerHTML = u;
+        mail.innerHTML = user.email;
       }
     });
   }
