@@ -1,8 +1,10 @@
 import {variables} from '../lib';
+import {dashboardCss} from '../../routes/css.routes';
 
 export default function firebaseService() {
   /* VARIABLES CONSTANTES*/
-  const {mod} = variables();
+  const {mod,base_url} = variables();
+  const page_url = base_url;
 
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -35,6 +37,7 @@ export default function firebaseService() {
 
   //APP
   const dashboard = document.querySelectorAll(".dashboard");
+  const rightbar = document.querySelectorAll(".right-bar");
   //const contentLinks = document.querySelectorAll(".content-page");
   const loginLinks = document.querySelectorAll(".login-page");
   const registroLinks = document.querySelectorAll(".registro-page");
@@ -42,10 +45,12 @@ export default function firebaseService() {
   const loginCheck = (user) => {
     if (user) {
       dashboard.forEach((link) => (link.style.display = "block"));
+      rightbar.forEach((link) => (link.style.display = "block"));
       loginLinks.forEach((link) => (link.style.display = "none"));
       registroLinks.forEach((link) => (link.style.display = "none"));
     } else {
       dashboard.forEach((link) => (link.style.display = "none"));
+      rightbar.forEach((link) => (link.style.display = "none"));
       if (mod == 'registro') {
         registroLinks.forEach((link) => (link.style.display = "block"));
         loginLinks.forEach((link) => (link.style.display = "none"));
@@ -58,66 +63,75 @@ export default function firebaseService() {
 
   // Logout
   const logout = document.querySelector("#logout");
-  logout.addEventListener("click", (e) => {
-    e.preventDefault();
-    auth.signOut().then(() => {
-      console.log("signup out");
-      localStorage.clear();
-      navigator.serviceWorker.getRegistrations().then(function (registrations) {
-        for (let registration of registrations) {
-          registration.unregister()
-        }
+  if(logout){
+    logout.addEventListener("click", (e) => {
+      e.preventDefault();
+      auth.signOut().then(() => {
+        console.log("signup out");
+        localStorage.clear();
+        let uid = localStorage.getItem('uid');
+        dashboardCss(mod,base_url,uid);
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (let registration of registrations) {
+            registration.unregister()
+          }
+        });
       });
+      //if(mod!='Home'){location.href=page_url;}
     });
-    //if(mod!='Home'){location.href=page_url;}
-  });
+  }
 
   // SignUp (Registarse con correo)
   const signUpForm = document.querySelector("#registro-form");
-  signUpForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const usuario = 'Sin Nombre'; //const usuario = signUpForm["register-username"].value;
-    const email = signUpForm["register-email"].value;
-    const password = signUpForm["register-password"].value;
-    var user = {
-      /*uid: "",*/
-      displayName: usuario,
-      email: email,
-      photoURL: null
-    }
-    // Authenticate the User
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        console.log('Datos user: ' + user);
-        //guardarDatos(user);
-        // clear the form
-        signUpForm.reset();
-        // close the modal//$("#signupModal").modal("hide");
-      });
-  });
+  if(signUpForm){
+    signUpForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const usuario = 'Sin Nombre'; //const usuario = signUpForm["register-username"].value;
+      const email = signUpForm["register-email"].value;
+      const password = signUpForm["register-password"].value;
+      var user = {
+        /*uid: "",*/
+        displayName: usuario,
+        email: email,
+        photoURL: null
+      }
+      // Authenticate the User
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          console.log('Datos user: ' + user);
+          //guardarDatos(user);
+          // clear the form
+          signUpForm.reset();
+          // close the modal//$("#signupModal").modal("hide");
+        });
+    });
+  }
 
   // SingIn (Login)
   const signInForm = document.querySelector("#form-login");
-  signInForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const email = signInForm["login-email"].value;
-    const password = signInForm["login-password"].value;
-
-    // Authenticate the User
-    auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
-      // clear the form
-      signInForm.reset();
-      // close the modal//$("#signinModal").modal("hide");
+  if(signInForm){
+    signInForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const email = signInForm["login-email"].value;
+      const password = signInForm["login-password"].value;
+      // Authenticate the User
+      auth.signInWithEmailAndPassword(email, password).then((userCredential) => {
+        //dashboardCss(mod,base_url);
+        // clear the form
+        signInForm.reset();
+        // close the modal//$("#signinModal").modal("hide");
+      });
     });
-  });
+  }
 
   // events
   // list for auth state changes
   auth.onAuthStateChanged((user) => {
-    if (user) {
-      console.log("signin:" + user.email); //console.log(user);
-      //leerDatos(user.email);
+    if(user){ console.log('User:',user);
+      console.log("signin:" + user.email); 
+      localStorage.setItem('uid', user.uid);
+      leerDatos(user.email);
       //tarjetas(user.uid);
       //empresas(user.uid);
       loginCheck(user);
@@ -128,6 +142,10 @@ export default function firebaseService() {
         loginCheck(user);
         setupPosts(snapshot.docs);
       });*/
+      //let uid = localStorage.getItem('uid');
+      //if(uid){
+        dashboardCss(mod,base_url,user.uid);
+      //}
     } else {
       console.log("signout");
       //setupPosts([]);
@@ -178,24 +196,19 @@ export default function firebaseService() {
 
   //Leer los datos
   function leerDatos(userlogin) {
-    const foto = document.querySelector("#photo");
-    const nom = document.querySelector("#nombre_session");
-    const mail = document.querySelector("#email_session");
-    const uid = document.querySelector("#id_code_google");
+    const foto = document.querySelector("#foto");
+    const foto1 = document.querySelector("#foto1");
+    const nom = document.querySelector(".profile_name");
+    //const mail = document.querySelector("#email_session");
+    //const uid = document.querySelector("#id_code_google");
     db.ref("vcard_signup").on("child_added", function (s) {
-      var user = s.val();
-      var f = (user.foto == null) ? page_url + 'bloques/files/images/photos/sinfoto.png' : user.foto;
+      var user = s.val(); //console.log('User Firebase:',user);
+      var f = (user.foto == null) ? './assets/img/sinfoto.png' : user.foto;
       var u = (user.usuario == null) ? user.email : user.usuario;
       if (user.email == userlogin) {
-        const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
-        const nombre = u;
-        const correo = userlogin;
-        const ID_user = user.uid;
-
-        foto.innerHTML = cover;
-        nom.innerHTML = nombre;
-        mail.innerHTML = correo;
-        uid.innerHTML = ID_user;
+        foto.setAttribute("src", f);
+        foto1.setAttribute("src", f);
+        nom.innerHTML = u;
       }
     });
   }

@@ -13,6 +13,10 @@ body {
   height: 100vh;
 }
 
+.link:hover{
+  cursor: pointer;
+}
+
 .navbar {
   background: black !important;
 }

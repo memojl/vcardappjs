@@ -1,6 +1,7 @@
 /**PAGES SYSTEM**/
 import dashboard from "../../pages/dashboard/index.html?raw";
 import app from "../../pages/app/index.html?raw";
+import dash from "../../pages/app/dash.html?raw";
 import appLogin from "../../components/login.html?raw";
 import appRegistro from "../../components/registro.html?raw"
 import settings from "../../pages/dashboard/settings.html?raw";
@@ -34,6 +35,7 @@ export const pagesSys = {
   //empresas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+empresas+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR,
   //tarjetas: '<!-- Begin page --><div id="wrapper">'+dashMenu+sidebarL+'<div class="content-page">'+tarjetas+dashFooter+'<div></div><!-- END wrapper -->'+sidebarR,
   app: '<!-- Begin page --><div id="wrapper" class="dashboard" style="display: none;">'+dashMenu+sidebarL+'<div class="content-page">'+app+dashFooter+'</div></div><!-- END wrapper -->'+sidebarR+appLogin+appRegistro,
+  dash: dash,
   tarjetas: tarjetas,
   empresas: empresas,
   cuenta: cuenta,
@@ -57,3 +59,18 @@ export const privatePage = [
   'cuenta',
   'settings'
 ];
+
+export const menuPages = {
+  dash:{
+    txt:'Dashboard',
+    icon:'fas fa-tachometer-alt'
+  },
+  tarjetas:{
+    txt:'Mis tarjetas',
+    icon:'far fa-address-card'
+  },
+  empresas:{
+    txt:'Mis empresas',
+    icon:'fas fa-industry'
+  }
+}

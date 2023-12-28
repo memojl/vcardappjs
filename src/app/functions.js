@@ -4,7 +4,7 @@ import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
 
 //VARIABLES CONSTANTES
-const {host, hostDev, typeBack, apiVer} = variables();
+const {hash, host, hostDev, typeBack, apiVer} = variables();
 
 /*FUNCIONES*/
 export function filename() {
@@ -78,17 +78,17 @@ export const router = (hash, mod, ext, title) => {
   consoleLocal('log','hash=>' + hash);
   let ext2 = (ext!='index')?' / '+capitalize(ext):'';
   document.title = title + ' - ' + capitalize(mod) + ext2;
-  getRoutesSesion(mod,privatePage);  
-  let page = (mod!='Home' && ext!='index')?ext:mod; //console.log(page,mod,ext);
+  getRoutesSesion(mod,privatePage);
+  let page = (mod!='Home' && ext!='index')?ext:mod; console.log(page,mod,ext);
   //SEGMENTO PARA CARGAR EN DASHBOARD
-  //let idApp = (mod=='dashboard' && ext!='index')?'appDash':'app'; console.log(idApp);
+  //let idApp = (mod=='app' && ext!='index')?'appDash':'app'; console.log('idApp:',idApp);
   let content = document.getElementById('app');
-  //if(content){
+  if(content){
     content.innerHTML = '';
     if(hash){
       return content.appendChild(Pages(page));
     }
-  /*}else{
+  }/*else{
     if(token!=null && token!='undefined'){
       window.location.href='#/dashboard';
     }else{
@@ -177,7 +177,7 @@ export function loadStyle(arrCss,prefix) {
     for (let i=0; i<arrCss.length; i++) {
       let node = document.getElementById(prefix+i);
       if(node){
-        consoleLocal('log','Ok: dash-'+i);
+        consoleLocal('log','Ok: '+prefix+i);
       }else{
         //consoleLocal('log',arrCss[i]);
         //<![CDATA[
@@ -287,4 +287,17 @@ export async function compVersion(mod,base_url){//const {mod,ext} = variables();
       }
     }else{console.warn('No se pudo llevar a cabo la comprobación de versiones');}
   }
+}
+
+export function btnMenuPages(btn){
+  let d = btn.getAttribute("data-menu");
+  btn.addEventListener('click', () => {
+    let content = document.getElementById('appDash');
+    if(content){consoleLocal('log','Click '+d);
+      content.innerHTML = '';
+      if(hash){
+        return content.appendChild(Pages(d));
+      }
+    }        
+  });
 }
