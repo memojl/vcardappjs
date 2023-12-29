@@ -1,15 +1,15 @@
 /**PAGES SYSTEM**/
 import dashboard from "../../pages/dashboard/index.html?raw";
 import app from "../../pages/app/index.html?raw";
-import dash from "../../pages/app/dash.html?raw";
+import settings from "../../pages/app/settings.html?raw";
 import appLogin from "../../components/login.html?raw";
 import appRegistro from "../../components/registro.html?raw"
-import settings from "../../pages/dashboard/settings.html?raw";
 import forget from "../../pages/forget/index.html?raw";
 import login from "../../pages/login/index.html?raw";
 import logout from "../../pages/logout/index.html?raw";
 import register from "../../pages/registro/index.html?raw";
 import noauth from "../../pages/noauth/index.html?raw";
+import dash from "../../pages/dashboard/dash.html?raw";
 import cuenta from "../../pages/dashboard/cuenta.html?raw";
 import empresas from "../../pages/dashboard/empresas.html?raw";
 import tarjetas from "../../pages/dashboard/tarjetas.html?raw";

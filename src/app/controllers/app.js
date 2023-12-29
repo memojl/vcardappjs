@@ -16,6 +16,11 @@ async function btnSidebar() {
   //MENU SIDE
   let sideMenu = document.querySelector('#side-menu');
   //
+  if(sideMenu){
+    sideMenu.addEventListener('click', () => {
+      document.body.classList.toggle("sidebar-enable");        
+    });
+  }
   for(let item in menuPages){//console.log(menuPages[item]);
     const {txt,icon} = menuPages[item];
     sideMenu.innerHTML += `
@@ -59,20 +64,22 @@ async function btnSidebar() {
     });
   }
 
-  //BTN-Dashboard
-  var btnDashboard = document.querySelector('.btn-dash');
-  if(btnDashboard != null){ btnMenuPages(btnDashboard);}
-  //BTN-Tarjetas
-  let btnTarjetas = document.querySelector('.btn-tarjetas');
-  if(btnTarjetas != null){ btnMenuPages(btnTarjetas);}
-  //BTN-Empresas
-  let btnEmpresas = document.querySelector('.btn-empresas');
-  if(btnEmpresas != null){ btnMenuPages(btnEmpresas);}
-
   let yFooter = document.querySelector('#year');
   if(yFooter){
     yFooter.innerHTML = year + ' &copy; Xeria theme';
   }
+
+  setTimeout(() => {
+    //BTN-Dashboard
+    var btnDashboard = document.querySelector('.btn-dash');
+    if(btnDashboard != null){ btnMenuPages(btnDashboard);}
+    //BTN-Tarjetas
+    let btnTarjetas = document.querySelector('.btn-tarjetas');
+    if(btnTarjetas != null){ btnMenuPages(btnTarjetas);}
+    //BTN-Empresas
+    let btnEmpresas = document.querySelector('.btn-empresas');
+    if(btnEmpresas != null){ btnMenuPages(btnEmpresas);}
+  }, 200);
 
   setTimeout(() => {
     let scrollMenu = document.querySelector('.slimscroll-menu');
