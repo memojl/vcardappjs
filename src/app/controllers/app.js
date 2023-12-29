@@ -2,7 +2,7 @@
 import {variables} from '../lib';
 import {functionFetch, fetchProfile} from '../services/fetch';
 import {Api} from '../const.env';
-import {consoleLocal, btnMenuPages} from '../functions';
+import { consoleLocal, loadDashboard, btnMenuPages} from '../functions';
 import { privatePage, menuPages } from './pages';
 import dashApp from './dash-app';
 import firebaseService from '../services/firebase';
@@ -18,7 +18,10 @@ async function btnSidebar() {
   //
   if(sideMenu){
     sideMenu.addEventListener('click', () => {
-      document.body.classList.toggle("sidebar-enable");        
+      document.body.classList.toggle("sidebar-enable");
+      loadD();    
+
+      
     });
   }
   for(let item in menuPages){//console.log(menuPages[item]);
@@ -49,25 +52,15 @@ async function btnSidebar() {
     }
   }*/
 
-  //Dashboard
-  let btnSet = document.querySelector('.btn-set');
-  if (btnSet != null) {
-    btnSet.addEventListener('click', () => {
-      window.location.href = '#/app/settings';        
-    });
-  }
-
-  let btnProfile = document.querySelector('.user-edit');
-  if (btnProfile != null) {
-    btnProfile.addEventListener('click', () => {
-      window.location.href = '#/app/cuenta';        
-    });
-  }
-
   let yFooter = document.querySelector('#year');
   if(yFooter){
-    yFooter.innerHTML = year + ' &copy; Xeria theme';
+    yFooter.innerHTML = year + ` &copy; VcardApp V<span id="version"></span> de <a href="#/app" alt="">[:Multiportal:]</a>`;
   }
+
+  setTimeout(() => {console.log('Cargando Dash...');
+    loadDashboard('dash');
+    loadD();
+  },1000);
 
   setTimeout(() => {
     //BTN-Dashboard
@@ -79,7 +72,14 @@ async function btnSidebar() {
     //BTN-Empresas
     let btnEmpresas = document.querySelector('.btn-empresas');
     if(btnEmpresas != null){ btnMenuPages(btnEmpresas);}
-  }, 200);
+    //
+    let btnSet = document.querySelector('.btn-set');
+    if(btnSet != null){btnMenuPages(btnSet);}
+    //
+    let btnProfile = document.querySelector('.user-edit');
+    if(btnProfile != null){ btnMenuPages(btnProfile);}
+  
+  }, 500);
 
   setTimeout(() => {
     let scrollMenu = document.querySelector('.slimscroll-menu');
@@ -87,6 +87,29 @@ async function btnSidebar() {
     let scrollMenu2 = document.querySelector('#slimscroll-menu');
     if(scrollMenu2){scrollMenu2.style.height = '250px';}    
   }, 100);
+}
+
+function loadD(){
+  setTimeout(() => { 
+    let fluid = document.querySelector('.container-fluid');
+    if(fluid){
+      console.log('fluid');
+      fluid.innerHTML += `
+      <div id="h-dash" class="row">
+          <div class="col-12 load-dash">
+              <div class="spinner-border avatar-lg text-primary m-2" role="status"></div>
+          </div> <!-- end col-->
+      </div><!-- end col-->`;  
+    }
+  }, 100);
+  console.log('Cargando...');
+  setTimeout(() => { 
+    let s = document.getElementById('s-dash');
+    let h = document.getElementById('h-dash');
+    if(s){s.style.display = 'inherit';}
+    if(h){h.style.display = 'none';}
+    console.log('Terminado.');
+  }, 3000);        
 }
 
 function dashboardApp() {
@@ -97,6 +120,7 @@ function dashboardApp() {
     firebaseService();
   }, 500);
   //loadStyleDashboard();
+  
 }
 
 export { dashboardApp };
