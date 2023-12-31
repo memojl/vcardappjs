@@ -248,8 +248,8 @@ body {
 .enlarged .footer {
   left: 70px !important; }
 
-.enlarged .user-box {
-  display: none; }
+/*.enlarged .user-box {
+  display: none; }*/
 
 body.enlarged {
   min-height: 1200px; }
