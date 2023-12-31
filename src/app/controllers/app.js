@@ -20,8 +20,6 @@ async function btnSidebar() {
     sideMenu.addEventListener('click', () => {
       document.body.classList.toggle("sidebar-enable");
       loadD();    
-
-      
     });
   }
   for(let item in menuPages){//console.log(menuPages[item]);
@@ -74,7 +72,7 @@ async function btnSidebar() {
     if(btnEmpresas != null){ btnMenuPages(btnEmpresas);}
     //
     let btnSet = document.querySelector('.btn-set');
-    if(btnSet != null){btnMenuPages(btnSet);}
+    if(btnSet != null){ btnMenuPages(btnSet);}
     //
     let btnProfile = document.querySelector('.user-edit');
     if(btnProfile != null){ btnMenuPages(btnProfile);}
@@ -84,8 +82,10 @@ async function btnSidebar() {
   setTimeout(() => {
     let scrollMenu = document.querySelector('.slimscroll-menu');
     if(scrollMenu){scrollMenu.style.height = '350px';}
-    let scrollMenu2 = document.querySelector('#slimscroll-menu');
-    if(scrollMenu2){scrollMenu2.style.height = '250px';}    
+    let menuR = document.querySelector('#slimscroll-menu');
+    if(menuR){menuR.style.height = '250px';
+    menuR.addEventListener('click', () => { loadD(); });
+    }
   }, 100);
 }
 
@@ -101,12 +101,12 @@ function loadD(){
           </div> <!-- end col-->
       </div><!-- end col-->`;  
     }
-  }, 100);
+  }, 200);
   console.log('Cargando...');
   setTimeout(() => { 
     let s = document.getElementById('s-dash');
     let h = document.getElementById('h-dash');
-    if(s){s.style.display = 'inherit';}
+    if(s){s.style.display = 'flex';}
     if(h){h.style.display = 'none';}
     console.log('Terminado.');
   }, 3000);        
