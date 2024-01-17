@@ -32,8 +32,8 @@ async function btnSidebar() {
         </a>
       </li>`;
 
-    var btn = document.querySelector('.btn-'+item);
-    if(btn != null){ btnMenuPages(btn);}
+    //var btn = document.querySelector('.btn-'+item);
+    //if(btn != null){ btnMenuPages(btn);}
   }
   //
   /*let n = privatePage.length;
@@ -92,14 +92,13 @@ async function btnSidebar() {
 function loadD(){
   setTimeout(() => { 
     let fluid = document.querySelector('.container-fluid');
-    if(fluid){
-      console.log('fluid');
+    if(fluid){//console.log('fluid');
       fluid.innerHTML += `
       <div id="h-dash" class="row">
-          <div class="col-12 load-dash">
-              <div class="spinner-border avatar-lg text-primary m-2" role="status"></div>
-          </div> <!-- end col-->
-      </div><!-- end col-->`;  
+        <div class="col-12 load-dash">
+          <div class="spinner-border avatar-lg text-primary m-2" role="status"></div>
+        </div>
+      </div>`;  
     }
   }, 200);
   console.log('Cargando...');
