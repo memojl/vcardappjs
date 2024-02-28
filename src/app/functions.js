@@ -83,12 +83,12 @@ export const router = (hash, mod, ext, title) => {
   //SEGMENTO PARA CARGAR EN DASHBOARD
   //let idApp = (mod=='dashboard' && ext!='index')?'appDash':'app'; console.log(idApp);
   let content = document.getElementById('app');
-  //if(content){
+  if(content){
     content.innerHTML = '';
     if(hash){
       return content.appendChild(Pages(page));
     }
-  /*}else{
+  }/*else{
     if(token!=null && token!='undefined'){
       window.location.href='#/dashboard';
     }else{
