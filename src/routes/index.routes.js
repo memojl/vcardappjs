@@ -4,9 +4,6 @@ import { login } from "../app/sys/login/login";
 import { logout } from "../app/sys/logout/logout";
 import { dashboard } from "../app/auth/dashboard/dashboard";
 //import { cssLoadMod } from "./css.routes";
-import { links } from "../pages/links/links";
-import { linksAdd } from "../pages/links/link-add";
-import { linksEdit } from "../pages/links/link-edit";
 //import Home from "../app/pages/home/home";
 
 //Functions for Controllers JS
@@ -17,9 +14,6 @@ function controlRoutes(v){
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){dashboard();}
-  if(route=='links/index'){links();}
-  if(route=='links/linksAdd'){linksAdd();}
-  if(route=='links/linksEdit'){linksEdit(id);}
 }
 
 export { controlRoutes,router,pages,pagesSys };
