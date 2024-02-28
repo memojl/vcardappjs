@@ -1,5 +1,5 @@
-import { variables } from "./lib";
-import { pagesAll, privatePage } from "../app/controllers/pages";
+import { variables } from "./core/lib";
+import { pagesAll, pagesAuth } from "../app/controllers/pages";
 import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
 
@@ -78,17 +78,17 @@ export const router = (hash, mod, ext, title) => {
   consoleLocal('log','hash=>' + hash);
   let ext2 = (ext!='index')?' / '+capitalize(ext):'';
   document.title = title + ' - ' + capitalize(mod) + ext2;
-  getRoutesSesion(mod,privatePage);
-  let page = (mod!='Home' && ext!='index')?ext:mod; console.log(page,mod,ext);
+  getRoutesSesion(mod,pagesAuth);  
+  let page = (mod!='Home' && ext!='index')?ext:mod; //console.log(page,mod,ext);
   //SEGMENTO PARA CARGAR EN DASHBOARD
-  //let idApp = (mod=='app' && ext!='index')?'appDash':'app'; console.log('idApp:',idApp);
+  //let idApp = (mod=='dashboard' && ext!='index')?'appDash':'app'; console.log(idApp);
   let content = document.getElementById('app');
-  if(content){
+  //if(content){
     content.innerHTML = '';
     if(hash){
       return content.appendChild(Pages(page));
     }
-  }/*else{
+  /*}else{
     if(token!=null && token!='undefined'){
       window.location.href='#/dashboard';
     }else{
@@ -119,13 +119,13 @@ const getRoutes = async (hash,url,routes_session)=>{
   }
 }
 
-export function getRoutesSesion(mod,privatePage){
+export function getRoutesSesion(mod,pagesAuth){
   var token = localStorage.getItem("Token");consoleLocal('log','token='+token);
-  //Generar array de paginas privadas const privatePage=['dashboard','links'];
-  let n = privatePage.length; //console.log(n);
+  //Generar array de paginas privadas const pagesAuth=['dashboard','links'];
+  let n = pagesAuth.length; //console.log(n);
   for(let i=0;i<n;i++){
-    if(mod === privatePage[i]){consoleLocal('log','Accceso: '+mod+'='+privatePage[i]);}
-    if(mod === privatePage[i] && (token==null || token=='undefined')){/*setTimeout(() => {*/window.location.href='#/noauth';/*}, 100);*/}
+    if(mod === pagesAuth[i]){consoleLocal('log','Accceso: '+mod+'='+pagesAuth[i]);}
+    if(mod === pagesAuth[i] && (token==null || token=='undefined')){/*setTimeout(() => {*/window.location.href='#/noauth';/*}, 100);*/}
   }
   //if((mod=='dashboard' || mod=='links') && (token==null || token=='undefined')){/*setTimeout(() => {*/window.location.href='#/noauth';/*}, 100);*/}
   if(mod=='login' && (token!=null && token!='undefined')){/*setTimeout(() => {*/window.location.href='#/dashboard';/*}, 100);*/}
@@ -177,7 +177,7 @@ export function loadStyle(arrCss,prefix) {
     for (let i=0; i<arrCss.length; i++) {
       let node = document.getElementById(prefix+i);
       if(node){
-        consoleLocal('log','Ok: '+prefix+i);
+        consoleLocal('log','Ok: dash-'+i);
       }else{
         //consoleLocal('log',arrCss[i]);
         //<![CDATA[
