@@ -9,10 +9,9 @@ import { cssLoadMod, classBody } from "./css.routes";
 //Functions for Controllers JS
 function controlRoutes(v){ 
   const {route,mod,id,base_url} = v;
-
-  if(mod){cssLoadMod(mod,base_url);controlLoading();}
-  document.addEventListener("DOMContentLoaded", () => {classBody(mod)});
-    
+  controlLoading();
+  if(mod){classBody(mod);cssLoadMod(mod,base_url);}
+  //document.addEventListener("DOMContentLoaded", () => {});    
   consoleLocal('log','route='+route);
   //if(route=='Home/index'){Home();}
   if(route=='login/index'){login();}
