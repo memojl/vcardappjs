@@ -10,6 +10,7 @@ import settings from "../auth/dashboard/settings.html?raw";
 import profile from "../auth/profile/index.html?raw";
 /**PAGES**/
 import Home from "../../pages/Home/index.html?raw";
+import myapp from "../../pages/app/index.html?raw";
 import nosotros from "../../pages/nosotros/index.html?raw";
 import productos from "../../pages/productos/index.html?raw";
 import categorias from "../../pages/productos/categorias.html?raw";
@@ -35,7 +36,8 @@ export const pagesSys = {
 };
 
 export const pages = {
-  Home: menu+Home,
+  Home: Home,
+  app: myapp, 
   nosotros: menu+nosotros,
   productos: menu+productos,
   categorias: menu+categorias,

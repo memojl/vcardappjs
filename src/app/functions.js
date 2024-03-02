@@ -197,6 +197,33 @@ export function loadStyle(arrCss,prefix) {
   }
 }
 
+export function loadScript(arrJs,prefix) {
+  if (arrJs.length > 0) {
+    for (let i=0; i<arrJs.length; i++) {
+      let node = document.getElementById(prefix+i);
+      if(node){
+        consoleLocal('log','Ok: '+prefix+i);
+      }else{
+        //<![CDATA[
+        var newScript = document.createElement('script');
+        newScript.id = prefix+i;
+        newScript.src = arrJs[i]; // Especifica la ruta al archivo JavaScript que deseas cargar
+        document.body.appendChild(newScript);
+        //]]>
+      }
+    }
+  }
+}
+
+export function delScript(arrNum,prefix){
+  for(let i=0; i<=arrNum; i++){
+    let nodo = document.getElementById(prefix+i);
+    if(nodo){consoleLocal('log',nodo);
+      document.body.removeChild(nodo);
+    }  
+  }
+}
+
 export function delStyle(arrNum,prefix){
   for(let i=0; i<arrNum; i++){
     let nodo = document.getElementById(prefix+i);
@@ -266,7 +293,7 @@ export function loading(){
     if(nodo){//console.log(nodo);
       body.removeChild(nodo);
     }
-  }, 1500);    
+  }, 5000);    
 }
 
 export function controlLoading(){

@@ -1,11 +1,19 @@
-import {
-    loadStyle,
-    delStyle
-} from "../app/functions";
+import {loadStyle,delStyle,loadScript,delScript} from "../app/functions";
+
+export function classBody(mod){
+    let cBody=document.querySelector('.body');
+    if(cBody){
+        if(mod!='' && mod!='Home'){
+            cBody.style.display = 'none';
+        }else{
+            cBody.style.display = 'inherit';
+        }
+    }
+}
 
 export function cssLoadMod(mod, base_url) {
     //app ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    const prefixApp = 'app-';
+    //const prefixApp = 'app-';
     const cssApp = [
         'https://fonts.googleapis.com/css?family=Muli:300,400,700',
         base_url + 'assets/login/vendor/bootstrap/css/bootstrap.min.css',
@@ -16,9 +24,9 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/dashboard/xeria/assets/css/app.css'
     ];
     if (mod == 'app') {
-        loadStyle(cssApp, prefixApp);
+        loadStyle(cssApp, 'appCS-');
     } else {
-        delStyle(cssApp.length, prefixApp);
+        delStyle(cssApp.length, 'appCS-');
     }
 
     //dashboard ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -49,15 +57,25 @@ export function cssLoadMod(mod, base_url) {
     }
 
     //home ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    const prefixHome = 'home-';
+    //const prefixHome = 'home-';
     const homeCss = [
-        base_url + 'assets/tema/css/demo-business-consulting.css',
-        base_url + 'assets/tema/css/skin-business-consulting.css',
-        base_url + 'assets/tema/css/style.css',
+        //base_url + 'assets/tema/css/demo-business-consulting.css',
+        //base_url + 'assets/tema/css/skin-business-consulting.css',
+        //base_url + 'assets/tema/css/style.css',
+    ];
+    const homeJS = [
+        base_url + 'assets/tema/js/theme.js',
+        base_url + 'assets/tema/js/jquery.themepunch.tools.min.js',
+        base_url + 'assets/tema/js/jquery.themepunch.revolution.min.js',
+        base_url + 'assets/tema/js/demo-business-consulting.js',
+        base_url + 'assets/tema/js/custom.js',
+        base_url + 'assets/tema/js/theme.init.js'
     ];
     if (mod != 'Home') {
-        delStyle(homeCss.length, prefixHome);
+        delStyle(homeCss.length, 'homeCS-');
+        delScript(homeJS.length, 'homeJS-');
     } else {
-        loadStyle(homeCss, prefixHome);
+        loadStyle(homeCss, 'homeCS-');
+        loadScript(homeJS, 'homeJS-');
     }
 }
