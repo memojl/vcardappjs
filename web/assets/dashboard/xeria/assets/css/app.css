@@ -249,7 +249,7 @@ body.enlarged {
 @media (max-width: 767.98px) {
   body {
     overflow-x: hidden;
-    padding-bottom: 80px; }
+    /*padding-bottom: 80px;*/ }
   .left-side-menu {
     display: none;
     z-index: 10 !important; }
