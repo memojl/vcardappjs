@@ -14,19 +14,23 @@ export function classBody(mod){
 export function cssLoadMod(mod, base_url) {
     //app ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //const prefixApp = 'app-';
-    const cssApp = [
+    const appCS = [
         'https://fonts.googleapis.com/css?family=Muli:300,400,700',
         base_url + 'assets/login/vendor/bootstrap/css/bootstrap.min.css',
+        base_url + 'assets/login/vendor/font-awesome/css/font-awesome.min.css',
         base_url + 'assets/login/css/font.css',
         base_url + 'assets/login/css/style.green.css',
         base_url + 'assets/login/css/custom.css',
-        base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css',
-        base_url + 'assets/dashboard/xeria/assets/css/app.css'
+        //base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css',
+        //base_url + 'assets/dashboard/xeria/assets/css/app.css'
+    ];
+    const appJS = [
+        base_url + 'assets/login/js/front.js',
     ];
     if (mod != 'app') {
-        delStyle(cssApp.length, 'appCS-');
+        delStyle(appCS.length, 'appCS-');
     } else {
-        loadStyle(cssApp, 'appCS-');
+        loadStyle(appCS, 'appCS-');
     }
 
     //dashboard ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,9 +63,25 @@ export function cssLoadMod(mod, base_url) {
     //home ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     //const prefixHome = 'home-';
     const homeCss = [
-        //base_url + 'assets/tema/css/demo-business-consulting.css',
-        //base_url + 'assets/tema/css/skin-business-consulting.css',
-        //base_url + 'assets/tema/css/style.css',
+        'https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700',
+        base_url + 'assets/tema/css/bootstrap.min.css',
+        base_url + 'assets/tema/css/all.min.css',
+        base_url + 'assets/tema/css/animate.min.css',
+        base_url + 'assets/tema/css/simple-line-icons.min.css',
+        base_url + 'assets/tema/css/owl.carousel.min.css',
+        base_url + 'assets/tema/css/owl.theme.default.min.css',
+        base_url + 'assets/tema/css/magnific-popup.min.css',
+        base_url + 'assets/tema/css/theme.css',
+        base_url + 'assets/tema/css/theme-elements.css',
+        base_url + 'assets/tema/css/theme-blog.css',
+        base_url + 'assets/tema/css/theme-shop.css',
+        base_url + 'assets/tema/css/settings.css',
+        base_url + 'assets/tema/css/layers.css',
+        base_url + 'assets/tema/css/navigation.css',
+        base_url + 'assets/tema/css/demo-business-consulting.css',
+        base_url + 'assets/tema/css/skin-business-consulting.css',
+        base_url + 'assets/tema/css/style.css',
+        base_url + 'assets/font-awesome-4.7.0/css/font-awesome.css',
     ];
     const homeJS = [
         base_url + 'assets/tema/js/theme.js',

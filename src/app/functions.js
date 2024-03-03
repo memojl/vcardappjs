@@ -179,7 +179,7 @@ export function loadStyle(arrCss,prefix) {
       if(node){
         consoleLocal('log','Ok: dash-'+i);
       }else{
-        //consoleLocal('log',arrCss[i]);
+        consoleLocal('log',arrCss[i]);
         //<![CDATA[
         if (document.createStyleSheet) {
           document.createStyleSheet(arrCss[i]);
@@ -204,6 +204,7 @@ export function loadScript(arrJs,prefix) {
       if(node){
         consoleLocal('log','Ok: '+prefix+i);
       }else{
+        consoleLocal('log',arrJs[i]);
         //<![CDATA[
         var newScript = document.createElement('script');
         newScript.id = prefix+i;
@@ -218,7 +219,7 @@ export function loadScript(arrJs,prefix) {
 export function delScript(arrNum,prefix){
   for(let i=0; i<=arrNum; i++){
     let nodo = document.getElementById(prefix+i);
-    if(nodo){consoleLocal('log',nodo);
+    if(nodo){//consoleLocal('log',nodo);
       document.body.removeChild(nodo);
     }  
   }
