@@ -1645,11 +1645,15 @@ nav#sidebar.shrinked a[aria-expanded="true"]::after {
 
 .login-page .form-holder .form .content, .registro-page .form-holder .form .content {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .login-page .form-holder .form form, .registro-page .form-holder .form form {
   width: 100%;
   max-width: 400px;
+  margin: auto;
 }
 
 .login-page .form-holder .form #login,

@@ -20,7 +20,7 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/login/vendor/font-awesome/css/font-awesome.min.css',
         base_url + 'assets/login/css/font.css',
         base_url + 'assets/login/css/style.green.css',
-        base_url + 'assets/login/css/custom.css',
+        base_url + 'assets/login/css/custom.css'
         //base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css',
         //base_url + 'assets/dashboard/xeria/assets/css/app.css'
     ];
@@ -84,6 +84,18 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/font-awesome-4.7.0/css/font-awesome.css',
     ];
     const homeJS = [
+        base_url + 'assets/tema/js/popper.min.js',		
+        base_url + 'assets/tema/js/bootstrap.min.js',		
+        base_url + 'assets/tema/js/common.min.js',		
+        base_url + 'assets/tema/js/jquery.validate.min.js',		
+        base_url + 'assets/tema/js/jquery.easypiechart.min.js',		
+        base_url + 'assets/tema/js/jquery.gmap.min.js',		
+        base_url + 'assets/tema/js/jquery.lazyload.min.js',		
+        base_url + 'assets/tema/js/jquery.isotope.min.js',		
+        base_url + 'assets/tema/js/owl.carousel.min.js',		
+        base_url + 'assets/tema/js/jquery.magnific-popup.min.js',		
+        base_url + 'assets/tema/js/jquery.vide.min.js',		
+        base_url + 'assets/tema/js/vivus.min.js',
         base_url + 'assets/tema/js/theme.js',
         base_url + 'assets/tema/js/jquery.themepunch.tools.min.js',
         base_url + 'assets/tema/js/jquery.themepunch.revolution.min.js',

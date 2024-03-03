@@ -16,7 +16,7 @@ function controlRoutes(v){
   consoleLocal('log','route='+route);
   //if(route=='Home/index'){Home();}
   if(route=='app/index'){
-    console.log(db);
+    //console.log(db);
   }
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}

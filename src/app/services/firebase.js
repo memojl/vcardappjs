@@ -13,7 +13,7 @@
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { getDatabase,ref,set,onValue  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -50,4 +50,18 @@ var refSignup = db.ref().child("vcard_signup");
 var refVcard = db.ref().child("vcard_vcard");
 var refUser = db.ref().child("vcard_user");
 var refEmpresas = db.ref().child("vcard_vcard_empresas");
+*/
+
+
+
+//const userId = auth.currentUser.uid; console.log(userId);
+/*
+return onValue(ref(db, '/vcard_user/' + userId), (snapshot) => {
+  const username = (snapshot.val() && snapshot.val().usuario) || 'Anonymous';
+  // ...
+
+  console.log(username);
+}, {
+  onlyOnce: true
+});
 */

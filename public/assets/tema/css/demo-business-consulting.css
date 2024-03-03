@@ -64,7 +64,7 @@ h2 {
 }
 .custom-position-1 {
   position: relative;
-  margin-top: -180px;
+  margin-top: -150px;
 }
 
 @media (max-width: 991px) {
@@ -268,8 +268,14 @@ html.sticky-header-active #header.header-effect-shrink .header-body {
 * Looking For
 */
 .looking-for .container {
-  padding: 30px;
+  padding: 18px 30px 0px;
 }
+@media (max-width: 991px){
+  .looking-for .container {
+    padding: 30px;
+  }
+}
+
 .looking-for .looking-for-box h2 {
   color: #FFF;
   line-height: 1.2;
