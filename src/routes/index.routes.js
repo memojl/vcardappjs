@@ -5,7 +5,8 @@ import { logout } from "../app/sys/logout/logout";
 import { dashboard } from "../app/auth/dashboard/dashboard";
 import { cssLoadMod, classBody } from "./css.routes";
 //import Home from "../app/pages/home/home";
-import {db} from "../app/services/firebase";
+//import {db} from "../app/services/firebase";
+import { loadApp } from "../pages/app/app";
 
 //Functions for Controllers JS
 function controlRoutes(v){ 
@@ -14,7 +15,7 @@ function controlRoutes(v){
   if(mod){classBody(mod);cssLoadMod(mod,base_url);}
   //document.addEventListener("DOMContentLoaded", () => {});    
   //if(route=='Home/index'){Home();}
-  if(route=='app/index'){consoleLocal('log',db)}
+  if(route=='app/index'){loadApp();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){dashboard();}
