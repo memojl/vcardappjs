@@ -9,15 +9,12 @@ import {db} from "../app/services/firebase";
 
 //Functions for Controllers JS
 function controlRoutes(v){ 
-  const {route,mod,id,base_url} = v;
+  const {route,mod,id,base_url} = v;consoleLocal('log','route='+route);
   controlLoading();
   if(mod){classBody(mod);cssLoadMod(mod,base_url);}
   //document.addEventListener("DOMContentLoaded", () => {});    
-  consoleLocal('log','route='+route);
   //if(route=='Home/index'){Home();}
-  if(route=='app/index'){
-    //console.log(db);
-  }
+  if(route=='app/index'){consoleLocal('log',db)}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){dashboard();}

@@ -216,8 +216,8 @@ export function loadScript(arrJs,prefix) {
   }
 }
 
-export function delScript(arrNum,prefix){
-  for(let i=0; i<=arrNum; i++){
+export function delScript(array,prefix){
+  for(let i=0; i<=array.length; i++){
     let nodo = document.getElementById(prefix+i);
     if(nodo){//consoleLocal('log',nodo);
       document.body.removeChild(nodo);
@@ -225,8 +225,8 @@ export function delScript(arrNum,prefix){
   }
 }
 
-export function delStyle(arrNum,prefix){
-  for(let i=0; i<arrNum; i++){
+export function delStyle(array,prefix){
+  for(let i=0; i<array.length; i++){
     let nodo = document.getElementById(prefix+i);
     if(nodo){//consoleLocal('log',nodo);
       document.getElementsByTagName("head")[0].removeChild(nodo);

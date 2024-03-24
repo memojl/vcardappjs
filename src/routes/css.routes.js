@@ -28,7 +28,7 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/login/js/front.js',
     ];
     if (mod != 'app') {
-        delStyle(appCS.length, 'appCS-');
+        delStyle(appCS, 'appCS-');
     } else {
         loadStyle(appCS, 'appCS-');
     }
@@ -42,7 +42,7 @@ export function cssLoadMod(mod, base_url) {
     if (mod == 'dashboard') {
         //loadStyle(dashCss, prefixDash);
     } else {
-        //delStyle(dashCss.length, prefixDash);
+        //delStyle(dashCss, prefixDash);
     }
 
     //login +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -55,7 +55,7 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/login/css/custom.css'
     ];
     if (mod != 'login' && mod != 'registro') {
-        //delStyle(loginCss.length, prefixLogin);
+        //delStyle(loginCss, prefixLogin);
     } else {
         //loadStyle(loginCss, prefixLogin);
     }
@@ -104,8 +104,8 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/tema/js/theme.init.js'
     ];
     if (mod != 'Home') {
-        delStyle(homeCss.length, 'homeCS-');
-        delScript(homeJS.length, 'homeJS-');
+        delStyle(homeCss, 'homeCS-');
+        delScript(homeJS, 'homeJS-');
     } else {
         loadStyle(homeCss, 'homeCS-');
         loadScript(homeJS, 'homeJS-');
