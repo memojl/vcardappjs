@@ -7,7 +7,7 @@ import register from "../sys/register/index.html?raw";
 /**PAGES AUTH**/
 import dashboard from "../auth/dashboard/index.html?raw";
 import settings from "../auth/dashboard/settings.html?raw";
-import profile from "../auth/profile/index.html?raw";
+import profile from "../auth/dashboard/profile.html?raw";
 /**PAGES**/
 import Home from "../../pages/Home/index.html?raw";
 import myapp from "../../pages/app/index.html?raw";
