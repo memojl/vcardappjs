@@ -1,6 +1,6 @@
 const {host} = window.location;
 /*VARIABLES DE ENTORNO*/
-export const title = 'MandragoraJS SPA';
+export const title = 'Vcard';
 //export const proyecto = 'mandragoraJS'; //PROYECTO
 export const typeBack = 'firebase'; //firebase / api
 export const path_hash = '#/'; //PATH HASH
@@ -15,4 +15,4 @@ export const Api = (host==hostDev || host==hostPre)?'http://localhost/MisSitios/
 console.warn('Api='+Api);
 export const apiVer = Api + '/v2/api_version';/* URL-VERSION */
 /* */
-export const api_links = Api + '/v2/links/';/* URL-LINKS */
+//export const api_links = Api + '/v2/links/';/* URL-LINKS */

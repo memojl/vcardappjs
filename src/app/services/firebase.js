@@ -5,15 +5,14 @@
  https://firebase.google.com/docs/web/setup#available-libraries -->
  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
- */
- //import { initializeApp } from "https://www.gstatic.com/firebasejs/7.15.0/firebase.js";
- //import { getAuth } from "https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js";
- //import { getFirestore } from "https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js";
- //import { getDatabase } from "https://www.gstatic.com/firebasejs/7.14.4/firebase-database.js";
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+**/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { getDatabase,ref,set,onValue  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+console.log('Firebase SDK');
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -31,8 +30,35 @@ var firebaseConfig = {
 //analytics();
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getDatabase(app);//
-export const fs = getFirestore(app);//
+export const db = getDatabase(app);//Realtime Database
+export const fs = getFirestore(app);//FireStore
+
+//CRUD FUNCTIONS
+export function saveUser(user) {
+  var u = {
+    uid: user.uid,
+    usuario: user.displayName,
+    email: user.email,
+    foto: user.photoURL
+  };
+  set(ref(db, "vcard_signup/" + user.uid), u);
+}
+
+export function getData(tab){
+  const tabRef = ref(db, tab+'/');
+  onValue(tabRef, (snapshot) => {
+    const data = snapshot.val(); console.log(data);
+    return data;
+  });
+}
+
+export function saveData(){
+
+}
+
+
+
+
 /** 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -52,16 +78,3 @@ var refUser = db.ref().child("vcard_user");
 var refEmpresas = db.ref().child("vcard_vcard_empresas");
 */
 
-
-
-//const userId = auth.currentUser.uid; console.log(userId);
-/*
-return onValue(ref(db, '/vcard_user/' + userId), (snapshot) => {
-  const username = (snapshot.val() && snapshot.val().usuario) || 'Anonymous';
-  // ...
-
-  console.log(username);
-}, {
-  onlyOnce: true
-});
-*/

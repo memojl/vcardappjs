@@ -13,7 +13,6 @@ export function classBody(mod){
 
 export function cssLoadMod(mod, base_url) {
     //app ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    //const prefixApp = 'app-';
     const appCS = [
         'https://fonts.googleapis.com/css?family=Muli:300,400,700',
         base_url + 'assets/login/vendor/bootstrap/css/bootstrap.min.css',
@@ -29,8 +28,10 @@ export function cssLoadMod(mod, base_url) {
     ];
     if (mod != 'app') {
         delStyle(appCS, 'appCS-');
+        delScript(appJS, 'appJS-');
     } else {
         loadStyle(appCS, 'appCS-');
+        loadScript(appJS, 'appJS-');
     }
 
     //dashboard ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -61,7 +62,6 @@ export function cssLoadMod(mod, base_url) {
     }
 
     //home ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    //const prefixHome = 'home-';
     const homeCss = [
         'https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700',
         base_url + 'assets/tema/css/bootstrap.min.css',
@@ -84,6 +84,10 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/font-awesome-4.7.0/css/font-awesome.css',
     ];
     const homeJS = [
+        //base_url + 'assets/tema/js/jquery.min.js',	
+        base_url + 'assets/tema/js/jquery.appear.min.js',	
+        base_url + 'assets/tema/js/jquery.easing.min.js',	
+        base_url + 'assets/tema/js/jquery.cookie.min.js',	
         base_url + 'assets/tema/js/popper.min.js',		
         base_url + 'assets/tema/js/bootstrap.min.js',		
         base_url + 'assets/tema/js/common.min.js',		
