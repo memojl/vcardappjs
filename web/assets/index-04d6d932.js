@@ -234,11 +234,11 @@ import{getAuth as me}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-aut
                   <button type="button" class="btn btn-info btn-block" id="googleLogin">Ingresar con Google</button>\r
                 </form>\r
                 <div>\r
-                  <a href="../" class="forgot-pass">Inicio</a> | \r
-                  <a href="./forget" class="forgot-pass">Olvide mi Password?</a>  \r
+                  <a href="#/" class="forgot-pass">Inicio</a> | \r
+                  <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>  \r
                 </div>\r
                 <div>\r
-                  <small>¿No tienes cuenta? </small><a href="./registro" class="signup">Registrate</a>\r
+                  <small>¿No tienes cuenta? </small><a href="#/registro" class="signup">Registrate</a>\r
                 </div>\r
               </div>\r
             </div>\r
