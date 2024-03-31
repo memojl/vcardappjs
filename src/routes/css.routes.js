@@ -15,6 +15,7 @@ export function cssLoadMod(mod, base_url) {
     //app ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     const appCS = [
         'https://fonts.googleapis.com/css?family=Muli:300,400,700',
+        'https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css',
         base_url + 'assets/login/vendor/bootstrap/css/bootstrap.min.css',
         base_url + 'assets/login/vendor/font-awesome/css/font-awesome.min.css',
         base_url + 'assets/login/css/font.css',
@@ -24,6 +25,16 @@ export function cssLoadMod(mod, base_url) {
         //base_url + 'assets/dashboard/xeria/assets/css/app.css'
     ];
     const appJS = [
+        //base_url + 'assets/login/vendor/jquery/jquery.min.js',
+        base_url + 'assets/login/vendor/bootstrap/js/bootstrap.bundle.min.js',
+        //base_url + 'assets/login/vendor/popper.js/umd/popper.min.js',
+        //base_url + 'assets/login/vendor/bootstrap/js/bootstrap.min.js',
+        //base_url + 'assets/login/vendor/bootstrap/js/bootstrap-colorpicker.min.js',
+        //base_url + 'assets/login/vendor/jquery.cookie/jquery.cookie.js',
+        //base_url + 'assets/login/vendor/chart.js/Chart.min.js',
+        //base_url + 'assets/login/vendor/jquery-validation/jquery.validate.min.js',
+        'https://cdn.jsdelivr.net/npm/sweetalert2@9.14.4/dist/sweetalert2.all.min.js',
+        'https://cdn.jsdelivr.net/npm/toastify-js',
         base_url + 'assets/login/js/front.js',
     ];
     if (mod != 'app') {
