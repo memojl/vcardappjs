@@ -23,7 +23,7 @@ function app(){console.log('Cargando App...');
                 console.log(error);
             }
         } else {
-            loginCheck(user);
+            loginCheck(user,ext);
         }
     });
 }

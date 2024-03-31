@@ -18,7 +18,7 @@ function controlRoutes(v){
   if(route=='app/index'){loadApp();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
-  if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){dashboard();}
+  //if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){dashboard();}
 }
 
 export { controlRoutes,router,pages,pagesSys };

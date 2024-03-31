@@ -7,11 +7,12 @@
  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
 **/
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+//import { alertMessage, showMessage } from "../hooks/messages";
 console.log('Firebase SDK');
 
 // Your web app's Firebase configuration
@@ -34,7 +35,7 @@ export const db = getDatabase(app);//Realtime Database
 export const fs = getFirestore(app);//FireStore
 
 //CRUD FUNCTIONS
-export function saveUser(user) {
+export function saveUser(user) {console.log('saveUser');
   var u = {
     uid: user.uid,
     usuario: user.displayName,
@@ -60,15 +61,38 @@ export function saveData(){
 const loggedOutLinks = document.querySelectorAll(".logged-out");
 const loggedInLinks = document.querySelectorAll(".logged-in");
 
-export const loginCheck = (user) => {
+export const loginCheck = (user) => { console.log('loginCheck');
+  const btnLogout = document.querySelector('#logout-1');
+  const btnRegis = document.querySelector('#btnRegis');
+  const btnLogin = document.querySelector('#btnLogin');
+  const formRegis = document.querySelector('.registro-page');
+  const formLogin = document.querySelector('.login-page');
+  const dash = document.querySelector('.dashboard');
+
   if (user) {
-    loggedInLinks.forEach((link) => (link.style.display = "block"));
-    loggedOutLinks.forEach((link) => (link.style.display = "none"));
+    if(btnLogout){btnLogout.style.display = "block";}
+    //loggedInLinks.forEach((link) => (link.style.display = "block"));
+    //loggedOutLinks.forEach((link) => (link.style.display = "none"));
   } else {
-    loggedInLinks.forEach((link) => (link.style.display = "none"));
-    loggedOutLinks.forEach((link) => (link.style.display = "block"));
+    if(btnLogout){btnLogout.style.display = "none";}
+    if(btnRegis){
+      btnRegis.addEventListener('click',()=>{
+        formRegis.style.display = 'block';
+        formLogin.style.display = 'none';
+      });
+    }
+    if(btnLogin){
+      btnLogin.addEventListener('click',()=>{
+        formRegis.style.display = 'none';
+        formLogin.style.display = 'block';
+      });
+    }
+    //loggedInLinks.forEach((link) => (link.style.display = "none"));
+    //loggedOutLinks.forEach((link) => (link.style.display = "block"));
   }
 };
+
+
 
 /** 
 // Initialize Firebase
