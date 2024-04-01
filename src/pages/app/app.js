@@ -12,18 +12,18 @@ const { host, dominio, mod, ext } = variables;
 function app(){console.log('Cargando App...');
     //consoleLocal('log',db);
     loginApp();
+    logoutApp();    
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             consoleLocal('log',user);
             loginCheck(user);
             try {
                 saveUser(user);
-                logoutApp();
             } catch (error) {
                 console.log(error);
             }
         } else {
-            loginCheck(user,ext);
+            loginCheck(user);
         }
     });
 }

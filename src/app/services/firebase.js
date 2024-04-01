@@ -92,7 +92,22 @@ export const loginCheck = (user) => { console.log('loginCheck');
   }
 };
 
-
+/*export function logoutApp() {
+  const logout = document.querySelector("#logout-1"); //console.log(logout);
+  if (logout) {
+    logout.addEventListener("click", async (e) => {//console.log('LogOut',e);
+      e.preventDefault();
+      try {
+        await signOut(auth);
+        localStorage.clear();
+        console.log("signup out");
+        showMessage("Signup out", "info");
+      } catch (error) {
+        console.log(error);
+      }
+    });
+  }
+}*/
 
 /** 
 // Initialize Firebase
