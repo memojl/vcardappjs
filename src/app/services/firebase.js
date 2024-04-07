@@ -69,12 +69,16 @@ export const loginCheck = (user) => { console.log('loginCheck');
   const formLogin = document.querySelector('.login-page');
   const dash = document.querySelector('.dashboard');
 
-  if (user) {
-    if(btnLogout){btnLogout.style.display = "block";}
-    //loggedInLinks.forEach((link) => (link.style.display = "block"));
-    //loggedOutLinks.forEach((link) => (link.style.display = "none"));
+  if (user) {    
+    formLogin.style.display = 'none';
+    formRegis.style.display = 'none';
+    dash.style.display = 'block';
+    //if(btnLogout){btnLogout.style.display = "block";}
   } else {
-    if(btnLogout){btnLogout.style.display = "none";}
+    formLogin.style.display = 'block';
+    //formRegis.style.display = 'block';
+    dash.style.display = 'none';
+    //if(btnLogout){btnLogout.style.display = "none";}
     if(btnRegis){
       btnRegis.addEventListener('click',()=>{
         formRegis.style.display = 'block';
@@ -87,8 +91,6 @@ export const loginCheck = (user) => { console.log('loginCheck');
         formLogin.style.display = 'block';
       });
     }
-    //loggedInLinks.forEach((link) => (link.style.display = "none"));
-    //loggedOutLinks.forEach((link) => (link.style.display = "block"));
   }
 };
 
