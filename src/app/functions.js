@@ -175,9 +175,9 @@ export function capitalize(word) {
 export function loadStyle(arrCss,prefix) {
   if (arrCss.length > 0) {
     for (let i=0; i<arrCss.length; i++) {
-      let node = document.getElementById(prefix+i);
+      let node = document.getElementById(prefix+i);console.log(prefix+i);
       if(node){
-        consoleLocal('log','Ok: dash-'+i);
+        consoleLocal('log','Ok: '+prefix+'-'+i);
       }else{
         consoleLocal('log',arrCss[i]);
         //<![CDATA[

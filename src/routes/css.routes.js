@@ -12,7 +12,7 @@ export function classBody(mod){
 }
 
 export function cssLoadMod(mod, base_url) {
-    //app ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //app / dashboard  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     const appCS = [
         'https://fonts.googleapis.com/css?family=Muli:300,400,700',
         'https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css',
@@ -44,17 +44,6 @@ export function cssLoadMod(mod, base_url) {
         loadStyle(appCS, 'appCS-');
         loadScript(appJS, 'appJS-');
     }
-
-    //dashboard ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    //const prefixDash = 'dash-';
-    const dashCss = [
-        base_url + 'assets/dashboard/xeria/assets/css/bootstrap.css',
-        base_url + 'assets/dashboard/xeria/assets/css/app.css'
-    ];
-    
-
-    //login +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
 
     //home ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     const homeCss = [
@@ -109,4 +98,8 @@ export function cssLoadMod(mod, base_url) {
         loadStyle(homeCss, 'homeCS-');
         loadScript(homeJS, 'homeJS-');
     }
+
+    //404 / Not Auth ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+
 }
