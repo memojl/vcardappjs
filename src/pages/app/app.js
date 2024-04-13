@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-import { auth, db, saveUser, saveData, loginCheck } from "../../app/services/firebase";
+import { auth, db, saveUser, getData, saveData, getUserSesion, loginCheck } from "../../app/services/firebase";
 import { variables } from "../../app/core/lib";
 import { consoleLocal } from "../../app/functions";
 
@@ -17,6 +17,7 @@ function app(){console.log('Cargando App...');
         if (user) {
             consoleLocal('log',user);
             loginCheck(user);
+            getUserSesion(user);
             try {
                 saveUser(user);
             } catch (error) {
@@ -26,6 +27,7 @@ function app(){console.log('Cargando App...');
             loginCheck(user);
         }
     });
+
 }
 
 export const loadApp = () => {
