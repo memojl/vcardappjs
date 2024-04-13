@@ -10,7 +10,7 @@ export function loginApp(){
       const provider = new GoogleAuthProvider();
       try {
         const credentials = await signInWithPopup(auth, provider)
-        console.log(credentials);
+        //console.log(credentials);
         console.log("google sign in");
         // show welcome message
         //alertMessage("Welcome " + credentials.user.displayName, 'success');
