@@ -14,7 +14,7 @@ import './public/assets/bootstrap-5.0.2/css/bootstrap.min.css';
 import './public/assets/css/load.css';
 //[JS]
 //import './public/assets/tema/js/modernizr.min.js';
-import './public/assets/tema/js/jquery.min.js';
+//import './public/assets/tema/js/jquery.min.js';
 //import './public/assets/tema/js/jquery.appear.min.js';
 //import './public/assets/bootstrap-5.0.2/js/bootstrap.bundle.min.js';
 //import './public/assets/js/sweetalert2.all.min.js';
