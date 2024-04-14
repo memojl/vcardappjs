@@ -30,9 +30,9 @@ export const pagesSys = {
   logout: logout,
   noauth: noauth,
   registro: register,
-  dashboard: sidebar+dashboard,
-  settings: sidebar+settings,
-  perfil: sidebar+profile,
+  dashboard: dashboard,
+  settings: settings,
+  perfil: profile,
 };
 
 export const pages = {

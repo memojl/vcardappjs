@@ -1,10 +1,309 @@
-<section class="home-section">
-    <div class="home-content">
-      <i class='bx bx-menu'></i>
-      <span class="text">Profile</span>
+<!--DASHBOARD-->
+<div class="dashboard" style="display: none">
+  <header class="header">
+    <nav class="navbar navbar-expand-lg">
+      <div class="search-panel">
+        <div
+          class="search-inner d-flex align-items-center justify-content-center"
+        >
+          <div class="close-btn">Close <i class="fa fa-close"></i></div>
+          <form id="searchForm">
+            <div class="form-group">
+              <input
+                type="search"
+                id="q"
+                placeholder="Busque una profesión o negocio"
+              />
+              <button type="submit" class="submit">Buscar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div
+        class="container-fluid d-flex align-items-center justify-content-between"
+      >
+        <div class="navbar-header">
+          <!-- Navbar Header-->
+          <a href="/#/app" class="navbar-brand">
+            <div class="brand-text brand-big visible text-uppercase">
+              <strong class="text-primary">Vcard</strong><strong>Admin</strong>
+            </div>
+            <div class="brand-text brand-sm">
+              <strong class="text-primary">D</strong><strong>A</strong>
+            </div>
+          </a>
+          <!-- Sidebar Toggle Btn-->
+          <button class="sidebar-toggle">
+            <i class="fa fa-navicon"></i
+            ><!--i class="fa fa-long-arrow-left"></i-->
+          </button>
+        </div>
+        <div class="right-menu list-inline no-margin-bottom">
+          <div class="list-inline-item">
+            <a href="#" class="search-open nav-link"
+              ><i class="icon-magnifying-glass-browser"></i
+            ></a>
+          </div>
+          <!-- Mensajes-->
+
+          <!-- Tasks-->
+          <!-- Tasks end-->
+
+          <!-- Megamenu-->
+          <!-- Megamenu end     -->
+
+          <!-- Languages dropdown    -->
+
+          <!-- Log out               -->
+          <div class="list-inline-item logout">
+            <a id="logout" href="#" class="nav-link"
+              ><span class="d-none d-sm-inline">Salir </span
+              ><i class="icon-logout"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="d-flex align-items-stretch">
+    <!-- Sidebar Navigation-->
+    <nav id="sidebar">
+      <!-- Sidebar Header-->
+      <div class="sidebar-header d-flex align-items-center">
+        <a href="/#/app/perfil">
+          <div id="photo" class="avatar">
+            <img
+              src="./assets/img/sinfoto.png"
+              class="img-fluid rounded-circle"
+            />
+          </div>
+        </a>
+        <div class="title">
+          <h1 id="nombre_session" class="h5"></h1>
+          <p id="email_session"></p>
+        </div>
+      </div>
+      <!--div id="email_session"></div-->
+      <div id="id_code_google"></div>
+      <!-- Sidebar Navidation Menus-->
+      <span class="heading">Menu</span>
+      <ul class="list-unstyled">
+        <li class="active">
+          <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>
+        </li>
+        <li>
+          <a href="/#/app/perfil"> <i class="fa fa-user"></i>Perfil </a>
+        </li>
+        <li>
+          <a href="/#/app/tarjetas"> <i class="fa fa-vcard"></i>Mis Tarjetas </a>
+        </li>
+        <li>
+          <a href="/#/app/empresas"> <i class="fa fa-industry"></i>Empresas </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- Sidebar Navigation end-->
+    <div id="app-modulo" class="page-content">
+      <!--section class="">
+          <ul class="list-group posts">
+          </ul>
+        </section-->
+      <section class="no-padding-bottom"></section>
     </div>
-    <div id="content" class="container-fluid" style="margin-top: 25px;">
+    <footer class="footer">
+      <div class="footer__block block no-margin-bottom">
+        <div class="container-fluid text-center">
+          <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+          <p id="footer_page" class="no-margin-bottom">
+            2021 &copy; VcardAppJS v.1.2.14. Diseñada por
+            <a target="_blank" href="http://multiportal.com.mx"
+              >[:MULTIPORTAL:]</a
+            >.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+<!--//DASHBOARD-->
+
+<!--LOGIN-->
+<div class="login-page">
+  <div class="container d-flex align-items-center">
+    <div class="form-holder has-shadow">
       <div class="row">
+        <!-- Logo & Information Panel-->
+        <div class="col-lg-6">
+          <div class="info d-flex-logo align-items-center">
+            <div class="content">
+              <div class="logo">
+                <img src="./assets/img/logo_vcard.min.png" />
+                <h1>Login</h1>
+              </div>
+              <p>"Conectando negocios y profesionales"</p>
+            </div>
+          </div>
+        </div>
+        <!-- Form Panel    -->
+        <div class="col-lg-6">
+          <div class="form d-flex align-items-center">
+            <div class="content">
+              <form id="login-form" class="form-validate mb-4">
+                <div class="form-group">
+                  <input
+                    id="login-email"
+                    type="email"
+                    name="loginUsername"
+                    required
+                    data-msg="Please enter your username"
+                    class="input-material"
+                  />
+                  <label for="login-email" class="label-material">Email</label>
+                </div>
+                <div class="form-group">
+                  <input
+                    id="login-password"
+                    type="password"
+                    name="loginPassword"
+                    required
+                    data-msg="Please enter your password"
+                    class="input-material"
+                  />
+                  <label for="login-password" class="label-material"
+                    >Contraseña</label
+                  >
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                  Ingresar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-info btn-block"
+                  id="googleLogin"
+                >
+                  Ingresar con Google
+                </button>
+              </form>
+              <div>
+                <a href="#/" class="forgot-pass">Inicio</a> |
+                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>
+              </div>
+              <div>
+                <small>¿No tienes cuenta? </small
+                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+  <div class="copyrights text-center">
+    <!--p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin" class="external">Bootstrapious</a></p-->
+    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+  </div>
+</div>
+<!--//LOGIN-->
+
+<!--REGISTRO-->
+<div class="registro-page" style="display: none">
+  <div class="container d-flex align-items-center">
+    <div class="form-holder has-shadow">
+      <div class="row">
+        <!-- Logo & Information Panel-->
+        <div class="col-lg-6">
+          <div class="info d-flex-logo align-items-center">
+            <div class="content">
+              <div class="logo">
+                <img src="./assets/img/logo_vcard.min.png" />
+                <h1>Registro</h1>
+              </div>
+              <p>"Conectando negocios y profesionales"</p>
+            </div>
+          </div>
+        </div>
+        <!-- Form Panel    -->
+        <div class="col-lg-6 bg-white">
+          <div class="form d-flex align-items-center">
+            <div class="content">
+              <form id="registro-form" class="text-left form-validate">
+                <!--div class="form-group-material">
+                    <input id="register-username" type="text" name="registerUsername" required data-msg="Please enter your username" class="input-material">
+                    <label for="register-username" class="label-material">Usuario </label>
+                  </div-->
+                <div class="form-group-material">
+                  <input
+                    id="register-email"
+                    type="email"
+                    name="registerEmail"
+                    required
+                    data-msg="Please enter a valid email address"
+                    class="input-material"
+                  />
+                  <label for="register-email" class="label-material"
+                    >Email
+                  </label>
+                </div>
+                <div class="form-group-material">
+                  <input
+                    id="register-password"
+                    type="password"
+                    name="registerPassword"
+                    required
+                    data-msg="Please enter your password"
+                    class="input-material"
+                  />
+                  <label for="register-password" class="label-material"
+                    >Contraseña
+                  </label>
+                </div>
+                <div class="form-group terms-conditions text-center">
+                  <input
+                    id="register-agree"
+                    name="registerAgree"
+                    type="checkbox"
+                    required
+                    value="1"
+                    data-msg="Your agreement is required"
+                    class="checkbox-template"
+                  />
+                  <label for="register-agree"
+                    ><a target="_blank" href="privacidad.html"
+                      >Políticas de Privacidad</a
+                    ></label
+                  >
+                </div>
+                <div class="form-group text-center">
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Registrar
+                  </button>
+                  <!--input id="register" type="submit" value="Register" class="btn btn-primary"-->
+                  <button
+                    type="button"
+                    class="btn btn-info btn-block"
+                    id="googleRegister"
+                  >
+                    Registrarse con Google
+                  </button>
+                </div>
+              </form>
+              <div>
+                <a href="#/" class="forgot-pass">Inicio</a> |
+                <small>¿Ya tienes una cuenta? </small
+                ><a href="#/app" id="btnLogin" class="signup">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyrights text-center">
+    <!--p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a></p-->
+    <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+  </div>
+</div>
+<!--//REGISTRO-->
+<!--div class="nav-item logged-in">
+    <a class="nav-link" id="logout-1" href="#/app">Logout</a>
+  </div-->

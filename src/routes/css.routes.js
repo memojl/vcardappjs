@@ -1,4 +1,4 @@
-import {loadStyle,delStyle,loadScript,delScript} from "../app/functions";
+import {loadStyle,delStyle,loadScript,delScript,loadDelScript,loadDelStyle} from "../app/functions";
 
 export function classBody(mod){
     let cBody=document.querySelector('.body');
@@ -37,12 +37,14 @@ export function cssLoadMod(mod, base_url) {
         'https://cdn.jsdelivr.net/npm/toastify-js',
         base_url + 'assets/login/js/front.js',
     ];
-    if (mod != 'app') {
-        delStyle(appCS, 'appCS-');
-        delScript(appJS, 'appJS-');
-    } else {
+    if (mod == 'app') {
+        console.log('cssLoadMod-loadStyle',mod);
         loadStyle(appCS, 'appCS-');
-        loadScript(appJS, 'appJS-');
+        loadDelScript(appJS, 'appJS-','load');        
+    } else {
+        console.log('cssLoadMod-delStyle',mod);
+        delStyle(appCS, 'appCS-');
+        loadDelScript(appJS, 'appJS-','del');
     }
 
     //home ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
