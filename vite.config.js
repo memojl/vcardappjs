@@ -8,4 +8,7 @@ export default defineConfig({
     outDir: 'web',
   },
   publicDir: 'public',
+  server: {
+    port: 3030,
+  },
 })
