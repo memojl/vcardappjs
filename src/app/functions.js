@@ -1,5 +1,5 @@
-import { variables } from "./lib";
-import { pagesAll, privatePage } from "../app/controllers/pages";
+import { variables } from "./core/lib";
+import { pagesAll, pagesAuth } from "../app/controllers/pages";
 import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
 
@@ -78,10 +78,10 @@ export const router = (hash, mod, ext, title) => {
   consoleLocal('log','hash=>' + hash);
   let ext2 = (ext!='index')?' / '+capitalize(ext):'';
   document.title = title + ' - ' + capitalize(mod) + ext2;
-  getRoutesSesion(mod,privatePage);
-  let page = (mod!='Home' && ext!='index')?ext:mod; console.log(page,mod,ext);
+  getRoutesSesion(mod,pagesAuth);  
+  let page = (mod!='Home' && ext!='index')?ext:mod; //console.log(page,mod,ext);
   //SEGMENTO PARA CARGAR EN DASHBOARD
-  //let idApp = (mod=='app' && ext!='index')?'appDash':'app'; console.log('idApp:',idApp);
+  //let idApp = (mod=='dashboard' && ext!='index')?'appDash':'app'; console.log(idApp);
   let content = document.getElementById('app');
   if(content){
     content.innerHTML = '';
@@ -119,13 +119,13 @@ const getRoutes = async (hash,url,routes_session)=>{
   }
 }
 
-export function getRoutesSesion(mod,privatePage){
+export function getRoutesSesion(mod,pagesAuth){
   var token = localStorage.getItem("Token");consoleLocal('log','token='+token);
-  //Generar array de paginas privadas const privatePage=['dashboard','links'];
-  let n = privatePage.length; //console.log(n);
+  //Generar array de paginas privadas const pagesAuth=['dashboard','links'];
+  let n = pagesAuth.length; //console.log(n);
   for(let i=0;i<n;i++){
-    if(mod === privatePage[i]){consoleLocal('log','Accceso: '+mod+'='+privatePage[i]);}
-    if(mod === privatePage[i] && (token==null || token=='undefined')){/*setTimeout(() => {*/window.location.href='#/noauth';/*}, 100);*/}
+    if(mod === pagesAuth[i]){consoleLocal('log','Accceso: '+mod+'='+pagesAuth[i]);}
+    if(mod === pagesAuth[i] && (token==null || token=='undefined')){/*setTimeout(() => {*/window.location.href='#/noauth';/*}, 100);*/}
   }
   //if((mod=='dashboard' || mod=='links') && (token==null || token=='undefined')){/*setTimeout(() => {*/window.location.href='#/noauth';/*}, 100);*/}
   if(mod=='login' && (token!=null && token!='undefined')){/*setTimeout(() => {*/window.location.href='#/dashboard';/*}, 100);*/}
@@ -172,19 +172,51 @@ export function capitalize(word) {
   return word[0].toUpperCase() + word.slice(1).toLowerCase();
 }
 
-export function loadStyle(arrCss,prefix) {
-  if (arrCss.length > 0) {
-    for (let i=0; i<arrCss.length; i++) {
+export function loadDelStyle(arr,prefix,mode) {
+  if (arr.length > 0) {
+    for (let i=0; i<arr.length; i++) { console.log('load',prefix+i);
+      let nodo = document.getElementById(prefix+i);
+      if(nodo){//console.log(nodo);
+        document.getElementsByTagName("head")[0].removeChild(nodo);
+      }  
+
+      if(mode=='load'){
+        let node = document.getElementById(prefix+i);
+        if(node){
+          console.log('Reload Ok: '+prefix+i);
+        }else{
+          console.log(prefix+i,arr[i]);
+          //<![CDATA[
+          if (document.createStyleSheet) {
+            document.createStyleSheet(arr[i]);
+          } else {
+            var styles = "@import url('" + arr[i] + "');";
+            var newSS = document.createElement('link');
+            newSS.id = prefix+i;
+            newSS.rel = 'stylesheet';
+            newSS.href = 'data:text/css,' + escape(styles);
+            document.getElementsByTagName("head")[0].appendChild(newSS);
+          }
+          //]]>
+        }
+      }
+    }
+  }
+}
+
+export function loadStyle(arr,prefix) {
+  if (arr.length > 0) {
+    for (let i=0; i<arr.length; i++) { console.log('load',prefix+i);
       let node = document.getElementById(prefix+i);
       if(node){
-        consoleLocal('log','Ok: '+prefix+i);
+        console.log('Reload Ok: '+prefix+i);
       }else{
-        //consoleLocal('log',arrCss[i]);
+        console.log(prefix+i,arr[i]);
         //<![CDATA[
         if (document.createStyleSheet) {
-          document.createStyleSheet(arrCss[i]);
+          document.createStyleSheet(arr[i]);
         } else {
-          var styles = "@import url('" + arrCss[i] + "');";
+          var styles = "@import url('" + arr[i] + "');";
           var newSS = document.createElement('link');
           newSS.id = prefix+i;
           newSS.rel = 'stylesheet';
@@ -197,14 +229,69 @@ export function loadStyle(arrCss,prefix) {
   }
 }
 
-export function delStyle(arrNum,prefix){
-  for(let i=0; i<arrNum; i++){
+export function delStyle(arr,prefix){
+  for(let i=0; i<arr.length; i++){console.log('delete',prefix+i);
     let nodo = document.getElementById(prefix+i);
-    if(nodo){//consoleLocal('log',nodo);
+    if(nodo){//console.log(nodo);
       document.getElementsByTagName("head")[0].removeChild(nodo);
     }  
   }
 }
+
+export function loadDelScript(arr,prefix,mode) {
+  if (arr.length > 0) {
+    for (let i=0; i<arr.length; i++) {console.log('load',prefix+i);
+      let nodo = document.getElementById(prefix+i);
+      if(nodo){//console.log(nodo);
+        document.body.removeChild(nodo);
+      }
+
+      if(mode=='load'){
+        let node = document.getElementById(prefix+i);
+        if(node){
+          console.log('Reload Ok: '+prefix+i);
+        }else{
+          console.log(prefix+i,arr[i]);
+          //<![CDATA[
+          var newScript = document.createElement('script');
+          newScript.id = prefix+i;
+          newScript.src = arr[i]; // Especifica la ruta al archivo JavaScript que deseas cargar
+          document.body.appendChild(newScript);
+          //]]>
+        }
+      }
+    }
+  }
+}
+
+export function loadScript(arr,prefix) {
+  if (arr.length > 0) {
+    for (let i=0; i<arr.length; i++) {console.log('load',prefix+i);
+      let node = document.getElementById(prefix+i);
+      if(node){
+        console.log('Reload Ok: '+prefix+i);
+      }else{
+        console.log(prefix+i,arr[i]);
+        //<![CDATA[
+        var newScript = document.createElement('script');
+        newScript.id = prefix+i;
+        newScript.src = arr[i]; // Especifica la ruta al archivo JavaScript que deseas cargar
+        document.body.appendChild(newScript);
+        //]]>
+      }
+    }
+  }
+}
+
+export function delScript(arr,prefix){
+  for(let i=0; i<arr.length; i++){console.log('delete',prefix+i);
+    let nodo = document.getElementById(prefix+i);
+    if(nodo){//console.log(nodo);
+      document.body.removeChild(nodo);
+    }  
+  }
+}
+
 
 export function fecha() {
   var dt = new Date();
@@ -266,7 +353,7 @@ export function loading(){
     if(nodo){//console.log(nodo);
       body.removeChild(nodo);
     }
-  }, 1500);    
+  }, 5000);    
 }
 
 export function controlLoading(){
@@ -277,16 +364,19 @@ export function controlLoading(){
 }
 
 export async function compVersion(mod,base_url){//const {mod,ext} = variables();
-  if(mod=='Home'){
-    const {version} = await versionJson(`${base_url}assets/pwa/manifest.json`); console.log(`Version Actual: ${version}`);//consoleLocal('log','Version1 ' + ver1);
-    const ver2 = await versionJson(apiVer); 
-    if(ver2 && ver2!=undefined){//console.log('Version2',ver2);
-      const {ultimate} = ver2.data[0]; //console.log(ultimate);
-      if(version != ultimate){
-        console.log(`Actualizar version ${mod} (${version} => ${ultimate})`);
-      }
-    }else{console.warn('No se pudo llevar a cabo la comprobación de versiones');}
-  }
+  if(typeBack!='firebase'){
+    if(mod=='Home'){
+      const {version} = await versionJson(`${base_url}assets/pwa/manifest.json`); console.log(`Version Actual: ${version}`);//consoleLocal('log','Version1 ' + ver1);
+      const ver2 = await versionJson(apiVer); 
+      if(ver2 && ver2!=undefined){//console.log('Version2',ver2);
+        const {ultimate} = ver2.data[0]; //console.log(ultimate);
+        if(version != ultimate){
+          console.log(`Actualizar version ${mod} (${version} => ${ultimate})`);
+        }
+      }else{console.warn('No se pudo llevar a cabo la comprobación de versiones');}
+    }
+  }else{console.warn('Only Firebase');}
+
 }
 
 export function loadDashboard(d){

@@ -5,16 +5,12 @@
 body {
   background: #f5f6fa;
   font-family: 'Oswald', sans-serif !important;
-  /*overflow: hidden;*/
+  overflow: hidden;
 }
 
 .index {
   width: 100vw;
   height: 100vh;
-}
-
-.link:hover{
-  cursor: pointer;
 }
 
 .navbar {
@@ -42,21 +38,6 @@ body {
   font-size: 4rem;
   margin: 0;
   padding: 0;
-}
-
-.load-dash{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-#h-dash{
-  display: inherit;
-}
-
-#s-dash{
-  display: none;
 }
 
 @media (min-width: 992px) {

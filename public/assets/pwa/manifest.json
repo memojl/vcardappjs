@@ -1,10 +1,10 @@
 {
-	"name": "VcardApp",
-	"short_name": "VcardApp",
-	"version": "1.2.5",
-	"description": "VcardApp - Single Page Application",
-	"scope": ".",
-	"start_url": "https://memojl.github.io/vcardappjs/web/#/",
+	"name": "MandragoraJS-APP",
+	"short_name": "MandragoraJS-APP",
+	"version": "1.2.2",
+	"description": "MandragoraJS - Single Page Application",
+	"scope": "/",
+	"start_url": "https://multiportal.github.io/mandragoraJS/web/",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
@@ -20,5 +20,8 @@
 		"sizes": "152x152",
 		"type": "image/png"
 	  }
-	]
+	],
+	"serviceworker": {
+		"src": "/sw.js"
+	}
   }  
