@@ -14,7 +14,7 @@ export const Api = (host==hostDev || host==hostPre)?'http://localhost/MisSitios/
 export const apiVer = Api + '/v2/api_version';/* URL-VERSION */
 /* */
 export const api_links = Api + '/v2/links/';/* URL-LINKS */
-console.log(host+'=='+hostDev,host+'=='+hostPre);
-console.warn('Api='+Api);
 if(typeBack!='firebase'){
+    console.log(host+'=='+hostDev,host+'=='+hostPre);
+    console.warn('Api='+Api);
 }
