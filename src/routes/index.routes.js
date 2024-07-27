@@ -16,6 +16,8 @@ function controlRoutes(v){
   //if(route=='Home/index'){Home();}
   if(route=='app/index'){loadApp();}
   if(route=='app/perfil'){loadApp();}
+  if(route=='app/tarjetas'){loadApp();}
+  if(route=='app/empresas'){loadApp();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){loadApp();}

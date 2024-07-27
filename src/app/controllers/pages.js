@@ -8,6 +8,9 @@ import register from "../sys/register/index.html?raw";
 import dashboard from "../auth/dashboard/index.html?raw";
 import settings from "../auth/dashboard/settings.html?raw";
 import profile from "../auth/dashboard/profile.html?raw";
+import tarjetas from "../auth/dashboard/tarjetas.html?raw";
+import empresas from "../auth/dashboard/empresas.html?raw";
+
 /**PAGES**/
 import Home from "../../pages/Home/index.html?raw";
 import myapp from "../../pages/app/index.html?raw";
@@ -19,7 +22,7 @@ import contacto from "../../pages/contacto/index.html?raw";
 import menu from "../../components/menu/index.html?raw";
 import sidebar from "../../components/sidebar/index.html?raw";
 
-export const pagesAuth = ["dashboard", "perfil"];
+export const pagesAuth = ["dashboard", "perfil", "tarjetas", "empresas"];
 
 export const pagesSys = {
   forget: forget,
@@ -30,6 +33,8 @@ export const pagesSys = {
   dashboard: dashboard,
   settings: settings,
   perfil: profile,
+  tarjetas: tarjetas,
+  empresas: empresas
 };
 
 export const pages = {

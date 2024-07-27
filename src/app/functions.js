@@ -406,6 +406,6 @@ export function menuBar(hash){
       }
       menuList.innerHTML = menu;
     }    
-  }, 1000);
+  }, 100);
 
 }
