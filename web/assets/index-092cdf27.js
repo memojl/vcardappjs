@@ -486,25 +486,17 @@ import{getAuth as un,GoogleAuthProvider as vn,signInWithPopup as fn,signOut as h
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
       <div class="search-panel">\r
-        <div\r
-          class="search-inner d-flex align-items-center justify-content-center"\r
-        >\r
+        <div class="search-inner d-flex align-items-center justify-content-center">\r
           <div class="close-btn">Close <i class="fa fa-close"></i></div>\r
           <form id="searchForm">\r
             <div class="form-group">\r
-              <input\r
-                type="search"\r
-                id="q"\r
-                placeholder="Busque una profesión o negocio"\r
-              />\r
+              <input type="search" id="q" placeholder="Busque una profesión o negocio"/>\r
               <button type="submit" class="submit">Buscar</button>\r
             </div>\r
           </form>\r
         </div>\r
       </div>\r
-      <div\r
-        class="container-fluid d-flex align-items-center justify-content-between"\r
-      >\r
+      <div class="container-fluid d-flex align-items-center justify-content-between">\r
         <div class="navbar-header">\r
           <!-- Navbar Header-->\r
           <a href="/#/app" class="navbar-brand">\r
@@ -517,15 +509,14 @@ import{getAuth as un,GoogleAuthProvider as vn,signInWithPopup as fn,signOut as h
           </a>\r
           <!-- Sidebar Toggle Btn-->\r
           <button class="sidebar-toggle">\r
-            <i class="fa fa-navicon"></i\r
-            ><!--i class="fa fa-long-arrow-left"></i-->\r
+            <i class="fa fa-navicon"></i><!--i class="fa fa-long-arrow-left"></i-->\r
           </button>\r
         </div>\r
         <div class="right-menu list-inline no-margin-bottom">\r
           <div class="list-inline-item">\r
-            <a href="#" class="search-open nav-link"\r
-              ><i class="icon-magnifying-glass-browser"></i\r
-            ></a>\r
+            <a href="#" class="search-open nav-link">\r
+              <i class="icon-magnifying-glass-browser"></i>\r
+            </a>\r
           </div>\r
           <!-- Mensajes-->\r
 \r
@@ -539,10 +530,9 @@ import{getAuth as un,GoogleAuthProvider as vn,signInWithPopup as fn,signOut as h
 \r
           <!-- Log out               -->\r
           <div class="list-inline-item logout">\r
-            <a id="logout" href="#" class="nav-link"\r
-              ><span class="d-none d-sm-inline">Salir </span\r
-              ><i class="icon-logout"></i\r
-            ></a>\r
+            <a id="logout" href="#" class="nav-link">\r
+              <span class="d-none d-sm-inline">Salir </span><i class="icon-logout"></i>\r
+            </a>\r
           </div>\r
         </div>\r
       </div>\r
@@ -555,10 +545,7 @@ import{getAuth as un,GoogleAuthProvider as vn,signInWithPopup as fn,signOut as h
       <div class="sidebar-header d-flex align-items-center">\r
         <a href="/#/app/perfil">\r
           <div id="photo" class="avatar">\r
-            <img\r
-              src="./assets/img/sinfoto.png"\r
-              class="img-fluid rounded-circle"\r
-            />\r
+            <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
           </div>\r
         </a>\r
         <div class="title">\r
@@ -598,10 +585,7 @@ import{getAuth as un,GoogleAuthProvider as vn,signInWithPopup as fn,signOut as h
         <div class="container-fluid text-center">\r
           <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->\r
           <p id="footer_page" class="no-margin-bottom">\r
-            2021 &copy; VcardAppJS v.1.2.14. Diseñada por\r
-            <a target="_blank" href="http://multiportal.com.mx"\r
-              >[:MULTIPORTAL:]</a\r
-            >.\r
+            2021 &copy; VcardAppJS v.1.2.14. Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.\r
           </p>\r
         </div>\r
       </div>\r
