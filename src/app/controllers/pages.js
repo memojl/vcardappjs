@@ -19,10 +19,7 @@ import contacto from "../../pages/contacto/index.html?raw";
 import menu from "../../components/menu/index.html?raw";
 import sidebar from "../../components/sidebar/index.html?raw";
 
-export const pagesAuth = [
-  'dashboard',
-  'perfil'
-];
+export const pagesAuth = ["dashboard", "perfil"];
 
 export const pagesSys = {
   forget: forget,
@@ -37,30 +34,53 @@ export const pagesSys = {
 
 export const pages = {
   Home: Home,
-  app: myapp, 
-  nosotros: menu+nosotros,
-  productos: menu+productos,
-  categorias: menu+categorias,
-  contacto: menu+contacto
+  app: myapp,
+  nosotros: menu + nosotros,
+  productos: menu + productos,
+  categorias: menu + categorias,
+  contacto: menu + contacto,
 };
 
 export const pagesAll = {
-  ...pages, 
-  ...pagesSys
-};//console.log('pagesAll:',pagesAll);
+  ...pages,
+  ...pagesSys,
+}; //console.log('pagesAll:',pagesAll);
 
 //Proyecto
 export const menuPages = {
-  dash:{
-    txt:'Dashboard',
-    icon:'fas fa-tachometer-alt'
+  dash: {
+    txt: "Dashboard",
+    icon: "fas fa-tachometer-alt",
   },
-  tarjetas:{
-    txt:'Mis tarjetas',
-    icon:'far fa-address-card'
+  tarjetas: {
+    txt: "Mis tarjetas",
+    icon: "far fa-address-card",
   },
-  empresas:{
-    txt:'Mis empresas',
-    icon:'fas fa-industry'
-  }
-}
+  empresas: {
+    txt: "Mis empresas",
+    icon: "fas fa-industry",
+  },
+};
+
+export const menuSidebar = [
+  {
+    txt: "Dashboard",
+    icon: "icon-dashboard",
+    link: "/#/app",
+  },
+  {
+    txt: "Perfil",
+    icon: "fa fa-user",
+    link: "/#/app/perfil",
+  },
+  {
+    txt: "Mis tarjetas",
+    icon: "fa fa-vcard",
+    link: "/#/app/tarjetas",
+  },
+  {
+    txt: "Mis empresas",
+    icon: "fa fa-industry",
+    link: "/#/app/empresas",
+  },
+];

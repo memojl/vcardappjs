@@ -1,5 +1,5 @@
 import { variables } from "./core/lib";
-import { pagesAll, pagesAuth } from "../app/controllers/pages";
+import { menuSidebar, pagesAll, pagesAuth } from "../app/controllers/pages";
 import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
 
@@ -392,4 +392,20 @@ export function loadDashboard(d){
 export function btnMenuPages(btn){
   let d = btn.getAttribute("data-menu");
   btn.addEventListener('click', ()=>{loadDashboard(d)});
+}
+
+export function menuBar(hash){
+  setTimeout(() => {
+    const menuList = document.querySelector('#menuList');
+    let menu = '';
+    if(menuList){
+      for (let i = 0; i < menuSidebar.length; i++) {
+        const { txt, icon, link} = menuSidebar[i];
+        const active = (link === '/'+hash) ? `class="active"`:'';
+        menu += `<li ${active}><a href="${link}"><i class="${icon}"></i> ${txt}</a></li>`;
+      }
+      menuList.innerHTML = menu;
+    }    
+  }, 1000);
+
 }
