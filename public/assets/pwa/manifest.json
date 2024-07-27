@@ -1,8 +1,8 @@
 {
-	"name": "MandragoraJS-APP",
-	"short_name": "MandragoraJS-APP",
+	"name": "VCARDS-APP",
+	"short_name": "VCARDS-APP",
 	"version": "1.2.2",
-	"description": "MandragoraJS - Single Page Application",
+	"description": "VcardApp - Tarjetas de Contacto Digital",
 	"scope": "/",
 	"start_url": "https://vcardapp-js.web.app",
 	"display": "standalone",
