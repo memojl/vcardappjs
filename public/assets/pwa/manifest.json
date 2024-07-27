@@ -4,7 +4,7 @@
 	"version": "1.2.2",
 	"description": "MandragoraJS - Single Page Application",
 	"scope": "/",
-	"start_url": "https://memojl.github.io/vcardappjs/web/",
+	"start_url": "https://vcardapp-js.web.app",
 	"display": "standalone",
 	"orientation": "portrait",
 	"theme_color": "#000",
