@@ -14,13 +14,13 @@ function controlRoutes(v){
   if(mod){classBody(mod);cssLoadMod(mod,base_url);}
   //document.addEventListener("DOMContentLoaded", () => {});    
   //if(route=='Home/index'){Home();}
+  if(route=='dashboard/index'){loadApp();}
   if(route=='app/index'){loadApp();}
   if(route=='app/perfil'){loadApp();}
   if(route=='app/tarjetas'){loadApp();}
   if(route=='app/empresas'){loadApp();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
-  if(route=='dashboard/index' || (mod=='dashboard' || mod=='links')){loadApp();}
   //ALL APP/DASHBORD
   if(mod=='app'){menuBar(hash);}
 }

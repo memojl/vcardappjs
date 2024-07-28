@@ -394,14 +394,14 @@ export function btnMenuPages(btn){
   btn.addEventListener('click', ()=>{loadDashboard(d)});
 }
 
-export function menuBar(hash){
+export function menuBar(h){
   setTimeout(() => {
     const menuList = document.querySelector('#menuList');
     let menu = '';
     if(menuList){
       for (let i = 0; i < menuSidebar.length; i++) {
         const { txt, icon, link} = menuSidebar[i];
-        const active = (link === '/'+hash) ? `class="active"`:'';
+        const active = (link == '/' + h) ? `class="active"`:'';
         menu += `<li ${active}><a href="${link}"><i class="${icon}"></i> ${txt}</a></li>`;
       }
       menuList.innerHTML = menu;
