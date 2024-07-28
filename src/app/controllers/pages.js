@@ -14,6 +14,7 @@ import empresas from "../auth/dashboard/empresas.html?raw";
 /**PAGES**/
 import Home from "../../pages/Home/index.html?raw";
 import App from "../../pages/app/index.html?raw";
+import vcard from "../../pages/vcard/index.html?raw";
 import nosotros from "../../pages/nosotros/index.html?raw";
 import productos from "../../pages/productos/index.html?raw";
 import categorias from "../../pages/productos/categorias.html?raw";
@@ -40,6 +41,7 @@ export const pagesSys = {
 export const pages = {
   Home: Home,
   app: App,
+  vcard: vcard,
   nosotros: menu + nosotros,
   productos: menu + productos,
   categorias: menu + categorias,

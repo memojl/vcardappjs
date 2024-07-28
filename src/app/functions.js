@@ -4,7 +4,7 @@ import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
 
 //VARIABLES CONSTANTES
-const {hash, host, hostDev, typeBack, apiVer} = variables();
+const {hash, host, year, hostDev, typeBack, apiVer} = variables();
 
 /*FUNCIONES*/
 export function filename() {
@@ -328,7 +328,7 @@ export function fecha_hora_create(val,inputId) {
 
 export function footer(){
   const f = document.querySelector("#footer_page");
-  f.innerHTML = year + ' &copy; VcardAppJS v.1.2.14. Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.';
+  f.innerHTML = year + ' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.';
 }
 
 export function consola(v){
@@ -403,8 +403,8 @@ export function menuBar(h,mod){
     if(menuList){
       for (let i = 0; i < menuSidebar.length; i++) {
         const { txt, icon, link} = menuSidebar[i];
-        if((mod == 'app' || mod == 'dashboard') && link != '/#/app'){
-          const active = (link == '/' + h) ? `class="active"`:'';
+        if((mod == 'app' || mod == 'dashboard') && link != '/#/app'){ //console.log(menuSidebar[i]);
+          const active = (link == '/' + h ) ? `class="active"`:'';
           menu += `<li ${active}><a href="${link}"><i class="${icon}"></i> ${txt}</a></li>`;           
         }
       }

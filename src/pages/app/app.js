@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { auth, db, saveUser, getData, saveData, getUserSesion, loginCheck } from "../../app/services/firebase";
 import { variables } from "../../app/core/lib";
-import { consoleLocal } from "../../app/functions";
+import { consoleLocal, footer } from "../../app/functions";
 
 import { loginApp } from '../../app/hooks/googleLogin';
 import { logoutApp } from '../../app/hooks/logout';
@@ -15,7 +15,7 @@ function app(){console.log('Cargando App...');
     logoutApp();    
     onAuthStateChanged(auth, async (user) => {
         if (user) {
-            consoleLocal('log',user);
+            //consoleLocal('log',user);
             loginCheck(user);
             getUserSesion(user);
             try {
@@ -27,7 +27,7 @@ function app(){console.log('Cargando App...');
             loginCheck(user);
         }
     });
-
+    footer();
 }
 
 export const loadApp = () => {
