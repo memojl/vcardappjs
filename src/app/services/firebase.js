@@ -62,17 +62,17 @@ export function getData(tab){
 }
 
 export function getUserSesion(user){
-  const foto = document.querySelector("#photo");
-  const nom = document.querySelector("#nombre_session");
-  const mail = document.querySelector("#email_session");
-  const uid = document.querySelector("#id_code_google");
+  const foto = document.querySelector("#photo"); //console.log(foto);
+  const nom = document.querySelector("#nombre_session"); //console.log(nom);
+  const mail = document.querySelector("#email_session"); //console.log(mail);
+  const uid = document.querySelector("#id_code_google"); //console.log(uid);
   const tabRef = ref(db, 'vcard_signup/');
   onValue(tabRef, (snapshot) => {
       const data = snapshot.val(); //console.log(data);
       for (let key in data){
         const u = data[key]; 
         if(u.uid == user.uid){console.log(u);
-          const f = (u.foto == null)?page_url+'bloques/files/images/photos/sinfoto.png':u.foto;
+          const f = (u.foto == null)?page_url+'assets/img/sinfoto.png':u.foto;
           const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
           const nombre = (u.usuario == null)?u.email:u.usuario;
           const correo = u.email;

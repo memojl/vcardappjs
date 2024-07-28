@@ -396,7 +396,7 @@ export function btnMenuPages(btn){
   btn.addEventListener('click', ()=>{loadDashboard(d)});
 }
 
-export function menuBar(h,mod){
+export function menuBar(h,r,mod){
   setTimeout(() => {
     const menuList = document.querySelector('#menuList');
     let menu = '';
@@ -404,7 +404,7 @@ export function menuBar(h,mod){
       for (let i = 0; i < menuSidebar.length; i++) {
         const { txt, icon, link} = menuSidebar[i];
         if((mod == 'app' || mod == 'dashboard') && link != '/#/app'){ //console.log(menuSidebar[i]);
-          const active = (link == '/' + h ) ? `class="active"`:'';
+          const active = (link == '/' + h || (txt == 'Dashboard' && r == 'app/index')) ? `class="active"`:'';
           menu += `<li ${active}><a href="${link}"><i class="${icon}"></i> ${txt}</a></li>`;           
         }
       }

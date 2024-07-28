@@ -60,12 +60,16 @@
 }
 
 @media only screen and (min-width: 950px){
-  #email_session{visibility: hidden;}
+  /*#email_session{visibility: hidden;}*/
   .public-user-block .item{
     width: 99%;
   }
 }
 
+#email_session{visibility:visible;}
+@media screen and (max-width: 1024px) {
+  #email_session{visibility: hidden;}
+}
 
 html .scroll-to-top {
   -webkit-transition: opacity 0.3s;
