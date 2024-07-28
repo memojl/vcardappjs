@@ -360,7 +360,9 @@ export function controlLoading(){
   const {mod,ext} = variables();
   let page = (mod!='Home' && ext!='index')?ext:mod;// console.log(page,mod,ext);
   var views = pagesAll[page];
-  if(mod!='logout' && mod!='noauth' && ext=='index' && views!=undefined){loading();}
+  if(mod!='dashboard' && typeBack == 'firebase'){
+    if(mod!='logout' && mod!='noauth' && ext=='index' && views!=undefined){loading();}
+  }
 }
 
 export async function compVersion(mod,base_url){//const {mod,ext} = variables();
@@ -394,15 +396,17 @@ export function btnMenuPages(btn){
   btn.addEventListener('click', ()=>{loadDashboard(d)});
 }
 
-export function menuBar(h){
+export function menuBar(h,mod){
   setTimeout(() => {
     const menuList = document.querySelector('#menuList');
     let menu = '';
     if(menuList){
       for (let i = 0; i < menuSidebar.length; i++) {
         const { txt, icon, link} = menuSidebar[i];
-        const active = (link == '/' + h) ? `class="active"`:'';
-        menu += `<li ${active}><a href="${link}"><i class="${icon}"></i> ${txt}</a></li>`;
+        if((mod == 'app' || mod == 'dashboard') && link != '/#/app'){
+          const active = (link == '/' + h) ? `class="active"`:'';
+          menu += `<li ${active}><a href="${link}"><i class="${icon}"></i> ${txt}</a></li>`;           
+        }
       }
       menuList.innerHTML = menu;
     }    

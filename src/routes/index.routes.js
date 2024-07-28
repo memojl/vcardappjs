@@ -22,7 +22,7 @@ function controlRoutes(v){
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   //ALL APP/DASHBORD
-  if(mod=='app'){menuBar(hash);}
+  if(mod=='app' || mod=='dashboard'){menuBar(hash,mod);}
 }
 
 export { controlRoutes,router,pages,pagesSys };

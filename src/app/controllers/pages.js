@@ -74,6 +74,11 @@ export const menuSidebar = [
     link: "/#/app",
   },
   {
+    txt: "Dashboard",
+    icon: "icon-dashboard",
+    link: "/#/dashboard",
+  },
+  {
     txt: "Perfil",
     icon: "fa fa-user",
     link: "/#/app/perfil",
@@ -87,5 +92,5 @@ export const menuSidebar = [
     txt: "Mis empresas",
     icon: "fa fa-industry",
     link: "/#/app/empresas",
-  },
+  }
 ];
