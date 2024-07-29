@@ -4,9 +4,9 @@ import { variables } from "../../app/core/lib";
 const { host, dominio, mod, ext } = variables;
 
 async function pagVcard() {
-    const data = await getRegister('https://vcardapp-js.firebaseio.com/vcard_vcard.json');
+    const data = await getRegister('Multiportal','https://vcardapp-js.firebaseio.com/vcard_vcard.json');
     console.log('Usuario',data);
-    const dataEmpresa = await getRegister('https://vcardapp-js.firebaseio.com/vcard_vcard.json'); 
+    const dataEmpresa = await getRegister(data.idemp,'https://vcardapp-js.firebaseio.com/vcard_vcard.json'); 
     console.log('Empresa',dataEmpresa);
     accion('inicio');
 }
@@ -70,13 +70,13 @@ function sslProfile() {
   }
 }
 
-async function getRegister(url){
+async function getRegister(x,url){
   const response = await fetch(url);
   const data = await response.json();
-  const uid = "sXP6Y9Uje3dy3cXZrzyY4aBwVhF2";
+  //const uid = "sXP6Y9Uje3dy3cXZrzyY4aBwVhF2";
   let res = null;
   for (const key in data) {
-    if (data[key].uid === uid) {
+    if (data[key].nombre === x || data[key].ID === x) {
       res = data[key];
     }
   }
