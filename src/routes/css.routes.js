@@ -110,7 +110,7 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/vcard/css/webhost.css'
     ];
     const vcardJS = [
-        base_url + 'assets/vcard/js/app2.js',
+        //base_url + 'assets/vcard/js/app2.js',
         'https://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw',
         base_url + 'assets/vcard/js/gmaps.js'
     ];

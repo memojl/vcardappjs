@@ -6,6 +6,7 @@ import { dashboard } from "../app/auth/dashboard/dashboard";
 import { cssLoadMod, classBody } from "./css.routes";
 //import Home from "../app/pages/home/home";
 import { loadApp } from "../pages/app/app";
+import vcard from "../pages/vcard/vcard";
 
 //Functions for Controllers JS
 function controlRoutes(v){ 
@@ -19,6 +20,7 @@ function controlRoutes(v){
   if(route=='app/perfil'){loadApp();}
   if(route=='app/tarjetas'){loadApp();}
   if(route=='app/empresas'){loadApp();}
+  if(route=='vcard/index'){vcard();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   //ALL APP/DASHBORD
