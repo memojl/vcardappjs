@@ -101,6 +101,29 @@ export function cssLoadMod(mod, base_url) {
         loadScript(homeJS, 'homeJS-');
     }
 
+    // profile vcard ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    const vcardCS = [
+        '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es',
+        base_url + 'assets/font-awesome-4.7.0/css/font-awesome.css',
+        base_url + 'assets/vcard/css/style2.css',
+        base_url + 'assets/vcard/css/examples.css',
+        base_url + 'assets/vcard/css/webhost.css'
+    ];
+    const vcardJS = [
+        base_url + 'assets/vcard/js/app2.js',
+        'https://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw',
+        base_url + 'assets/vcard/js/gmaps.js'
+    ];
+    if (mod == 'vcard') {
+        console.log('cssLoadMod-loadStyle',mod);
+        loadStyle(vcardCS, 'vcardCS-');
+        loadDelScript(vcardJS, 'vcardJS-','load');        
+    } else {
+        console.log('cssLoadMod-delStyle',mod);
+        delStyle(appCS, 'vcardCS-');
+        loadDelScript(appJS, 'vcardJS-','del');
+    }
+
     //404 / Not Auth ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
 
