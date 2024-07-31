@@ -79,7 +79,7 @@ export const router = (hash, mod, ext, title) => {
   let ext2 = (ext!='index')?' / '+capitalize(ext):'';
   document.title = title + ' - ' + capitalize(mod) + ext2;
   getRoutesSesion(mod,pagesAuth);  
-  let page = (mod!='Home' && ext!='index')?ext:mod; //console.log(page,mod,ext);
+  let page = (mod!='Home' && ext!='index')?ext:mod; console.log(page,mod,ext);
   //SEGMENTO PARA CARGAR EN DASHBOARD
   //let idApp = (mod=='dashboard' && ext!='index')?'appDash':'app'; console.log(idApp);
   let content = document.getElementById('app');
