@@ -9,16 +9,17 @@ const { host, dominio, mod, ext, id } = variables();
 async function pagVcard() { console.log(id);
   const data = await getRegister(id,Api+'/vcard_vcard.json');
   console.log('Usuario',data);
+  const {nombre,puesto,descripcion} = data;
   const dataEmpresa = await getRegister(data.idemp,Api+'/vcard_vcard_empresas.json'); 
   console.log('Empresa',dataEmpresa);
   accion('inicio');
 
   //INFO
-  document.querySelector('#tit').innerHTML = data.nombre;
-  document.querySelector('#puesto').innerHTML = data.puesto;
-  document.querySelector('#des').innerHTML = data.descripcion;
+  document.querySelector('#tit').innerHTML = nombre;
+  document.querySelector('#puesto').innerHTML = puesto;
+  document.querySelector('#des').innerHTML = descripcion;
   //RRSS
-  fb
+  //const fb = 
   const redes = `
   <div id="medios">
     <a href="" target="_blank" aria-label="Facebook" class="icon-rrss">
