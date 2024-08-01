@@ -20,7 +20,7 @@ function controlRoutes(v){
   if(route=='app/perfil'){loadApp();}
   if(route=='app/tarjetas'){loadApp();}
   if(route=='app/empresas'){loadApp();}
-  if(route=='vcard/index'){vcard();}
+  if(route=='vcard/index' || route=='vcard/profile'){vcard();}
   if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   //ALL APP/DASHBORD

@@ -1,0 +1,193 @@
+<div id="container">
+    <div id="head" style="background-color: #000">
+        <?php echo $logo;?>
+        <img id="logo" src="./assets/img/sinlogo.jpg" alt="">
+    </div>
+    <!--div id="portada" style="background: url(<?php echo $coverbg;?>);background-repeat:no-repeat;background-size:cover;background-position:center;"></div-->
+    <div id="portada"></div>
+    <div id="base">
+        <div id="td1">
+            <div id="contenedorfoto">
+                <div id="fotoperfil" style="background:url('./assets/img/sinfoto.png');background-repeat: no-repeat; background-size:cover; background-position: center;"></div>				
+            </div>
+            <h1 id="tit"><?php echo $nombre;?></h1>
+            <div class="row-div"><?php echo $puesto;?></div>
+            <div class="row-div"><?php echo $des;?></div>
+            <div id="medios">
+                <?php echo ($cell!='')?'<a href="tel:'.$cell.'"><i class="fa fa-phone"></i><span>Llamar</span></a>':'';?>
+                <?php echo ($cell!='')?'<a target="_blank" href="https://wa.me/+52'.$cell.'"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>':'';?>
+                <?php echo ($email!='')?'<a href="mailto:'.$email.'"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>':'';?>
+                <?php echo ($web!='')?'<a href="'.$web.'" id="empresaweb">'.$empresa.'</a>':'';?>						
+                <div id="redes">
+<?php
+if($fb!=''){
+echo '<a href="'.$fb.'" target="_blank" aria-label="Facebook" class="icon-rrss">
+<i class="fa fa-facebook"></i>
+<span>Facebook</span>
+</a>';
+}
+if($tw!=''){
+echo '<a href="'.$tw.'" target="_blank" aria-label="Twitter" class="icon-rrss">
+<i class="fa fa-twitter"></i>
+<span>Twitter</span>
+</a>';
+}
+if($lk!=''){
+echo '<a href="'.$lk.'" target="_blank" aria-label="LinkedIn" class="icon-rrss">
+<i class="fa fa-linkedin"></i>
+<span>LinkedIn</span>
+</a>';
+}
+if($ins!=''){
+echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss">
+<i class="fa fa-instagram"></i>
+<span>Instagram</span>
+</a>';
+}
+?>
+                </div>
+            </div>
+        </div>
+        <div id="td2">
+            <div id="close" onclick="accion('inicio');">Cerrar <i class="fa fa-times"></i></div>
+            <div id="inicio">
+                <h1><i class="fa fa-home"></i> Inicio</h1>
+                <div>
+                    <img src="./assets/vcard/img/concepto1.jpg" class="img-responsive">
+                    <a href="app/registro">¡Registrate Ahora!</a>
+                </div>	
+            </div>
+            <div id="contacto">
+                <h1><i class="fa fa-user"></i> Datos de Contacto</h1>
+                <div>
+                    <p>Puedes contactar directamente pulsando el icono deseado.</p>
+                    <p class="text-left"><b>MOVIL:</b> <?php echo $cell;?></p>
+                    <div id="accesos">
+                        <a href="tel:<?php echo $cell;?>" aria-label="Llamar" class="icon-access">
+                            <i class="fa fa-mobile"></i>
+                            <span>Llamar</span>
+                        </a>
+                        <a target="_blank" href="https://wa.me/+52<?php echo $cell;?>" aria-label="WhatsApp" class="icon-access">
+                            <i class="fa fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="sms:<?php echo $cell;?>" aria-label="sms" class="icon-access">
+                            <i class="fa fa-commenting"></i>
+                            <span>SMS</span>
+                        </a>
+                    </div>
+                    <p class="text-left"><b>EMAIL:</b> <?php echo $email;?></p>
+                    <div id="accesos">
+                        <?php
+                        if($email!=''){
+                        ?>
+                        <a href="mailto:<?php echo $email;?>" aria-label="Email" class="icon-access">
+                            <i class="fa fa-envelope-o"></i>
+                            <span>Email</span>
+                        </a>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <p class="text-left"><b>WEB:</b> <?php echo $web;?></p>
+                    <div id="accesos">
+                        <?php
+                        if($web!=''){
+                        ?>
+                        <a target="_blank" href="#" aria-label="Web" class="icon-access">
+                            <i class="fa fa-globe"></i>
+                            <span>Web</span>
+                        </a>	
+                        <?php
+                        }
+                        ?>
+
+                    </div>
+                </div>
+            </div>
+            <div id="ubicacion">
+                <h1><i class="fa fa-map-marker"></i> Ubicación</h1>
+                <?php if($direc!=''){?>
+                <p style="font-size: 18px;"><b>Dirección:</b> <?php echo $direc;?></p>
+                <div id="map"></div>
+                <?php }else{echo '<p>No hay dirección disponible.<p>';}?>
+            </div>
+            <div id="compartir">
+                <h1><i class="fa fa-share-alt"></i> Compartir</h1>
+                <div>
+                    <p>Puedes compartir esta tarjeta fácilmente en cualquiera de los sistemas informados que tengas habilitados en tu dispositivo.</p>
+                    <p>COMPARTIR EN REDES SOCIALES:</p>
+                    <div id="accesos">
+                        <a target="_blank" href="//www.facebook.com/sharer.php?u=<?php echo $page_url.'profile/'.$profile;?>&t=Vcard+<?php echo $profile;?>" aria-label="Facebook" class="icon-access">
+                            <i class="fa fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a target="_blank" href="//twitter.com/share?url=<?php echo $page_url.'profile/'.$profile;?>&text=Vcard+<?php echo $profile;?>" aria-label="Twitter" class="icon-access">
+                            <i class="fa fa-twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                        <a target="_blank" href="//www.linkedin.com/shareArticle?mini=true&url=<?php echo $page_url.'profile/'.$profile;?>&title=<?php echo $profile;?>&ro=false&summary=&source=" aria-label="LinkedIn" class="icon-access">
+                            <i class="fa fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a target="_blank" href="https://api.whatsapp.com/send?text=Accede+a+la+tarjeta+digital+desde+el+siguiente+enlace: <?php echo $page_url.'profile/'.$profile;?>" aria-label="whatsapp" class="icon-access">
+                            <i class="fa fa-whatsapp"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
+                    <p>OTROS MÉTODOS PARA COMPARTIR:</p>
+                    <div id="aviso"></div>
+                    <div id="accesos">
+                        <a href="javascript:action('viewcopy');" aria-label="Copiar" class="icon-access">
+                            <i class="fa fa-copy"></i>
+                            <span>Copiar enlace</span>
+                        </a>
+                        <a href="mailto:?body=<?php echo $page_url.'profile/'.$profile;?>" aria-label="Email" class="icon-access">
+                            <i class="fa fa-envelope-o"></i>
+                            <span>Enviar email</span>
+                        </a>
+                        <div style="position:fixed; bottom:0px">
+                            <input id="inputCopiar" type="text" value="<?php echo $page_url.'profile/'.$profile;?>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="guardar">
+                <h1><i class="fa fa-save"></i> Guardar</h1>
+                <div>
+                    <p>Elije como guardar la tarjeta de contacto.</p>
+                    <div id="accesos">
+                        <a href="<?php echo $page_url.'app/bloques/files/vcf/'.$profile.'.vcf';?>" aria-label="Guardar" class="icon-access">
+                            <i class="fa fa-address-book-o"></i>
+                            <span>Guardar Vcard</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="acceso">
+                <h1><i class="fa fa-lock"></i> Acceso</h1>
+                <div>
+                    <p>Accede a tu panel de adminisración de tu tarjeta VcardApp.</p>
+                    <div id="accesos">
+                        <a href="app/" aria-label="Panel" class="icon-access">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Panel</span>
+                        </a>
+                        <a href="app/tarjetas" aria-label="MisTarjetas" class="icon-access">
+                            <i class="fa fa-vcard"></i>
+                            <span>Tarjetas</span>
+                        </a>
+                    </div>
+                    <p>No tienes cuenta registrate <a href="app/registro">Aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footerbar">
+        <a id="btnContacto" name="contacto"><i class="fa fa-user"></i></a>
+        <a id="btnUbicacion" name="ubicacion"><i class="fa fa-map-marker"></i></a>
+        <a id="btnCompartir" name="compartir"><i class="fa fa-share-alt"></i></a>
+        <a id="btnGuardar" name="guardar"><i class="fa fa-save"></i></a>
+        <a id="btnAcceso" name="acceso"><i class="fa fa-lock"></i></a>
+    </div>
+</div>

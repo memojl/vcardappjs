@@ -63,7 +63,7 @@ export  async function getRegister(x,url){
     //const uid = "sXP6Y9Uje3dy3cXZrzyY4aBwVhF2";
     let res = null;
     for (const key in data) {
-      if (data[key].nombre === x || data[key].ID === x) {
+      if (data[key].profile === x || data[key].ID === x) {
         res = data[key];
       }
     }

@@ -15,6 +15,7 @@ import empresas from "../auth/dashboard/empresas.html?raw";
 import Home from "../../pages/Home/index.html?raw";
 import App from "../../pages/app/index.html?raw";
 import vcard from "../../pages/vcard/index.html?raw";
+import perfil from "../../pages/vcard/profile.html?raw";
 import nosotros from "../../pages/nosotros/index.html?raw";
 import productos from "../../pages/productos/index.html?raw";
 import categorias from "../../pages/productos/categorias.html?raw";
@@ -42,6 +43,7 @@ export const pages = {
   Home: Home,
   app: App,
   vcard: vcard,
+  profile: perfil,
   nosotros: menu + nosotros,
   productos: menu + productos,
   categorias: menu + categorias,
