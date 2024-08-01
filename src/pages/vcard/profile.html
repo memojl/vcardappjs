@@ -11,10 +11,10 @@
                 <div id="fotoperfil" style="background:url('./assets/img/sinfoto.png');background-repeat: no-repeat; background-size:cover; background-position: center;"></div>				
             </div>
             <h1 id="tit"><?php echo $nombre;?></h1>
-            <div class="row-div"><?php echo $puesto;?></div>
-            <div class="row-div"><?php echo $des;?></div>
+            <div id="puesto" class="row-div"><?php echo $puesto;?></div>
+            <div id="des" class="row-div"><?php echo $des;?></div>
             <div id="medios">
-                <?php echo ($cell!='')?'<a href="tel:'.$cell.'"><i class="fa fa-phone"></i><span>Llamar</span></a>':'';?>
+               <a href="tel:'.$cell.'"><i class="fa fa-phone"></i><span>Llamar</span></a>
                 <?php echo ($cell!='')?'<a target="_blank" href="https://wa.me/+52'.$cell.'"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>':'';?>
                 <?php echo ($email!='')?'<a href="mailto:'.$email.'"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>':'';?>
                 <?php echo ($web!='')?'<a href="'.$web.'" id="empresaweb">'.$empresa.'</a>':'';?>						
@@ -49,7 +49,7 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
             </div>
         </div>
         <div id="td2">
-            <div id="close" onclick="accion('inicio');">Cerrar <i class="fa fa-times"></i></div>
+            <div id="close">Cerrar <i class="fa fa-times"></i></div>
             <div id="inicio">
                 <h1><i class="fa fa-home"></i> Inicio</h1>
                 <div>

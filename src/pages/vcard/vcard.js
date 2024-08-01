@@ -1,18 +1,37 @@
 import './vcard.css';
 import { variables } from "../../app/core/lib";
 import { getRegister, accion } from "./funciones";
+import { Api } from '../../app/core/const.env';
 
 /* VARIABLES CONSTANTES*/
 const { host, dominio, mod, ext, id } = variables();
 
 async function pagVcard() { console.log(id);
-  const data = await getRegister(id,'https://vcardapp-js.firebaseio.com/vcard_vcard.json');
+  const data = await getRegister(id,Api+'/vcard_vcard.json');
   console.log('Usuario',data);
-  const dataEmpresa = await getRegister(data.idemp,'https://vcardapp-js.firebaseio.com/vcard_vcard_empresas.json'); 
+  const dataEmpresa = await getRegister(data.idemp,Api+'/vcard_vcard_empresas.json'); 
   console.log('Empresa',dataEmpresa);
   accion('inicio');
+
+  //INFO
+  document.querySelector('#tit').innerHTML = data.nombre;
+  document.querySelector('#puesto').innerHTML = data.puesto;
+  document.querySelector('#des').innerHTML = data.descripcion;
+  //RRSS
+  fb
+  const redes = `
+  <div id="medios">
+    <a href="" target="_blank" aria-label="Facebook" class="icon-rrss">
+    <i class="fa fa-facebook"></i>
+    <span>Facebook</span>
+    </a>
+  </div>`;
   
   //MENU
+  const btnCerrar = document.querySelector('#close');
+  if(btnCerrar){//console.log(btnCerrar.id);
+    btnCerrar.addEventListener('click',()=>{accion('inicio')});
+  }
   const btnContacto = document.querySelector('#btnContacto');
   if(btnContacto){//console.log(btnContacto.id);
     btnContacto.addEventListener('click',()=>{accion(btnContacto.name)});

@@ -48,7 +48,7 @@ export function cssLoadMod(mod, base_url) {
     }
 
     //home ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    const homeCss = [
+    const homeCS = [
         'https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700',
         base_url + 'assets/tema/css/bootstrap.min.css',
         base_url + 'assets/tema/css/all.min.css',
@@ -94,16 +94,16 @@ export function cssLoadMod(mod, base_url) {
         base_url + 'assets/tema/js/theme.init.js'
     ];
     if (mod != 'Home') {
-        delStyle(homeCss, 'homeCS-');
+        delStyle(homeCS, 'homeCS-');
         delScript(homeJS, 'homeJS-');
     } else {
-        loadStyle(homeCss, 'homeCS-');
+        loadStyle(homeCS, 'homeCS-');
         loadScript(homeJS, 'homeJS-');
     }
 
     // profile vcard ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     const vcardCS = [
-        '//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es',
+        'https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es',
         base_url + 'assets/font-awesome-4.7.0/css/font-awesome.css',
         base_url + 'assets/vcard/css/style2.css',
         base_url + 'assets/vcard/css/examples.css',
@@ -114,16 +114,14 @@ export function cssLoadMod(mod, base_url) {
         'https://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw',
         base_url + 'assets/vcard/js/gmaps.js'
     ];
-    if (mod == 'vcard') {
-        console.log('cssLoadMod-loadStyle',mod);
-        loadStyle(vcardCS, 'vcardCS-');
-        loadDelScript(vcardJS, 'vcardJS-','load');        
+    if (mod != 'vcard') {
+        delStyle(vcardCS, 'vcardCS-');
+        delScript(vcardJS, 'vcardJS-');
     } else {
-        console.log('cssLoadMod-delStyle',mod);
-        delStyle(appCS, 'vcardCS-');
-        loadDelScript(appJS, 'vcardJS-','del');
+        loadStyle(vcardCS, 'vcardCS-');
+        loadScript(vcardJS, 'vcardJS-');
     }
-
+ 
     //404 / Not Auth ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  
 
