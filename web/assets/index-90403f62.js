@@ -1,4 +1,4 @@
-import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as kr,onAuthStateChanged as xr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";import{initializeApp as wr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";import{getFirestore as Ir}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";import{getDatabase as Lr,set as jr,ref as z,onValue as Sr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const i of e)if(i.type==="childList")for(const o of i.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const i={};return e.integrity&&(i.integrity=e.integrity),e.referrerPolicy&&(i.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?i.credentials="include":e.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function a(e){if(e.ep)return;e.ep=!0;const i=s(e);fetch(e.href,i)}})();let Pr=window.location;const{pathname:Rr,host:T}=Pr;T!=="localhost"&&T!=="localhost:5173"&&T!=="127.0.0.1:5173"&&"serviceWorker"in navigator&&navigator.serviceWorker.register(Rr+"sw.js").then(function(n){console.log("Service Worker registro correcto con scope: ",n.scope)}).catch(function(n){console.log("Service Worker registro fallo: ",n)});const{host:k}=window.location,Tr="Vcard",Ar="firebase",b="#/",Y="src/",A=Y+"pages/",Dr="vite",x="localhost:5173",w="localhost",E=k==x||k==w?"http://localhost/MisSitios/apirestm/api":"https://apirestm.000webhostapp.com/api",Cr=E+"/v2/api_version";console.log(k+"=="+x,k+"=="+w);console.warn("Api="+E);const Er=`<div class="container text-center">\r
+import{getAuth as xr,GoogleAuthProvider as wr,signInWithPopup as Ir,signOut as Lr,onAuthStateChanged as jr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";import{initializeApp as Sr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";import{getFirestore as Pr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";import{getDatabase as $r,set as Ar,ref as X,onValue as Tr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))e(a);new MutationObserver(a=>{for(const i of a)if(i.type==="childList")for(const o of i.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&e(o)}).observe(document,{childList:!0,subtree:!0});function s(a){const i={};return a.integrity&&(i.integrity=a.integrity),a.referrerPolicy&&(i.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?i.credentials="include":a.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function e(a){if(a.ep)return;a.ep=!0;const i=s(a);fetch(a.href,i)}})();let Rr=window.location;const{pathname:Cr,host:P}=Rr;P!=="localhost"&&P!=="localhost:5173"&&P!=="127.0.0.1:5173"&&"serviceWorker"in navigator&&navigator.serviceWorker.register(Cr+"sw.js").then(function(n){console.log("Service Worker registro correcto con scope: ",n.scope)}).catch(function(n){console.log("Service Worker registro fallo: ",n)});const{host:H}=window.location,Er="Vcard",Dr="firebase",k="#/",Z="src/",A=Z+"pages/",qr="vite",C="localhost:5173",E="localhost",Or="https://vcardapp-js.firebaseio.com",f=Or,_r=f+"/v2/api_version";console.log(H+"=="+C,H+"=="+E);console.warn("Api="+f);const Nr=`<div class="container text-center">\r
     <div class="row">\r
         <div class="col-lg-6 offset-lg-3 mt-5">\r
             <div class="card">\r
@@ -19,7 +19,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
         <a href="#/">Inicio</a> | <a href="#/login">Login</a> | <a href="#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
-`,Nr=`<div class="container text-center">\r
+`,Mr=`<div class="container text-center">\r
     <div class="row">\r
         <div class="col-lg-6 offset-lg-3 mt-5">\r
             <div class="card">\r
@@ -43,16 +43,16 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
         <a href="#/">Inicio</a> | <a href="#/registro">Registrarse</a> | <a href="#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
-`,qr=`<div class="container text-center">\r
+`,Br=`<div class="container text-center">\r
     <h1>Logout</h1>\r
     <img src="./assets/img/loading.gif">\r
     <p>Espere un momento...</p>\r
     <a href="#/">Inicio</a>\r
 </div>\r
-`,Or=`<div class="alert alert-warning" role="alert">\r
+`,Gr=`<div class="alert alert-warning" role="alert">\r
     <strong>No Autorizado:</strong> No tiene permiso para esta página. \r
     <a href="#/" class="alert-link">Volver al Inicio</a>\r
-</div>`,_r=`<div class="container text-center">\r
+</div>`,Hr=`<div class="container text-center">\r
     <div class="row">\r
         <div class="col-lg-6 offset-lg-3 mt-5">\r
             <div class="card">\r
@@ -76,7 +76,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
         <a href="#/">Inicio</a> | <a href="#/login">Login</a> | <a href="#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
-`,$r=`<!--DASHBOARD-->\r
+`,Vr=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
@@ -360,7 +360,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
   <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
-  </div-->`,Mr=`<!--DASHBOARD-->\r
+  </div-->`,Ur=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
@@ -662,7 +662,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
 <!--div class="nav-item logged-in">\r
     <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
-`,Br=`<!--DASHBOARD-->\r
+`,Fr=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
@@ -1036,7 +1036,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
 <!--div class="nav-item logged-in">\r
     <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
-`,Hr=`<!--DASHBOARD-->\r
+`,Wr=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
@@ -1564,7 +1564,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
 <!--div class="nav-item logged-in">\r
     <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
-`,Vr=`<!--DASHBOARD-->\r
+`,zr=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
@@ -2000,7 +2000,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
 <!--div class="nav-item logged-in">\r
     <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
-`,Gr="<!--HOME-->",Ur=`<!--DASHBOARD-->\r
+`,Jr="<!--HOME-->",Yr=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
@@ -2284,7 +2284,7 @@ import{getAuth as br,GoogleAuthProvider as hr,signInWithPopup as yr,signOut as k
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
   <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
-  </div-->`,Fr=`<div id="container">\r
+  </div-->`,Kr=`<div id="container">\r
     <div id="head" style="background-color: #000">\r
         <?php echo $logo;?>\r
         <img id="logo" src="./assets/img/sinlogo.jpg" alt="">\r
@@ -2470,20 +2470,217 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
         </div>\r
     </div>\r
     <div id="footerbar">\r
-        <a href="javascript:accion('contacto')"><i class="fa fa-user"></i></a>\r
-        <a href="javascript:accion('ubicacion')"><i class="fa fa-map-marker"></i></a>\r
+        <a href="/#/vcard" id="btnContacto" name="contacto"><i class="fa fa-user"></i></a>\r
+        <a href="/#/vcard" id="btnUbicacion" name="ubicacion"><i class="fa fa-map-marker"></i></a>\r
         <a href="javascript:accion('compartir')"><i class="fa fa-share-alt"></i></a>\r
         <a href="javascript:accion('guardar')"><i class="fa fa-save"></i></a>\r
         <a href="javascript:accion('acceso')"><i class="fa fa-lock"></i></a>\r
+        <!--a href="javascript:accion('contacto')"><i class="fa fa-user"></i></a>\r
+        <a href="javascript:accion('ubicacion')"><i class="fa fa-map-marker"></i></a>\r
+        <a href="javascript:accion('compartir')"><i class="fa fa-share-alt"></i></a>\r
+        <a href="javascript:accion('guardar')"><i class="fa fa-save"></i></a>\r
+        <a href="javascript:accion('acceso')"><i class="fa fa-lock"></i></a-->\r
     </div>\r
-</div>`,Jr=`<div class="container text-center">\r
+</div>`,Qr=`<div id="container">\r
+    <div id="head" style="background-color: #000">\r
+        <?php echo $logo;?>\r
+        <img id="logo" src="./assets/img/sinlogo.jpg" alt="">\r
+    </div>\r
+    <!--div id="portada" style="background: url(<?php echo $coverbg;?>);background-repeat:no-repeat;background-size:cover;background-position:center;"></div-->\r
+    <div id="portada"></div>\r
+    <div id="base">\r
+        <div id="td1">\r
+            <div id="contenedorfoto">\r
+                <div id="fotoperfil" style="background:url('./assets/img/sinfoto.png');background-repeat: no-repeat; background-size:cover; background-position: center;"></div>				\r
+            </div>\r
+            <h1 id="tit"><?php echo $nombre;?></h1>\r
+            <div id="puesto" class="row-div"><?php echo $puesto;?></div>\r
+            <div id="des" class="row-div"><?php echo $des;?></div>\r
+            <div id="medios">\r
+               <a href="tel:'.$cell.'"><i class="fa fa-phone"></i><span>Llamar</span></a>\r
+                <?php echo ($cell!='')?'<a target="_blank" href="https://wa.me/+52'.$cell.'"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>':'';?>\r
+                <?php echo ($email!='')?'<a href="mailto:'.$email.'"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>':'';?>\r
+                <?php echo ($web!='')?'<a href="'.$web.'" id="empresaweb">'.$empresa.'</a>':'';?>						\r
+                <div id="redes">\r
+<?php\r
+if($fb!=''){\r
+echo '<a href="'.$fb.'" target="_blank" aria-label="Facebook" class="icon-rrss">\r
+<i class="fa fa-facebook"></i>\r
+<span>Facebook</span>\r
+</a>';\r
+}\r
+if($tw!=''){\r
+echo '<a href="'.$tw.'" target="_blank" aria-label="Twitter" class="icon-rrss">\r
+<i class="fa fa-twitter"></i>\r
+<span>Twitter</span>\r
+</a>';\r
+}\r
+if($lk!=''){\r
+echo '<a href="'.$lk.'" target="_blank" aria-label="LinkedIn" class="icon-rrss">\r
+<i class="fa fa-linkedin"></i>\r
+<span>LinkedIn</span>\r
+</a>';\r
+}\r
+if($ins!=''){\r
+echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss">\r
+<i class="fa fa-instagram"></i>\r
+<span>Instagram</span>\r
+</a>';\r
+}\r
+?>\r
+                </div>\r
+            </div>\r
+        </div>\r
+        <div id="td2">\r
+            <div id="close">Cerrar <i class="fa fa-times"></i></div>\r
+            <div id="inicio">\r
+                <h1><i class="fa fa-home"></i> Inicio</h1>\r
+                <div>\r
+                    <img src="./assets/vcard/img/concepto1.jpg" class="img-responsive">\r
+                    <a href="app/registro">¡Registrate Ahora!</a>\r
+                </div>	\r
+            </div>\r
+            <div id="contacto">\r
+                <h1><i class="fa fa-user"></i> Datos de Contacto</h1>\r
+                <div>\r
+                    <p>Puedes contactar directamente pulsando el icono deseado.</p>\r
+                    <p class="text-left"><b>MOVIL:</b> <?php echo $cell;?></p>\r
+                    <div id="accesos">\r
+                        <a href="tel:<?php echo $cell;?>" aria-label="Llamar" class="icon-access">\r
+                            <i class="fa fa-mobile"></i>\r
+                            <span>Llamar</span>\r
+                        </a>\r
+                        <a target="_blank" href="https://wa.me/+52<?php echo $cell;?>" aria-label="WhatsApp" class="icon-access">\r
+                            <i class="fa fa-whatsapp"></i>\r
+                            <span>WhatsApp</span>\r
+                        </a>\r
+                        <a href="sms:<?php echo $cell;?>" aria-label="sms" class="icon-access">\r
+                            <i class="fa fa-commenting"></i>\r
+                            <span>SMS</span>\r
+                        </a>\r
+                    </div>\r
+                    <p class="text-left"><b>EMAIL:</b> <?php echo $email;?></p>\r
+                    <div id="accesos">\r
+                        <?php\r
+                        if($email!=''){\r
+                        ?>\r
+                        <a href="mailto:<?php echo $email;?>" aria-label="Email" class="icon-access">\r
+                            <i class="fa fa-envelope-o"></i>\r
+                            <span>Email</span>\r
+                        </a>\r
+                        <?php\r
+                        }\r
+                        ?>\r
+                    </div>\r
+                    <p class="text-left"><b>WEB:</b> <?php echo $web;?></p>\r
+                    <div id="accesos">\r
+                        <?php\r
+                        if($web!=''){\r
+                        ?>\r
+                        <a target="_blank" href="#" aria-label="Web" class="icon-access">\r
+                            <i class="fa fa-globe"></i>\r
+                            <span>Web</span>\r
+                        </a>	\r
+                        <?php\r
+                        }\r
+                        ?>\r
+\r
+                    </div>\r
+                </div>\r
+            </div>\r
+            <div id="ubicacion">\r
+                <h1><i class="fa fa-map-marker"></i> Ubicación</h1>\r
+                <?php if($direc!=''){?>\r
+                <p style="font-size: 18px;"><b>Dirección:</b> <?php echo $direc;?></p>\r
+                <div id="map"></div>\r
+                <?php }else{echo '<p>No hay dirección disponible.<p>';}?>\r
+            </div>\r
+            <div id="compartir">\r
+                <h1><i class="fa fa-share-alt"></i> Compartir</h1>\r
+                <div>\r
+                    <p>Puedes compartir esta tarjeta fácilmente en cualquiera de los sistemas informados que tengas habilitados en tu dispositivo.</p>\r
+                    <p>COMPARTIR EN REDES SOCIALES:</p>\r
+                    <div id="accesos">\r
+                        <a target="_blank" href="//www.facebook.com/sharer.php?u=<?php echo $page_url.'profile/'.$profile;?>&t=Vcard+<?php echo $profile;?>" aria-label="Facebook" class="icon-access">\r
+                            <i class="fa fa-facebook"></i>\r
+                            <span>Facebook</span>\r
+                        </a>\r
+                        <a target="_blank" href="//twitter.com/share?url=<?php echo $page_url.'profile/'.$profile;?>&text=Vcard+<?php echo $profile;?>" aria-label="Twitter" class="icon-access">\r
+                            <i class="fa fa-twitter"></i>\r
+                            <span>Twitter</span>\r
+                        </a>\r
+                        <a target="_blank" href="//www.linkedin.com/shareArticle?mini=true&url=<?php echo $page_url.'profile/'.$profile;?>&title=<?php echo $profile;?>&ro=false&summary=&source=" aria-label="LinkedIn" class="icon-access">\r
+                            <i class="fa fa-linkedin"></i>\r
+                            <span>LinkedIn</span>\r
+                        </a>\r
+                        <a target="_blank" href="https://api.whatsapp.com/send?text=Accede+a+la+tarjeta+digital+desde+el+siguiente+enlace: <?php echo $page_url.'profile/'.$profile;?>" aria-label="whatsapp" class="icon-access">\r
+                            <i class="fa fa-whatsapp"></i>\r
+                            <span>WhatsApp</span>\r
+                        </a>\r
+                    </div>\r
+                    <p>OTROS MÉTODOS PARA COMPARTIR:</p>\r
+                    <div id="aviso"></div>\r
+                    <div id="accesos">\r
+                        <a href="javascript:action('viewcopy');" aria-label="Copiar" class="icon-access">\r
+                            <i class="fa fa-copy"></i>\r
+                            <span>Copiar enlace</span>\r
+                        </a>\r
+                        <a href="mailto:?body=<?php echo $page_url.'profile/'.$profile;?>" aria-label="Email" class="icon-access">\r
+                            <i class="fa fa-envelope-o"></i>\r
+                            <span>Enviar email</span>\r
+                        </a>\r
+                        <div style="position:fixed; bottom:0px">\r
+                            <input id="inputCopiar" type="text" value="<?php echo $page_url.'profile/'.$profile;?>">\r
+                        </div>\r
+                    </div>\r
+                </div>\r
+            </div>\r
+            <div id="guardar">\r
+                <h1><i class="fa fa-save"></i> Guardar</h1>\r
+                <div>\r
+                    <p>Elije como guardar la tarjeta de contacto.</p>\r
+                    <div id="accesos">\r
+                        <a href="<?php echo $page_url.'app/bloques/files/vcf/'.$profile.'.vcf';?>" aria-label="Guardar" class="icon-access">\r
+                            <i class="fa fa-address-book-o"></i>\r
+                            <span>Guardar Vcard</span>\r
+                        </a>\r
+                    </div>\r
+                </div>\r
+            </div>\r
+            <div id="acceso">\r
+                <h1><i class="fa fa-lock"></i> Acceso</h1>\r
+                <div>\r
+                    <p>Accede a tu panel de adminisración de tu tarjeta VcardApp.</p>\r
+                    <div id="accesos">\r
+                        <a href="app/" aria-label="Panel" class="icon-access">\r
+                            <i class="fa fa-dashboard"></i>\r
+                            <span>Panel</span>\r
+                        </a>\r
+                        <a href="app/tarjetas" aria-label="MisTarjetas" class="icon-access">\r
+                            <i class="fa fa-vcard"></i>\r
+                            <span>Tarjetas</span>\r
+                        </a>\r
+                    </div>\r
+                    <p>No tienes cuenta registrate <a href="app/registro">Aquí</a></p>\r
+                </div>\r
+            </div>\r
+        </div>\r
+    </div>\r
+    <div id="footerbar">\r
+        <a id="btnContacto" name="contacto"><i class="fa fa-user"></i></a>\r
+        <a id="btnUbicacion" name="ubicacion"><i class="fa fa-map-marker"></i></a>\r
+        <a id="btnCompartir" name="compartir"><i class="fa fa-share-alt"></i></a>\r
+        <a id="btnGuardar" name="guardar"><i class="fa fa-save"></i></a>\r
+        <a id="btnAcceso" name="acceso"><i class="fa fa-lock"></i></a>\r
+    </div>\r
+</div>`,Xr=`<div class="container text-center">\r
     <h1>Nosotros</h1>\r
-</div>`,Wr=`<div class="container text-center">\r
+</div>`,Zr=`<div class="container text-center">\r
     <h1>Productos</h1>\r
-</div>`,zr="<h1>Categorias</h1>",Yr=`<div class="container text-center">\r
+</div>`,rn="<h1>Categorias</h1>",nn=`<div class="container text-center">\r
     <h1>Contacto</h1>\r
 </div>\r
-`,h=`<nav id="menuweb" class="navbar navbar-expand-lg navbar-dark bg-dark">\r
+`,x=`<nav id="menuweb" class="navbar navbar-expand-lg navbar-dark bg-dark">\r
     <div class="container">\r
         <a class="navbar-brand" href="./">Favorite Links</a>\r
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"\r
@@ -2507,12 +2704,12 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
             </ul>\r
         </div>\r
     </div>\r
-</nav>`,Kr=["dashboard","settings","perfil","tarjetas","empresas"],Qr={forget:Er,login:Nr,logout:qr,noauth:Or,registro:_r,dashboard:$r,settings:Mr,perfil:Br,tarjetas:Hr,empresas:Vr},K={Home:Gr,app:Ur,vcard:Fr,nosotros:h+Jr,productos:h+Wr,categorias:h+zr,contacto:h+Yr},Q={...K,...Qr},G=[{txt:"Dashboard",icon:"icon-dashboard",link:"/#/app"},{txt:"Dashboard",icon:"icon-dashboard",link:"/#/dashboard"},{txt:"Perfil",icon:"fa fa-user",link:"/#/app/perfil"},{txt:"Mis tarjetas",icon:"fa fa-vcard",link:"/#/app/tarjetas"},{txt:"Mis empresas",icon:"fa fa-industry",link:"/#/app/empresas"}],Xr=`<div class="text-center">\r
+</nav>`,an=["dashboard","settings","perfil","tarjetas","empresas"],en={forget:Nr,login:Mr,logout:Br,noauth:Gr,registro:Hr,dashboard:Vr,settings:Ur,perfil:Fr,tarjetas:Wr,empresas:zr},rr={Home:Jr,app:Yr,vcard:Kr,profile:Qr,nosotros:x+Xr,productos:x+Zr,categorias:x+rn,contacto:x+nn},nr={...rr,...en},V=[{txt:"Dashboard",icon:"icon-dashboard",link:"/#/app"},{txt:"Dashboard",icon:"icon-dashboard",link:"/#/dashboard"},{txt:"Perfil",icon:"fa fa-user",link:"/#/app/perfil"},{txt:"Mis tarjetas",icon:"fa fa-vcard",link:"/#/app/tarjetas"},{txt:"Mis empresas",icon:"fa fa-industry",link:"/#/app/empresas"}],sn=`<div class="text-center">\r
     <div class="alert alert-danger" role="alert">\r
         <strong>Error 404:</strong> La página No existe. <a href="#/" class="alert-link">Volver al Inicio</a>\r
     </div>\r
 </div>\r
-`,Zr=n=>{var r=Q[n];return r=r??Xr,pn(r)},U=async n=>{try{const r=await fetch(n);if(r.status==200){const s=await r.json();if(s)return s}else console.log("Error 404")}catch(r){console.log(r)}},{hash:zn,host:rn,year:nn,hostDev:en,typeBack:X,apiVer:an}=m();function sn(){var n=self.location.href,r=n.lastIndexOf("/"),s=n.substring(r+1,n.length);return s}function on(n,r){var s=n.replace("/"+r,""),a=s.split("/"),e=window.location.search.substring(1),i=e.split("&");return e==""&&(i=["mod="+a[1],"ext="+a[2],"id="+a[3]]),i}function tn(n){for(var r=0;r<n.length;r++){var s=n[r].split("=");if(s[0]=="mod")var a=s[1];if(s[0]=="ext")var e=s[1];if(s[0]=="id")var i=s[1]}return a=a==""?"Home":a.replace("?",""),e=e==""||e=="undefined"?"index":e,i=i==""||i=="undefined"?"":i,{mod:a,ext:e,id:i}}function ln(n,r,s,a){let e=localStorage.getItem("Token");document.querySelector("#menuweb");let i=document.querySelector(".user-login"),o=document.querySelector(".user-activo"),l=document.querySelector(".user-logout");s[r]&&(i.classList.remove("d-none"),o.classList.add("d-none"),l.classList.add("d-none"),e!=null&&e!=null&&e!="null"&&e!="undefined"&&(i.classList.add("d-none"),o.classList.remove("d-none"),l.classList.remove("d-none")))}const dn=(n,r,s,a)=>{localStorage.getItem("Token"),d("log","hash=>"+n);let e=s!="index"?" / "+F(s):"";document.title=a+" - "+F(r)+e,cn(r,Kr);let i=r!="Home"&&s!="index"?s:r,o=document.getElementById("app");if(o&&(o.innerHTML="",n))return o.appendChild(Zr(i))};function cn(n,r){var s=localStorage.getItem("Token");d("log","token="+s);let a=r.length;for(let e=0;e<a;e++)n===r[e]&&d("log","Accceso: "+n+"="+r[e]),n===r[e]&&(s==null||s=="undefined")&&(window.location.href="#/noauth");n=="login"&&s!=null&&s!="undefined"&&(window.location.href="#/dashboard")}function pn(n){const r=document.createElement("div");return r.innerHTML=n,r}function vn(n,r){(n==""||n=="undefined")&&(window.location.href=r)}function d(n,r){if(rn==en)switch(n){case"log":console.log(r);break;case"warn":console.warn(r);break;case"error":console.error(r);break;default:console.log(r);break}}function F(n){return n[0].toUpperCase()+n.slice(1).toLowerCase()}function D(n,r){if(n.length>0)for(let e=0;e<n.length;e++)if(console.log("load",r+e),document.getElementById(r+e))console.log("Reload Ok: "+r+e);else if(console.log(r+e,n[e]),document.createStyleSheet)document.createStyleSheet(n[e]);else{var s="@import url('"+n[e]+"');",a=document.createElement("link");a.id=r+e,a.rel="stylesheet",a.href="data:text/css,"+escape(s),document.getElementsByTagName("head")[0].appendChild(a)}}function C(n,r){for(let s=0;s<n.length;s++){console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.getElementsByTagName("head")[0].removeChild(a)}}function y(n,r,s){if(n.length>0)for(let e=0;e<n.length;e++){console.log("load",r+e);let i=document.getElementById(r+e);if(i&&document.body.removeChild(i),s=="load")if(document.getElementById(r+e))console.log("Reload Ok: "+r+e);else{console.log(r+e,n[e]);var a=document.createElement("script");a.id=r+e,a.src=n[e],document.body.appendChild(a)}}}function mn(n,r){if(n.length>0)for(let a=0;a<n.length;a++)if(console.log("load",r+a),document.getElementById(r+a))console.log("Reload Ok: "+r+a);else{console.log(r+a,n[a]);var s=document.createElement("script");s.id=r+a,s.src=n[a],document.body.appendChild(s)}}function gn(n,r){for(let s=0;s<n.length;s++){console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.body.removeChild(a)}}function un(){const n=document.querySelector("#footer_page");n.innerHTML=nn+' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.'}function fn(){let n=document.getElementsByTagName("body")[0],s=`<div class="layerLoading">
+`,on=n=>{var r=nr[n];return r=r??sn,bn(r)},U=async n=>{try{const r=await fetch(n);if(r.status==200){const s=await r.json();if(s)return s}else console.log("Error 404")}catch(r){console.log(r)}},{hash:Qn,host:tn,year:ln,hostDev:dn,typeBack:ar,apiVer:cn}=m();function pn(){var n=self.location.href,r=n.lastIndexOf("/"),s=n.substring(r+1,n.length);return s}function vn(n,r){var s=n.replace("/"+r,""),e=s.split("/"),a=window.location.search.substring(1),i=a.split("&");return a==""&&(i=["mod="+e[1],"ext="+e[2],"id="+e[3]]),i}function mn(n){for(var r=0;r<n.length;r++){var s=n[r].split("=");if(s[0]=="mod")var e=s[1];if(s[0]=="ext")var a=s[1];if(s[0]=="id")var i=s[1]}return e=e==""?"Home":e.replace("?",""),a=a==""||a=="undefined"?"index":a,i=i==""||i=="undefined"?"":i,{mod:e,ext:a,id:i}}function un(n,r,s,e){let a=localStorage.getItem("Token");document.querySelector("#menuweb");let i=document.querySelector(".user-login"),o=document.querySelector(".user-activo"),l=document.querySelector(".user-logout");s[r]&&(i.classList.remove("d-none"),o.classList.add("d-none"),l.classList.add("d-none"),a!=null&&a!=null&&a!="null"&&a!="undefined"&&(i.classList.add("d-none"),o.classList.remove("d-none"),l.classList.remove("d-none")))}const gn=(n,r,s,e)=>{localStorage.getItem("Token"),c("log","hash=>"+n);let a=s!="index"?" / "+F(s):"";document.title=e+" - "+F(r)+a,fn(r,an);let i=r!="Home"&&s!="index"?s:r;console.log(i,r,s);let o=document.getElementById("app");if(o&&(o.innerHTML="",n))return o.appendChild(on(i))};function fn(n,r){var s=localStorage.getItem("Token");c("log","token="+s);let e=r.length;for(let a=0;a<e;a++)n===r[a]&&c("log","Accceso: "+n+"="+r[a]),n===r[a]&&(s==null||s=="undefined")&&(window.location.href="#/noauth");n=="login"&&s!=null&&s!="undefined"&&(window.location.href="#/dashboard")}function bn(n){const r=document.createElement("div");return r.innerHTML=n,r}function hn(n,r){(n==""||n=="undefined")&&(window.location.href=r)}function c(n,r){if(tn==dn)switch(n){case"log":console.log(r);break;case"warn":console.warn(r);break;case"error":console.error(r);break;default:console.log(r);break}}function F(n){return n[0].toUpperCase()+n.slice(1).toLowerCase()}function T(n,r){if(n.length>0)for(let a=0;a<n.length;a++)if(console.log("load",r+a),document.getElementById(r+a))console.log("Reload Ok: "+r+a);else if(console.log(r+a,n[a]),document.createStyleSheet)document.createStyleSheet(n[a]);else{var s="@import url('"+n[a]+"');",e=document.createElement("link");e.id=r+a,e.rel="stylesheet",e.href="data:text/css,"+escape(s),document.getElementsByTagName("head")[0].appendChild(e)}}function R(n,r){for(let s=0;s<n.length;s++){console.log("delete",r+s);let e=document.getElementById(r+s);e&&document.getElementsByTagName("head")[0].removeChild(e)}}function W(n,r,s){if(n.length>0)for(let a=0;a<n.length;a++){console.log("load",r+a);let i=document.getElementById(r+a);if(i&&document.body.removeChild(i),s=="load")if(document.getElementById(r+a))console.log("Reload Ok: "+r+a);else{console.log(r+a,n[a]);var e=document.createElement("script");e.id=r+a,e.src=n[a],document.body.appendChild(e)}}}function z(n,r){if(n.length>0)for(let e=0;e<n.length;e++)if(console.log("load",r+e),document.getElementById(r+e))console.log("Reload Ok: "+r+e);else{console.log(r+e,n[e]);var s=document.createElement("script");s.id=r+e,s.src=n[e],document.body.appendChild(s)}}function J(n,r){for(let s=0;s<n.length;s++){console.log("delete",r+s);let e=document.getElementById(r+s);e&&document.body.removeChild(e)}}function yn(){const n=document.querySelector("#footer_page");n.innerHTML=ln+' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.'}function kn(){let n=document.getElementsByTagName("body")[0],s=`<div class="layerLoading">
     <img src="./assets/img/loader-green.gif" alt=""/>
     <p>Cargando...</p>
-  </div>`;var a=document.createElement("div");a.id="load",a.innerHTML=s,n.appendChild(a),setTimeout(()=>{let e=document.getElementById(a.id);e&&n.removeChild(e)},5e3)}function bn(){const{mod:n,ext:r}=m();let s=n!="Home"&&r!="index"?r:n;var a=Q[s];n!="dashboard"&&X=="firebase"&&n!="logout"&&n!="noauth"&&r=="index"&&a!=null&&fn()}async function hn(n,r){if(X!="firebase"){if(n=="Home"){const{version:s}=await U(`${r}assets/pwa/manifest.json`);console.log(`Version Actual: ${s}`);const a=await U(an);if(a&&a!=null){const{ultimate:e}=a.data[0];s!=e&&console.log(`Actualizar version ${n} (${s} => ${e})`)}else console.warn("No se pudo llevar a cabo la comprobación de versiones")}}else console.warn("Only Firebase")}function yn(n,r,s){setTimeout(()=>{const a=document.querySelector("#menuList");let e="";if(a){for(let i=0;i<G.length;i++){const{txt:o,icon:l,link:c}=G[i];if((s=="app"||s=="dashboard")&&c!="/#/app"){const t=c=="/"+n||o=="Dashboard"&&r=="app/index"?'class="active"':"";e+=`<li ${t}><a href="${c}"><i class="${l}"></i> ${o}</a></li>`}}a.innerHTML=e}},100)}const kn=m(),{host:xn,dominio:wn,path_url:In,hostDev:Ln,typeBack:jn}=kn;console.log("/* javascript login | VARIABLES CONSTANTES*/");let N=E+"/login/";xn==Ln&&jn!="firebase"&&console.log("api_login="+N);function Sn(){const n=document.getElementById("form-login");n!=null&&(n.addEventListener("submit",Pn),console.log("btnLogin Activado"))}function Pn(n){n.preventDefault(),console.log("Validación de Datos");let r=document.getElementById("username").value,s=document.getElementById("password").value;var a={username:r,password:s};const e=N+"index.php";fetch(e,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(a)}).then(i=>i.json()).then(i=>{const{data:o}=i;d("log",i),d("log","getToken:"+o.token),localStorage.setItem("Token",o.token);let l=localStorage.getItem("Token");if(d("log","Res-Token:"+l),l!=null&&l!="undefined")location.href=wn+In+"#/dashboard";else{let c=document.getElementById("msj-error");c.innerHTML='<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>'}}).catch(i=>{console.log(i);let o=document.getElementById("msj-error");o.innerHTML='<div class="alert alert-danger" role="alert">Error:Usuario o Contraseña Incorrectos</div>'})}const Rn=()=>{const n=N+"";fetch(n).then(r=>r.json()).then(r=>{d("log",r)}).catch(r=>console.log(r)),setTimeout(function(){Sn()},1e3)};function Tn(){console.log("Logout/Salir"),localStorage.clear();var n=localStorage.getItem("Token");n==null&&(console.warn("TOKEN CLEAR"),setTimeout(function(){window.location.href="#/"},3e3))}m();function An(n){let r=document.querySelector(".body");r&&(n!=""&&n!="Home"?r.style.display="none":r.style.display="inherit")}function Dn(n,r){const s=["https://fonts.googleapis.com/css?family=Muli:300,400,700","https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css",r+"assets/login/vendor/bootstrap/css/bootstrap.min.css",r+"assets/login/vendor/font-awesome/css/font-awesome.min.css",r+"assets/login/css/font.css",r+"assets/login/css/style.green.css",r+"assets/login/css/custom.css"],a=[r+"assets/login/vendor/popper.js/umd/popper.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap-colorpicker.min.js",r+"assets/login/vendor/jquery.cookie/jquery.cookie.js",r+"assets/login/vendor/chart.js/Chart.min.js",r+"assets/login/vendor/jquery-validation/jquery.validate.min.js","https://cdn.jsdelivr.net/npm/sweetalert2@9.14.4/dist/sweetalert2.all.min.js","https://cdn.jsdelivr.net/npm/toastify-js",r+"assets/login/js/front.js"];n=="app"||n=="dashboard"?(console.log("cssLoadMod-loadStyle",n),D(s,"appCS-"),y(a,"appJS-","load")):(console.log("cssLoadMod-delStyle",n),C(s,"appCS-"),y(a,"appJS-","del"));const e=["https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700",r+"assets/tema/css/bootstrap.min.css",r+"assets/tema/css/all.min.css",r+"assets/tema/css/animate.min.css",r+"assets/tema/css/simple-line-icons.min.css",r+"assets/tema/css/owl.carousel.min.css",r+"assets/tema/css/owl.theme.default.min.css",r+"assets/tema/css/magnific-popup.min.css",r+"assets/tema/css/theme.css",r+"assets/tema/css/theme-elements.css",r+"assets/tema/css/theme-blog.css",r+"assets/tema/css/theme-shop.css",r+"assets/tema/css/settings.css",r+"assets/tema/css/layers.css",r+"assets/tema/css/navigation.css",r+"assets/tema/css/demo-business-consulting.css",r+"assets/tema/css/skin-business-consulting.css",r+"assets/tema/css/style.css",r+"assets/font-awesome-4.7.0/css/font-awesome.css"],i=[r+"assets/tema/js/jquery.appear.min.js",r+"assets/tema/js/jquery.easing.min.js",r+"assets/tema/js/jquery.cookie.min.js",r+"assets/tema/js/popper.min.js",r+"assets/tema/js/bootstrap.min.js",r+"assets/tema/js/common.min.js",r+"assets/tema/js/jquery.validate.min.js",r+"assets/tema/js/jquery.easypiechart.min.js",r+"assets/tema/js/jquery.gmap.min.js",r+"assets/tema/js/jquery.lazyload.min.js",r+"assets/tema/js/jquery.isotope.min.js",r+"assets/tema/js/owl.carousel.min.js",r+"assets/tema/js/jquery.magnific-popup.min.js",r+"assets/tema/js/jquery.vide.min.js",r+"assets/tema/js/vivus.min.js",r+"assets/tema/js/theme.js",r+"assets/tema/js/jquery.themepunch.tools.min.js",r+"assets/tema/js/jquery.themepunch.revolution.min.js",r+"assets/tema/js/demo-business-consulting.js",r+"assets/tema/js/custom.js",r+"assets/tema/js/theme.init.js"];n!="Home"?(C(e,"homeCS-"),gn(i,"homeJS-")):(D(e,"homeCS-"),mn(i,"homeJS-"));const o=["//fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es",r+"assets/font-awesome-4.7.0/css/font-awesome.css",r+"assets/vcard/css/style2.css",r+"assets/vcard/css/examples.css",r+"assets/vcard/css/webhost.css"],l=["https://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw",r+"assets/vcard/js/gmaps.js"];n=="vcard"?(console.log("cssLoadMod-loadStyle",n),D(o,"vcardCS-"),y(l,"vcardJS-","load")):(console.log("cssLoadMod-delStyle",n),C(s,"vcardCS-"),y(a,"vcardJS-","del"))}console.log("Firebase SDK");var Cn={apiKey:"AIzaSyDeX81H_K8AsV2KjQgEbwxte6yVdSYqFXk",authDomain:"vcardapp-js.firebaseapp.com",databaseURL:"https://vcardapp-js.firebaseio.com",projectId:"vcardapp-js",storageBucket:"vcardapp-js.appspot.com",messagingSenderId:"420720513571",appId:"1:420720513571:web:f072eeda6cd3cfa1429796",measurementId:"G-LDPZ4BZ1GV"};const q=wr(Cn),O=br(q),Z=Lr(q);Ir(q);function En(n){console.log("saveUser");var r={uid:n.uid,usuario:n.displayName,email:n.email,foto:n.photoURL};jr(z(Z,"vcard_signup/"+n.uid),r)}function Nn(n){const r=document.querySelector("#photo"),s=document.querySelector("#nombre_session"),a=document.querySelector("#email_session"),e=document.querySelector("#id_code_google"),i=z(Z,"vcard_signup/");Sr(i,o=>{const l=o.val();for(let c in l){const t=l[c];if(t.uid==n.uid){console.log(t);const g='<img src="'+(t.foto==null?page_url+"assets/img/sinfoto.png":t.foto)+'" class="img-fluid rounded-circle">',u=t.usuario==null?t.email:t.usuario,L=t.email,j=t.uid;r.innerHTML=g,s.innerHTML=u,a.innerHTML=L,e.innerHTML=j}}})}document.querySelectorAll(".logged-out");document.querySelectorAll(".logged-in");const J=n=>{console.log("loginCheck"),document.querySelector("#logout-1");const r=document.querySelector("#btnRegis"),s=document.querySelector("#btnLogin"),a=document.querySelector(".registro-page"),e=document.querySelector(".login-page"),i=document.querySelector(".dashboard");n?(e.style.display="none",a.style.display="none",i.style.display="block"):(e.style.display="block",i.style.display="none",r&&r.addEventListener("click",()=>{a.style.display="block",e.style.display="none"}),s&&s.addEventListener("click",()=>{a.style.display="none",e.style.display="block"}))};function rr(n,r){Toastify({text:n,duration:3e3,destination:"https://github.com/apvarun/toastify-js",newWindow:!0,close:!0,gravity:"bottom",position:"right",stopOnFocus:!0,style:{background:r==="success"?"green":r==="warning"?"orange":r==="info"?"blue":"red"},onClick:function(){}}).showToast()}function qn(){const n=document.querySelector("#googleLogin");n&&n.addEventListener("click",async r=>{r.preventDefault();const s=new hr;try{const a=await yr(O,s);console.log(a),console.log("google sign in"),localStorage.setItem("Token",a.user.accessToken);let e=localStorage.getItem("Token");consoleLocal("log","Res-Token:"+e),rr("Welcome "+a.user.displayName,"success")}catch(a){console.log(a)}})}function On(){const n=document.querySelector("#logout");n&&n.addEventListener("click",async r=>{r.preventDefault();try{await kr(O),console.log("Logout/Salir"),localStorage.clear();var s=localStorage.getItem("Token");s==null&&console.warn("TOKEN CLEAR"),rr("Signup out","info")}catch(a){console.log(a)}})}function _n(){console.log("Cargando App..."),qn(),On(),xr(O,async n=>{if(n){J(n),Nn(n);try{En(n)}catch(r){console.log(r)}}else J(n)}),un()}const v=()=>{_n()};async function $n(){const n=await W("Multiportal","https://vcardapp-js.firebaseio.com/vcard_vcard.json");console.log("Usuario",n);const r=await W(n.idemp,"https://vcardapp-js.firebaseio.com/vcard_vcard.json");console.log("Empresa",r),Mn("inicio")}function Mn(n){n!="inicio"?$("#close").show():$("#close").hide(),n=="inicio"?$("#inicio").fadeIn():$("#inicio").hide(),n=="contacto"?$("#contacto").fadeIn():$("#contacto").hide(),n=="ubicacion"?$("#ubicacion").fadeIn():$("#ubicacion").hide(),n=="compartir"?$("#compartir").fadeIn():$("#compartir").hide(),n=="guardar"?$("#guardar").fadeIn():$("#guardar").hide(),n=="acceso"?$("#acceso").fadeIn():$("#acceso").hide()}async function W(n,r){const a=await(await fetch(r)).json();let e=null;for(const i in a)(a[i].nombre===n||a[i].ID===n)&&(e=a[i]);return e}function Bn(){setTimeout(()=>{$n()},500)}function Hn(n){const{route:r,hash:s,mod:a,ext:e,id:i,base_url:o}=n;d("log","route="+r),bn(),a&&(An(a),Dn(a,o)),r=="dashboard/index"&&v(),r=="app/index"&&v(),r=="app/perfil"&&v(),r=="app/tarjetas"&&v(),r=="app/empresas"&&v(),r=="vcard/index"&&Bn(),r=="login/index"&&Rn(),r=="logout/index"&&Tn(),(a=="app"||a=="dashboard")&&yn(s,r,a)}function m(){var n=window,r=document,s=n.location,a=new Date,e=a.getDate();e=e<10?"0"+e:e;var i=a.getMonth()+1;i=i<10?"0"+i:i;var o=a.getFullYear(),l=o+"-"+i+"-"+e;const{protocol:c,host:t,origin:I,pathname:g,hash:u,href:L,search:j}=s,S=I+"/",er=I,ar=L,sr=j,P=g.replace("/",""),R=S+P,_=t=="localhost"||t!=x&&t!=w?P+b:b,ir=t=="localhost:9001"?"../":"./",or=S+_,tr=screen.width,lr=screen.height;var M="default",dr="temas/"+M+"/",cr=sn(),B=on(u,b);let{mod:f,ext:p,id:pr}=tn(B);var H="/"+p,V=f+H,vr=f||"",mr=p&&p!="index"?"/"+p:"",gr="#/"+vr+mr,ur=R+A+V+".html",fr=R+A+"404/index.html";return{w:n,d:r,loc:s,dt:a,day:e,mon:i,year:o,fecha:l,title:Tr,typeBack:Ar,typeDev:Dr,path_hash:b,path_src:Y,path_page:A,hostDev:x,hostPre:w,protocol:c,host:t,dominio:S,dominio1:er,pathname:g,hash:u,URL:ar,quest:sr,path_url:P,path_root:_,path_build:ir,base_url:R,page_url:or,screenw:tr,screenh:lr,tema:M,path_tema:dr,pag_name:cr,vars_Url:B,mod:f,ext:p,id:pr,ext2:H,route:V,hash2:gr,url_mod:ur,url404:fr,apiVer:Cr}}function nr(){const n=m();d("log",n);const{hash:r,mod:s,ext:a,page_url:e,base_url:i,title:o}=n;dn(r,s,a,o),Hn(n),ln(r,s,K),vn(s,e),hn(s,i)}function Vn(){console.log("Run function inicio"),nr()}window.addEventListener("hashchange",()=>{d("warn","Event Listener"),nr()});Vn();
+  </div>`;var e=document.createElement("div");e.id="load",e.innerHTML=s,n.appendChild(e),setTimeout(()=>{let a=document.getElementById(e.id);a&&n.removeChild(a)},5e3)}function xn(){const{mod:n,ext:r}=m();let s=n!="Home"&&r!="index"?r:n;var e=nr[s];n!="dashboard"&&ar=="firebase"&&n!="logout"&&n!="noauth"&&r=="index"&&e!=null&&kn()}async function wn(n,r){if(ar!="firebase"){if(n=="Home"){const{version:s}=await U(`${r}assets/pwa/manifest.json`);console.log(`Version Actual: ${s}`);const e=await U(cn);if(e&&e!=null){const{ultimate:a}=e.data[0];s!=a&&console.log(`Actualizar version ${n} (${s} => ${a})`)}else console.warn("No se pudo llevar a cabo la comprobación de versiones")}}else console.warn("Only Firebase")}function In(n,r,s){setTimeout(()=>{const e=document.querySelector("#menuList");let a="";if(e){for(let i=0;i<V.length;i++){const{txt:o,icon:l,link:d}=V[i];if((s=="app"||s=="dashboard")&&d!="/#/app"){const t=d=="/"+n||o=="Dashboard"&&r=="app/index"?'class="active"':"";a+=`<li ${t}><a href="${d}"><i class="${l}"></i> ${o}</a></li>`}}e.innerHTML=a}},100)}const Ln=m(),{host:jn,dominio:Sn,path_url:Pn,hostDev:$n,typeBack:An}=Ln;console.log("/* javascript login | VARIABLES CONSTANTES*/");let D=f+"/login/";jn==$n&&An!="firebase"&&console.log("api_login="+D);function Tn(){const n=document.getElementById("form-login");n!=null&&(n.addEventListener("submit",Rn),console.log("btnLogin Activado"))}function Rn(n){n.preventDefault(),console.log("Validación de Datos");let r=document.getElementById("username").value,s=document.getElementById("password").value;var e={username:r,password:s};const a=D+"index.php";fetch(a,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(e)}).then(i=>i.json()).then(i=>{const{data:o}=i;c("log",i),c("log","getToken:"+o.token),localStorage.setItem("Token",o.token);let l=localStorage.getItem("Token");if(c("log","Res-Token:"+l),l!=null&&l!="undefined")location.href=Sn+Pn+"#/dashboard";else{let d=document.getElementById("msj-error");d.innerHTML='<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>'}}).catch(i=>{console.log(i);let o=document.getElementById("msj-error");o.innerHTML='<div class="alert alert-danger" role="alert">Error:Usuario o Contraseña Incorrectos</div>'})}const Cn=()=>{const n=D+"";fetch(n).then(r=>r.json()).then(r=>{c("log",r)}).catch(r=>console.log(r)),setTimeout(function(){Tn()},1e3)};function En(){console.log("Logout/Salir"),localStorage.clear();var n=localStorage.getItem("Token");n==null&&(console.warn("TOKEN CLEAR"),setTimeout(function(){window.location.href="#/"},3e3))}m();function Dn(n){let r=document.querySelector(".body");r&&(n!=""&&n!="Home"?r.style.display="none":r.style.display="inherit")}function qn(n,r){const s=["https://fonts.googleapis.com/css?family=Muli:300,400,700","https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css",r+"assets/login/vendor/bootstrap/css/bootstrap.min.css",r+"assets/login/vendor/font-awesome/css/font-awesome.min.css",r+"assets/login/css/font.css",r+"assets/login/css/style.green.css",r+"assets/login/css/custom.css"],e=[r+"assets/login/vendor/popper.js/umd/popper.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap-colorpicker.min.js",r+"assets/login/vendor/jquery.cookie/jquery.cookie.js",r+"assets/login/vendor/chart.js/Chart.min.js",r+"assets/login/vendor/jquery-validation/jquery.validate.min.js","https://cdn.jsdelivr.net/npm/sweetalert2@9.14.4/dist/sweetalert2.all.min.js","https://cdn.jsdelivr.net/npm/toastify-js",r+"assets/login/js/front.js"];n=="app"||n=="dashboard"?(console.log("cssLoadMod-loadStyle",n),T(s,"appCS-"),W(e,"appJS-","load")):(console.log("cssLoadMod-delStyle",n),R(s,"appCS-"),W(e,"appJS-","del"));const a=["https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700",r+"assets/tema/css/bootstrap.min.css",r+"assets/tema/css/all.min.css",r+"assets/tema/css/animate.min.css",r+"assets/tema/css/simple-line-icons.min.css",r+"assets/tema/css/owl.carousel.min.css",r+"assets/tema/css/owl.theme.default.min.css",r+"assets/tema/css/magnific-popup.min.css",r+"assets/tema/css/theme.css",r+"assets/tema/css/theme-elements.css",r+"assets/tema/css/theme-blog.css",r+"assets/tema/css/theme-shop.css",r+"assets/tema/css/settings.css",r+"assets/tema/css/layers.css",r+"assets/tema/css/navigation.css",r+"assets/tema/css/demo-business-consulting.css",r+"assets/tema/css/skin-business-consulting.css",r+"assets/tema/css/style.css",r+"assets/font-awesome-4.7.0/css/font-awesome.css"],i=[r+"assets/tema/js/jquery.appear.min.js",r+"assets/tema/js/jquery.easing.min.js",r+"assets/tema/js/jquery.cookie.min.js",r+"assets/tema/js/popper.min.js",r+"assets/tema/js/bootstrap.min.js",r+"assets/tema/js/common.min.js",r+"assets/tema/js/jquery.validate.min.js",r+"assets/tema/js/jquery.easypiechart.min.js",r+"assets/tema/js/jquery.gmap.min.js",r+"assets/tema/js/jquery.lazyload.min.js",r+"assets/tema/js/jquery.isotope.min.js",r+"assets/tema/js/owl.carousel.min.js",r+"assets/tema/js/jquery.magnific-popup.min.js",r+"assets/tema/js/jquery.vide.min.js",r+"assets/tema/js/vivus.min.js",r+"assets/tema/js/theme.js",r+"assets/tema/js/jquery.themepunch.tools.min.js",r+"assets/tema/js/jquery.themepunch.revolution.min.js",r+"assets/tema/js/demo-business-consulting.js",r+"assets/tema/js/custom.js",r+"assets/tema/js/theme.init.js"];n!="Home"?(R(a,"homeCS-"),J(i,"homeJS-")):(T(a,"homeCS-"),z(i,"homeJS-"));const o=["https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es",r+"assets/font-awesome-4.7.0/css/font-awesome.css",r+"assets/vcard/css/style2.css",r+"assets/vcard/css/examples.css",r+"assets/vcard/css/webhost.css"],l=["https://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw",r+"assets/vcard/js/gmaps.js"];n!="vcard"?(R(o,"vcardCS-"),J(l,"vcardJS-")):(T(o,"vcardCS-"),z(l,"vcardJS-"))}console.log("Firebase SDK");var On={apiKey:"AIzaSyDeX81H_K8AsV2KjQgEbwxte6yVdSYqFXk",authDomain:"vcardapp-js.firebaseapp.com",databaseURL:"https://vcardapp-js.firebaseio.com",projectId:"vcardapp-js",storageBucket:"vcardapp-js.appspot.com",messagingSenderId:"420720513571",appId:"1:420720513571:web:f072eeda6cd3cfa1429796",measurementId:"G-LDPZ4BZ1GV"};const q=Sr(On),O=xr(q),er=$r(q);Pr(q);function _n(n){console.log("saveUser");var r={uid:n.uid,usuario:n.displayName,email:n.email,foto:n.photoURL};Ar(X(er,"vcard_signup/"+n.uid),r)}function Nn(n){const r=document.querySelector("#photo"),s=document.querySelector("#nombre_session"),e=document.querySelector("#email_session"),a=document.querySelector("#id_code_google"),i=X(er,"vcard_signup/");Tr(i,o=>{const l=o.val();for(let d in l){const t=l[d];if(t.uid==n.uid){console.log(t);const b='<img src="'+(t.foto==null?page_url+"assets/img/sinfoto.png":t.foto)+'" class="img-fluid rounded-circle">',h=t.usuario==null?t.email:t.usuario,w=t.email,I=t.uid;r.innerHTML=b,s.innerHTML=h,e.innerHTML=w,a.innerHTML=I}}})}document.querySelectorAll(".logged-out");document.querySelectorAll(".logged-in");const Y=n=>{console.log("loginCheck"),document.querySelector("#logout-1");const r=document.querySelector("#btnRegis"),s=document.querySelector("#btnLogin"),e=document.querySelector(".registro-page"),a=document.querySelector(".login-page"),i=document.querySelector(".dashboard");n?(a.style.display="none",e.style.display="none",i.style.display="block"):(a.style.display="block",i.style.display="none",r&&r.addEventListener("click",()=>{e.style.display="block",a.style.display="none"}),s&&s.addEventListener("click",()=>{e.style.display="none",a.style.display="block"}))};function sr(n,r){Toastify({text:n,duration:3e3,destination:"https://github.com/apvarun/toastify-js",newWindow:!0,close:!0,gravity:"bottom",position:"right",stopOnFocus:!0,style:{background:r==="success"?"green":r==="warning"?"orange":r==="info"?"blue":"red"},onClick:function(){}}).showToast()}function Mn(){const n=document.querySelector("#googleLogin");n&&n.addEventListener("click",async r=>{r.preventDefault();const s=new wr;try{const e=await Ir(O,s);console.log(e),console.log("google sign in"),localStorage.setItem("Token",e.user.accessToken);let a=localStorage.getItem("Token");consoleLocal("log","Res-Token:"+a),sr("Welcome "+e.user.displayName,"success")}catch(e){console.log(e)}})}function Bn(){const n=document.querySelector("#logout");n&&n.addEventListener("click",async r=>{r.preventDefault();try{await Lr(O),console.log("Logout/Salir"),localStorage.clear();var s=localStorage.getItem("Token");s==null&&console.warn("TOKEN CLEAR"),sr("Signup out","info")}catch(e){console.log(e)}})}function Gn(){console.log("Cargando App..."),Mn(),Bn(),jr(O,async n=>{if(n){Y(n),Nn(n);try{_n(n)}catch(r){console.log(r)}}else Y(n)}),yn()}const g=()=>{Gn()};function v(n){n!="inicio"?$("#close").show():$("#close").hide(),n=="inicio"?$("#inicio").fadeIn():$("#inicio").hide(),n=="contacto"?$("#contacto").fadeIn():$("#contacto").hide(),n=="ubicacion"?$("#ubicacion").fadeIn():$("#ubicacion").hide(),n=="compartir"?$("#compartir").fadeIn():$("#compartir").hide(),n=="guardar"?$("#guardar").fadeIn():$("#guardar").hide(),n=="acceso"?$("#acceso").fadeIn():$("#acceso").hide()}async function K(n,r){const e=await(await fetch(r)).json();let a=null;for(const i in e)(e[i].profile===n||e[i].ID===n)&&(a=e[i]);return a}const{host:Xn,dominio:Zn,mod:ra,ext:na,id:Q}=m();async function Hn(){console.log(Q);const n=await K(Q,f+"/vcard_vcard.json");console.log("Usuario",n);const{nombre:r,puesto:s,descripcion:e}=n,a=await K(n.idemp,f+"/vcard_vcard_empresas.json");console.log("Empresa",a),v("inicio"),document.querySelector("#tit").innerHTML=r,document.querySelector("#puesto").innerHTML=s,document.querySelector("#des").innerHTML=e;const i=document.querySelector("#close");i&&i.addEventListener("click",()=>{v("inicio")});const o=document.querySelector("#btnContacto");o&&o.addEventListener("click",()=>{v(o.name)});const l=document.querySelector("#btnUbicacion");l&&l.addEventListener("click",()=>{v(l.name)});const d=document.querySelector("#btnCompartir");d&&d.addEventListener("click",()=>{v(d.name)});const t=document.querySelector("#btnGuardar");t&&t.addEventListener("click",()=>{v(t.name)});const p=document.querySelector("#btnAcceso");p&&p.addEventListener("click",()=>{v(p.name)})}function Vn(){setTimeout(()=>{Hn()},500)}function Un(n){const{route:r,hash:s,mod:e,ext:a,id:i,base_url:o}=n;c("log","route="+r),xn(),e&&(Dn(e),qn(e,o)),r=="dashboard/index"&&g(),r=="app/index"&&g(),r=="app/perfil"&&g(),r=="app/tarjetas"&&g(),r=="app/empresas"&&g(),(r=="vcard/index"||r=="vcard/profile")&&Vn(),r=="login/index"&&Cn(),r=="logout/index"&&En(),(e=="app"||e=="dashboard")&&In(s,r,e)}function m(){var n=window,r=document,s=n.location,e=new Date,a=e.getDate();a=a<10?"0"+a:a;var i=e.getMonth()+1;i=i<10?"0"+i:i;var o=e.getFullYear(),l=o+"-"+i+"-"+a;const{protocol:d,host:t,origin:p,pathname:b,hash:h,href:w,search:I}=s,L=p+"/",or=p,tr=w,lr=I,j=b.replace("/",""),S=L+j,_=t=="localhost"||t!=C&&t!=E?j+k:k,dr=t=="localhost:9001"?"../":"./",cr=L+_,pr=screen.width,vr=screen.height;var N="default",mr="temas/"+N+"/",ur=pn(),M=vn(h,k);let{mod:y,ext:u,id:gr}=mn(M);var B="/"+u,G=y+B,fr=y||"",br=u&&u!="index"?"/"+u:"",hr="#/"+fr+br,yr=S+A+G+".html",kr=S+A+"404/index.html";return{w:n,d:r,loc:s,dt:e,day:a,mon:i,year:o,fecha:l,title:Er,typeBack:Dr,typeDev:qr,path_hash:k,path_src:Z,path_page:A,hostDev:C,hostPre:E,protocol:d,host:t,dominio:L,dominio1:or,pathname:b,hash:h,URL:tr,quest:lr,path_url:j,path_root:_,path_build:dr,base_url:S,page_url:cr,screenw:pr,screenh:vr,tema:N,path_tema:mr,pag_name:ur,vars_Url:M,mod:y,ext:u,id:gr,ext2:B,route:G,hash2:hr,url_mod:yr,url404:kr,apiVer:_r}}function ir(){const n=m();c("log",n);const{hash:r,mod:s,ext:e,page_url:a,base_url:i,title:o}=n;gn(r,s,e,o),Un(n),un(r,s,rr),hn(s,a),wn(s,i)}function Fn(){console.log("Run function inicio"),ir()}window.addEventListener("hashchange",()=>{c("warn","Event Listener"),ir()});Fn();
