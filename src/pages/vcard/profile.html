@@ -1,52 +1,18 @@
 <div id="container">
-    <div id="head" style="background-color: #000">
-        <?php echo $logo;?>
-        <img id="logo" src="./assets/img/sinlogo.jpg" alt="">
+    <div id="head">
+        <img id="logo" src="./assets/img/sinlogo.png" onerror="this.src='./assets/img/sinlogo.png'" alt="logo">
     </div>
-    <!--div id="portada" style="background: url(<?php echo $coverbg;?>);background-repeat:no-repeat;background-size:cover;background-position:center;"></div-->
     <div id="portada"></div>
     <div id="base">
         <div id="td1">
             <div id="contenedorfoto">
                 <div id="fotoperfil" style="background:url('./assets/img/sinfoto.png');background-repeat: no-repeat; background-size:cover; background-position: center;"></div>				
             </div>
-            <h1 id="tit"><?php echo $nombre;?></h1>
-            <div id="puesto" class="row-div"><?php echo $puesto;?></div>
-            <div id="des" class="row-div"><?php echo $des;?></div>
-            <div id="medios">
-               <a href="tel:'.$cell.'"><i class="fa fa-phone"></i><span>Llamar</span></a>
-                <?php echo ($cell!='')?'<a target="_blank" href="https://wa.me/+52'.$cell.'"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>':'';?>
-                <?php echo ($email!='')?'<a href="mailto:'.$email.'"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>':'';?>
-                <?php echo ($web!='')?'<a href="'.$web.'" id="empresaweb">'.$empresa.'</a>':'';?>						
-                <div id="redes">
-<?php
-if($fb!=''){
-echo '<a href="'.$fb.'" target="_blank" aria-label="Facebook" class="icon-rrss">
-<i class="fa fa-facebook"></i>
-<span>Facebook</span>
-</a>';
-}
-if($tw!=''){
-echo '<a href="'.$tw.'" target="_blank" aria-label="Twitter" class="icon-rrss">
-<i class="fa fa-twitter"></i>
-<span>Twitter</span>
-</a>';
-}
-if($lk!=''){
-echo '<a href="'.$lk.'" target="_blank" aria-label="LinkedIn" class="icon-rrss">
-<i class="fa fa-linkedin"></i>
-<span>LinkedIn</span>
-</a>';
-}
-if($ins!=''){
-echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss">
-<i class="fa fa-instagram"></i>
-<span>Instagram</span>
-</a>';
-}
-?>
-                </div>
-            </div>
+            <h1 id="tit"></h1>
+            <div id="puesto" class="row-div"></div>
+            <div id="des" class="row-div"></div>
+            <div id="medios"></div>
+            <div id="redes"></div>
         </div>
         <div id="td2">
             <div id="close">Cerrar <i class="fa fa-times"></i></div>
@@ -54,63 +20,48 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
                 <h1><i class="fa fa-home"></i> Inicio</h1>
                 <div>
                     <img src="./assets/vcard/img/concepto1.jpg" class="img-responsive">
-                    <a href="app/registro">¡Registrate Ahora!</a>
+                    <a href="/#/app/registro">¡Registrate Ahora!</a>
                 </div>	
             </div>
             <div id="contacto">
                 <h1><i class="fa fa-user"></i> Datos de Contacto</h1>
                 <div>
                     <p>Puedes contactar directamente pulsando el icono deseado.</p>
-                    <p class="text-left"><b>MOVIL:</b> <?php echo $cell;?></p>
+                    <p class="text-left"><b>MOVIL:</b> <span></span></p>
                     <div id="accesos">
-                        <a href="tel:<?php echo $cell;?>" aria-label="Llamar" class="icon-access">
+                        <a id="a-cell" aria-label="Llamar" class="icon-access">
                             <i class="fa fa-mobile"></i>
                             <span>Llamar</span>
                         </a>
-                        <a target="_blank" href="https://wa.me/+52<?php echo $cell;?>" aria-label="WhatsApp" class="icon-access">
+                        <a id="a-wa" target="_blank" aria-label="WhatsApp" class="icon-access">
                             <i class="fa fa-whatsapp"></i>
                             <span>WhatsApp</span>
                         </a>
-                        <a href="sms:<?php echo $cell;?>" aria-label="sms" class="icon-access">
+                        <a id="a-sms" aria-label="sms" class="icon-access">
                             <i class="fa fa-commenting"></i>
                             <span>SMS</span>
                         </a>
                     </div>
-                    <p class="text-left"><b>EMAIL:</b> <?php echo $email;?></p>
+                    <p class="text-left"><b>EMAIL:</b> <span id="p-e"></span></p>
                     <div id="accesos">
-                        <?php
-                        if($email!=''){
-                        ?>
-                        <a href="mailto:<?php echo $email;?>" aria-label="Email" class="icon-access">
+                        <a id="a-email" aria-label="Email" class="icon-access">
                             <i class="fa fa-envelope-o"></i>
                             <span>Email</span>
                         </a>
-                        <?php
-                        }
-                        ?>
                     </div>
-                    <p class="text-left"><b>WEB:</b> <?php echo $web;?></p>
+                    <p class="text-left"><b>WEB:</b> <span></span></p>
                     <div id="accesos">
-                        <?php
-                        if($web!=''){
-                        ?>
-                        <a target="_blank" href="#" aria-label="Web" class="icon-access">
+                        <a id="a-web" target="_blank" aria-label="Web" class="icon-access">
                             <i class="fa fa-globe"></i>
                             <span>Web</span>
                         </a>	
-                        <?php
-                        }
-                        ?>
-
                     </div>
                 </div>
             </div>
             <div id="ubicacion">
                 <h1><i class="fa fa-map-marker"></i> Ubicación</h1>
-                <?php if($direc!=''){?>
-                <p style="font-size: 18px;"><b>Dirección:</b> <?php echo $direc;?></p>
-                <div id="map"></div>
-                <?php }else{echo '<p>No hay dirección disponible.<p>';}?>
+                <div id="ubi"></div>
+                <!--UBICACION-->
             </div>
             <div id="compartir">
                 <h1><i class="fa fa-share-alt"></i> Compartir</h1>
@@ -147,7 +98,7 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
                             <span>Enviar email</span>
                         </a>
                         <div style="position:fixed; bottom:0px">
-                            <input id="inputCopiar" type="text" value="<?php echo $page_url.'profile/'.$profile;?>">
+                            <input id="inputCopiar" type="text" value="">
                         </div>
                     </div>
                 </div>
@@ -157,7 +108,7 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
                 <div>
                     <p>Elije como guardar la tarjeta de contacto.</p>
                     <div id="accesos">
-                        <a href="<?php echo $page_url.'app/bloques/files/vcf/'.$profile.'.vcf';?>" aria-label="Guardar" class="icon-access">
+                        <a id="saveCard" download aria-label="Guardar" class="icon-access">
                             <i class="fa fa-address-book-o"></i>
                             <span>Guardar Vcard</span>
                         </a>
@@ -169,25 +120,25 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
                 <div>
                     <p>Accede a tu panel de adminisración de tu tarjeta VcardApp.</p>
                     <div id="accesos">
-                        <a href="app/" aria-label="Panel" class="icon-access">
+                        <a href="/#/app/" aria-label="Panel" class="icon-access">
                             <i class="fa fa-dashboard"></i>
                             <span>Panel</span>
                         </a>
-                        <a href="app/tarjetas" aria-label="MisTarjetas" class="icon-access">
+                        <a href="/#/app/tarjetas" aria-label="MisTarjetas" class="icon-access">
                             <i class="fa fa-vcard"></i>
                             <span>Tarjetas</span>
                         </a>
                     </div>
-                    <p>No tienes cuenta registrate <a href="app/registro">Aquí</a></p>
+                    <p>No tienes cuenta registrate <a href="/#/app/registro">Aquí</a></p>
                 </div>
             </div>
         </div>
     </div>
     <div id="footerbar">
-        <a id="btnContacto" name="contacto"><i class="fa fa-user"></i></a>
-        <a id="btnUbicacion" name="ubicacion"><i class="fa fa-map-marker"></i></a>
-        <a id="btnCompartir" name="compartir"><i class="fa fa-share-alt"></i></a>
-        <a id="btnGuardar" name="guardar"><i class="fa fa-save"></i></a>
-        <a id="btnAcceso" name="acceso"><i class="fa fa-lock"></i></a>
+        <a id="btnContacto" name="contacto"><i id="contacto1" class="fa fa-user"></i></a>
+        <a id="btnUbicacion" name="ubicacion"><i id="ubicacion1" class="fa fa-map-marker"></i></a>
+        <a id="btnCompartir" name="compartir"><i id="compartir1" class="fa fa-share-alt"></i></a>
+        <a id="btnGuardar" name="guardar"><i id="guardar1" class="fa fa-save"></i></a>
+        <a id="btnAcceso" name="acceso"><i id="acceso1" class="fa fa-lock"></i></a>
     </div>
 </div>
