@@ -29,7 +29,7 @@ async function pagVcard() { //console.log(id);
   const cellHTML = (cell)?`<a href="tel:${cell}"><i class="fa fa-phone"></i><span>Llamar</span></a>`:'';
   const waHTML = (cell)?`<a target="_blank" href="https://wa.me/+52${cell}"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>`:'';
   const mailHTML = (email)?`<a href="mailto:${email}"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>`:'';
-  const webHTML = (web)?`<a href="${web}" id="empresaweb">${empresa}</a>`:'';
+  const webHTML = (web)?`<a href="${web}" target="_blank" id="empresaweb">${empresa}</a>`:'';
   medios.innerHTML = cellHTML + waHTML + mailHTML + webHTML;
   //RRSS
   const redes = document.querySelector('#redes');
