@@ -1,3 +1,4 @@
-#footerbar a{
+#footerbar a,
+#viewcopy{
     cursor: pointer;
 }

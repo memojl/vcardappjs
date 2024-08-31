@@ -73,13 +73,15 @@ const fileExist = async (mod,url)=>{
   return new_Mod;
 }
 
-export const router = (hash, mod, ext, title) => {
+export const router = (hash, mod, ext, id, title) => {
   var token = localStorage.getItem("Token");
   consoleLocal('log','hash=>' + hash);
-  let ext2 = (ext!='index')?' / '+capitalize(ext):'';
-  document.title = title + ' - ' + capitalize(mod) + ext2;
+  let mod2 = mod == 'vcard' ? '' : capitalize(mod);
+  let ext2 = ext!='index' ? '' + capitalize(ext):'';
+  let id2 = id != '' ? ' / ' + capitalize(id) : '';
+  document.title = title + ' - ' + mod2 + ext2 + id2;
   getRoutesSesion(mod,pagesAuth);  
-  let page = (mod!='Home' && ext!='index')?ext:mod; console.log(page,mod,ext);
+  let page = (mod!='Home' && ext!='index')?ext:mod; //console.log(page,mod,ext);
   //SEGMENTO PARA CARGAR EN DASHBOARD
   //let idApp = (mod=='dashboard' && ext!='index')?'appDash':'app'; console.log(idApp);
   let content = document.getElementById('app');

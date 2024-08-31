@@ -1,6 +1,6 @@
 import './vcard.css';
 import { variables } from "../../app/core/lib";
-import { getRegister, isValidUrl, validImage, validImage2, accion, menuFooter } from "./funciones";
+import { getRegister, isValidUrl, validImage, validImage2, accion, menuFooter, actionCopy } from "./funciones";
 import { Api } from '../../app/core/const.env';
 
 /* VARIABLES CONSTANTES*/
@@ -72,6 +72,11 @@ async function pagVcard() { //console.log(id);
   <div id="map"></div>`:`<p>No hay dirección disponible.</p>`;
   //COMPARTIR
   document.querySelector('#inputCopiar').value = URL; //console.log(URL);
+  let copy = document.querySelector('#viewcopy');
+  if(copy){
+    copy.addEventListener('click',()=>{actionCopy('viewcopy')});
+  }
+  document.querySelector('#sendEmail').href = 'mailto:?body=' + URL;
   //GUARDAR CARD
   document.querySelector('#saveCard').href = `files/vcf/${profile}.vcf`;
 

@@ -87,13 +87,12 @@
                         </a>
                     </div>
                     <p>OTROS MÉTODOS PARA COMPARTIR:</p>
-                    <div id="aviso"></div>
                     <div id="accesos">
-                        <a href="javascript:action('viewcopy');" aria-label="Copiar" class="icon-access">
+                        <a id="viewcopy" aria-label="Copiar" class="icon-access">
                             <i class="fa fa-copy"></i>
                             <span>Copiar enlace</span>
                         </a>
-                        <a href="mailto:?body=<?php echo $page_url.'profile/'.$profile;?>" aria-label="Email" class="icon-access">
+                        <a id="sendEmail" aria-label="Email" class="icon-access">
                             <i class="fa fa-envelope-o"></i>
                             <span>Enviar email</span>
                         </a>
@@ -101,6 +100,7 @@
                             <input id="inputCopiar" type="text" value="">
                         </div>
                     </div>
+                    <div id="aviso"></div>
                 </div>
             </div>
             <div id="guardar">
