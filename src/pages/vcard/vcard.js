@@ -7,6 +7,8 @@ import { Api } from '../../app/core/const.env';
 const { host, dominio, mod, ext, id, URL } = variables();
 
 async function pagVcard() { //console.log(id);
+  const encodedUrl = encodeURIComponent(URL);
+  console.log(encodedUrl);
   const dataUser = await getRegister(id, Api+'/vcard_vcard.json'); console.log('Usuario',dataUser);
   if(dataUser == null){document.querySelector('#container').style.display = 'none';return;}
   const { nombre, profile, puesto, descripcion, fb, tw, ins, lk, web, email, cell, tel_ofi, cover, idemp, visible, direc } = dataUser;
@@ -71,24 +73,24 @@ async function pagVcard() { //console.log(id);
   ubi.innerHTML = (direc)?`<p style="font-size: 18px;"><b>Dirección:</b> ${direc}</p>
   <div id="map"></div>`:`<p>No hay dirección disponible.</p>`;
   //COMPARTIR
-  const accesos = document.querySelector('.share'); console.warn(accesos);
+  const accesos = document.querySelector('.share'); //console.warn(accesos);
   const fbHtml2 = `
-  <a target="_blank" href="//www.facebook.com/sharer.php?u=${encodeURIComponent(URL)}&t=Vcard+${profile}" aria-label="Facebook" class="icon-access">
+  <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&t=Vcard+${profile}" aria-label="Facebook" class="icon-access">
     <i class="fa fa-facebook"></i>
     <span>Facebook</span>
   </a>`;
   const twHtml2 = `
-  <a target="_blank" href="//twitter.com/share?url=${encodeURIComponent(URL)}&text=Vcard+${profile}" aria-label="Twitter" class="icon-access">
+  <a target="_blank" href="//twitter.com/share?url=${encodedUrl}&text=Vcard+${profile}" aria-label="Twitter" class="icon-access">
     <i class="fa fa-twitter"></i>
     <span>Twitter</span>
   </a>`;
   const lkHtml2 = `
-  <a target="_blank" href="//www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(URL)}&title=${profile}&ro=false&summary=&source=" aria-label="LinkedIn" class="icon-access">
+  <a target="_blank" href="//www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${profile}&ro=false&summary=&source=" aria-label="LinkedIn" class="icon-access">
     <i class="fa fa-linkedin"></i>
     <span>LinkedIn</span>
   </a>`;
   const waHtml2 = `
-  <a target="_blank" href="https://api.whatsapp.com/send?text=Accede+a+la+tarjeta+digital+desde+el+siguiente+enlace:+${encodeURIComponent(URL)}" aria-label="whatsapp" class="icon-access">
+  <a target="_blank" href="https://api.whatsapp.com/send?text=Accede+a+la+tarjeta+digital+desde+el+siguiente+enlace:+${encodedUrl}" aria-label="whatsapp" class="icon-access">
     <i class="fa fa-whatsapp"></i>
     <span>WhatsApp</span>
   </a>`;
