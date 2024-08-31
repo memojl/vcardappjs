@@ -71,8 +71,30 @@ async function pagVcard() { //console.log(id);
   ubi.innerHTML = (direc)?`<p style="font-size: 18px;"><b>Dirección:</b> ${direc}</p>
   <div id="map"></div>`:`<p>No hay dirección disponible.</p>`;
   //COMPARTIR
+  const accesos = document.querySelector('.share'); console.warn(accesos);
+  const fbHtml2 = `
+  <a target="_blank" href="//www.facebook.com/sharer.php?u=${URL}&t=Vcard+${profile}" aria-label="Facebook" class="icon-access">
+    <i class="fa fa-facebook"></i>
+    <span>Facebook</span>
+  </a>`;
+  const twHtml2 = `
+  <a target="_blank" href="//twitter.com/share?url=${URL}&text=Vcard+${profile}" aria-label="Twitter" class="icon-access">
+    <i class="fa fa-twitter"></i>
+    <span>Twitter</span>
+  </a>`;
+  const lkHtml2 = `
+  <a target="_blank" href="//www.linkedin.com/shareArticle?mini=true&url=${URL}&title=${profile}&ro=false&summary=&source=" aria-label="LinkedIn" class="icon-access">
+    <i class="fa fa-linkedin"></i>
+    <span>LinkedIn</span>
+  </a>`;
+  const waHtml2 = `
+  <a target="_blank" href="https://api.whatsapp.com/send?text=Accede+a+la+tarjeta+digital+desde+el+siguiente+enlace:${URL}" aria-label="whatsapp" class="icon-access">
+    <i class="fa fa-whatsapp"></i>
+    <span>WhatsApp</span>
+  </a>`;
+  accesos.innerHTML = `${fbHtml2}${twHtml2}${lkHtml2}${waHtml2}`;
   document.querySelector('#inputCopiar').value = URL; //console.log(URL);
-  let copy = document.querySelector('#viewcopy');
+  const copy = document.querySelector('#viewcopy');
   if(copy){
     copy.addEventListener('click',()=>{actionCopy('viewcopy')});
   }
