@@ -65,7 +65,7 @@ async function pagVcard() { //console.log(id);
   const aemail = document.querySelector('#a-email');
   if(email){aemail.setAttribute("href", "mailto:"+email);}else{aemail.style.display = 'none';}
   const aweb = document.querySelector('#a-web');
-  if(web){aweb.setAttribute("href", +web);}else{aweb.style.display = 'none';}
+  if(web){aweb.setAttribute("href", web);}else{aweb.style.display = 'none';}
   //UBICACION
   const ubi = document.querySelector('#ubi'); //console.log(direc);
   ubi.innerHTML = (direc)?`<p style="font-size: 18px;"><b>Dirección:</b> ${direc}</p>
