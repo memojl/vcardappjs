@@ -2,6 +2,7 @@ import { variables } from "./core/lib";
 import { menuSidebar, pagesAll, pagesAuth } from "../app/controllers/pages";
 import Pages from "../app/controllers/index";
 import { versionJson } from "./services/fetch";
+import { logCSSJS } from "./core/const.env";
 
 //VARIABLES CONSTANTES
 const {hash, host, year, hostDev, typeBack, apiVer} = variables();
@@ -176,7 +177,7 @@ export function capitalize(word) {
 
 export function loadDelStyle(arr,prefix,mode) {
   if (arr.length > 0) {
-    for (let i=0; i<arr.length; i++) { console.log('load',prefix+i);
+    for (let i=0; i<arr.length; i++) { if(host == hostDev && logCSSJS){console.log('load',prefix+i);}
       let nodo = document.getElementById(prefix+i);
       if(nodo){//console.log(nodo);
         document.getElementsByTagName("head")[0].removeChild(nodo);
@@ -185,9 +186,9 @@ export function loadDelStyle(arr,prefix,mode) {
       if(mode=='load'){
         let node = document.getElementById(prefix+i);
         if(node){
-          console.log('Reload Ok: '+prefix+i);
+          if(host == hostDev && logCSSJS){console.log('Reload Ok: '+prefix+i);}
         }else{
-          console.log(prefix+i,arr[i]);
+          if(host == hostDev && logCSSJS){console.log(prefix+i,arr[i]);}
           //<![CDATA[
           if (document.createStyleSheet) {
             document.createStyleSheet(arr[i]);
@@ -208,12 +209,12 @@ export function loadDelStyle(arr,prefix,mode) {
 
 export function loadStyle(arr,prefix) {
   if (arr.length > 0) {
-    for (let i=0; i<arr.length; i++) { console.log('load',prefix+i);
+    for (let i=0; i<arr.length; i++) { if(host == hostDev && logCSSJS){console.log('load',prefix+i);}
       let node = document.getElementById(prefix+i);
       if(node){
-        console.log('Reload Ok: '+prefix+i);
+        if(host == hostDev && logCSSJS){console.log('Reload Ok: '+prefix+i);}
       }else{
-        console.log(prefix+i,arr[i]);
+        if(host == hostDev && logCSSJS){console.log(prefix+i,arr[i]);}
         //<![CDATA[
         if (document.createStyleSheet) {
           document.createStyleSheet(arr[i]);
@@ -232,7 +233,7 @@ export function loadStyle(arr,prefix) {
 }
 
 export function delStyle(arr,prefix){
-  for(let i=0; i<arr.length; i++){console.log('delete',prefix+i);
+  for(let i=0; i<arr.length; i++){if(host == hostDev && logCSSJS){console.log('delete',prefix+i);}
     let nodo = document.getElementById(prefix+i);
     if(nodo){//console.log(nodo);
       document.getElementsByTagName("head")[0].removeChild(nodo);
@@ -242,7 +243,7 @@ export function delStyle(arr,prefix){
 
 export function loadDelScript(arr,prefix,mode) {
   if (arr.length > 0) {
-    for (let i=0; i<arr.length; i++) {console.log('load',prefix+i);
+    for (let i=0; i<arr.length; i++) {if(host == hostDev && logCSSJS){console.log('load',prefix+i);}
       let nodo = document.getElementById(prefix+i);
       if(nodo){//console.log(nodo);
         document.body.removeChild(nodo);
@@ -251,9 +252,9 @@ export function loadDelScript(arr,prefix,mode) {
       if(mode=='load'){
         let node = document.getElementById(prefix+i);
         if(node){
-          console.log('Reload Ok: '+prefix+i);
+          if(host == hostDev && logCSSJS){ console.log('Reload Ok: '+prefix+i);}
         }else{
-          console.log(prefix+i,arr[i]);
+          if(host == hostDev && logCSSJS){console.log(prefix+i,arr[i]);}
           //<![CDATA[
           var newScript = document.createElement('script');
           newScript.id = prefix+i;
@@ -268,12 +269,12 @@ export function loadDelScript(arr,prefix,mode) {
 
 export function loadScript(arr,prefix) {
   if (arr.length > 0) {
-    for (let i=0; i<arr.length; i++) {console.log('load',prefix+i);
+    for (let i=0; i<arr.length; i++) {if(host == hostDev && logCSSJS){console.log('load',prefix+i);}
       let node = document.getElementById(prefix+i);
       if(node){
-        console.log('Reload Ok: '+prefix+i);
+        if(host == hostDev && logCSSJS){console.log('Reload Ok: '+prefix+i);}
       }else{
-        console.log(prefix+i,arr[i]);
+        if(host == hostDev && logCSSJS){console.log(prefix+i,arr[i]);}
         //<![CDATA[
         var newScript = document.createElement('script');
         newScript.id = prefix+i;
@@ -286,7 +287,8 @@ export function loadScript(arr,prefix) {
 }
 
 export function delScript(arr,prefix){
-  for(let i=0; i<arr.length; i++){console.log('delete',prefix+i);
+  for(let i=0; i<arr.length; i++){
+    if(host == hostDev && logCSSJS){console.log('delete',prefix+i);}
     let nodo = document.getElementById(prefix+i);
     if(nodo){//console.log(nodo);
       document.body.removeChild(nodo);

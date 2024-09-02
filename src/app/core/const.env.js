@@ -2,6 +2,7 @@ const {host} = window.location;
 /*VARIABLES DE ENTORNO*/
 export const title = 'Vcard';
 //export const proyecto = 'mandragoraJS'; //PROYECTO
+export const logCSSJS = false;
 export const typeBack = 'firebase'; //firebase / api
 export const path_hash = '#/'; //PATH HASH
 export const path_src = 'src/'; //PATH RESOURCE 
