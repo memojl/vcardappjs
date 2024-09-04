@@ -5,7 +5,7 @@ import { versionJson } from "./services/fetch";
 import { logCSSJS } from "./core/const.env";
 
 //VARIABLES CONSTANTES
-const {hash, host, year, hostDev, typeBack, apiVer} = variables();
+const {host, year, hostDev, typeBack, apiVer, hash} = variables();
 
 /*FUNCIONES*/
 export function filename() {
@@ -73,6 +73,16 @@ const fileExist = async (mod,url)=>{
   }
   return new_Mod;
 }
+
+export const routeLoad = () => {
+  console.log(hash);
+  let route = hash.replace('#', ''); //console.log(route);
+  const path = route; console.log(path);
+  setTimeout(() => {
+    window.history.pushState({}, "", path);    
+  }, 3000);
+  //handleLocation(route);
+};
 
 export const router = (hash, mod, ext, id, title) => {
   var token = localStorage.getItem("Token");

@@ -1,6 +1,6 @@
 //import {consola} from './console.js';
 import { title, typeBack, typeDev, path_hash, path_src, path_page, hostDev, hostPre, Api, apiVer } from './const.env';
-import { filename, getQueryVariable, urlVars, menuWeb, reload, consoleLocal, compVersion } from '../functions';
+import { filename, getQueryVariable, urlVars, menuWeb, reload, consoleLocal, compVersion, routeLoad } from '../functions';
 import { controlRoutes, router, pages, pagesSys } from '../../routes/index.routes';
 
 function variables() {
@@ -114,6 +114,7 @@ function load() {
   //Redirect to #/ (Home)
   reload(mod,page_url);
   compVersion(mod,base_url);
+  //routeLoad();
 }
 
 function inicio() {
