@@ -1,6 +1,6 @@
 //import {consola} from './console.js';
 import { title, typeBack, typeDev, path_hash, path_src, path_page, hostDev, hostPre, Api, apiVer } from './const.env';
-import { filename, getQueryVariable, urlVars, menuWeb, reload, consoleLocal, compVersion, routeLoad } from '../functions';
+import { filename, getQueryVariable, urlVariables, urlVars, menuWeb, reload, compVersion, routeLoad } from '../functions';
 import { controlRoutes, router, pages, pagesSys } from '../../routes/index.routes';
 
 function variables() {
@@ -42,7 +42,8 @@ function variables() {
   var path_tema = 'temas/' + tema + '/';
   var pag_name = filename();
   var vars_Url = getQueryVariable(hash, path_hash);// 
-  let { mod, ext, id } = urlVars(vars_Url);//Cambiar a Hash 
+  //let { mod, ext, id } = urlVars(vars_Url);//Cambiar a Hash 
+  let { mod, ext, id } = urlVariables(pathname,hash);
   //var url_m = base_url + path_page + mod + '/' + ext + '.html';
   //mod = fileExist(mod,url_m);
   var ext2 = '/' + ext;
@@ -106,7 +107,7 @@ function variables() {
 
 /* FUNCIONES */
 function load() {
-  const v = variables(); consoleLocal('log', v);
+  const v = variables(); console.log(v);
   const { hash, mod, ext, id, page_url, base_url, title } = v;
   router(hash, mod, ext, id, title);
   controlRoutes(v);

@@ -40,6 +40,15 @@ export function urlVars(vars){
   return url_var;
 }
 
+export function urlVariables(path, hash){
+  const vars = hash ? hash.split('/') : path.split('/'); console.log(vars);
+  var mod = vars[1] === '' ? 'Home': vars[1];
+  var ext = vars[2] === '' || vars[2] === undefined ? 'index' : vars[2];
+  var id = vars[3] === '' || vars[3] === undefined ? '' : vars[3];
+  const url_var = { mod, ext, id };
+  return url_var;
+}
+
 export function menuWeb(hash,mod,rutas_web,rutas_sys){
   let token = localStorage.getItem("Token"); //console.log(token);
   let menu = document.querySelector('#menuweb');
@@ -98,9 +107,9 @@ export const router = (hash, mod, ext, id, title) => {
   let content = document.getElementById('app');
   if(content){
     content.innerHTML = '';
-    if(hash){
+    //if(hash){
       return content.appendChild(Pages(page));
-    }
+    //}
   }/*else{
     if(token!=null && token!='undefined'){
       window.location.href='#/dashboard';
@@ -342,7 +351,9 @@ export function fecha_hora_create(val,inputId) {
 
 export function footer(){
   const f = document.querySelector("#footer_page");
-  f.innerHTML = year + ' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.';
+  if(f){
+    f.innerHTML = year + ' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.';
+  }
 }
 
 export function consola(v){

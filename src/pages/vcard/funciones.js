@@ -1,4 +1,7 @@
-import { consoleLocal } from "../../app/functions";
+//import { consoleLocal } from "../../app/functions";
+import { variables } from "../../app/core/lib";
+
+const {dominio} = variables();
 
 /*FUNCIONES */
 export async function getRegister(x, url) {
@@ -83,12 +86,14 @@ export function validImage(url,ele,type){
   var image = new Image();
   image.src = url;
   image.addEventListener('load', () =>{
-    const msj = (type == 0) ? 'Logo' : 'Foto de perfil';console.log('Success: '+msj);
+    const msj = (type == 0) ? 'Logo' : 'Foto de perfil';console.log('(1)Success: '+msj);
     (type == 0) ? ele.src = url : ele.style.backgroundImage = `url('${url}')`;
   });
   image.addEventListener('error', () =>{
+    const ima = `${dominio}assets/img/sinfoto.png`; //console.log(ima);
+    (type == 0) ? ele.src = ima : ele.style.backgroundImage = `url('${ima}')`;
     const msj = (type == 0) ? 'logo' : 'foto de perfil';
-    console.error('Error: Fallo carga de '+msj);
+    console.warn('(1)Error: Fallo carga de '+msj);
   });
 }
 
@@ -97,12 +102,12 @@ export function validImage2(url,tmp,ele,type){
     var image = new Image();
     image.src = url;
     image.addEventListener('load', () => {
-      const msj = (type == 0) ? 'Logo' : 'Foto de perfil';console.log('Success: '+msj);
+      const msj = (type == 0) ? 'Logo' : 'Foto de perfil';console.log('(2)Success: '+msj);
       (type == 0) ? ele.src = url : ele.style.backgroundImage = `url('${url}')`;
     });
     image.addEventListener('error', () => {
       const msj = (type == 0) ? 'logo' : 'foto de perfil';
-      if(tmp && tmp!=''){validImage(tmp,ele,type)}else{console.error('Error: Fallo carga de '+msj);}
+      if(tmp && tmp!=''){validImage(tmp,ele,type)}else{console.error('(2)Error: Fallo carga de '+msj);}
     });
   //});
 }

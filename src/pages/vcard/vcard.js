@@ -18,7 +18,11 @@ async function pagVcard() { //console.log(id);
   menuFooter();  
 
   //INFO
-  document.querySelector('#head').style.backgroundColor = bg_color;
+  const head = document.querySelector('#head');
+  if(head){
+    head.style.backgroundColor = bg_color;
+    head.innerHTML = `<img id="logo" src="${dominio}assets/img/sinlogo.png" onerror="this.src='${dominio}assets/img/sinlogo.png'" alt="logo">`
+  }
   const tmpLogo = (id == 'multiportal')?'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpprRNyywxrgFdZ7rLvnq-6jEgWCBq_4Js3A&s':null;
   validImage2(dataEmpresa.cover,tmpLogo,document.querySelector('#logo'),0);//document.querySelector('#logo').src = dataEmpresa.cover;
   const tmpPerfil = (id == 'multiportal')?'https://multiportal.webcindario.com/assets/img/Multiportal.logo2023.png':null;
@@ -33,6 +37,8 @@ async function pagVcard() { //console.log(id);
   const mailHTML = (email)?`<a href="mailto:${email}"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>`:'';
   const webHTML = (web)?`<a href="${web}" target="_blank" id="empresaweb">${empresa}</a>`:'';
   medios.innerHTML = cellHTML + waHTML + mailHTML + webHTML;
+  //INICIO
+  document.querySelector('#promo').src = `${dominio}assets/vcard/img/concepto1.jpg`;
   //RRSS
   const redes = document.querySelector('#redes');
   const fbHtml = (fb)?`
