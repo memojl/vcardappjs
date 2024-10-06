@@ -16,7 +16,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
         </div>\r
     </div>\r
     <div>\r
-        <a href="#/">Inicio</a> | <a href="#/login">Login</a> | <a href="#/forget">Recuperar Contraseña</a>\r
+        <a href="/">Inicio</a> | <a href="/#/login">Login</a> | <a href="/#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
 `,Qr=`<div class="container text-center">\r
@@ -40,18 +40,18 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
         </div>\r
     </div>\r
     <div>\r
-        <a href="#/">Inicio</a> | <a href="#/registro">Registrarse</a> | <a href="#/forget">Recuperar Contraseña</a>\r
+        <a href="/">Inicio</a> | <a href="/#/registro">Registrarse</a> | <a href="/#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
 `,Zr=`<div class="container text-center">\r
     <h1>Logout</h1>\r
     <img src="./assets/img/loading.gif">\r
     <p>Espere un momento...</p>\r
-    <a href="#/">Inicio</a>\r
+    <a href="/">Inicio</a>\r
 </div>\r
 `,Xr=`<div class="alert alert-warning" role="alert">\r
     <strong>No Autorizado:</strong> No tiene permiso para esta página. \r
-    <a href="#/" class="alert-link">Volver al Inicio</a>\r
+    <a href="/#/" class="alert-link">Volver al Inicio</a>\r
 </div>`,rn=`<div class="container text-center">\r
     <div class="row">\r
         <div class="col-lg-6 offset-lg-3 mt-5">\r
@@ -73,7 +73,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
         </div>\r
     </div>\r
     <div>\r
-        <a href="#/">Inicio</a> | <a href="#/login">Login</a> | <a href="#/forget">Recuperar Contraseña</a>\r
+        <a href="/">Inicio</a> | <a href="/#/login">Login</a> | <a href="/#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
 `,nn=`<!--DASHBOARD-->\r
@@ -243,11 +243,11 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
-                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
-                <small>¿No tienes cuenta? </small><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
+                <small>¿No tienes cuenta? </small><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -343,8 +343,8 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
-                <small>¿Ya tienes una cuenta? </small><a href="#/app" id="btnLogin" class="signup">Login</a>\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -359,7 +359,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-  <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
+  <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
   </div-->`,an=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
@@ -540,12 +540,12 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
-                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -643,9 +643,9 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -660,7 +660,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
   </div-->\r
 `,en=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -914,12 +914,12 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
-                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1017,9 +1017,9 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1034,7 +1034,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
   </div-->\r
 `,sn=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -1442,12 +1442,12 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
-                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1545,9 +1545,9 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1562,7 +1562,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
   </div-->\r
 `,on=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -1878,12 +1878,12 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
-                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1981,9 +1981,9 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="/#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1998,7 +1998,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
   </div-->\r
 `,tn="<!--HOME-->",ln=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -2168,7 +2168,7 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
               </form>\r
               <div>\r
                 <a href="/" class="forgot-pass">Inicio</a> |\r
-                <a href="/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
@@ -2643,23 +2643,23 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
         <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">\r
             <ul class="navbar-nav">\r
                 <li class="nav-item">\r
-                    <a class="nav-link" href="#/registro">Registro</a>\r
+                    <a class="nav-link" href="/#/registro">Registro</a>\r
                 </li>\r
                 <li class="nav-item user-login">\r
-                    <a class="btn btn-primary" href="#/login">Login</a>\r
+                    <a class="btn btn-primary" href="/#/login">Login</a>\r
                 </li>\r
                 <li class="nav-item user-activo">\r
-                    <a class="nav-link" href="#/dashboard">Dashboard</a>\r
+                    <a class="nav-link" href="/#/dashboard">Dashboard</a>\r
                 </li>\r
                 <li class="nav-item user-logout">\r
-                    <a class="nav-link" href="#/logout">Salir</a>\r
+                    <a class="nav-link" href="/#/logout">Salir</a>\r
                 </li>\r
             </ul>\r
         </div>\r
     </div>\r
 </nav>`,gn=["dashboard","settings","perfil","tarjetas","empresas"],fn={forget:Kr,login:Qr,logout:Zr,noauth:Xr,registro:rn,dashboard:nn,settings:an,perfil:en,tarjetas:sn,empresas:on},Lr={Home:tn,app:ln,vcard:dn,profile:cn,nosotros:H+pn,productos:H+vn,categorias:H+mn,contacto:H+un},Sr={...Lr,...fn},ur=[{txt:"Dashboard",icon:"icon-dashboard",link:"/#/app"},{txt:"Dashboard",icon:"icon-dashboard",link:"/#/dashboard"},{txt:"Perfil",icon:"fa fa-user",link:"/#/app/perfil"},{txt:"Mis tarjetas",icon:"fa fa-vcard",link:"/#/app/tarjetas"},{txt:"Mis empresas",icon:"fa fa-industry",link:"/#/app/empresas"}],bn=`<div class="text-center">\r
     <div class="alert alert-danger" role="alert">\r
-        <strong>Error 404:</strong> La página No existe. <a href="#/" class="alert-link">Volver al Inicio</a>\r
+        <strong>Error 404:</strong> La página No existe. <a href="/#/" class="alert-link">Volver al Inicio</a>\r
     </div>\r
 </div>\r
 `,hn=n=>{var r=Sr[n];return r=r??bn,_n(r)},gr=async n=>{try{const r=await fetch(n);if(r.status==200){const s=await r.json();if(s)return s}else console.log("Error 404")}catch(r){console.log(r)}},{host:p,year:yn,hostDev:v,typeBack:jr,apiVer:kn,hash:ca}=y();function wn(){var n=self.location.href,r=n.lastIndexOf("/"),s=n.substring(r+1,n.length);return s}function xn(n,r){var s=n.replace("/"+r,""),a=s.split("/"),e=window.location.search.substring(1),i=e.split("&");return e==""&&(i=["mod="+a[1],"ext="+a[2],"id="+a[3]]),i}function In(n,r){const s=r?r.split("/"):n.split("/");console.log(s);var a=s[1]===""?"Home":s[1],e=s[2]===""||s[2]===void 0?"index":s[2],i=s[3]===""||s[3]===void 0?"":s[3];return{mod:a,ext:e,id:i}}function Ln(n,r,s,a){let e=localStorage.getItem("Token");document.querySelector("#menuweb");let i=document.querySelector(".user-login"),o=document.querySelector(".user-activo"),l=document.querySelector(".user-logout");s[r]&&(i.classList.remove("d-none"),o.classList.add("d-none"),l.classList.add("d-none"),e!=null&&e!=null&&e!="null"&&e!="undefined"&&(i.classList.add("d-none"),o.classList.remove("d-none"),l.classList.remove("d-none")))}const Sn=(n,r,s,a,e)=>{localStorage.getItem("Token"),f("log","hash=>"+n);let i=r=="vcard"?"":K(r),o=s!="index"?""+K(s):"",l=a!=""?" / "+K(a):"";document.title=e+" - "+i+o+l,jn(r,gn);let c=r!="Home"&&s!="index"?s:r,t=document.getElementById("app");if(t)return t.innerHTML="",t.appendChild(hn(c))};function jn(n,r){var s=localStorage.getItem("Token");f("log","token="+s);let a=r.length;for(let e=0;e<a;e++)n===r[e]&&f("log","Accceso: "+n+"="+r[e]),n===r[e]&&(s==null||s=="undefined")&&(window.location.href="#/noauth");n=="login"&&s!=null&&s!="undefined"&&(window.location.href="#/dashboard")}function _n(n){const r=document.createElement("div");return r.innerHTML=n,r}function Tn(n,r){(n==""||n=="undefined")&&(window.location.href=r)}function f(n,r){if(p==v)switch(n){case"log":console.log(r);break;case"warn":console.warn(r);break;case"error":console.error(r);break;default:console.log(r);break}}function K(n){return n[0].toUpperCase()+n.slice(1).toLowerCase()}function Q(n,r){if(n.length>0)for(let e=0;e<n.length;e++)if(p==v&&m&&console.log("load",r+e),document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else if(p==v&&m&&console.log(r+e,n[e]),document.createStyleSheet)document.createStyleSheet(n[e]);else{var s="@import url('"+n[e]+"');",a=document.createElement("link");a.id=r+e,a.rel="stylesheet",a.href="data:text/css,"+escape(s),document.getElementsByTagName("head")[0].appendChild(a)}}function Z(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.getElementsByTagName("head")[0].removeChild(a)}}function fr(n,r,s){if(n.length>0)for(let e=0;e<n.length;e++){p==v&&m&&console.log("load",r+e);let i=document.getElementById(r+e);if(i&&document.body.removeChild(i),s=="load")if(document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else{p==v&&m&&console.log(r+e,n[e]);var a=document.createElement("script");a.id=r+e,a.src=n[e],document.body.appendChild(a)}}}function br(n,r){if(n.length>0)for(let a=0;a<n.length;a++)if(p==v&&m&&console.log("load",r+a),document.getElementById(r+a))p==v&&m&&console.log("Reload Ok: "+r+a);else{p==v&&m&&console.log(r+a,n[a]);var s=document.createElement("script");s.id=r+a,s.src=n[a],document.body.appendChild(s)}}function hr(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.body.removeChild(a)}}function An(){const n=document.querySelector("#footer_page");n&&(n.innerHTML=yn+' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.')}function Pn(){let n=document.getElementsByTagName("body")[0],s=`<div class="layerLoading">

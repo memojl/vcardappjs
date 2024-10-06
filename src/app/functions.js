@@ -124,7 +124,7 @@ const getRoutes = async (hash,url,routes_session)=>{
   let response = await fetch(url);
   if(!response.ok){
     console.error('Error 404(Fetch): La página No existe');
-    content.innerHTML= `<div class="alert alert-danger" role="alert"><strong>Error 404(Fetch):</strong> La página No existe. <a href="#/" class="alert-link">Volver al Inicio</a></div>`
+    content.innerHTML= `<div class="alert alert-danger" role="alert"><strong>Error 404(Fetch):</strong> La página No existe. <a href="/#/" class="alert-link">Volver al Inicio</a></div>`
   }else{
     consoleLocal('log','OK');
     var token = localStorage.getItem("Token");consoleLocal('log','token='+token);
@@ -132,7 +132,7 @@ const getRoutes = async (hash,url,routes_session)=>{
     for(var i=0; i<routes_session.length;i++){
       var r_ses = '#' + routes_session[i];
       if((token==null || token=='undefined') && hash==r_ses){
-        html = `<div class="alert alert-warning" role="alert"><strong>No Autorizado:</strong> No tiene permiso para esta página. <a href="#/" class="alert-link">Volver al Inicio</a></div>`
+        html = `<div class="alert alert-warning" role="alert"><strong>No Autorizado:</strong> No tiene permiso para esta página. <a href="/#/" class="alert-link">Volver al Inicio</a></div>`
       }
     }
     if((token!=null && token!='undefined') && hash=='#/login'){setTimeout(() => {window.location.href='#/dashboard';}, 1000); }

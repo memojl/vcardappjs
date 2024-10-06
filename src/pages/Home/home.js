@@ -8,7 +8,7 @@ function pagHome(){
         menuPage.innerHTML = `
         <!--1-Home-->
                           <li class="">
-                            <a class="active nav-link" href="/#/">Inicio</a>
+                            <a class="active nav-link" href="/">Inicio</a>
                             <!--0-->
                           </li>
                           <!-- /menu.json -->
