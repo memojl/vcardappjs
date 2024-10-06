@@ -37,7 +37,7 @@ export function cssLoadMod(mod, dominio) {
         'https://cdn.jsdelivr.net/npm/toastify-js',
         dominio + 'assets/login/js/front.js',
     ];
-    if (mod == 'app' || mod == 'dashboard') {
+    if (mod == 'app' || mod == 'dashboard' || mod == 'registro') {
         console.log('cssLoadMod-loadStyle',mod);
         loadStyle(appCS, 'appCS-');
         loadDelScript(appJS, 'appJS-','load');        

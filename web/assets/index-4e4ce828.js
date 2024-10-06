@@ -1,4 +1,4 @@
-import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as Nr,onAuthStateChanged as Mr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";import{initializeApp as Br}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";import{getFirestore as Hr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";import{getDatabase as Gr,set as Vr,ref as xr,onValue as Fr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const i of e)if(i.type==="childList")for(const o of i.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const i={};return e.integrity&&(i.integrity=e.integrity),e.referrerPolicy&&(i.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?i.credentials="include":e.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function a(e){if(e.ep)return;e.ep=!0;const i=s(e);fetch(e.href,i)}})();const{host:mr}=window.location,Ur="Vcard",m=!1,Wr="firebase",B="#/",Ir="src/",Y=Ir+"pages/",Jr="vite",ar="localhost:5173",er="localhost",zr="https://vcardapp-js.firebaseio.com",j=zr,Yr=j+"/v2/api_version";console.log(mr+"=="+ar,mr+"=="+er);console.warn("Api="+j);const Kr=`<div class="container text-center">\r
+import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as Nr,onAuthStateChanged as Mr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";import{initializeApp as Br}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";import{getFirestore as Hr}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";import{getDatabase as Gr,set as Fr,ref as wr,onValue as Ur}from"https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))a(e);new MutationObserver(e=>{for(const i of e)if(i.type==="childList")for(const o of i.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&a(o)}).observe(document,{childList:!0,subtree:!0});function s(e){const i={};return e.integrity&&(i.integrity=e.integrity),e.referrerPolicy&&(i.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?i.credentials="include":e.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function a(e){if(e.ep)return;e.ep=!0;const i=s(e);fetch(e.href,i)}})();const{host:mr}=window.location,Vr="Vcard",m=!1,Jr="firebase",B="#/",Ir="src/",z=Ir+"pages/",Wr="vite",ar="localhost:5173",er="localhost",Yr="https://vcardapp-js.firebaseio.com",_=Yr,zr=_+"/v2/api_version";console.log(mr+"=="+ar,mr+"=="+er);console.warn("Api="+_);const Kr=`<div class="container text-center">\r
     <div class="row">\r
         <div class="col-lg-6 offset-lg-3 mt-5">\r
             <div class="card">\r
@@ -19,31 +19,291 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
         <a href="/">Inicio</a> | <a href="/#/login">Login</a> | <a href="/#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
-`,Qr=`<div class="container text-center">\r
-    <div class="row">\r
-        <div class="col-lg-6 offset-lg-3 mt-5">\r
-            <div class="card">\r
-                <h5 class="card-header">Login</h5>\r
-                <div class="card-body">\r
-                    <form id="form-login" action="#/login" class="px-5">\r
-                        <div id="msj-error" class="mb-3"></div>\r
-                        <div class="mb-3">\r
-                            <input type="text" class="form-control" id="username" placeholder="*Usuario" autocomplete="off" required>\r
-                        </div>\r
-                        <div class="mb-3">\r
-                            <input type="password" class="form-control" id="password" placeholder="*Password" required>\r
-                        </div>\r
-                        <button type="submit" class="btn btn-primary">Aceptar</button>\r
-                    </form>\r
-                </div>\r
-            </div>\r
+`,Qr=`<!--DASHBOARD-->\r
+<div class="dashboard" style="display: none">\r
+    <header class="header">\r
+      <nav class="navbar navbar-expand-lg">\r
+        <div class="search-panel">\r
+          <div class="search-inner d-flex align-items-center justify-content-center">\r
+            <div class="close-btn">Close <i class="fa fa-close"></i></div>\r
+            <form id="searchForm">\r
+              <div class="form-group">\r
+                <input type="search" id="q" placeholder="Busque una profesión o negocio"/>\r
+                <button type="submit" class="submit">Buscar</button>\r
+              </div>\r
+            </form>\r
+          </div>\r
         </div>\r
+        <div class="container-fluid d-flex align-items-center justify-content-between">\r
+          <div class="navbar-header">\r
+            <!-- Navbar Header-->\r
+            <a href="/#/app" class="navbar-brand">\r
+              <div class="brand-text brand-big visible text-uppercase">\r
+                <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
+              </div>\r
+              <div class="brand-text brand-sm">\r
+                <strong class="text-primary">D</strong><strong>A</strong>\r
+              </div>\r
+            </a>\r
+            <!-- Sidebar Toggle Btn-->\r
+            <button class="sidebar-toggle">\r
+              <i class="fa fa-navicon"></i><!--i class="fa fa-long-arrow-left"></i-->\r
+            </button>\r
+          </div>\r
+          <div class="right-menu list-inline no-margin-bottom">\r
+            <div class="list-inline-item">\r
+              <a href="#" class="search-open nav-link">\r
+                <i class="icon-magnifying-glass-browser"></i>\r
+              </a>\r
+            </div>\r
+            <div class="list-inline-item logout">\r
+              <a id="logout" href="#" class="nav-link">\r
+                <span class="d-none d-sm-inline">Salir </span><i class="icon-logout"></i>\r
+              </a>\r
+            </div>\r
+          </div>\r
+        </div>\r
+      </nav>\r
+    </header>\r
+    <div class="d-flex align-items-stretch">\r
+      <!-- Sidebar Navigation-->\r
+      <nav id="sidebar">\r
+        <!-- Sidebar Header-->\r
+        <div class="sidebar-header d-flex align-items-center">\r
+          <a href="/#/app/perfil">\r
+            <div id="photo" class="avatar">\r
+              <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
+            </div>\r
+          </a>\r
+          <div class="title">\r
+            <h1 id="nombre_session" class="h5"></h1>\r
+            <p id="email_session"></p>\r
+          </div>\r
+        </div>\r
+        <!--div id="email_session"></div-->\r
+        <div id="id_code_google"></div>\r
+        <!-- Sidebar Navidation Menus-->\r
+        <span class="heading">Menu</span>\r
+        <ul class="list-unstyled" id="menuList">\r
+          <!--li class="active">\r
+            <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          </li-->\r
+        </ul>\r
+      </nav>\r
+      <!-- Sidebar Navigation end-->\r
+      <div id="app-modulo" class="page-content">\r
+        <!--CONTENIDO-->\r
+        <div class="page-header">\r
+          <div class="container-fluid">\r
+            <h2 class="h5 no-margin-bottom">Dashboard</h2>\r
+          </div>\r
+        </div>\r
+        <div class="container-fluid">\r
+          <ul class="breadcrumb">\r
+            <li class="breadcrumb-item active">Dashboard</li>\r
+          </ul>\r
+        </div>\r
+        <section class="">\r
+          <div class="">Nuevos Registros</div>\r
+          <ul class="list-group posts">\r
+          </ul>\r
+        </section>\r
+        <section class="no-padding-bottom">\r
+          <div class="row">\r
+            <div id="lista" class="col-lg-8"></div>\r
+          </div>\r
+        </section>\r
+        <!--/CONTENIDO-->\r
+      </div>\r
+      <footer class="footer">\r
+        <div class="footer__block block no-margin-bottom">\r
+          <div class="container-fluid text-center">\r
+            <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->\r
+            <p id="footer_page" class="no-margin-bottom">\r
+              2021 &copy; VcardAppJS v.1.2.14. Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.\r
+            </p>\r
+          </div>\r
+        </div>\r
+      </footer>\r
     </div>\r
-    <div>\r
-        <a href="/">Inicio</a> | <a href="/#/registro">Registrarse</a> | <a href="/#/forget">Recuperar Contraseña</a>\r
+  </div>\r
+  <!--//DASHBOARD-->\r
+  <!--LOGIN-->\r
+  <div class="login-page">\r
+    <div class="container d-flex align-items-center">\r
+      <div class="form-holder has-shadow">\r
+        <div class="row">\r
+          <!-- Logo & Information Panel-->\r
+          <div class="col-lg-6">\r
+            <div class="info d-flex-logo align-items-center">\r
+              <div class="content">\r
+                <div class="logo">\r
+                  <img src="./assets/img/logo_vcard.min.png" />\r
+                  <h1>Login</h1>\r
+                </div>\r
+                <p>"Conectando negocios y profesionales"</p>\r
+              </div>\r
+            </div>\r
+          </div>\r
+          <!-- Form Panel    -->\r
+          <div class="col-lg-6">\r
+            <div class="form d-flex align-items-center">\r
+              <div class="content">\r
+                <form id="login-form" class="form-validate mb-4">\r
+                  <div class="form-group">\r
+                    <input\r
+                      id="login-email"\r
+                      type="email"\r
+                      name="loginUsername"\r
+                      required\r
+                      data-msg="Please enter your username"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="login-email" class="label-material">Email</label>\r
+                  </div>\r
+                  <div class="form-group">\r
+                    <input\r
+                      id="login-password"\r
+                      type="password"\r
+                      name="loginPassword"\r
+                      required\r
+                      data-msg="Please enter your password"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="login-password" class="label-material"\r
+                      >Contraseña</label\r
+                      >\r
+                  </div>\r
+                  <button type="submit" class="btn btn-primary btn-block">\r
+                  Ingresar\r
+                  </button>\r
+                  <button\r
+                    type="button"\r
+                    class="btn btn-info btn-block"\r
+                    id="googleLogin"\r
+                    >\r
+                  Ingresar con Google\r
+                  </button>\r
+                </form>\r
+                <div>\r
+                  <a href="/" class="forgot-pass">Inicio</a> |\r
+                  <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                </div>\r
+                <div>\r
+                  <small>¿No tienes cuenta? </small><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                </div>\r
+              </div>\r
+            </div>\r
+          </div>\r
+        </div>\r
+      </div>\r
     </div>\r
-</div>\r
-`,Zr=`<div class="container text-center">\r
+    <div class="copyrights text-center">\r
+      <!--p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin" class="external">Bootstrapious</a></p-->\r
+      <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->\r
+    </div>\r
+  </div>\r
+  <!--//LOGIN-->\r
+  <!--REGISTRO-->\r
+  <div class="registro-page" style="display: none">\r
+    <div class="container d-flex align-items-center">\r
+      <div class="form-holder has-shadow">\r
+        <div class="row">\r
+          <!-- Logo & Information Panel-->\r
+          <div class="col-lg-6">\r
+            <div class="info d-flex-logo align-items-center">\r
+              <div class="content">\r
+                <div class="logo">\r
+                  <img src="./assets/img/logo_vcard.min.png" />\r
+                  <h1>Registro</h1>\r
+                </div>\r
+                <p>"Conectando negocios y profesionales"</p>\r
+              </div>\r
+            </div>\r
+          </div>\r
+          <!-- Form Panel    -->\r
+          <div class="col-lg-6 bg-white">\r
+            <div class="form d-flex align-items-center">\r
+              <div class="content">\r
+                <form id="registro-form" class="text-left form-validate">\r
+                  <!--div class="form-group-material">\r
+                    <input id="register-username" type="text" name="registerUsername" required data-msg="Please enter your username" class="input-material">\r
+                    <label for="register-username" class="label-material">Usuario </label>\r
+                    </div-->\r
+                  <div class="form-group-material">\r
+                    <input\r
+                      id="register-email"\r
+                      type="email"\r
+                      name="registerEmail"\r
+                      required\r
+                      data-msg="Please enter a valid email address"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="register-email" class="label-material"\r
+                      >Email\r
+                    </label>\r
+                  </div>\r
+                  <div class="form-group-material">\r
+                    <input\r
+                      id="register-password"\r
+                      type="password"\r
+                      name="registerPassword"\r
+                      required\r
+                      data-msg="Please enter your password"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="register-password" class="label-material"\r
+                      >Contraseña\r
+                    </label>\r
+                  </div>\r
+                  <div class="form-group terms-conditions text-center">\r
+                    <input\r
+                      id="register-agree"\r
+                      name="registerAgree"\r
+                      type="checkbox"\r
+                      required\r
+                      value="1"\r
+                      data-msg="Your agreement is required"\r
+                      class="checkbox-template"\r
+                      />\r
+                    <label for="register-agree"\r
+                      ><a target="_blank" href="privacidad.html"\r
+                      >Políticas de Privacidad</a\r
+                      ></label\r
+                      >\r
+                  </div>\r
+                  <div class="form-group text-center">\r
+                    <button type="submit" class="btn btn-primary btn-block">\r
+                    Registrar\r
+                    </button>\r
+                    <button\r
+                      type="button"\r
+                      class="btn btn-info btn-block"\r
+                      id="googleRegister"\r
+                      >\r
+                    Registrarse con Google\r
+                    </button>\r
+                  </div>\r
+                </form>\r
+                <div>\r
+                  <a href="/" class="forgot-pass">Inicio</a> |\r
+                  <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                </div>\r
+              </div>\r
+            </div>\r
+          </div>\r
+        </div>\r
+      </div>\r
+    </div>\r
+    <div class="copyrights text-center">\r
+      <!--p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a></p-->\r
+      <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->\r
+    </div>\r
+  </div>\r
+  <!--//REGISTRO-->\r
+  <!--div class="nav-item logged-in">\r
+    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    </div-->`,Zr=`<div class="container text-center">\r
     <h1>Logout</h1>\r
     <img src="./assets/img/loading.gif">\r
     <p>Espere un momento...</p>\r
@@ -52,31 +312,312 @@ import{getAuth as qr,GoogleAuthProvider as Dr,signInWithPopup as Or,signOut as N
 `,Xr=`<div class="alert alert-warning" role="alert">\r
     <strong>No Autorizado:</strong> No tiene permiso para esta página. \r
     <a href="/#/" class="alert-link">Volver al Inicio</a>\r
-</div>`,rn=`<div class="container text-center">\r
-    <div class="row">\r
-        <div class="col-lg-6 offset-lg-3 mt-5">\r
-            <div class="card">\r
-                <h5 class="card-header">Registro</h5>\r
-                <div class="card-body">\r
-                    <form id="form-registro" action="#/registro" class="px-5">\r
-                        <div id="msj-error" class="mb-3"></div>\r
-                        <div class="mb-3">\r
-                            <input type="text" class="form-control" id="username" placeholder="*Agregue un nombre de usuario" autocomplete="off" required>\r
-                        </div>\r
-                        <div class="mb-3">\r
-                            <input type="password" class="form-control" id="password" placeholder="*Agregue Password" required>\r
-                        </div>\r
-                        <button type="submit" class="btn btn-primary">Aceptar</button>\r
-                    </form>\r
-                </div>\r
-            </div>\r
+</div>`,rn=`<!--DASHBOARD-->\r
+<div class="dashboard" style="display: none">\r
+    <header class="header">\r
+      <nav class="navbar navbar-expand-lg">\r
+        <div class="search-panel">\r
+          <div class="search-inner d-flex align-items-center justify-content-center">\r
+            <div class="close-btn">Close <i class="fa fa-close"></i></div>\r
+            <form id="searchForm">\r
+              <div class="form-group">\r
+                <input type="search" id="q" placeholder="Busque una profesión o negocio"/>\r
+                <button type="submit" class="submit">Buscar</button>\r
+              </div>\r
+            </form>\r
+          </div>\r
         </div>\r
+        <div class="container-fluid d-flex align-items-center justify-content-between">\r
+          <div class="navbar-header">\r
+            <!-- Navbar Header-->\r
+            <a href="/#/app" class="navbar-brand">\r
+              <div class="brand-text brand-big visible text-uppercase">\r
+                <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
+              </div>\r
+              <div class="brand-text brand-sm">\r
+                <strong class="text-primary">D</strong><strong>A</strong>\r
+              </div>\r
+            </a>\r
+            <!-- Sidebar Toggle Btn-->\r
+            <button class="sidebar-toggle">\r
+              <i class="fa fa-navicon"></i><!--i class="fa fa-long-arrow-left"></i-->\r
+            </button>\r
+          </div>\r
+          <div class="right-menu list-inline no-margin-bottom">\r
+            <div class="list-inline-item">\r
+              <a href="#" class="search-open nav-link">\r
+                <i class="icon-magnifying-glass-browser"></i>\r
+              </a>\r
+            </div>\r
+            <div class="list-inline-item logout">\r
+              <a id="logout" href="#" class="nav-link">\r
+                <span class="d-none d-sm-inline">Salir </span><i class="icon-logout"></i>\r
+              </a>\r
+            </div>\r
+          </div>\r
+        </div>\r
+      </nav>\r
+    </header>\r
+    <div class="d-flex align-items-stretch">\r
+      <!-- Sidebar Navigation-->\r
+      <nav id="sidebar">\r
+        <!-- Sidebar Header-->\r
+        <div class="sidebar-header d-flex align-items-center">\r
+          <a href="/#/app/perfil">\r
+            <div id="photo" class="avatar">\r
+              <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
+            </div>\r
+          </a>\r
+          <div class="title">\r
+            <h1 id="nombre_session" class="h5"></h1>\r
+            <p id="email_session"></p>\r
+          </div>\r
+        </div>\r
+        <!--div id="email_session"></div-->\r
+        <div id="id_code_google"></div>\r
+        <!-- Sidebar Navidation Menus-->\r
+        <span class="heading">Menu</span>\r
+        <ul class="list-unstyled" id="menuList">\r
+          <!--li class="active">\r
+            <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          </li-->\r
+        </ul>\r
+      </nav>\r
+      <!-- Sidebar Navigation end-->\r
+      <div id="app-modulo" class="page-content">\r
+        <!--CONTENIDO-->\r
+        <div class="page-header">\r
+          <div class="container-fluid">\r
+            <h2 class="h5 no-margin-bottom">Dashboard</h2>\r
+          </div>\r
+        </div>\r
+        <div class="container-fluid">\r
+          <ul class="breadcrumb">\r
+            <li class="breadcrumb-item active">Dashboard</li>\r
+          </ul>\r
+        </div>\r
+        <section class="">\r
+          <div class="">Nuevos Registros</div>\r
+          <ul class="list-group posts">\r
+          </ul>\r
+        </section>\r
+        <section class="no-padding-bottom">\r
+          <div class="row">\r
+            <div id="lista" class="col-lg-8"></div>\r
+          </div>\r
+        </section>\r
+        <!--/CONTENIDO-->\r
+      </div>\r
+      <footer class="footer">\r
+        <div class="footer__block block no-margin-bottom">\r
+          <div class="container-fluid text-center">\r
+            <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->\r
+            <p id="footer_page" class="no-margin-bottom">\r
+              2021 &copy; VcardAppJS v.1.2.14. Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.\r
+            </p>\r
+          </div>\r
+        </div>\r
+      </footer>\r
     </div>\r
-    <div>\r
-        <a href="/">Inicio</a> | <a href="/#/login">Login</a> | <a href="/#/forget">Recuperar Contraseña</a>\r
+  </div>\r
+  <!--//DASHBOARD-->\r
+  <!--LOGIN-->\r
+  <div class="login-page">\r
+    <div class="container d-flex align-items-center">\r
+      <div class="form-holder has-shadow">\r
+        <div class="row">\r
+          <!-- Logo & Information Panel-->\r
+          <div class="col-lg-6">\r
+            <div class="info d-flex-logo align-items-center">\r
+              <div class="content">\r
+                <div class="logo">\r
+                  <img src="./assets/img/logo_vcard.min.png" />\r
+                  <h1>Registro</h1>\r
+                </div>\r
+                <p>"Conectando negocios y profesionales"</p>\r
+              </div>\r
+            </div>\r
+          </div>\r
+          <!-- Form Panel    -->\r
+          <div class="col-lg-6">\r
+            <div class="form d-flex align-items-center">\r
+              <div class="content">\r
+                <form id="registro-form" class="text-left form-validate">\r
+                  <!--div class="form-group-material">\r
+                    <input id="register-username" type="text" name="registerUsername" required data-msg="Please enter your username" class="input-material">\r
+                    <label for="register-username" class="label-material">Usuario </label>\r
+                    </div-->\r
+                  <div class="form-group-material">\r
+                    <input\r
+                      id="register-email"\r
+                      type="email"\r
+                      name="registerEmail"\r
+                      required\r
+                      data-msg="Please enter a valid email address"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="register-email" class="label-material"\r
+                      >Email\r
+                    </label>\r
+                  </div>\r
+                  <div class="form-group-material">\r
+                    <input\r
+                      id="register-password"\r
+                      type="password"\r
+                      name="registerPassword"\r
+                      required\r
+                      data-msg="Please enter your password"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="register-password" class="label-material"\r
+                      >Contraseña\r
+                    </label>\r
+                  </div>\r
+                  <div class="form-group terms-conditions text-center">\r
+                    <input\r
+                      id="register-agree"\r
+                      name="registerAgree"\r
+                      type="checkbox"\r
+                      required\r
+                      value="1"\r
+                      data-msg="Your agreement is required"\r
+                      class="checkbox-template"\r
+                      />\r
+                    <label for="register-agree"\r
+                      ><a target="_blank" href="privacidad.html"\r
+                      >Políticas de Privacidad</a\r
+                      ></label\r
+                      >\r
+                  </div>\r
+                  <div class="form-group text-center">\r
+                    <button type="submit" class="btn btn-primary btn-block">\r
+                    Registrar\r
+                    </button>\r
+                    <button\r
+                      type="button"\r
+                      class="btn btn-info btn-block"\r
+                      id="googleLogin"\r
+                      >\r
+                    Registrarse con Google\r
+                    </button>\r
+                  </div>\r
+                </form>\r
+                <div>\r
+                  <a href="/" class="forgot-pass">Inicio</a> |\r
+                  <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                </div>\r
+              </div>\r
+            </div>\r
+          </div>\r
+        </div>\r
+      </div>\r
     </div>\r
-</div>\r
-`,nn=`<!--DASHBOARD-->\r
+    <div class="copyrights text-center">\r
+      <!--p>Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin" class="external">Bootstrapious</a></p-->\r
+      <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->\r
+    </div>\r
+  </div>\r
+  <!--//LOGIN-->\r
+  <!--REGISTRO-->\r
+  <div class="registro-page" style="display: none">\r
+    <div class="container d-flex align-items-center">\r
+      <div class="form-holder has-shadow">\r
+        <div class="row">\r
+          <!-- Logo & Information Panel-->\r
+          <div class="col-lg-6">\r
+            <div class="info d-flex-logo align-items-center">\r
+              <div class="content">\r
+                <div class="logo">\r
+                  <img src="./assets/img/logo_vcard.min.png" />\r
+                  <h1>Registro</h1>\r
+                </div>\r
+                <p>"Conectando negocios y profesionales"</p>\r
+              </div>\r
+            </div>\r
+          </div>\r
+          <!-- Form Panel    -->\r
+          <div class="col-lg-6 bg-white">\r
+            <div class="form d-flex align-items-center">\r
+              <div class="content">\r
+                <form id="registro-form" class="text-left form-validate">\r
+                  <!--div class="form-group-material">\r
+                    <input id="register-username" type="text" name="registerUsername" required data-msg="Please enter your username" class="input-material">\r
+                    <label for="register-username" class="label-material">Usuario </label>\r
+                    </div-->\r
+                  <div class="form-group-material">\r
+                    <input\r
+                      id="register-email"\r
+                      type="email"\r
+                      name="registerEmail"\r
+                      required\r
+                      data-msg="Please enter a valid email address"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="register-email" class="label-material"\r
+                      >Email\r
+                    </label>\r
+                  </div>\r
+                  <div class="form-group-material">\r
+                    <input\r
+                      id="register-password"\r
+                      type="password"\r
+                      name="registerPassword"\r
+                      required\r
+                      data-msg="Please enter your password"\r
+                      class="input-material"\r
+                      />\r
+                    <label for="register-password" class="label-material"\r
+                      >Contraseña\r
+                    </label>\r
+                  </div>\r
+                  <div class="form-group terms-conditions text-center">\r
+                    <input\r
+                      id="register-agree"\r
+                      name="registerAgree"\r
+                      type="checkbox"\r
+                      required\r
+                      value="1"\r
+                      data-msg="Your agreement is required"\r
+                      class="checkbox-template"\r
+                      />\r
+                    <label for="register-agree"\r
+                      ><a target="_blank" href="privacidad.html"\r
+                      >Políticas de Privacidad</a\r
+                      ></label\r
+                      >\r
+                  </div>\r
+                  <div class="form-group text-center">\r
+                    <button type="submit" class="btn btn-primary btn-block">\r
+                    Registrar\r
+                    </button>\r
+                    <button\r
+                      type="button"\r
+                      class="btn btn-info btn-block"\r
+                      id="googleRegister"\r
+                      >\r
+                    Registrarse con Google\r
+                    </button>\r
+                  </div>\r
+                </form>\r
+                <div>\r
+                  <a href="/" class="forgot-pass">Inicio</a> |\r
+                  <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                </div>\r
+              </div>\r
+            </div>\r
+          </div>\r
+        </div>\r
+      </div>\r
+    </div>\r
+    <div class="copyrights text-center">\r
+      <!--p>Design by <a href="https://bootstrapious.com" class="external">Bootstrapious</a></p-->\r
+      <!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->\r
+    </div>\r
+  </div>\r
+  <!--//REGISTRO-->\r
+  <!--div class="nav-item logged-in">\r
+    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    </div-->`,nn=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
     <nav class="navbar navbar-expand-lg">\r
@@ -2662,35 +3203,35 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
         <strong>Error 404:</strong> La página No existe. <a href="/#/" class="alert-link">Volver al Inicio</a>\r
     </div>\r
 </div>\r
-`,hn=n=>{var r=Sr[n];return r=r??bn,_n(r)},gr=async n=>{try{const r=await fetch(n);if(r.status==200){const s=await r.json();if(s)return s}else console.log("Error 404")}catch(r){console.log(r)}},{host:p,year:yn,hostDev:v,typeBack:jr,apiVer:kn,hash:ca}=y();function wn(){var n=self.location.href,r=n.lastIndexOf("/"),s=n.substring(r+1,n.length);return s}function xn(n,r){var s=n.replace("/"+r,""),a=s.split("/"),e=window.location.search.substring(1),i=e.split("&");return e==""&&(i=["mod="+a[1],"ext="+a[2],"id="+a[3]]),i}function In(n,r){const s=r?r.split("/"):n.split("/");console.log(s);var a=s[1]===""?"Home":s[1],e=s[2]===""||s[2]===void 0?"index":s[2],i=s[3]===""||s[3]===void 0?"":s[3];return{mod:a,ext:e,id:i}}function Ln(n,r,s,a){let e=localStorage.getItem("Token");document.querySelector("#menuweb");let i=document.querySelector(".user-login"),o=document.querySelector(".user-activo"),l=document.querySelector(".user-logout");s[r]&&(i.classList.remove("d-none"),o.classList.add("d-none"),l.classList.add("d-none"),e!=null&&e!=null&&e!="null"&&e!="undefined"&&(i.classList.add("d-none"),o.classList.remove("d-none"),l.classList.remove("d-none")))}const Sn=(n,r,s,a,e)=>{localStorage.getItem("Token"),f("log","hash=>"+n);let i=r=="vcard"?"":K(r),o=s!="index"?""+K(s):"",l=a!=""?" / "+K(a):"";document.title=e+" - "+i+o+l,jn(r,gn);let c=r!="Home"&&s!="index"?s:r,t=document.getElementById("app");if(t)return t.innerHTML="",t.appendChild(hn(c))};function jn(n,r){var s=localStorage.getItem("Token");f("log","token="+s);let a=r.length;for(let e=0;e<a;e++)n===r[e]&&f("log","Accceso: "+n+"="+r[e]),n===r[e]&&(s==null||s=="undefined")&&(window.location.href="#/noauth");n=="login"&&s!=null&&s!="undefined"&&(window.location.href="#/dashboard")}function _n(n){const r=document.createElement("div");return r.innerHTML=n,r}function Tn(n,r){(n==""||n=="undefined")&&(window.location.href=r)}function f(n,r){if(p==v)switch(n){case"log":console.log(r);break;case"warn":console.warn(r);break;case"error":console.error(r);break;default:console.log(r);break}}function K(n){return n[0].toUpperCase()+n.slice(1).toLowerCase()}function Q(n,r){if(n.length>0)for(let e=0;e<n.length;e++)if(p==v&&m&&console.log("load",r+e),document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else if(p==v&&m&&console.log(r+e,n[e]),document.createStyleSheet)document.createStyleSheet(n[e]);else{var s="@import url('"+n[e]+"');",a=document.createElement("link");a.id=r+e,a.rel="stylesheet",a.href="data:text/css,"+escape(s),document.getElementsByTagName("head")[0].appendChild(a)}}function Z(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.getElementsByTagName("head")[0].removeChild(a)}}function fr(n,r,s){if(n.length>0)for(let e=0;e<n.length;e++){p==v&&m&&console.log("load",r+e);let i=document.getElementById(r+e);if(i&&document.body.removeChild(i),s=="load")if(document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else{p==v&&m&&console.log(r+e,n[e]);var a=document.createElement("script");a.id=r+e,a.src=n[e],document.body.appendChild(a)}}}function br(n,r){if(n.length>0)for(let a=0;a<n.length;a++)if(p==v&&m&&console.log("load",r+a),document.getElementById(r+a))p==v&&m&&console.log("Reload Ok: "+r+a);else{p==v&&m&&console.log(r+a,n[a]);var s=document.createElement("script");s.id=r+a,s.src=n[a],document.body.appendChild(s)}}function hr(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.body.removeChild(a)}}function An(){const n=document.querySelector("#footer_page");n&&(n.innerHTML=yn+' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.')}function Pn(){let n=document.getElementsByTagName("body")[0],s=`<div class="layerLoading">
+`,hn=n=>{var r=Sr[n];return r=r??bn,Pn(r)},gr=async n=>{try{const r=await fetch(n);if(r.status==200){const s=await r.json();if(s)return s}else console.log("Error 404")}catch(r){console.log(r)}},{host:p,year:yn,hostDev:v,typeBack:_r,apiVer:kn,hash:ca}=k();function xn(){var n=self.location.href,r=n.lastIndexOf("/"),s=n.substring(r+1,n.length);return s}function wn(n,r){var s=n.replace("/"+r,""),a=s.split("/"),e=window.location.search.substring(1),i=e.split("&");return e==""&&(i=["mod="+a[1],"ext="+a[2],"id="+a[3]]),i}function In(n,r){const s=r?r.split("/"):n.split("/");console.log(s);var a=s[1]===""?"Home":s[1],e=s[2]===""||s[2]===void 0?"index":s[2],i=s[3]===""||s[3]===void 0?"":s[3];return{mod:a,ext:e,id:i}}function Ln(n,r,s,a){let e=localStorage.getItem("Token");document.querySelector("#menuweb");let i=document.querySelector(".user-login"),o=document.querySelector(".user-activo"),l=document.querySelector(".user-logout");s[r]&&(i.classList.remove("d-none"),o.classList.add("d-none"),l.classList.add("d-none"),e!=null&&e!=null&&e!="null"&&e!="undefined"&&(i.classList.add("d-none"),o.classList.remove("d-none"),l.classList.remove("d-none")))}const Sn=(n,r,s,a,e)=>{localStorage.getItem("Token"),f("log","hash=>"+n);let i=r=="vcard"?"":K(r),o=s!="index"?""+K(s):"",l=a!=""?" / "+K(a):"";document.title=e+" - "+i+o+l,_n(r,gn);let c=r!="Home"&&s!="index"?s:r,t=document.getElementById("app");if(t)return t.innerHTML="",t.appendChild(hn(c))};function _n(n,r){var s=localStorage.getItem("Token");f("log","token="+s);let a=r.length;for(let e=0;e<a;e++)n===r[e]&&f("log","Accceso: "+n+"="+r[e]),n===r[e]&&(s==null||s=="undefined")&&(window.location.href="#/noauth");n=="login"&&s!=null&&s!="undefined"&&(window.location.href="#/dashboard")}function Pn(n){const r=document.createElement("div");return r.innerHTML=n,r}function jn(n,r){(n==""||n=="undefined")&&(window.location.href=r)}function f(n,r){if(p==v)switch(n){case"log":console.log(r);break;case"warn":console.warn(r);break;case"error":console.error(r);break;default:console.log(r);break}}function K(n){return n[0].toUpperCase()+n.slice(1).toLowerCase()}function Q(n,r){if(n.length>0)for(let e=0;e<n.length;e++)if(p==v&&m&&console.log("load",r+e),document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else if(p==v&&m&&console.log(r+e,n[e]),document.createStyleSheet)document.createStyleSheet(n[e]);else{var s="@import url('"+n[e]+"');",a=document.createElement("link");a.id=r+e,a.rel="stylesheet",a.href="data:text/css,"+escape(s),document.getElementsByTagName("head")[0].appendChild(a)}}function Z(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.getElementsByTagName("head")[0].removeChild(a)}}function fr(n,r,s){if(n.length>0)for(let e=0;e<n.length;e++){p==v&&m&&console.log("load",r+e);let i=document.getElementById(r+e);if(i&&document.body.removeChild(i),s=="load")if(document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else{p==v&&m&&console.log(r+e,n[e]);var a=document.createElement("script");a.id=r+e,a.src=n[e],document.body.appendChild(a)}}}function br(n,r){if(n.length>0)for(let a=0;a<n.length;a++)if(p==v&&m&&console.log("load",r+a),document.getElementById(r+a))p==v&&m&&console.log("Reload Ok: "+r+a);else{p==v&&m&&console.log(r+a,n[a]);var s=document.createElement("script");s.id=r+a,s.src=n[a],document.body.appendChild(s)}}function hr(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.body.removeChild(a)}}function Tn(){const n=document.querySelector("#footer_page");n&&(n.innerHTML=yn+' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.')}function An(){let n=document.getElementsByTagName("body")[0],s=`<div class="layerLoading">
     <img src="./assets/img/loader-green.gif" alt=""/>
     <p>Cargando...</p>
-  </div>`;var a=document.createElement("div");a.id="load",a.innerHTML=s,n.appendChild(a),setTimeout(()=>{let e=document.getElementById(a.id);e&&n.removeChild(e)},5e3)}function Cn(){const{mod:n,ext:r}=y();let s=n!="Home"&&r!="index"?r:n;var a=Sr[s];n!="dashboard"&&jr=="firebase"&&n!="logout"&&n!="noauth"&&r=="index"&&a!=null&&Pn()}async function Rn(n,r){if(jr!="firebase"){if(n=="Home"){const{version:s}=await gr(`${r}assets/pwa/manifest.json`);console.log(`Version Actual: ${s}`);const a=await gr(kn);if(a&&a!=null){const{ultimate:e}=a.data[0];s!=e&&console.log(`Actualizar version ${n} (${s} => ${e})`)}else console.warn("No se pudo llevar a cabo la comprobación de versiones")}}else console.warn("Only Firebase")}function $n(n,r,s){setTimeout(()=>{const a=document.querySelector("#menuList");let e="";if(a){for(let i=0;i<ur.length;i++){const{txt:o,icon:l,link:c}=ur[i];if((s=="app"||s=="dashboard")&&c!="/#/app"){const t=c=="/"+n||o=="Dashboard"&&r=="app/index"?'class="active"':"";e+=`<li ${t}><a href="${c}"><i class="${l}"></i> ${o}</a></li>`}}a.innerHTML=e}},100)}const En=y(),{host:qn,dominio:Dn,path_url:On,hostDev:Nn,typeBack:Mn}=En;console.log("/* javascript login | VARIABLES CONSTANTES*/");let ir=j+"/login/";qn==Nn&&Mn!="firebase"&&console.log("api_login="+ir);function Bn(){const n=document.getElementById("form-login");n!=null&&(n.addEventListener("submit",Hn),console.log("btnLogin Activado"))}function Hn(n){n.preventDefault(),console.log("Validación de Datos");let r=document.getElementById("username").value,s=document.getElementById("password").value;var a={username:r,password:s};const e=ir+"index.php";fetch(e,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(a)}).then(i=>i.json()).then(i=>{const{data:o}=i;f("log",i),f("log","getToken:"+o.token),localStorage.setItem("Token",o.token);let l=localStorage.getItem("Token");if(f("log","Res-Token:"+l),l!=null&&l!="undefined")location.href=Dn+On+"#/dashboard";else{let c=document.getElementById("msj-error");c.innerHTML='<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>'}}).catch(i=>{console.log(i);let o=document.getElementById("msj-error");o.innerHTML='<div class="alert alert-danger" role="alert">Error:Usuario o Contraseña Incorrectos</div>'})}const Gn=()=>{const n=ir+"";fetch(n).then(r=>r.json()).then(r=>{f("log",r)}).catch(r=>console.log(r)),setTimeout(function(){Bn()},1e3)};function Vn(){console.log("Logout/Salir"),localStorage.clear();var n=localStorage.getItem("Token");n==null&&(console.warn("TOKEN CLEAR"),setTimeout(function(){window.location.href="#/"},3e3))}function Fn(n){let r=document.querySelector(".body");r&&(n!=""&&n!="Home"?r.style.display="none":r.style.display="inherit")}function Un(n,r){const s=["https://fonts.googleapis.com/css?family=Muli:300,400,700","https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css",r+"assets/login/vendor/bootstrap/css/bootstrap.min.css",r+"assets/login/vendor/font-awesome/css/font-awesome.min.css",r+"assets/login/css/font.css",r+"assets/login/css/style.green.css",r+"assets/login/css/custom.css"],a=[r+"assets/login/vendor/popper.js/umd/popper.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap-colorpicker.min.js",r+"assets/login/vendor/jquery.cookie/jquery.cookie.js",r+"assets/login/vendor/chart.js/Chart.min.js",r+"assets/login/vendor/jquery-validation/jquery.validate.min.js","https://cdn.jsdelivr.net/npm/sweetalert2@9.14.4/dist/sweetalert2.all.min.js","https://cdn.jsdelivr.net/npm/toastify-js",r+"assets/login/js/front.js"];n=="app"||n=="dashboard"?(console.log("cssLoadMod-loadStyle",n),Q(s,"appCS-"),fr(a,"appJS-","load")):(console.log("cssLoadMod-delStyle",n),Z(s,"appCS-"),fr(a,"appJS-","del"));const e=["https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700",r+"assets/tema/css/bootstrap.min.css",r+"assets/tema/css/all.min.css",r+"assets/tema/css/animate.min.css",r+"assets/tema/css/simple-line-icons.min.css",r+"assets/tema/css/owl.carousel.min.css",r+"assets/tema/css/owl.theme.default.min.css",r+"assets/tema/css/magnific-popup.min.css",r+"assets/tema/css/theme.css",r+"assets/tema/css/theme-elements.css",r+"assets/tema/css/theme-blog.css",r+"assets/tema/css/theme-shop.css",r+"assets/tema/css/settings.css",r+"assets/tema/css/layers.css",r+"assets/tema/css/navigation.css",r+"assets/tema/css/demo-business-consulting.css",r+"assets/tema/css/skin-business-consulting.css",r+"assets/tema/css/style.css",r+"assets/font-awesome-4.7.0/css/font-awesome.css"],i=[r+"assets/tema/js/jquery.appear.min.js",r+"assets/tema/js/jquery.easing.min.js",r+"assets/tema/js/jquery.cookie.min.js",r+"assets/tema/js/popper.min.js",r+"assets/tema/js/bootstrap.min.js",r+"assets/tema/js/common.min.js",r+"assets/tema/js/jquery.validate.min.js",r+"assets/tema/js/jquery.easypiechart.min.js",r+"assets/tema/js/jquery.gmap.min.js",r+"assets/tema/js/jquery.lazyload.min.js",r+"assets/tema/js/jquery.isotope.min.js",r+"assets/tema/js/owl.carousel.min.js",r+"assets/tema/js/jquery.magnific-popup.min.js",r+"assets/tema/js/jquery.vide.min.js",r+"assets/tema/js/vivus.min.js",r+"assets/tema/js/theme.js",r+"assets/tema/js/jquery.themepunch.tools.min.js",r+"assets/tema/js/jquery.themepunch.revolution.min.js",r+"assets/tema/js/demo-business-consulting.js",r+"assets/tema/js/custom.js",r+"assets/tema/js/theme.init.js"];n!="Home"?(Z(e,"homeCS-"),hr(i,"homeJS-")):(Q(e,"homeCS-"),br(i,"homeJS-"));const o=["https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es",r+"assets/font-awesome-4.7.0/css/font-awesome.css",r+"assets/vcard/css/style2.css",r+"assets/vcard/css/examples.css",r+"assets/vcard/css/webhost.css"],l=["https://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw",r+"assets/vcard/js/gmaps.js"];n!="vcard"?(Z(o,"vcardCS-"),hr(l,"vcardJS-")):(Q(o,"vcardCS-"),br(l,"vcardJS-"))}console.log("Firebase SDK");var Wn={apiKey:"AIzaSyDeX81H_K8AsV2KjQgEbwxte6yVdSYqFXk",authDomain:"vcardapp-js.firebaseapp.com",databaseURL:"https://vcardapp-js.firebaseio.com",projectId:"vcardapp-js",storageBucket:"vcardapp-js.appspot.com",messagingSenderId:"420720513571",appId:"1:420720513571:web:f072eeda6cd3cfa1429796",measurementId:"G-LDPZ4BZ1GV"};const or=Br(Wn),tr=qr(or),_r=Gr(or);Hr(or);function Jn(n){console.log("saveUser");var r={uid:n.uid,usuario:n.displayName,email:n.email,foto:n.photoURL};Vr(xr(_r,"vcard_signup/"+n.uid),r)}function zn(n){const r=document.querySelector("#photo"),s=document.querySelector("#nombre_session"),a=document.querySelector("#email_session"),e=document.querySelector("#id_code_google"),i=xr(_r,"vcard_signup/");Fr(i,o=>{const l=o.val();for(let c in l){const t=l[c];if(t.uid==n.uid){console.log(t);const u='<img src="'+(t.foto==null?page_url+"assets/img/sinfoto.png":t.foto)+'" class="img-fluid rounded-circle">',d=t.usuario==null?t.email:t.usuario,_=t.email,k=t.uid;r.innerHTML=u,s.innerHTML=d,a.innerHTML=_,e.innerHTML=k}}})}document.querySelectorAll(".logged-out");document.querySelectorAll(".logged-in");const yr=n=>{console.log("loginCheck"),document.querySelector("#logout-1");const r=document.querySelector("#btnRegis"),s=document.querySelector("#btnLogin"),a=document.querySelector(".registro-page"),e=document.querySelector(".login-page"),i=document.querySelector(".dashboard");n?(e.style.display="none",a.style.display="none",i.style.display="block"):(e.style.display="block",i.style.display="none",r&&r.addEventListener("click",()=>{a.style.display="block",e.style.display="none"}),s&&s.addEventListener("click",()=>{a.style.display="none",e.style.display="block"}))};function Tr(n,r){Toastify({text:n,duration:3e3,destination:"https://github.com/apvarun/toastify-js",newWindow:!0,close:!0,gravity:"bottom",position:"right",stopOnFocus:!0,style:{background:r==="success"?"green":r==="warning"?"orange":r==="info"?"blue":"red"},onClick:function(){}}).showToast()}function Yn(){const n=document.querySelector("#googleLogin");n&&n.addEventListener("click",async r=>{r.preventDefault();const s=new Dr;try{const a=await Or(tr,s);console.log(a),console.log("google sign in"),localStorage.setItem("Token",a.user.accessToken);let e=localStorage.getItem("Token");consoleLocal("log","Res-Token:"+e),Tr("Welcome "+a.user.displayName,"success")}catch(a){console.log(a)}})}function Kn(){const n=document.querySelector("#logout");n&&n.addEventListener("click",async r=>{r.preventDefault();try{await Nr(tr),console.log("Logout/Salir"),localStorage.clear();var s=localStorage.getItem("Token");s==null&&console.warn("TOKEN CLEAR"),Tr("Signup out","info")}catch(a){console.log(a)}})}function Qn(){console.log("Cargando App..."),Yn(),Kn(),Mr(tr,async n=>{if(n){yr(n),zn(n);try{Jn(n)}catch(r){console.log(r)}}else yr(n)}),An()}const S=()=>{Qn()};const{dominio:Zn}=y();async function kr(n,r){const a=await(await fetch(r)).json();let e=null;for(const i in a)(a[i].profile===n||a[i].ID===n)&&(e=a[i]);return e}function sr(n){n!="inicio"?$("#close").show():$("#close").hide(),n=="inicio"?$("#inicio").fadeIn():$("#inicio").hide(),n=="contacto"?$("#contacto").fadeIn():$("#contacto").hide(),n=="ubicacion"?$("#ubicacion").fadeIn():$("#ubicacion").hide(),n=="compartir"?$("#compartir").fadeIn():$("#compartir").hide(),n=="guardar"?$("#guardar").fadeIn():$("#guardar").hide(),n=="acceso"?$("#acceso").fadeIn():$("#acceso").hide()}function Xn(n){if(n=="viewcopy"){$("#inputCopiar").select();var r=document.execCommand("copy");r?(console.log("Texto Copiado"),document.getElementById("aviso").innerHTML='<div class="alert alert-success">Texto Copiado!</div>'):console.log("> No copy to clipboard")}}function ra(){const n=document.querySelector("#footerbar");n&&n.addEventListener("click",r=>{const s=r.target.id.replace("btn","").replace("1","").toLowerCase();s&&s!=""&&sr(s)})}function na(n,r,s){var a=new Image;a.src=n,a.addEventListener("load",()=>{const e=s==0?"Logo":"Foto de perfil";console.log("(1)Success: "+e),s==0?r.src=n:r.style.backgroundImage=`url('${n}')`}),a.addEventListener("error",()=>{const e=`${Zn}assets/img/sinfoto.png`;s==0?r.src=e:r.style.backgroundImage=`url('${e}')`;const i=s==0?"logo":"foto de perfil";console.warn("(1)Error: Fallo carga de "+i)})}function wr(n,r,s,a){var e=new Image;e.src=n,e.addEventListener("load",()=>{const i=a==0?"Logo":"Foto de perfil";console.log("(2)Success: "+i),a==0?s.src=n:s.style.backgroundImage=`url('${n}')`}),e.addEventListener("error",()=>{const i=a==0?"logo":"foto de perfil";r&&r!=""?na(r,s,a):console.error("(2)Error: Fallo carga de "+i)})}const{host:pa,dominio:X,mod:va,ext:ma,id:rr,URL:nr}=y();async function aa(){const n=encodeURIComponent(nr);console.log(n);const r=await kr(rr,j+"/vcard_vcard.json");if(console.log("Usuario",r),r==null){document.querySelector("#container").style.display="none";return}const{nombre:s,profile:a,puesto:e,descripcion:i,fb:o,tw:l,ins:c,lk:t,web:g,email:u,cell:d,tel_ofi:_,cover:k,idemp:w,visible:dr,direc:T}=r,x=await kr(w,j+"/vcard_vcard_empresas.json");console.log("Empresa",x);const{bg_color:I,coverbg:A,empresa:P}=x;sr("inicio"),ra();const L=document.querySelector("#head");L&&(L.style.backgroundColor=I,L.innerHTML=`<img id="logo" src="${X}assets/img/sinlogo.png" onerror="this.src='${X}assets/img/sinlogo.png'" alt="logo">`);const G=rr=="multiportal"?"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpprRNyywxrgFdZ7rLvnq-6jEgWCBq_4Js3A&s":null;wr(x.cover,G,document.querySelector("#logo"),0);const V=rr=="multiportal"?"https://multiportal.webcindario.com/assets/img/Multiportal.logo2023.png":null;wr(k,V,document.querySelector("#fotoperfil"),1),document.querySelector("#tit").innerHTML=s,document.querySelector("#puesto").innerHTML=e,document.querySelector("#des").innerHTML=i;const F=document.querySelector("#medios"),C=d?`<a href="tel:${d}"><i class="fa fa-phone"></i><span>Llamar</span></a>`:"",U=d?`<a target="_blank" href="https://wa.me/+52${d}"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>`:"",W=u?`<a href="mailto:${u}"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>`:"",J=g?`<a href="${g}" target="_blank" id="empresaweb">${P}</a>`:"";F.innerHTML=C+U+W+J,document.querySelector("#promo").src=`${X}assets/vcard/img/concepto1.jpg`;const h=document.querySelector("#redes"),b=o?`
+  </div>`;var a=document.createElement("div");a.id="load",a.innerHTML=s,n.appendChild(a),setTimeout(()=>{let e=document.getElementById(a.id);e&&n.removeChild(e)},5e3)}function Rn(){const{mod:n,ext:r}=k();let s=n!="Home"&&r!="index"?r:n;var a=Sr[s];n!="dashboard"&&_r=="firebase"&&n!="logout"&&n!="noauth"&&r=="index"&&a!=null&&An()}async function qn(n,r){if(_r!="firebase"){if(n=="Home"){const{version:s}=await gr(`${r}assets/pwa/manifest.json`);console.log(`Version Actual: ${s}`);const a=await gr(kn);if(a&&a!=null){const{ultimate:e}=a.data[0];s!=e&&console.log(`Actualizar version ${n} (${s} => ${e})`)}else console.warn("No se pudo llevar a cabo la comprobación de versiones")}}else console.warn("Only Firebase")}function Cn(n,r,s){setTimeout(()=>{const a=document.querySelector("#menuList");let e="";if(a){for(let i=0;i<ur.length;i++){const{txt:o,icon:l,link:c}=ur[i];if((s=="app"||s=="dashboard")&&c!="/#/app"){const t=c=="/"+n||o=="Dashboard"&&r=="app/index"?'class="active"':"";e+=`<li ${t}><a href="${c}"><i class="${l}"></i> ${o}</a></li>`}}a.innerHTML=e}},100)}const En=k(),{host:Dn,dominio:On,path_url:$n,hostDev:Nn,typeBack:Mn}=En;console.log("/* javascript login | VARIABLES CONSTANTES*/");let ir=_+"/login/";Dn==Nn&&Mn!="firebase"&&console.log("api_login="+ir);function Bn(){const n=document.getElementById("form-login");n!=null&&(n.addEventListener("submit",Hn),console.log("btnLogin Activado"))}function Hn(n){n.preventDefault(),console.log("Validación de Datos");let r=document.getElementById("username").value,s=document.getElementById("password").value;var a={username:r,password:s};const e=ir+"index.php";fetch(e,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(a)}).then(i=>i.json()).then(i=>{const{data:o}=i;f("log",i),f("log","getToken:"+o.token),localStorage.setItem("Token",o.token);let l=localStorage.getItem("Token");if(f("log","Res-Token:"+l),l!=null&&l!="undefined")location.href=On+$n+"#/dashboard";else{let c=document.getElementById("msj-error");c.innerHTML='<div class="alert alert-danger" role="alert">Usuario o Contraseña Incorrectos</div>'}}).catch(i=>{console.log(i);let o=document.getElementById("msj-error");o.innerHTML='<div class="alert alert-danger" role="alert">Error:Usuario o Contraseña Incorrectos</div>'})}const Gn=()=>{const n=ir+"";fetch(n).then(r=>r.json()).then(r=>{f("log",r)}).catch(r=>console.log(r)),setTimeout(function(){Bn()},1e3)};function Fn(){console.log("Logout/Salir"),localStorage.clear();var n=localStorage.getItem("Token");n==null&&(console.warn("TOKEN CLEAR"),setTimeout(function(){window.location.href="#/"},3e3))}function Un(n){let r=document.querySelector(".body");r&&(n!=""&&n!="Home"?r.style.display="none":r.style.display="inherit")}function Vn(n,r){const s=["https://fonts.googleapis.com/css?family=Muli:300,400,700","https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css",r+"assets/login/vendor/bootstrap/css/bootstrap.min.css",r+"assets/login/vendor/font-awesome/css/font-awesome.min.css",r+"assets/login/css/font.css",r+"assets/login/css/style.green.css",r+"assets/login/css/custom.css"],a=[r+"assets/login/vendor/popper.js/umd/popper.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap.min.js",r+"assets/login/vendor/bootstrap/js/bootstrap-colorpicker.min.js",r+"assets/login/vendor/jquery.cookie/jquery.cookie.js",r+"assets/login/vendor/chart.js/Chart.min.js",r+"assets/login/vendor/jquery-validation/jquery.validate.min.js","https://cdn.jsdelivr.net/npm/sweetalert2@9.14.4/dist/sweetalert2.all.min.js","https://cdn.jsdelivr.net/npm/toastify-js",r+"assets/login/js/front.js"];n=="app"||n=="dashboard"||n=="registro"?(console.log("cssLoadMod-loadStyle",n),Q(s,"appCS-"),fr(a,"appJS-","load")):(console.log("cssLoadMod-delStyle",n),Z(s,"appCS-"),fr(a,"appJS-","del"));const e=["https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700",r+"assets/tema/css/bootstrap.min.css",r+"assets/tema/css/all.min.css",r+"assets/tema/css/animate.min.css",r+"assets/tema/css/simple-line-icons.min.css",r+"assets/tema/css/owl.carousel.min.css",r+"assets/tema/css/owl.theme.default.min.css",r+"assets/tema/css/magnific-popup.min.css",r+"assets/tema/css/theme.css",r+"assets/tema/css/theme-elements.css",r+"assets/tema/css/theme-blog.css",r+"assets/tema/css/theme-shop.css",r+"assets/tema/css/settings.css",r+"assets/tema/css/layers.css",r+"assets/tema/css/navigation.css",r+"assets/tema/css/demo-business-consulting.css",r+"assets/tema/css/skin-business-consulting.css",r+"assets/tema/css/style.css",r+"assets/font-awesome-4.7.0/css/font-awesome.css"],i=[r+"assets/tema/js/jquery.appear.min.js",r+"assets/tema/js/jquery.easing.min.js",r+"assets/tema/js/jquery.cookie.min.js",r+"assets/tema/js/popper.min.js",r+"assets/tema/js/bootstrap.min.js",r+"assets/tema/js/common.min.js",r+"assets/tema/js/jquery.validate.min.js",r+"assets/tema/js/jquery.easypiechart.min.js",r+"assets/tema/js/jquery.gmap.min.js",r+"assets/tema/js/jquery.lazyload.min.js",r+"assets/tema/js/jquery.isotope.min.js",r+"assets/tema/js/owl.carousel.min.js",r+"assets/tema/js/jquery.magnific-popup.min.js",r+"assets/tema/js/jquery.vide.min.js",r+"assets/tema/js/vivus.min.js",r+"assets/tema/js/theme.js",r+"assets/tema/js/jquery.themepunch.tools.min.js",r+"assets/tema/js/jquery.themepunch.revolution.min.js",r+"assets/tema/js/demo-business-consulting.js",r+"assets/tema/js/custom.js",r+"assets/tema/js/theme.init.js"];n!="Home"?(Z(e,"homeCS-"),hr(i,"homeJS-")):(Q(e,"homeCS-"),br(i,"homeJS-"));const o=["https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,300&amp;lang=es",r+"assets/font-awesome-4.7.0/css/font-awesome.css",r+"assets/vcard/css/style2.css",r+"assets/vcard/css/examples.css",r+"assets/vcard/css/webhost.css"],l=["https://maps.google.com/maps/api/js?key=AIzaSyBiB2Ny_sdk1kyc8tVK64NfxQ1b0yQoaWw",r+"assets/vcard/js/gmaps.js"];n!="vcard"?(Z(o,"vcardCS-"),hr(l,"vcardJS-")):(Q(o,"vcardCS-"),br(l,"vcardJS-"))}console.log("Firebase SDK");var Jn={apiKey:"AIzaSyDeX81H_K8AsV2KjQgEbwxte6yVdSYqFXk",authDomain:"vcardapp-js.firebaseapp.com",databaseURL:"https://vcardapp-js.firebaseio.com",projectId:"vcardapp-js",storageBucket:"vcardapp-js.appspot.com",messagingSenderId:"420720513571",appId:"1:420720513571:web:f072eeda6cd3cfa1429796",measurementId:"G-LDPZ4BZ1GV"};const or=Br(Jn),tr=Dr(or),Pr=Gr(or);Hr(or);function Wn(n){console.log("saveUser");var r={uid:n.uid,usuario:n.displayName,email:n.email,foto:n.photoURL};Fr(wr(Pr,"vcard_signup/"+n.uid),r)}function Yn(n){const r=document.querySelector("#photo"),s=document.querySelector("#nombre_session"),a=document.querySelector("#email_session"),e=document.querySelector("#id_code_google"),i=wr(Pr,"vcard_signup/");Ur(i,o=>{const l=o.val();for(let c in l){const t=l[c];if(t.uid==n.uid){console.log(t);const u='<img src="'+(t.foto==null?page_url+"assets/img/sinfoto.png":t.foto)+'" class="img-fluid rounded-circle">',d=t.usuario==null?t.email:t.usuario,P=t.email,x=t.uid;r.innerHTML=u,s.innerHTML=d,a.innerHTML=P,e.innerHTML=x}}})}document.querySelectorAll(".logged-out");document.querySelectorAll(".logged-in");const yr=n=>{console.log("loginCheck"),document.querySelector("#logout-1");const r=document.querySelector("#btnRegis"),s=document.querySelector("#btnLogin"),a=document.querySelector(".registro-page"),e=document.querySelector(".login-page"),i=document.querySelector(".dashboard");n?(e.style.display="none",a.style.display="none",i.style.display="block"):(e.style.display="block",i.style.display="none",r&&r.addEventListener("click",()=>{a.style.display="block",e.style.display="none"}),s&&s.addEventListener("click",()=>{a.style.display="none",e.style.display="block"}))};function jr(n,r){Toastify({text:n,duration:3e3,destination:"https://github.com/apvarun/toastify-js",newWindow:!0,close:!0,gravity:"bottom",position:"right",stopOnFocus:!0,style:{background:r==="success"?"green":r==="warning"?"orange":r==="info"?"blue":"red"},onClick:function(){}}).showToast()}function zn(){const n=document.querySelector("#googleLogin");n&&n.addEventListener("click",async r=>{r.preventDefault();const s=new Or;try{const a=await $r(tr,s);console.log(a),console.log("google sign in"),localStorage.setItem("Token",a.user.accessToken);let e=localStorage.getItem("Token");consoleLocal("log","Res-Token:"+e),jr("Welcome "+a.user.displayName,"success")}catch(a){console.log(a)}})}function Kn(){const n=document.querySelector("#logout");n&&n.addEventListener("click",async r=>{r.preventDefault();try{await Nr(tr),console.log("Logout/Salir"),localStorage.clear();var s=localStorage.getItem("Token");s==null&&console.warn("TOKEN CLEAR"),jr("Signup out","info")}catch(a){console.log(a)}})}function Qn(){console.log("Cargando App..."),zn(),Kn(),Mr(tr,async n=>{if(n){yr(n),Yn(n);try{Wn(n)}catch(r){console.log(r)}}else yr(n)}),Tn()}const y=()=>{Qn()};const{dominio:Zn}=k();async function kr(n,r){const a=await(await fetch(r)).json();let e=null;for(const i in a)(a[i].profile===n||a[i].ID===n)&&(e=a[i]);return e}function sr(n){n!="inicio"?$("#close").show():$("#close").hide(),n=="inicio"?$("#inicio").fadeIn():$("#inicio").hide(),n=="contacto"?$("#contacto").fadeIn():$("#contacto").hide(),n=="ubicacion"?$("#ubicacion").fadeIn():$("#ubicacion").hide(),n=="compartir"?$("#compartir").fadeIn():$("#compartir").hide(),n=="guardar"?$("#guardar").fadeIn():$("#guardar").hide(),n=="acceso"?$("#acceso").fadeIn():$("#acceso").hide()}function Xn(n){if(n=="viewcopy"){$("#inputCopiar").select();var r=document.execCommand("copy");r?(console.log("Texto Copiado"),document.getElementById("aviso").innerHTML='<div class="alert alert-success">Texto Copiado!</div>'):console.log("> No copy to clipboard")}}function ra(){const n=document.querySelector("#footerbar");n&&n.addEventListener("click",r=>{const s=r.target.id.replace("btn","").replace("1","").toLowerCase();s&&s!=""&&sr(s)})}function na(n,r,s){var a=new Image;a.src=n,a.addEventListener("load",()=>{const e=s==0?"Logo":"Foto de perfil";console.log("(1)Success: "+e),s==0?r.src=n:r.style.backgroundImage=`url('${n}')`}),a.addEventListener("error",()=>{const e=`${Zn}assets/img/sinfoto.png`;s==0?r.src=e:r.style.backgroundImage=`url('${e}')`;const i=s==0?"logo":"foto de perfil";console.warn("(1)Error: Fallo carga de "+i)})}function xr(n,r,s,a){var e=new Image;e.src=n,e.addEventListener("load",()=>{const i=a==0?"Logo":"Foto de perfil";console.log("(2)Success: "+i),a==0?s.src=n:s.style.backgroundImage=`url('${n}')`}),e.addEventListener("error",()=>{const i=a==0?"logo":"foto de perfil";r&&r!=""?na(r,s,a):console.error("(2)Error: Fallo carga de "+i)})}const{host:pa,dominio:X,mod:va,ext:ma,id:rr,URL:nr}=k();async function aa(){const n=encodeURIComponent(nr);console.log(n);const r=await kr(rr,_+"/vcard_vcard.json");if(console.log("Usuario",r),r==null){document.querySelector("#container").style.display="none";return}const{nombre:s,profile:a,puesto:e,descripcion:i,fb:o,tw:l,ins:c,lk:t,web:g,email:u,cell:d,tel_ofi:P,cover:x,idemp:w,visible:dr,direc:j}=r,I=await kr(w,_+"/vcard_vcard_empresas.json");console.log("Empresa",I);const{bg_color:L,coverbg:T,empresa:A}=I;sr("inicio"),ra();const S=document.querySelector("#head");S&&(S.style.backgroundColor=L,S.innerHTML=`<img id="logo" src="${X}assets/img/sinlogo.png" onerror="this.src='${X}assets/img/sinlogo.png'" alt="logo">`);const G=rr=="multiportal"?"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpprRNyywxrgFdZ7rLvnq-6jEgWCBq_4Js3A&s":null;xr(I.cover,G,document.querySelector("#logo"),0);const F=rr=="multiportal"?"https://multiportal.webcindario.com/assets/img/Multiportal.logo2023.png":null;xr(x,F,document.querySelector("#fotoperfil"),1),document.querySelector("#tit").innerHTML=s,document.querySelector("#puesto").innerHTML=e,document.querySelector("#des").innerHTML=i;const U=document.querySelector("#medios"),R=d?`<a href="tel:${d}"><i class="fa fa-phone"></i><span>Llamar</span></a>`:"",V=d?`<a target="_blank" href="https://wa.me/+52${d}"><i class="fa fa-whatsapp"></i><span>WhatsApp</span></a>`:"",J=u?`<a href="mailto:${u}"><i class="fa fa-envelope-o"></i><span>E-mail</span></a>`:"",W=g?`<a href="${g}" target="_blank" id="empresaweb">${A}</a>`:"";U.innerHTML=R+V+J+W,document.querySelector("#promo").src=`${X}assets/vcard/img/concepto1.jpg`;const h=document.querySelector("#redes"),b=o?`
   <a href="${o}" target="_blank" aria-label="Facebook" class="icon-rrss">
     <i class="fa fa-facebook"></i>
     <span>Facebook</span>
-  </a>`:"",z=l?`
+  </a>`:"",Y=l?`
   <a href="${l}" target="_blank" aria-label="Twitter" class="icon-rrss">
     <i class="fa fa-twitter"></i>
     <span>Twitter</span>
-  </a>`:"",R=t?`
+  </a>`:"",q=t?`
   <a href="${t}" target="_blank" aria-label="LinkedIn" class="icon-rrss">
     <i class="fa fa-linkedin"></i>
     <span>LinkedIn</span>
-  </a>`:"",E=c?`
+  </a>`:"",C=c?`
   <a href="${c}" target="_blank" aria-label="Instagram" class="icon-rrss">
     <i class="fa fa-instagram"></i>
     <span>Instagram</span>
-  </a>`:"";h.innerHTML=`<div id="medios">${b} ${z} ${R} ${E}</div>`;const q=document.querySelector("#a-cell");d?q.setAttribute("href","tel:"+d):q.style.display="none";const D=document.querySelector("#a-wa");d?D.setAttribute("href","https://wa.me/+52"+d):D.style.display="none";const O=document.querySelector("#a-sms");d?O.setAttribute("href","sms:"+d):O.style.display="none";const N=document.querySelector("#a-email");u?N.setAttribute("href","mailto:"+u):N.style.display="none";const M=document.querySelector("#a-web");g?M.setAttribute("href",g):M.style.display="none";const cr=document.querySelector("#ubi");cr.innerHTML=T?`<p style="font-size: 18px;"><b>Dirección:</b> ${T}</p>
-  <div id="map"></div>`:"<p>No hay dirección disponible.</p>";const Pr=document.querySelector(".share"),Cr=`
+  </a>`:"";h.innerHTML=`<div id="medios">${b} ${Y} ${q} ${C}</div>`;const E=document.querySelector("#a-cell");d?E.setAttribute("href","tel:"+d):E.style.display="none";const D=document.querySelector("#a-wa");d?D.setAttribute("href","https://wa.me/+52"+d):D.style.display="none";const O=document.querySelector("#a-sms");d?O.setAttribute("href","sms:"+d):O.style.display="none";const N=document.querySelector("#a-email");u?N.setAttribute("href","mailto:"+u):N.style.display="none";const M=document.querySelector("#a-web");g?M.setAttribute("href",g):M.style.display="none";const cr=document.querySelector("#ubi");cr.innerHTML=j?`<p style="font-size: 18px;"><b>Dirección:</b> ${j}</p>
+  <div id="map"></div>`:"<p>No hay dirección disponible.</p>";const Ar=document.querySelector(".share"),Rr=`
   <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${n}&t=Vcard+${a}" aria-label="Facebook" class="icon-access">
     <i class="fa fa-facebook"></i>
     <span>Facebook</span>
-  </a>`,Rr=`
+  </a>`,qr=`
   <a target="_blank" href="//twitter.com/share?url=${n}&text=Vcard+${a}" aria-label="Twitter" class="icon-access">
     <i class="fa fa-twitter"></i>
     <span>Twitter</span>
-  </a>`,$r=`
+  </a>`,Cr=`
   <a target="_blank" href="//www.linkedin.com/shareArticle?mini=true&url=${n}&title=${a}&ro=false&summary=&source=" aria-label="LinkedIn" class="icon-access">
     <i class="fa fa-linkedin"></i>
     <span>LinkedIn</span>
@@ -2698,4 +3239,4 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
   <a target="_blank" href="https://api.whatsapp.com/send?text=Accede+a+la+tarjeta+digital+desde+el+siguiente+enlace:+${n}" aria-label="whatsapp" class="icon-access">
     <i class="fa fa-whatsapp"></i>
     <span>WhatsApp</span>
-  </a>`;Pr.innerHTML=`${Cr}${Rr}${$r}${Er}`,document.querySelector("#inputCopiar").value=nr;const pr=document.querySelector("#viewcopy");pr&&pr.addEventListener("click",()=>{Xn("viewcopy")}),document.querySelector("#sendEmail").href="mailto:?body="+nr,document.querySelector("#saveCard").href=`files/vcf/${a}.vcf`;const vr=document.querySelector("#close");vr&&vr.addEventListener("click",()=>{sr("inicio")})}function ea(){setTimeout(()=>{aa()},500)}function sa(n){const{route:r,hash:s,mod:a,ext:e,id:i,dominio:o}=n;f("log","route="+r),Cn(),a&&(Fn(a),Un(a,o)),r=="dashboard/index"&&S(),r=="app/index"&&S(),r=="app/perfil"&&S(),r=="app/tarjetas"&&S(),r=="app/empresas"&&S(),(r=="vcard/index"||r=="vcard/profile")&&ea(),r=="login/index"&&Gn(),r=="logout/index"&&Vn(),(a=="app"||a=="dashboard")&&$n(s,r,a)}function y(){var n=window,r=document,s=n.location,a=new Date,e=a.getDate();e=e<10?"0"+e:e;var i=a.getMonth()+1;i=i<10?"0"+i:i;var o=a.getFullYear(),l=o+"-"+i+"-"+e;const{protocol:c,host:t,origin:g,pathname:u,hash:d,href:_,search:k}=s,w=g+"/",dr=g,T=_,x=k,I=u.replace("/",""),A=w+I,P=t=="localhost"||t!=ar&&t!=er?I+B:B,L=t=="localhost:9001"?"../":"./",G=w+P,V=screen.width,F=screen.height;var C="default",U="temas/"+C+"/",W=wn(),J=xn(d,B);let{mod:h,ext:b,id:z}=In(u,d);var R="/"+b,E=h+R,q=h||"",D=b&&b!="index"?"/"+b:"",O="#/"+q+D,N=A+Y+E+".html",M=A+Y+"404/index.html";return{w:n,d:r,loc:s,dt:a,day:e,mon:i,year:o,fecha:l,title:Ur,typeBack:Wr,typeDev:Jr,path_hash:B,path_src:Ir,path_page:Y,hostDev:ar,hostPre:er,protocol:c,host:t,dominio:w,dominio1:dr,pathname:u,hash:d,URL:T,quest:x,path_url:I,path_root:P,path_build:L,base_url:A,page_url:G,screenw:V,screenh:F,tema:C,path_tema:U,pag_name:W,vars_Url:J,mod:h,ext:b,id:z,ext2:R,route:E,hash2:O,url_mod:N,url404:M,apiVer:Yr}}function lr(){const n=y();console.log(n);const{hash:r,mod:s,ext:a,id:e,page_url:i,base_url:o,title:l}=n;Sn(r,s,a,e,l),sa(n),Ln(r,s,Lr),Tn(s,i),Rn(s,o)}function ia(){console.log("Run function inicio"),lr()}window.addEventListener("hashchange",()=>{lr()});document.addEventListener("click",n=>{const{target:r}=n;r.matches("nav li a")&&(n.preventDefault(),Ar())});const Ar=n=>{n=n||window.event,n.preventDefault(),window.history.pushState({},"",n.target.href),lr()};window.route=Ar;ia();
+  </a>`;Ar.innerHTML=`${Rr}${qr}${Cr}${Er}`,document.querySelector("#inputCopiar").value=nr;const pr=document.querySelector("#viewcopy");pr&&pr.addEventListener("click",()=>{Xn("viewcopy")}),document.querySelector("#sendEmail").href="mailto:?body="+nr,document.querySelector("#saveCard").href=`files/vcf/${a}.vcf`;const vr=document.querySelector("#close");vr&&vr.addEventListener("click",()=>{sr("inicio")})}function ea(){setTimeout(()=>{aa()},500)}function sa(n){const{route:r,hash:s,mod:a,ext:e,id:i,dominio:o}=n;f("log","route="+r),Rn(),a&&(Un(a),Vn(a,o)),r=="dashboard/index"&&y(),r=="registro/index"&&y(),r=="app/index"&&y(),r=="app/perfil"&&y(),r=="app/tarjetas"&&y(),r=="app/empresas"&&y(),(r=="vcard/index"||r=="vcard/profile")&&ea(),r=="login/index"&&Gn(),r=="logout/index"&&Fn(),(a=="app"||a=="dashboard")&&Cn(s,r,a)}function k(){var n=window,r=document,s=n.location,a=new Date,e=a.getDate();e=e<10?"0"+e:e;var i=a.getMonth()+1;i=i<10?"0"+i:i;var o=a.getFullYear(),l=o+"-"+i+"-"+e;const{protocol:c,host:t,origin:g,pathname:u,hash:d,href:P,search:x}=s,w=g+"/",dr=g,j=P,I=x,L=u.replace("/",""),T=w+L,A=t=="localhost"||t!=ar&&t!=er?L+B:B,S=t=="localhost:9001"?"../":"./",G=w+A,F=screen.width,U=screen.height;var R="default",V="temas/"+R+"/",J=xn(),W=wn(d,B);let{mod:h,ext:b,id:Y}=In(u,d);var q="/"+b,C=h+q,E=h||"",D=b&&b!="index"?"/"+b:"",O="#/"+E+D,N=T+z+C+".html",M=T+z+"404/index.html";return{w:n,d:r,loc:s,dt:a,day:e,mon:i,year:o,fecha:l,title:Vr,typeBack:Jr,typeDev:Wr,path_hash:B,path_src:Ir,path_page:z,hostDev:ar,hostPre:er,protocol:c,host:t,dominio:w,dominio1:dr,pathname:u,hash:d,URL:j,quest:I,path_url:L,path_root:A,path_build:S,base_url:T,page_url:G,screenw:F,screenh:U,tema:R,path_tema:V,pag_name:J,vars_Url:W,mod:h,ext:b,id:Y,ext2:q,route:C,hash2:O,url_mod:N,url404:M,apiVer:zr}}function lr(){const n=k();console.log(n);const{hash:r,mod:s,ext:a,id:e,page_url:i,base_url:o,title:l}=n;Sn(r,s,a,e,l),sa(n),Ln(r,s,Lr),jn(s,i),qn(s,o)}function ia(){console.log("Run function inicio"),lr()}window.addEventListener("hashchange",()=>{lr()});document.addEventListener("click",n=>{const{target:r}=n;r.matches("nav li a")&&(n.preventDefault(),Tr())});const Tr=n=>{n=n||window.event,n.preventDefault(),window.history.pushState({},"",n.target.href),lr()};window.route=Tr;ia();

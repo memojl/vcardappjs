@@ -16,6 +16,7 @@ function controlRoutes(v){
   //document.addEventListener("DOMContentLoaded", () => {});    
   //if(route=='Home/index'){Home();}
   if(route=='dashboard/index'){loadApp();}
+  if(route=='registro/index'){loadApp();}
   if(route=='app/index'){loadApp();}
   if(route=='app/perfil'){loadApp();}
   if(route=='app/tarjetas'){loadApp();}
