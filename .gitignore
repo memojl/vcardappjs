@@ -12,5 +12,5 @@ node_modules
 #web
 
 #Miscelaneos
-package-lock.json
-*.bat
+#package-lock.json
+#*.bat
