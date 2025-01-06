@@ -4,7 +4,7 @@ var firebaseConfig = {
   authDomain: "vcardapp-js.firebaseapp.com",
   databaseURL: "https://vcardapp-js.firebaseio.com",
   projectId: "vcardapp-js",
-  storageBucket: "vcardapp-js.appspot.com",
+  storageBucket: "vcardapp-js.firebasestorage.app",//storageBucket: "vcardapp-js.appspot.com",
   messagingSenderId: "420720513571",
   appId: "1:420720513571:web:f072eeda6cd3cfa1429796",
   measurementId: "G-LDPZ4BZ1GV"
@@ -491,7 +491,8 @@ $(document).on('click', '#Aceptar', function (e) {
 //SUBIR BACKGROUND
 $(document).on('click', '#Aceptar2', function (e) {
   e.preventDefault();
-  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcardjs.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcardjs.000webhostapp.com/';
+  //const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
   const CLOUD_URL = 'https://cloudvcardjs.000webhostapp.com/';
   var frmData = new FormData;
   frmData.append("userfile2", $("input[name=userfile2]")[0].files[0]);		
