@@ -10,9 +10,9 @@ import vcard from "../pages/vcard/vcard";
 
 //Functions for Controllers JS
 function controlRoutes(v){ 
-  const {route,hash,mod,ext,id,dominio, base_url} = v;consoleLocal('log','route='+route);
+  const {route,hash,mod,ext,id,dominio, page_url} = v;consoleLocal('log','route='+route);
   controlLoading();
-  if(mod){classBody(mod);cssLoadMod(mod,base_url);}
+  if(mod){classBody(mod);cssLoadMod(mod,page_url);}
   //document.addEventListener("DOMContentLoaded", () => {});    
   //if(route=='Home/index'){Home();}
   if(route=='dashboard/index'){loadApp();}
