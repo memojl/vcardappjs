@@ -16,7 +16,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
         </div>\r
     </div>\r
     <div>\r
-        <a href="/">Inicio</a> | <a href="/#/login">Login</a> | <a href="/#/forget">Recuperar Contraseña</a>\r
+        <a href="/">Inicio</a> | <a href="#/login">Login</a> | <a href="#/forget">Recuperar Contraseña</a>\r
     </div>\r
 </div>\r
 `,Qr=`<!--DASHBOARD-->\r
@@ -37,7 +37,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
         <div class="container-fluid d-flex align-items-center justify-content-between">\r
           <div class="navbar-header">\r
             <!-- Navbar Header-->\r
-            <a href="/#/app" class="navbar-brand">\r
+            <a href="#/app" class="navbar-brand">\r
               <div class="brand-text brand-big visible text-uppercase">\r
                 <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
               </div>\r
@@ -70,7 +70,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <nav id="sidebar">\r
         <!-- Sidebar Header-->\r
         <div class="sidebar-header d-flex align-items-center">\r
-          <a href="/#/app/perfil">\r
+          <a href="#/app/perfil">\r
             <div id="photo" class="avatar">\r
               <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
             </div>\r
@@ -86,7 +86,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
         <span class="heading">Menu</span>\r
         <ul class="list-unstyled" id="menuList">\r
           <!--li class="active">\r
-            <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+            <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
           </li-->\r
         </ul>\r
       </nav>\r
@@ -187,10 +187,10 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </form>\r
                 <div>\r
                   <a href="/" class="forgot-pass">Inicio</a> |\r
-                  <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                  <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
                 </div>\r
                 <div>\r
-                  <small>¿No tienes cuenta? </small><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                  <small>¿No tienes cuenta? </small><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
                 </div>\r
               </div>\r
             </div>\r
@@ -287,7 +287,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </form>\r
                 <div>\r
                   <a href="/" class="forgot-pass">Inicio</a> |\r
-                  <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                  <small>¿Ya tienes una cuenta? </small><a href="#/app" id="btnLogin" class="signup">Login</a>\r
                 </div>\r
               </div>\r
             </div>\r
@@ -302,7 +302,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
   </div>\r
   <!--//REGISTRO-->\r
   <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
     </div-->`,Zr=`<div class="container text-center">\r
     <h1>Logout</h1>\r
     <img src="./assets/img/loading.gif">\r
@@ -311,7 +311,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
 </div>\r
 `,Xr=`<div class="alert alert-warning" role="alert">\r
     <strong>No Autorizado:</strong> No tiene permiso para esta página. \r
-    <a href="/#/" class="alert-link">Volver al Inicio</a>\r
+    <a href="#/" class="alert-link">Volver al Inicio</a>\r
 </div>`,rn=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
     <header class="header">\r
@@ -330,7 +330,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
         <div class="container-fluid d-flex align-items-center justify-content-between">\r
           <div class="navbar-header">\r
             <!-- Navbar Header-->\r
-            <a href="/#/app" class="navbar-brand">\r
+            <a href="#/app" class="navbar-brand">\r
               <div class="brand-text brand-big visible text-uppercase">\r
                 <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
               </div>\r
@@ -363,7 +363,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <nav id="sidebar">\r
         <!-- Sidebar Header-->\r
         <div class="sidebar-header d-flex align-items-center">\r
-          <a href="/#/app/perfil">\r
+          <a href="#/app/perfil">\r
             <div id="photo" class="avatar">\r
               <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
             </div>\r
@@ -379,7 +379,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
         <span class="heading">Menu</span>\r
         <ul class="list-unstyled" id="menuList">\r
           <!--li class="active">\r
-            <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+            <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
           </li-->\r
         </ul>\r
       </nav>\r
@@ -504,7 +504,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </form>\r
                 <div>\r
                   <a href="/" class="forgot-pass">Inicio</a> |\r
-                  <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                  <small>¿Ya tienes una cuenta? </small><a href="#/app" id="btnLogin" class="signup">Login</a>\r
                 </div>\r
               </div>\r
             </div>\r
@@ -601,7 +601,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </form>\r
                 <div>\r
                   <a href="/" class="forgot-pass">Inicio</a> |\r
-                  <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                  <small>¿Ya tienes una cuenta? </small><a href="#/app" id="btnLogin" class="signup">Login</a>\r
                 </div>\r
               </div>\r
             </div>\r
@@ -616,7 +616,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
   </div>\r
   <!--//REGISTRO-->\r
   <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
     </div-->`,nn=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
@@ -635,7 +635,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <div class="container-fluid d-flex align-items-center justify-content-between">\r
         <div class="navbar-header">\r
           <!-- Navbar Header-->\r
-          <a href="/#/app" class="navbar-brand">\r
+          <a href="#/app" class="navbar-brand">\r
             <div class="brand-text brand-big visible text-uppercase">\r
               <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
             </div>\r
@@ -668,7 +668,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
     <nav id="sidebar">\r
       <!-- Sidebar Header-->\r
       <div class="sidebar-header d-flex align-items-center">\r
-        <a href="/#/app/perfil">\r
+        <a href="#/app/perfil">\r
           <div id="photo" class="avatar">\r
             <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
           </div>\r
@@ -684,7 +684,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <span class="heading">Menu</span>\r
       <ul class="list-unstyled" id="menuList">\r
         <!--li class="active">\r
-          <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
         </li-->\r
       </ul>\r
     </nav>\r
@@ -784,11 +784,11 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
-                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
-                <small>¿No tienes cuenta? </small><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                <small>¿No tienes cuenta? </small><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -884,8 +884,8 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
-                <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <small>¿Ya tienes una cuenta? </small><a href="#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -900,7 +900,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-  <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+  <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->`,an=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
   <header class="header">\r
@@ -919,7 +919,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <div class="container-fluid d-flex align-items-center justify-content-between">\r
         <div class="navbar-header">\r
           <!-- Navbar Header-->\r
-          <a href="/#/app" class="navbar-brand">\r
+          <a href="#/app" class="navbar-brand">\r
             <div class="brand-text brand-big visible text-uppercase">\r
               <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
             </div>\r
@@ -963,7 +963,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
     <nav id="sidebar">\r
       <!-- Sidebar Header-->\r
       <div class="sidebar-header d-flex align-items-center">\r
-        <a href="/#/app/perfil">\r
+        <a href="#/app/perfil">\r
           <div id="photo" class="avatar">\r
             <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
           </div>\r
@@ -979,7 +979,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <span class="heading">Menu</span>\r
       <ul class="list-unstyled" id="menuList">\r
         <!--li class="active">\r
-          <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
         </li-->\r
       </ul>\r
     </nav>\r
@@ -1081,12 +1081,12 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
-                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1184,9 +1184,9 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1201,7 +1201,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
 `,en=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -1221,7 +1221,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <div class="container-fluid d-flex align-items-center justify-content-between">\r
         <div class="navbar-header">\r
           <!-- Navbar Header-->\r
-          <a href="/#/app" class="navbar-brand">\r
+          <a href="#/app" class="navbar-brand">\r
             <div class="brand-text brand-big visible text-uppercase">\r
               <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
             </div>\r
@@ -1265,7 +1265,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
     <nav id="sidebar">\r
       <!-- Sidebar Header-->\r
       <div class="sidebar-header d-flex align-items-center">\r
-        <a href="/#/app/perfil">\r
+        <a href="#/app/perfil">\r
           <div id="photo" class="avatar">\r
             <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
           </div>\r
@@ -1281,7 +1281,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <span class="heading">Menu</span>\r
       <ul class="list-unstyled" id="menuList">\r
         <!--li class="active">\r
-          <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
         </li-->\r
       </ul>\r
     </nav>\r
@@ -1295,7 +1295,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       </div>\r
       <div class="container-fluid">\r
         <ul class="breadcrumb">\r
-          <li class="breadcrumb-item"><a href="/#/dashboard">Dashboard</a></li>\r
+          <li class="breadcrumb-item"><a href="#/dashboard">Dashboard</a></li>\r
           <li class="breadcrumb-item active"><b>Perfil</b></li>\r
         </ul>\r
       </div>\r
@@ -1455,12 +1455,12 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
-                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1558,9 +1558,9 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -1575,7 +1575,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
 `,sn=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -1595,7 +1595,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <div class="container-fluid d-flex align-items-center justify-content-between">\r
         <div class="navbar-header">\r
           <!-- Navbar Header-->\r
-          <a href="/#/app" class="navbar-brand">\r
+          <a href="#/app" class="navbar-brand">\r
             <div class="brand-text brand-big visible text-uppercase">\r
               <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
             </div>\r
@@ -1639,7 +1639,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
     <nav id="sidebar">\r
       <!-- Sidebar Header-->\r
       <div class="sidebar-header d-flex align-items-center">\r
-        <a href="/#/app/perfil">\r
+        <a href="#/app/perfil">\r
           <div id="photo" class="avatar">\r
             <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
           </div>\r
@@ -1655,7 +1655,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <span class="heading">Menu</span>\r
       <ul class="list-unstyled" id="menuList">\r
         <!--li class="active">\r
-          <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
         </li-->\r
       </ul>\r
     </nav>\r
@@ -1671,7 +1671,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
        </div>\r
        <div class="container-fluid">\r
           <ul class="breadcrumb">\r
-             <li class="breadcrumb-item"><a href="/#/dashboard">Dashboard</a></li>\r
+             <li class="breadcrumb-item"><a href="#/dashboard">Dashboard</a></li>\r
              <li class="breadcrumb-item active"><b>Mis Tarjetas</b></li>\r
           </ul>\r
        </div>\r
@@ -1983,12 +1983,12 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
-                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -2086,9 +2086,9 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -2103,7 +2103,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
 `,on=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -2123,7 +2123,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <div class="container-fluid d-flex align-items-center justify-content-between">\r
         <div class="navbar-header">\r
           <!-- Navbar Header-->\r
-          <a href="/#/app" class="navbar-brand">\r
+          <a href="#/app" class="navbar-brand">\r
             <div class="brand-text brand-big visible text-uppercase">\r
               <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
             </div>\r
@@ -2167,7 +2167,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
     <nav id="sidebar">\r
       <!-- Sidebar Header-->\r
       <div class="sidebar-header d-flex align-items-center">\r
-        <a href="/#/app/perfil">\r
+        <a href="#/app/perfil">\r
           <div id="photo" class="avatar">\r
             <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
           </div>\r
@@ -2183,7 +2183,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <span class="heading">Menu</span>\r
       <ul class="list-unstyled" id="menuList">\r
         <!--li class="active">\r
-          <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
         </li-->\r
       </ul>\r
     </nav>\r
@@ -2197,7 +2197,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       </div>\r
       <div class="container-fluid">\r
        <ul class="breadcrumb">\r
-         <li class="breadcrumb-item"><a href="/#/dashboard">Dashboard</a></li>\r
+         <li class="breadcrumb-item"><a href="#/dashboard">Dashboard</a></li>\r
          <li class="breadcrumb-item active"><b>Empresas</b></li>\r
        </ul>\r
      </div>\r
@@ -2419,12 +2419,12 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </button>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
-                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
                 <small>¿No tienes cuenta? </small\r
-                ><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                ><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -2522,9 +2522,9 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
                 </div>\r
               </form>\r
               <div>\r
-                <a href="/#/" class="forgot-pass">Inicio</a> |\r
+                <a href="#/" class="forgot-pass">Inicio</a> |\r
                 <small>¿Ya tienes una cuenta? </small\r
-                ><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                ><a href="#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -2539,7 +2539,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-    <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+    <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->\r
 `,tn="<!--HOME-->",ln=`<!--DASHBOARD-->\r
 <div class="dashboard" style="display: none">\r
@@ -2559,7 +2559,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <div class="container-fluid d-flex align-items-center justify-content-between">\r
         <div class="navbar-header">\r
           <!-- Navbar Header-->\r
-          <a href="/#/app" class="navbar-brand">\r
+          <a href="#/app" class="navbar-brand">\r
             <div class="brand-text brand-big visible text-uppercase">\r
               <strong class="text-primary">Vcard</strong><strong>Admin</strong>\r
             </div>\r
@@ -2592,7 +2592,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
     <nav id="sidebar">\r
       <!-- Sidebar Header-->\r
       <div class="sidebar-header d-flex align-items-center">\r
-        <a href="/#/app/perfil">\r
+        <a href="#/app/perfil">\r
           <div id="photo" class="avatar">\r
             <img src="./assets/img/sinfoto.png" class="img-fluid rounded-circle"/>\r
           </div>\r
@@ -2608,7 +2608,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
       <span class="heading">Menu</span>\r
       <ul class="list-unstyled" id="menuList">\r
         <!--li class="active">\r
-          <a href="/#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
+          <a href="#/app"> <i class="icon-dashboard"></i>Dashboard </a>\r
         </li-->\r
       </ul>\r
     </nav>\r
@@ -2709,10 +2709,10 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
               </form>\r
               <div>\r
                 <a href="/" class="forgot-pass">Inicio</a> |\r
-                <a href="/#/forget" class="forgot-pass">Olvide mi Password?</a>\r
+                <a href="#/forget" class="forgot-pass">Olvide mi Password?</a>\r
               </div>\r
               <div>\r
-                <small>¿No tienes cuenta? </small><a href="/#/app" id="btnRegis" class="signup">Registrate</a>\r
+                <small>¿No tienes cuenta? </small><a href="#/app" id="btnRegis" class="signup">Registrate</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -2809,7 +2809,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
               </form>\r
               <div>\r
                 <a href="/" class="forgot-pass">Inicio</a> |\r
-                <small>¿Ya tienes una cuenta? </small><a href="/#/app" id="btnLogin" class="signup">Login</a>\r
+                <small>¿Ya tienes una cuenta? </small><a href="#/app" id="btnLogin" class="signup">Login</a>\r
               </div>\r
             </div>\r
           </div>\r
@@ -2824,7 +2824,7 @@ import{getAuth as Dr,GoogleAuthProvider as Or,signInWithPopup as $r,signOut as N
 </div>\r
 <!--//REGISTRO-->\r
 <!--div class="nav-item logged-in">\r
-  <a class="nav-link" id="logout-1" href="/#/app">Logout</a>\r
+  <a class="nav-link" id="logout-1" href="#/app">Logout</a>\r
   </div-->`,dn=`<div id="container">\r
     <div id="head" style="background-color: #000">\r
         <?php echo $logo;?>\r
@@ -3011,8 +3011,8 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
         </div>\r
     </div>\r
     <div id="footerbar">\r
-        <a href="/#/vcard" id="btnContacto" name="contacto"><i class="fa fa-user"></i></a>\r
-        <a href="/#/vcard" id="btnUbicacion" name="ubicacion"><i class="fa fa-map-marker"></i></a>\r
+        <a href="#/vcard" id="btnContacto" name="contacto"><i class="fa fa-user"></i></a>\r
+        <a href="#/vcard" id="btnUbicacion" name="ubicacion"><i class="fa fa-map-marker"></i></a>\r
         <a href="javascript:accion('compartir')"><i class="fa fa-share-alt"></i></a>\r
         <a href="javascript:accion('guardar')"><i class="fa fa-save"></i></a>\r
         <a href="javascript:accion('acceso')"><i class="fa fa-lock"></i></a>\r
@@ -3044,7 +3044,7 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
                 <h1><i class="fa fa-home"></i> Inicio</h1>\r
                 <div>\r
                     <img id="promo" src="" class="img-responsive">\r
-                    <a href="/#/app/registro">¡Registrate Ahora!</a>\r
+                    <a href="#/app/registro">¡Registrate Ahora!</a>\r
                 </div>	\r
             </div>\r
             <div id="contacto">\r
@@ -3146,16 +3146,16 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
                 <div>\r
                     <p>Accede a tu panel de adminisración de tu tarjeta VcardApp.</p>\r
                     <div id="accesos">\r
-                        <a href="/#/app/" aria-label="Panel" class="icon-access">\r
+                        <a href="#/app/" aria-label="Panel" class="icon-access">\r
                             <i class="fa fa-dashboard"></i>\r
                             <span>Panel</span>\r
                         </a>\r
-                        <a href="/#/app/tarjetas" aria-label="MisTarjetas" class="icon-access">\r
+                        <a href="#/app/tarjetas" aria-label="MisTarjetas" class="icon-access">\r
                             <i class="fa fa-vcard"></i>\r
                             <span>Tarjetas</span>\r
                         </a>\r
                     </div>\r
-                    <p>No tienes cuenta registrate <a href="/#/app/registro">Aquí</a></p>\r
+                    <p>No tienes cuenta registrate <a href="#/app/registro">Aquí</a></p>\r
                 </div>\r
             </div>\r
         </div>\r
@@ -3184,23 +3184,23 @@ echo '<a href="'.$ins.'" target="_blank" aria-label="Instagram" class="icon-rrss
         <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">\r
             <ul class="navbar-nav">\r
                 <li class="nav-item">\r
-                    <a class="nav-link" href="/#/registro">Registro</a>\r
+                    <a class="nav-link" href="#/registro">Registro</a>\r
                 </li>\r
                 <li class="nav-item user-login">\r
-                    <a class="btn btn-primary" href="/#/login">Login</a>\r
+                    <a class="btn btn-primary" href="#/login">Login</a>\r
                 </li>\r
                 <li class="nav-item user-activo">\r
-                    <a class="nav-link" href="/#/dashboard">Dashboard</a>\r
+                    <a class="nav-link" href="#/dashboard">Dashboard</a>\r
                 </li>\r
                 <li class="nav-item user-logout">\r
-                    <a class="nav-link" href="/#/logout">Salir</a>\r
+                    <a class="nav-link" href="#/logout">Salir</a>\r
                 </li>\r
             </ul>\r
         </div>\r
     </div>\r
 </nav>`,gn=["dashboard","settings","perfil","tarjetas","empresas"],fn={forget:Kr,login:Qr,logout:Zr,noauth:Xr,registro:rn,dashboard:nn,settings:an,perfil:en,tarjetas:sn,empresas:on},Lr={Home:tn,app:ln,vcard:dn,profile:cn,nosotros:H+pn,productos:H+vn,categorias:H+mn,contacto:H+un},Sr={...Lr,...fn},ur=[{txt:"Dashboard",icon:"icon-dashboard",link:"/#/app"},{txt:"Dashboard",icon:"icon-dashboard",link:"/#/dashboard"},{txt:"Perfil",icon:"fa fa-user",link:"/#/app/perfil"},{txt:"Mis tarjetas",icon:"fa fa-vcard",link:"/#/app/tarjetas"},{txt:"Mis empresas",icon:"fa fa-industry",link:"/#/app/empresas"}],bn=`<div class="text-center">\r
     <div class="alert alert-danger" role="alert">\r
-        <strong>Error 404:</strong> La página No existe. <a href="/#/" class="alert-link">Volver al Inicio</a>\r
+        <strong>Error 404:</strong> La página No existe. <a href="#/" class="alert-link">Volver al Inicio</a>\r
     </div>\r
 </div>\r
 `,hn=n=>{var r=Sr[n];return r=r??bn,Pn(r)},gr=async n=>{try{const r=await fetch(n);if(r.status==200){const s=await r.json();if(s)return s}else console.log("Error 404")}catch(r){console.log(r)}},{host:p,year:yn,hostDev:v,typeBack:_r,apiVer:kn,hash:ca}=k();function xn(){var n=self.location.href,r=n.lastIndexOf("/"),s=n.substring(r+1,n.length);return s}function wn(n,r){var s=n.replace("/"+r,""),a=s.split("/"),e=window.location.search.substring(1),i=e.split("&");return e==""&&(i=["mod="+a[1],"ext="+a[2],"id="+a[3]]),i}function In(n,r){const s=r?r.split("/"):n.split("/");console.log(s);var a=s[1]===""?"Home":s[1],e=s[2]===""||s[2]===void 0?"index":s[2],i=s[3]===""||s[3]===void 0?"":s[3];return{mod:a,ext:e,id:i}}function Ln(n,r,s,a){let e=localStorage.getItem("Token");document.querySelector("#menuweb");let i=document.querySelector(".user-login"),o=document.querySelector(".user-activo"),l=document.querySelector(".user-logout");s[r]&&(i.classList.remove("d-none"),o.classList.add("d-none"),l.classList.add("d-none"),e!=null&&e!=null&&e!="null"&&e!="undefined"&&(i.classList.add("d-none"),o.classList.remove("d-none"),l.classList.remove("d-none")))}const Sn=(n,r,s,a,e)=>{localStorage.getItem("Token"),f("log","hash=>"+n);let i=r=="vcard"?"":K(r),o=s!="index"?""+K(s):"",l=a!=""?" / "+K(a):"";document.title=e+" - "+i+o+l,_n(r,gn);let c=r!="Home"&&s!="index"?s:r,t=document.getElementById("app");if(t)return t.innerHTML="",t.appendChild(hn(c))};function _n(n,r){var s=localStorage.getItem("Token");f("log","token="+s);let a=r.length;for(let e=0;e<a;e++)n===r[e]&&f("log","Accceso: "+n+"="+r[e]),n===r[e]&&(s==null||s=="undefined")&&(window.location.href="#/noauth");n=="login"&&s!=null&&s!="undefined"&&(window.location.href="#/dashboard")}function Pn(n){const r=document.createElement("div");return r.innerHTML=n,r}function jn(n,r){(n==""||n=="undefined")&&(window.location.href=r)}function f(n,r){if(p==v)switch(n){case"log":console.log(r);break;case"warn":console.warn(r);break;case"error":console.error(r);break;default:console.log(r);break}}function K(n){return n[0].toUpperCase()+n.slice(1).toLowerCase()}function Q(n,r){if(n.length>0)for(let e=0;e<n.length;e++)if(p==v&&m&&console.log("load",r+e),document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else if(p==v&&m&&console.log(r+e,n[e]),document.createStyleSheet)document.createStyleSheet(n[e]);else{var s="@import url('"+n[e]+"');",a=document.createElement("link");a.id=r+e,a.rel="stylesheet",a.href="data:text/css,"+escape(s),document.getElementsByTagName("head")[0].appendChild(a)}}function Z(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.getElementsByTagName("head")[0].removeChild(a)}}function fr(n,r,s){if(n.length>0)for(let e=0;e<n.length;e++){p==v&&m&&console.log("load",r+e);let i=document.getElementById(r+e);if(i&&document.body.removeChild(i),s=="load")if(document.getElementById(r+e))p==v&&m&&console.log("Reload Ok: "+r+e);else{p==v&&m&&console.log(r+e,n[e]);var a=document.createElement("script");a.id=r+e,a.src=n[e],document.body.appendChild(a)}}}function br(n,r){if(n.length>0)for(let a=0;a<n.length;a++)if(p==v&&m&&console.log("load",r+a),document.getElementById(r+a))p==v&&m&&console.log("Reload Ok: "+r+a);else{p==v&&m&&console.log(r+a,n[a]);var s=document.createElement("script");s.id=r+a,s.src=n[a],document.body.appendChild(s)}}function hr(n,r){for(let s=0;s<n.length;s++){p==v&&m&&console.log("delete",r+s);let a=document.getElementById(r+s);a&&document.body.removeChild(a)}}function Tn(){const n=document.querySelector("#footer_page");n&&(n.innerHTML=yn+' &copy; VcardAppJS V.3.0.1 (Vite - MandragoraJS). Diseñada por <a target="_blank" href="http://multiportal.com.mx">[:MULTIPORTAL:]</a>.')}function An(){let n=document.getElementsByTagName("body")[0],s=`<div class="layerLoading">

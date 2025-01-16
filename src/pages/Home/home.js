@@ -13,22 +13,22 @@ function pagHome(){
                           </li>
                           <!-- /menu.json -->
                           <li>
-                            <a class="nav-link bg-link" href="/#/registro">
+                            <a class="nav-link bg-link" href="#/registro">
                             <i class="fa fa-edit"></i>&nbsp;&nbsp;Registrate
                             </a>
                           </li>
                           <li class="user-login">
-                            <a class="nav-link" href="/#/app">
+                            <a class="nav-link" href="#/app">
                             <i class="fa fa-sign-in"></i>&nbsp;&nbsp;App
                             </a>
                           </li>
                           <li class="user-activo">
-                            <a class="nav-link bg-link" href="/#/dashboard">
+                            <a class="nav-link bg-link" href="#/dashboard">
                             <i class="fa fa-edit"></i>&nbsp;&nbsp;Dashboard
                             </a>
                           </li>
                           <li class="user-logout">
-                            <a class="nav-link bg-link" href="/#/logout">
+                            <a class="nav-link bg-link" href="#/logout">
                             <i class="fa fa-edit"></i>&nbsp;&nbsp;Salir
                             </a>
                           </li>`;
