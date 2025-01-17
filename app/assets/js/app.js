@@ -464,13 +464,14 @@ function alError(error){
 
 //SUBIR COVER
 $(document).on('click', '#Aceptar', function (e) {
-  e.preventDefault();
-  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcardjs.000webhostapp.com/';//const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
-  const CLOUD_URL = 'https://cloudvcardjs.000webhostapp.com/';  
+  e.preventDefault();console.log(page_url);
+  //const CLOUD_URL = (host=='localhost')? page_url : 'https://cloudvcardjs.000webhostapp.com/';
+  const CLOUD_URL = 'http://localhost/MisSitios/cloudphp/';
+  //const CLOUD_URL = 'https://cloudvcardjs.000webhostapp.com/';  
   var frmData = new FormData;
   frmData.append("userfile", $("input[name=userfile]")[0].files[0]);		
   $.ajax({
-    url: CLOUD_URL+'bloques/files/admin/backend.php?mod='+mod+'&action=subir_cover',
+    url: CLOUD_URL+'upload/files/includes/backend.php?mod='+mod+'&proyecto=cloudphp&action=subir_cover',
     crossDomain: true,
     type: 'POST',
     data: frmData,
@@ -481,6 +482,7 @@ $(document).on('click', '#Aceptar', function (e) {
     $("#imagen").html("Subiendo Imagen");
     },
     success: function (data) {
+      console.log(data);
       $("#imagen").html(data);
       $(".alert-dismissible").delay(3000).fadeOut("slow");
       console.log("Subido Correctamente");
