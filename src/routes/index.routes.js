@@ -1,7 +1,7 @@
 import { consoleLocal, router, controlLoading, menuBar} from "../app/functions";
 import { pages, pagesSys } from "../app/controllers/pages";
-import { login } from "../app/sys/login/login";
-import { logout } from "../app/sys/logout/logout";
+//import { login } from "../app/sys/login/login";
+import { logout } from "../app/hooks/logout";//"../app/sys/logout/logout";
 //import { dashboard } from "../app/auth/dashboard/dashboard";
 import { cssLoadMod, classBody } from "./css.routes";
 //import Home from "../pages/Home/home";

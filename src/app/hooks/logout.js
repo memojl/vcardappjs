@@ -17,10 +17,27 @@ export function logoutApp() {
           console.warn("TOKEN CLEAR");
           //setTimeout(function(){window.location.href='#/';},3000);
         }
-        showMessage("Signup out", "info");
+        showMessage("Sesión cerrada", "success");
       } catch (error) {
         console.log(error);
       }
     });
+  }
+}
+
+export function logout(){
+  const linkBack = document.referrer;
+  try {
+    signOut(auth);
+    console.log("Logout/Salir", linkBack);
+    localStorage.clear();
+    var token = localStorage.getItem("Token");
+    if (token == null) {
+      console.warn("TOKEN CLEAR");
+      setTimeout(function(){window.location.href='/';},3000);
+    }
+    //showMessage("Signup out", "info");
+  } catch (error) {
+    console.log(error);
   }
 }
