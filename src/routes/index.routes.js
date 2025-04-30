@@ -18,11 +18,11 @@ function controlRoutes(v){
   if(route=='dashboard/index'){loadApp();}
   if(route=='registro/index'){loadApp();}
   if(route=='app/index'){loadApp();}
-  if(route=='app/perfil'){loadApp();}
-  if(route=='app/tarjetas'){loadApp();}
-  if(route=='app/empresas'){loadApp();}
+  if(route=='dashboard/perfil'){loadApp();}
+  if(route=='dashboard/tarjetas'){loadApp();}
+  if(route=='dashboard/empresas'){loadApp();}
   if(route=='vcard/index' || route=='vcard/profile'){vcard();}
-  if(route=='login/index'){login();}
+  //if(route=='login/index'){login();}
   if(route=='logout/index'){logout();}
   //ALL APP/DASHBORD
   if(mod=='app' || mod=='dashboard'){menuBar(hash,route,mod);}

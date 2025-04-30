@@ -85,16 +85,16 @@ export const menuSidebar = [
   {
     txt: "Perfil",
     icon: "fa fa-user",
-    link: "/#/app/perfil",
+    link: "/#/dashboard/perfil",
   },
   {
     txt: "Mis tarjetas",
     icon: "fa fa-vcard",
-    link: "/#/app/tarjetas",
+    link: "/#/dashboard/tarjetas",
   },
   {
     txt: "Mis empresas",
     icon: "fa fa-industry",
-    link: "/#/app/empresas",
+    link: "/#/dashboard/empresas",
   }
 ];
