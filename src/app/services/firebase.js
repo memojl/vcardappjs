@@ -10,6 +10,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebas
 import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+import { variables } from "../core/lib";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 //import { alertMessage, showMessage } from "../hooks/messages";
@@ -34,6 +35,32 @@ export const db = getDatabase(app);//Realtime Database
 export const fs = getFirestore(app);//FireStore
 
 //CRUD FUNCTIONS
+/*export function getData(tab){
+  const tabRef = ref(db, tab+'/');
+  onValue(tabRef, (snapshot) => {
+    const data = snapshot.val(); //console.log(data);
+    return data;
+  });
+}*/
+
+//CONSTANTES
+
+//GET DATA ASINCRONA
+export function getData(tab) {
+  return new Promise((resolve, reject) => {
+    const tabRef = ref(db, tab + '/');
+    onValue(tabRef, (snapshot) => {
+      const data = snapshot.val();
+      resolve(data);
+    }, reject);
+  });
+}
+
+//PUT DATA
+export function saveData(tab){
+
+}
+
 export function saveUser(user) {console.log('saveUser');
   var u = {
     uid: user.uid,
@@ -44,54 +71,6 @@ export function saveUser(user) {console.log('saveUser');
   set(ref(db, "vcard_signup/" + user.uid), u);
 }
 
-/*export function getData(tab, callback) {
-  const tabRef = ref(db, tab+'/');
-  onValue(tabRef, (snapshot) => {
-    const data = snapshot.val();console.log(data);
-    callback(data);
-  });
-}*/
-
-export function getData(tab){
-  const tabRef = ref(db, tab+'/');
-  onValue(tabRef, (snapshot) => {
-    const data = snapshot.val(); console.log(data);
-    return data;
-  });
-}
-
-export function getUserSesion(user){
-  const foto = document.querySelector("#photo"); //console.log(foto);
-  const nom = document.querySelector("#nombre_session"); //console.log(nom);
-  const mail = document.querySelector("#email_session"); //console.log(mail);
-  const uid = document.querySelector("#id_code_google"); //console.log(uid);
-  const tabRef = ref(db, 'vcard_signup/');
-  onValue(tabRef, (snapshot) => {
-      const data = snapshot.val(); //console.log(data);
-      for (let key in data){
-        const u = data[key]; 
-        if(u.uid == user.uid){console.log(u);
-          const f = (u.foto == null)?page_url+'assets/img/sinfoto.png':u.foto;
-          const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
-          const nombre = (u.usuario == null)?u.email:u.usuario;
-          const correo = u.email;
-          const ID_user = u.uid;
-
-          foto.innerHTML = cover;
-          nom.innerHTML = nombre;
-          mail.innerHTML = correo;
-          uid.innerHTML = ID_user;
-        }
-      }
-  });
-}
-
-
-
-
-export function saveData(){
-
-}
 
 //APP
 const loggedOutLinks = document.querySelectorAll(".logged-out");
@@ -129,6 +108,72 @@ export const loginCheck = (user) => { console.log('loginCheck');
     }
   }
 };
+
+export function getUserSesion(user){
+  const foto = document.querySelector("#photo"); //console.log(foto);
+  const nom = document.querySelector("#nombre_session"); //console.log(nom);
+  const mail = document.querySelector("#email_session"); //console.log(mail);
+  const uid = document.querySelector("#id_code_google"); //console.log(uid);
+  const tabRef = ref(db, 'vcard_signup/');
+  onValue(tabRef, (snapshot) => {
+      const data = snapshot.val(); //console.log(data);
+      for (let key in data){
+        const u = data[key]; 
+        if(u.uid == user.uid){console.log(u);
+          const f = (u.foto == null)?page_url+'assets/img/sinfoto.png':u.foto;
+          const cover = '<img src="' + f + '" class="img-fluid rounded-circle">';
+          const nombre = (u.usuario == null)?u.email:u.usuario;
+          const correo = u.email;
+          const ID_user = u.uid;
+
+          foto.innerHTML = cover;
+          nom.innerHTML = nombre;
+          mail.innerHTML = correo;
+          uid.innerHTML = ID_user;
+        }
+      }
+  });
+}
+
+export async function listar_vcard(){
+  console.log('Listar tarjetas');
+  var template='';
+  const lista = document.querySelector('#lista');
+  const data = await getData('vcard_vcard'); console.log(data);
+  for (const [key, value] of Object.entries(data)) {
+    //console.log(key,value);
+    const {ID,cover,profile,nombre,puesto,f_create,visible} = value;
+    if(visible==1){
+      template+=`
+    <div class="public-user-block block">
+      <div class="row d-flex align-items-center">                   
+        <div class="col-lg-4 d-flex align-items-center">
+          <div class="order">${ID}</div>
+          <div class="avatar" style="background:url(${cover});background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
+          
+          <a href="/profile/${profile}" class="name">
+            <strong class="d-block">${nombre}</strong>
+            <span class="d-block">${profile}</span>
+          </a>
+        </div>
+        <div class="col-lg-4 text-center">
+          <div class="contributions">${puesto}</div>
+        </div>
+        <div class="col-lg-4">
+          <div class="details d-flex">
+            <div class="item"><i class="fa fa-calendar"></i><strong>${f_create}</strong></div>
+            <!--div class="item"><i class="icon-info"></i><strong></strong></div-->
+            <!--div class="item"><i class="fa fa-gg"></i><strong>200</strong></div-->
+            <!--div class="item"><i class="icon-flow-branch"></i><strong></strong></div-->
+          </div>
+        </div>
+      </div>
+    </div>`; 
+    lista.innerHTML=template;
+    }
+  }
+  
+}
 
 /*export function logoutApp() {
   const logout = document.querySelector("#logout-1"); //console.log(logout);
