@@ -16,6 +16,9 @@
 .layerLoading p{
     color: #fff;
 }
+.layerLoading a{
+    color: #0f0;
+}
 .layerLoading img{
     width: 100px;
 }
