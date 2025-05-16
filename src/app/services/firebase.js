@@ -11,6 +11,7 @@ import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.4.0/fire
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 import { variables } from "../core/lib";
+import { validImage, validImage2 } from "../functions";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 //import { alertMessage, showMessage } from "../hooks/messages";
@@ -143,7 +144,11 @@ export async function listar_vcard(){
   for (const [key, value] of Object.entries(data)) {
     //console.log(key,value);
     const {ID,cover,profile,nombre,puesto,f_create,visible} = value;
+    //console.log("Validando imagen para:", cover);
+    //const vIma = await validImage2(cover); console.log(vIma);
     if(visible==1){
+      //const vIma = await validImage(cover); console.log(vIma);
+      //const fondo = coverValida ? cover : 'ruta/a/una/imagen/por_defecto.jpg';
       template+=`
     <div class="public-user-block block">
       <div class="row d-flex align-items-center">                   

@@ -436,5 +436,29 @@ export function menuBar(h,r,mod){
       menuList.innerHTML = menu;
     }    
   }, 100);
+}
 
+export function validImage(url) {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      console.log('Imagen encontrada');
+      resolve(true);
+    };
+    image.onerror = () => {
+      console.log('Imagen No encontrada');
+      resolve(false);
+    };
+    //image.src = url;
+  });
+}
+
+export async function validImage2(url) {
+  try {
+    const res = await fetch(url, { method: 'HEAD' });
+    return res.ok;
+  } catch (error) {
+    console.error('Error validando imagen:', error);
+    return false;
+  }
 }
