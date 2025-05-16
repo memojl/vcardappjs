@@ -9,7 +9,11 @@ module.exports = {
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        authors: 'Multiportal',
+        description: 'Tarjetas vituales vcard',
+        // otros campos como name, exe, etc.
+      }
     },
     {
       name: '@electron-forge/maker-zip',
