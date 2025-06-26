@@ -139,22 +139,22 @@ export function getUserSesion(user){
 export async function listar_vcard(){
   console.log('Listar tarjetas');
   var template='';
+  let avatar = 'assets/img/sinfoto.png';
   const lista = document.querySelector('#lista');
   const data = await getData('vcard_vcard'); console.log(data);
   for (const [key, value] of Object.entries(data)) {
     //console.log(key,value);
     const {ID,cover,profile,nombre,puesto,f_create,visible} = value;
-    //console.log("Validando imagen para:", cover);
-    //const vIma = await validImage2(cover); console.log(vIma);
     if(visible==1){
-      //const vIma = await validImage(cover); console.log(vIma);
-      //const fondo = coverValida ? cover : 'ruta/a/una/imagen/por_defecto.jpg';
+      console.log("Validando imagen para:", cover);
+      //const coverValida = await validImage2(cover); console.log(coverValida);
+      //avatar = coverValida ? cover : avatar;
       template+=`
     <div class="public-user-block block">
       <div class="row d-flex align-items-center">                   
         <div class="col-lg-4 d-flex align-items-center">
           <div class="order">${ID}</div>
-          <div class="avatar" style="background:url(${cover});background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
+          <div class="avatar" style="background:url(${avatar});background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
           
           <a href="/profile/${profile}" class="name">
             <strong class="d-block">${nombre}</strong>
