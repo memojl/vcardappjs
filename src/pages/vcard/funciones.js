@@ -111,3 +111,15 @@ export function validImage2(url,tmp,ele,type){
     });
   //});
 }
+
+export function validBgIma(url,ele){
+  var image = new Image();
+  image.src = url;
+  image.addEventListener('load', () => {
+    console.log('Imagen cargada.');
+    ele.style.backgroundImage = `url('${url}')`;
+  });
+  image.addEventListener('error', () => {
+    console.warn('Error: Fallo carga de imagen.',url);
+  });
+}
