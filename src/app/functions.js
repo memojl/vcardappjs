@@ -441,6 +441,7 @@ export function menuBar(h,r,mod){
 export function validImage(url) {
   return new Promise((resolve) => {
     const image = new Image();
+    //image.src = url;
     image.onload = () => {
       console.log('Imagen encontrada');
       resolve(true);
@@ -449,7 +450,6 @@ export function validImage(url) {
       console.log('Imagen No encontrada');
       resolve(false);
     };
-    //image.src = url;
   });
 }
 

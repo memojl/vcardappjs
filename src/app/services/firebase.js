@@ -138,24 +138,21 @@ export function getUserSesion(user){
 
 export async function listar_vcard(){
   console.log('Listar tarjetas');
-  var template='';
-  let avatar = 'assets/img/sinfoto.png';
+  let template = '';
+  let sinfoto = 'assets/img/sinfoto.png';
   const lista = document.querySelector('#lista');
-  const data = await getData('vcard_vcard'); console.log(data);
-  for (const [key, value] of Object.entries(data)) {
-    //console.log(key,value);
-    const {ID,cover,profile,nombre,puesto,f_create,visible} = value;
+  const data = await getData('vcard_vcard'); //console.log(data);
+  const items = Object.entries(data).map(([key, value]) => ({key,...value}));// 
+  console.log(items);
+  for (let i = 0; i < items.length; i++) {
+    const {ID,cover,profile,nombre,puesto,f_create,visible} = items[i];
     if(visible==1){
-      console.log("Validando imagen para:", cover);
-      //const coverValida = await validImage2(cover); console.log(coverValida);
-      //avatar = coverValida ? cover : avatar;
       template+=`
     <div class="public-user-block block">
       <div class="row d-flex align-items-center">                   
         <div class="col-lg-4 d-flex align-items-center">
           <div class="order">${ID}</div>
-          <div class="avatar" style="background:url(${avatar});background-repeat:no-repeat;background-size:cover;background-position:center;"></div>
-          
+          <div class="avatar" id="${ID}" style="background:url(${cover?cover:sinfoto});"></div>
           <a href="/profile/${profile}" class="name">
             <strong class="d-block">${nombre}</strong>
             <span class="d-block">${profile}</span>
@@ -174,10 +171,27 @@ export async function listar_vcard(){
         </div>
       </div>
     </div>`; 
-    lista.innerHTML=template;
+      lista.innerHTML=template;
     }
   }
   
+  for (let i = 0; i < items.length; i++) {
+    const {ID,cover,visible} = items[i];
+    if(visible==1){
+      const coverValida = await validImage2(cover);
+      //console.log("Validando imagen para:", cover, coverValida);
+      if(!coverValida){
+        console.warn("Validando imagen para:", cover, coverValida);
+        let id = document.getElementById(ID); console.log(id, ID); 
+        id.style.background = `url(assets/img/no-disponible.jpg)`;
+      }
+      /*if(coverValida){
+        let id = document.getElementById(ID); console.log(id, ID); 
+        id.style.background = `url(${cover})`;
+      }*/
+    }
+  }
+  //validarImagen(items);    
 }
 
 /*export function logoutApp() {
