@@ -40,7 +40,7 @@ img{
 #portada{
     width: 100%;
     height: 178px;
-    background: url('https://inmobiliare.com/himalaya/wp-content/uploads/2020/10/Consejos-para-una-reapertura-de-oficinas-segura-inmobilaire-1024x683.jpg');
+    background: url('../img/oficina.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
