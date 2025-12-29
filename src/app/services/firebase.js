@@ -153,7 +153,7 @@ export async function listar_vcard(){
         <div class="col-lg-4 d-flex align-items-center">
           <div class="order">${ID}</div>
           <div class="avatar" id="${ID}" style="background:url(${cover?cover:sinfoto});"></div>
-          <a href="/profile/${profile}" class="name">
+          <a href="#/vcard/profile/${profile}" class="name">
             <strong class="d-block">${nombre}</strong>
             <span class="d-block">${profile}</span>
           </a>
