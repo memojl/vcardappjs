@@ -5,7 +5,7 @@ import { Api } from '../../app/core/const.env';
 /* VARIABLES CONSTANTES*/
 const { host, dominio, mod, ext, id, URL } = variables();
 
-async function pagVcard() { //console.log(id);
+async function pagVcard() {
   const encodedUrl = encodeURIComponent(URL);
   console.log(encodedUrl);
   const dataUser = await getRegister(id, Api+'/vcard_vcard.json'); console.log('Usuario',dataUser);
@@ -31,11 +31,7 @@ async function pagVcard() { //console.log(id);
   const fPerfil = document.querySelector('#fotoperfil');
   console.log('Validando foto de perfil');
   validBgIma(cover,fPerfil);   
-  //const tmpLogo = (id == 'multiportal')?'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpprRNyywxrgFdZ7rLvnq-6jEgWCBq_4Js3A&s':null;
-  //validImage2(dataEmpresa.cover,tmpLogo,document.querySelector('#logo'),0);//document.querySelector('#logo').src = dataEmpresa.cover;
-  //const tmpPerfil = (id == 'multiportal')?cover:null;
-  //validImage2(cover,tmpPerfil,document.querySelector('#fotoperfil'),1);//document.querySelector('#fotoperfil').style.backgroundImage = `url('${cover}')`;
-
+  //Carga de información
   document.querySelector('#tit').innerHTML = nombre;
   document.querySelector('#puesto').innerHTML = puesto;
   document.querySelector('#des').innerHTML = descripcion;
