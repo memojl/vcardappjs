@@ -23,6 +23,7 @@
     width: 100px;
 }
 
+#fotoperfil,
 .public-user-block .avatar{
     background-repeat: no-repeat !important; 
     background-size:cover !important; 
