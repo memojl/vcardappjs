@@ -2,20 +2,23 @@ import './vcard.css';
 import { variables } from "../../app/core/lib";
 import { getRegister, isValidUrl, validBgIma, accion, menuFooter, actionCopy } from "./funciones";
 import { Api } from '../../app/core/const.env';
-/* VARIABLES CONSTANTES*/
-const { host, dominio, mod, ext, id, URL } = variables();
 
 async function pagVcard() {
-  const encodedUrl = encodeURIComponent(URL);
-  console.log(encodedUrl);
+  /* VARIABLES CONSTANTES*/
+  const { host, dominio, mod, ext, id, URL } = variables();
   const dataUser = await getRegister(id, Api+'/vcard_vcard.json'); console.log('Usuario',dataUser);
   if(dataUser == null){document.querySelector('#container').style.display = 'none';return;}
   const { nombre, profile, puesto, descripcion, fb, tw, ins, lk, web, email, cell, tel_ofi, cover, idemp, visible, direc } = dataUser;
   const dataEmpresa = await getRegister(idemp, Api+'/vcard_vcard_empresas.json'); console.log('Empresa',dataEmpresa);
   const {bg_color, logo, portada, empresa} = dataEmpresa;
+  const encodedUrl = encodeURIComponent(URL); console.log(encodedUrl);
+  if(!visible){
+    console.warn('!Usuario no activo');  //FUNCION PENDIENTE  
+    return
+  }
+  //METODOS
   accion('inicio');
   menuFooter();  
-
   //INFO
   //Validación de logo
   const head = document.querySelector('#head');
@@ -125,5 +128,5 @@ export default function vcard() {
   //Retardo para activar pagHome
   setTimeout(() => {
     pagVcard();
-  }, 500);
+  }, 1000);
 }

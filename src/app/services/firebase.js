@@ -11,7 +11,7 @@ import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.4.0/fire
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
 import { variables } from "../core/lib";
-import { validImage, validImage2 } from "../functions";
+import { validImage, validImage2, validaImagen } from "../functions";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 //import { alertMessage, showMessage } from "../hooks/messages";
@@ -177,21 +177,11 @@ export async function listar_vcard(){
   
   for (let i = 0; i < items.length; i++) {
     const {ID,cover,visible} = items[i];
-    if(visible==1){
-      const coverValida = await validImage2(cover);
-      //console.log("Validando imagen para:", cover, coverValida);
-      if(!coverValida){
-        console.warn("Validando imagen para:", cover, coverValida);
-        let id = document.getElementById(ID); console.log(id, ID); 
-        id.style.background = `url(assets/img/no-disponible.jpg)`;
-      }
-      /*if(coverValida){
-        let id = document.getElementById(ID); console.log(id, ID); 
-        id.style.background = `url(${cover})`;
-      }*/
+    if(visible == 1 && cover != ''){
+      let id = document.getElementById(ID);
+      validaImagen(cover,id);
     }
   }
-  //validarImagen(items);    
 }
 
 /*export function logoutApp() {

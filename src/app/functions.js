@@ -438,10 +438,24 @@ export function menuBar(h,r,mod){
   }, 100);
 }
 
+
+export function validaImagen(url,id){
+  var image = new Image();
+  image.src = url;
+  image.addEventListener('load', () => {
+    console.log('Imagen cargada.');
+    //id.style.backgroundImage = `url('${url}')`;
+  });
+  image.addEventListener('error', () => {
+    console.warn('Error: Fallo carga de imagen.',url);
+    id.style.backgroundImage = `url(assets/img/no-disponible.jpg)`;
+  });
+}
+
 export function validImage(url) {
   return new Promise((resolve) => {
     const image = new Image();
-    //image.src = url;
+    image.src = url;
     image.onload = () => {
       console.log('Imagen encontrada');
       resolve(true);
