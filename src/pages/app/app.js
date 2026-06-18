@@ -19,7 +19,12 @@ function app(){console.log('Cargando App...');
             //consoleLocal('log',user);
             loginCheck(user);
             getUserSesion(user);
-            if(mod=='app' || mod=='dashboard'){
+            if(mod == 'app'){
+                setTimeout(() => {
+                    window.location.href = '#/dashboard'   
+                }, 2000);
+            }
+            if(mod=='app' || mod=='dashboard'){                
                 setTimeout(() => {listar_vcard();}, 500);
             }
             

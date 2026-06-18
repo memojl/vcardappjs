@@ -45,7 +45,7 @@ export const fs = getFirestore(app);//FireStore
 }*/
 
 //CONSTANTES
-
+/*= CRUD ================================================= */
 //GET DATA ASINCRONA
 export function getData(tab) {
   return new Promise((resolve, reject) => {
@@ -58,10 +58,11 @@ export function getData(tab) {
 }
 
 //PUT DATA
-export function saveData(tab){
-
+export function saveData(tab,body){
+  set(ref(db, tab + '/'), body);
 }
 
+/*= SESION & APP =============================================================== */
 export function saveUser(user) {console.log('saveUser');
   var u = {
     uid: user.uid,
@@ -71,7 +72,6 @@ export function saveUser(user) {console.log('saveUser');
   };
   set(ref(db, "vcard_signup/" + user.uid), u);
 }
-
 
 //APP
 const loggedOutLinks = document.querySelectorAll(".logged-out");
@@ -111,10 +111,10 @@ export const loginCheck = (user) => { console.log('loginCheck');
 };
 
 export function getUserSesion(user){
-  const foto = document.querySelector("#photo"); //console.log(foto);
-  const nom = document.querySelector("#nombre_session"); //console.log(nom);
-  const mail = document.querySelector("#email_session"); //console.log(mail);
-  const uid = document.querySelector("#id_code_google"); //console.log(uid);
+  const foto = document.querySelector("#photo"); 
+  const nom = document.querySelector("#nombre_session"); 
+  const mail = document.querySelector("#email_session"); 
+  const uid = document.querySelector("#id_code_google"); 
   const tabRef = ref(db, 'vcard_signup/');
   onValue(tabRef, (snapshot) => {
       const data = snapshot.val(); //console.log(data);
@@ -136,6 +136,7 @@ export function getUserSesion(user){
   });
 }
 
+/*= TARJETAS =============================================================== */
 export async function listar_vcard(){
   console.log('Listar tarjetas');
   let template = '';
